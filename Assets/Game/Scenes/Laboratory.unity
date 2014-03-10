@@ -74,6 +74,57 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
+--- !u!1 &25738328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 25738330}
+  - 61: {fileID: 25738329}
+  - 114: {fileID: 25738331}
+  m_Layer: 0
+  m_Name: Map Teleporter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &25738329
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 25738328}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: .905476093, y: 3.7590456}
+  m_Center: {x: -4.50684166, y: 1.8119812e-05}
+--- !u!4 &25738330
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 25738328}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1754598912}
+--- !u!114 &25738331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 25738328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b7dcc1bb0b3934882d01dbe0849160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScene: Map
 --- !u!1 &307942726
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +139,7 @@ GameObject:
   - 50: {fileID: 307942730}
   - 114: {fileID: 307942731}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a440d7c8c8ac7d44bc8afed43f6ae08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 3
+  walkSpeed: 2
 --- !u!95 &307942732
 Animator:
   serializedVersion: 2
@@ -175,7 +226,7 @@ Animator:
   m_GameObject: {fileID: 307942726}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 701f34d962b35d14fb0fd7245ef5365c, type: 2}
+  m_Controller: {fileID: 9100000, guid: f0e80c81f213f43459d09add7d3b07c2, type: 2}
   m_CullingMode: 0
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
@@ -334,7 +385,7 @@ GameObject:
   - 124: {fileID: 937257266}
   - 81: {fileID: 937257265}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,7 +432,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -506,6 +557,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 862294005}
+  - {fileID: 25738330}
   - {fileID: 711160955}
   - {fileID: 772780336}
   - {fileID: 307942727}
@@ -571,7 +623,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2083169618}
-  - 114: {fileID: 2083169619}
+  - 114: {fileID: 2083169620}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -590,7 +642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!114 &2083169619
+--- !u!114 &2083169620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -598,6 +650,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2083169617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf0245e4598b1414b8991e7ded4c2b85, type: 3}
+  m_Script: {fileID: 11500000, guid: 503a6f828493dcd47a5e143e3610f03a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCharacter: {fileID: 307942731}
+  lookCursorTexture: {fileID: 2800000, guid: a824fdc7a96be624c9802423372d5195, type: 3}
+  walkCursorTexture: {fileID: 2800000, guid: 295fd4d9a352bfc43a6ca506054f2f6a, type: 3}
+  teleportCursorTexture: {fileID: 2800000, guid: 078789f6937837c41ad5340d2d6ec322,
+    type: 3}
