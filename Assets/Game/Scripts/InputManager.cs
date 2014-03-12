@@ -2,18 +2,36 @@
 
 public static class InputManager {
 
+	private static int previousAction;
+	private static int currentAction;
+
+	static InputManager() {
+		previousAction = P.ACTION_WALK;
+		currentAction = P.ACTION_WALK;
+	}
+
 	public static void CheckInput() {
 		CheckLeftClick();
 		CheckRightClick();
 	}
+	
+	public static void SetAction(int action) {
+		previousAction = currentAction;
+		currentAction = action;
+		CursorManager.SetIcon(action);
+	}
+	
+	public static void SetPreviousAction() {
+		SetAction(previousAction);
+	}
 
 	private static void CheckLeftClick() {
 		if (Input.GetMouseButtonUp(0))
-			switch (Game.instance.GetCurrentAction()) {
+			switch (currentAction) {
 				// TODO
 				case P.ACTION_LOOK : break;
 				case P.ACTION_WALK : {
-					Game.instance.playerCharacter.Walk(GetCursorX());
+					Game.instance.playerCharacter.Walk(CursorManager.GetCursorWorldPosition().x);
 					break;
 				}
 			}
@@ -21,11 +39,16 @@ public static class InputManager {
 
 	private static void CheckRightClick() {
 		if (Input.GetMouseButtonUp(1))
-			Game.instance.SetNextAction();
+			SetNextAction();
 	}
 	
-	private static float GetCursorX() {
-		return Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
+	private static bool IsSpecialActionSet() {
+		return currentAction >= P.ACTIONS;
+	}
+
+	private static void SetNextAction() {
+		if (! IsSpecialActionSet())
+			SetAction((currentAction + 1) % P.ACTIONS);
 	}
 
 }
