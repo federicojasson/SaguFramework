@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 
 public class SceneTeleporter : InteractiveObject {
 
@@ -6,39 +6,41 @@ public class SceneTeleporter : InteractiveObject {
 	private float doubleClickStartTime;
 
 	public void Awake() {
-		doubleClickStartTime = -P.DOUBLE_CLICK_SENSITIVITY;
+		doubleClickStartTime = -P.DELAY_DOUBLE_CLICK;
 	}
-	
-	public void OnMouseDown() {
-		if ((Time.time - doubleClickStartTime) < P.DOUBLE_CLICK_SENSITIVITY) {
-			doubleClickStartTime = -P.DOUBLE_CLICK_SENSITIVITY;
+
+	public override void OnMouseDown() {
+		if ((Time.time - doubleClickStartTime) < P.DELAY_DOUBLE_CLICK) {
+			doubleClickStartTime = -P.DELAY_DOUBLE_CLICK;
 			OnDoubleClick();
 		} else {
 			doubleClickStartTime = Time.time;
-			onSingleClick();
+			OnSingleClick();
 		}
 	}
 
 	public override void OnMouseEnter() {
 		base.OnMouseEnter();
-		InputManager.SetAction(P.SPECIAL_ACTION_TELEPORT);
+		CursorManager.DeactivateInputCheck();
+		CursorManager.SetAction(P.ACTION_TELEPORT);
 	}
-	
+
 	public override void OnMouseExit() {
 		base.OnMouseExit();
-		InputManager.SetPreviousAction();
+		CursorManager.SetAction(CursorManager.GetPreviousAction());
+		CursorManager.ActivateInputCheck();
 	}
 
 	public void OnTriggerEnter2D(Collider2D collider) {
 		Application.LoadLevel(target);
 	}
-	
+
 	private void OnDoubleClick() {
 		Application.LoadLevel(target);
 	}
 	
-	private void onSingleClick() {
-		Game.instance.playerCharacter.Walk(transform.position.x);
+	private void OnSingleClick() {
+		Game.GetPlayerCharacter().Walk(Utility.ToVector2(transform.position));
 	}
-	
-}
+
+}*/
