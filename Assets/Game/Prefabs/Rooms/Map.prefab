@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: CursorLabel
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,9 +35,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d2efb5060789e942afefd6f8e5a4f20, type: 3}
+  m_Script: {fileID: 11500000, guid: d1a1fcbe8437ad748b5a89c514763bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: Map
+  startPosition: {x: 0, y: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

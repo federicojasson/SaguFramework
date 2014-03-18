@@ -1,5 +1,31 @@
-﻿/*using UnityEngine;
+﻿using UnityEngine;
 
+public class RoomTeleporter : InteractiveObject {
+
+	public Room room;
+
+	public override void OnDefocus() {
+		base.OnDefocus();
+		InputManager.ClearForcedAction();
+	}
+
+	public override void OnFocus() {
+		base.OnFocus();
+		InputManager.SetForcedAction(P.ACTION_TELEPORT);
+	}
+
+	public override void OnTeleport() {
+		Game.GetPlayerCharacter().Walk(transform.position);
+	}
+
+	public void OnTriggerEnter2D(Collider2D collider) {
+		Application.LoadLevel(room.id);
+	}
+
+}
+
+/*using UnityEngine;
+// TODO
 public class SceneTeleporter : InteractiveObject {
 
 	public string target;
@@ -17,18 +43,6 @@ public class SceneTeleporter : InteractiveObject {
 			doubleClickStartTime = Time.time;
 			OnSingleClick();
 		}
-	}
-
-	public override void OnMouseEnter() {
-		base.OnMouseEnter();
-		CursorManager.DeactivateInputCheck();
-		CursorManager.SetAction(P.ACTION_TELEPORT);
-	}
-
-	public override void OnMouseExit() {
-		base.OnMouseExit();
-		CursorManager.SetAction(CursorManager.GetPreviousAction());
-		CursorManager.ActivateInputCheck();
 	}
 
 	public void OnTriggerEnter2D(Collider2D collider) {

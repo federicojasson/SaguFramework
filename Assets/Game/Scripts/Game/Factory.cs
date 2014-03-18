@@ -1,36 +1,38 @@
-﻿/*using UnityEngine;
+﻿using UnityEngine;
 
 public class Factory : MonoBehaviour {
-	
-	private static Factory instance;
+
 	public CursorLabel cursorLabelModel;
-	public GUIText speechTextModel;
-	public GUISkin skin;
 	public Texture2D cursorLookTexture;
 	public Texture2D cursorTeleportTexture;
 	public Texture2D cursorWalkTexture;
+	public PlayerCharacter playerCharacterModel;
+	public GUISkin skin;
+	public GUIText speechTextModel;
+	private static Factory instance;
 	private CursorLabel cursorLabel;
+	private PlayerCharacter playerCharacter;
 	private GUIText speechText;
 
 	public static void DisposeCursorLabel() {
-		Factory.instance.cursorLabel.gameObject.SetActive(false);
-	}
-
-	public static void DisposeSpeechText() {
-		Factory.instance.speechText.gameObject.SetActive(false);
+		Utility.DisableComponent(Factory.instance.cursorLabel);
 	}
 	
+	public static void DisposeSpeechText() {
+		Utility.DisableComponent(Factory.instance.speechText);
+	}
+
 	public static CursorLabel GetCursorLabel(string text) {
 		CursorLabel cursorLabel = Factory.instance.cursorLabel;
-		cursorLabel.gameObject.SetActive(true);
+		Utility.EnableComponent(cursorLabel);
 		cursorLabel.SetText(text);
 		return cursorLabel;
 	}
-	
+
 	public static Texture2D GetCursorLookTexture() {
 		return Factory.instance.cursorLookTexture;
 	}
-
+	
 	public static Texture2D GetCursorTeleportTexture() {
 		return Factory.instance.cursorTeleportTexture;
 	}
@@ -39,26 +41,36 @@ public class Factory : MonoBehaviour {
 		return Factory.instance.cursorWalkTexture;
 	}
 
+	public static PlayerCharacter GetPlayerCharacter(Vector2 position) {
+		PlayerCharacter playerCharacter = Factory.instance.playerCharacter;
+		Utility.EnableComponent(playerCharacter);
+		playerCharacter.transform.position = Utility.ToVector3(position, playerCharacter.transform.position.z);
+		return playerCharacter;
+	}
+	
 	public static GUISkin GetSkin() {
 		return Factory.instance.skin;
 	}
-	
+
 	public static GUIText GetSpeechText(string text, Vector2 position) {
 		GUIText speechText = Factory.instance.speechText;
-		speechText.gameObject.SetActive(true);
+		Utility.EnableComponent(speechText);
 		speechText.text = text;
-		speechText.transform.position = new Vector3(position.x, position.y, speechText.transform.position.z);
+		speechText.transform.position = Utility.ToVector3(position, speechText.transform.position.z);
 		return speechText;
 	}
 
 	public void Awake() {
 		Factory.instance = this;
-
+		
 		cursorLabel = (CursorLabel) Instantiate(cursorLabelModel);
-		cursorLabel.gameObject.SetActive(false);
+		Utility.DisableComponent(cursorLabel);
+
+		playerCharacter = (PlayerCharacter) Instantiate(playerCharacterModel);
+		Utility.DisableComponent(playerCharacter);
 
 		speechText = (GUIText) Instantiate(speechTextModel);
-		speechText.gameObject.SetActive(false);
+		Utility.DisableComponent(speechText);
 	}
 
-}*/
+}
