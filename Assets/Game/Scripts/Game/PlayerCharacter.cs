@@ -6,6 +6,8 @@ public class PlayerCharacter : MonoBehaviour {
 	public float walkSpeed = 2;
 
 	public void Say(Speech speech) {
+		GetComponent<Animator>().SetBool("IsSaying", true);
+
 		Vector2 position = Utility.FromWorldToViewportPosition((Vector2) transform.position + new Vector2(0, GetComponent<BoxCollider2D>().size.y / 2) + P.OFFSET_SPEECH_TEXT);
 		Factory.GetSpeechText(speech.GetText(), position);
 
@@ -18,6 +20,8 @@ public class PlayerCharacter : MonoBehaviour {
 	private void SayCallback() {
 		Factory.DisposeSpeechText();
 		audio.Stop();
+
+		GetComponent<Animator>().SetBool("IsSaying", false);
 	}
 
 	public void Walk(Vector2 position) {

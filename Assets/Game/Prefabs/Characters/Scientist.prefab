@@ -14,7 +14,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scientist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a440d7c8c8ac7d44bc8afed43f6ae08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSpeed: 2
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -159,9 +160,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_SortingLayerID: 0
+  m_SortingLayer: 2
+  m_SortingOrder: 1
+  m_SortingLayerID: 1091300875
   m_Sprite: {fileID: 21300000, guid: 509c02abdf3faf447acefcde9b2023da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
