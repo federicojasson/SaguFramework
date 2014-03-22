@@ -39,7 +39,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 4
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 1
@@ -163,7 +163,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_SortingLayerID: 1091300875
-  m_Sprite: {fileID: 21300000, guid: 509c02abdf3faf447acefcde9b2023da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5ded99cbca5fff48ae9df6a446e4131, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

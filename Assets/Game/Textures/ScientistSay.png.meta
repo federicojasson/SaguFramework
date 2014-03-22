@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 509c02abdf3faf447acefcde9b2023da
+guid: 4d1801c5d55cd3b458aa2edc7cd4d0f1
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -45,49 +45,76 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: frink_0
+    - name: ScientistSay_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: ScientistSay_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: ScientistSay_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: ScientistSay_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: ScientistSay_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 112
-        height: 224
+        width: 128
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: frink_1
+    - name: ScientistSay_5
       rect:
         serializedVersion: 2
-        x: 112
+        x: 128
         y: 0
-        width: 112
-        height: 224
+        width: 128
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: frink_2
+    - name: ScientistSay_6
       rect:
         serializedVersion: 2
-        x: 224
+        x: 256
         y: 0
-        width: 112
-        height: 224
+        width: 128
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: frink_3
+    - name: ScientistSay_7
       rect:
         serializedVersion: 2
-        x: 336
+        x: 384
         y: 0
-        width: 112
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: frink_4
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 112
-        height: 224
+        width: 128
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 

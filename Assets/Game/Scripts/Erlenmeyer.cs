@@ -4,7 +4,9 @@
 	private Speech onLookSpeech;
 
 	public override void OnLook() {
-		Game.GetPlayerCharacter().Say(onLookSpeech);
+		PlayerCharacter playerCharacter = Game.GetPlayerCharacter();
+		playerCharacter.Look(transform.position);
+		playerCharacter.Say(onLookSpeech);
 	}
 
 	public override void Start() {

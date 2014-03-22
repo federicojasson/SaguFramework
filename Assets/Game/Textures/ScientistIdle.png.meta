@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f826bebbbb80d4e4fb244f98a4e02790
+guid: e5ded99cbca5fff48ae9df6a446e4131
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -45,7 +45,7 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: ScientistSpeaking_0
+    - name: ScientistIdle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -54,64 +54,10 @@ TextureImporter:
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistSpeaking_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistSpeaking_2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistSpeaking_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistSpeaking_4
+    - name: ScientistIdle_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistSpeaking_5
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistSpeaking_6
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistSpeaking_7
-      rect:
-        serializedVersion: 2
-        x: 384
         y: 0
         width: 128
         height: 256

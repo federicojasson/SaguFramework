@@ -5,6 +5,13 @@ public class PlayerCharacter : MonoBehaviour {
 
 	public float walkSpeed = 2;
 
+	public void Look(Vector2 position) {
+		if (position.x - transform.position.x > 0)
+			GetComponent<Animator>().SetBool("FacingLeft", false);
+		else
+			GetComponent<Animator>().SetBool("FacingLeft", true);
+	}
+
 	public void Say(Speech speech) {
 		GetComponent<Animator>().SetBool("IsSaying", true);
 
@@ -17,16 +24,17 @@ public class PlayerCharacter : MonoBehaviour {
 		Invoke("SayCallback", audio.clip.length);
 	}
 	
+	public void Walk(Vector2 position) {
+		Look(position);
+		StopCoroutine("WalkCoroutine");
+		StartCoroutine("WalkCoroutine", position);
+	}
+	
 	private void SayCallback() {
 		Factory.DisposeSpeechText();
 		audio.Stop();
 
 		GetComponent<Animator>().SetBool("IsSaying", false);
-	}
-
-	public void Walk(Vector2 position) {
-		StopCoroutine("WalkCoroutine");
-		StartCoroutine("WalkCoroutine", position);
 	}
 
 	private IEnumerator WalkCoroutine(Vector2 position) {

@@ -2,7 +2,7 @@
 
 	private static int action;
 	private static int cursorActionsIndex;
-	private static bool enabled;
+	private static bool enabled; // TODO: methods to disable and enable
 	private static bool isActionForced;
 
 	public static void CheckInput() {
