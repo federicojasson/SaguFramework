@@ -5,6 +5,7 @@ public class Factory : MonoBehaviour {
 	public CursorLabel cursorLabelModel;
 	public Texture2D cursorLookTexture;
 	public Texture2D cursorTeleportTexture;
+	public Texture2D cursorWaitTexture;
 	public Texture2D cursorWalkTexture;
 	public PlayerCharacter playerCharacterModel;
 	public GUISkin skin;
@@ -35,6 +36,10 @@ public class Factory : MonoBehaviour {
 	
 	public static Texture2D GetCursorTeleportTexture() {
 		return Factory.instance.cursorTeleportTexture;
+	}
+	
+	public static Texture2D GetCursorWaitTexture() {
+		return Factory.instance.cursorWaitTexture;
 	}
 	
 	public static Texture2D GetCursorWalkTexture() {

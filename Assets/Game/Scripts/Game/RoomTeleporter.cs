@@ -11,7 +11,7 @@ public class RoomTeleporter : InteractiveObject {
 
 	public override void OnFocus() {
 		base.OnFocus();
-		InputManager.SetForcedAction(P.ACTION_TELEPORT);
+		InputManager.SetForcedAction(P.CURSOR_ACTION_TELEPORT);
 	}
 
 	public override void OnTeleport() {

@@ -1,0 +1,10 @@
+<language>
+	<text id="LABORATORY_MAP_TELEPORTER_CURSOR_LABEL">Salir del laboratorio</text>
+	
+	<text id="ERLENMEYER_CURSOR_LABEL">Erlenmeyer</text>
+	
+	<speech id="ERLENMEYER_ON_LOOK">
+		<text>Es un Erlenmeyer</text>
+		<audio>Audios/ErlenmeyerOnLook</audio>
+	</speech>
+</language>

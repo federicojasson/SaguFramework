@@ -633,6 +633,7 @@ MonoBehaviour:
   cursorLookTexture: {fileID: 2800000, guid: a824fdc7a96be624c9802423372d5195, type: 3}
   cursorTeleportTexture: {fileID: 2800000, guid: 078789f6937837c41ad5340d2d6ec322,
     type: 3}
+  cursorWaitTexture: {fileID: 2800000, guid: 3a5fab0463f37f142a941f937e15d708, type: 3}
   cursorWalkTexture: {fileID: 2800000, guid: 1e2e50668d3ea1e428bd3655b2989f6e, type: 3}
   playerCharacterModel: {fileID: 11400000, guid: d51bd79bc9629e340b1a3740e804ea01,
     type: 2}

@@ -14,7 +14,7 @@ public class Game : MonoBehaviour {
 		Game.instance = this;
 		playerCharacter = Factory.GetPlayerCharacter(room.startPosition);
 
-		ConfigurationManager.LoadConfiguration();
+		ConfigurationManager.LoadConfigurations();
 		LanguageManager.LoadLanguage(ConfigurationManager.GetLanguageId());
 		Invoke("InitializeInputManager", P.DELAY_INITIALIZE_INPUT_MANAGER);
 	}

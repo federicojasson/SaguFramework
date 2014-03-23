@@ -1,16 +1,31 @@
-﻿public static class ConfigurationManager {
+﻿using System.Xml.Linq;
+using UnityEngine;
+
+public static class ConfigurationManager {
 
 	private static string languageId;
+
+	static ConfigurationManager() {
+		// Loads the default configurations
+		languageId = "Spanish";
+	}
 
 	public static string GetLanguageId() {
 		return languageId;
 	}
 
-	public static void LoadConfiguration() {
-		// TODO: load from XML
-		UnityEngine.Debug.Log("TODO: load configuration from XML: " + P.CONFIGURATION_FILE_PATH);
+	public static void LoadConfigurations() {
+		TextAsset textAsset = (TextAsset) Resources.Load(P.CONFIGURATIONS_FILE_PATH, typeof(TextAsset));
+		XElement root = XDocument.Parse(textAsset.text).Root;
 
-		languageId = "Spanish";
+		// TODO: maybe use constants for node names
+		foreach (XElement node in root.Elements())
+			switch (node.Name.LocalName) {
+				case "language-id" : {
+					languageId = node.Value.Trim();
+					break;
+				}
+			}
 	}
 	
 }

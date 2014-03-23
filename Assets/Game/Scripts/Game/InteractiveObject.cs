@@ -9,19 +9,19 @@ public abstract class InteractiveObject : MonoBehaviour {
 		return cursorLabelText;
 	}
 
-	public void OnAction(int action) {
-		switch (action) {
-			case P.ACTION_LOOK : {
+	public void OnAction(int actionId) {
+		switch (actionId) {
+			case P.CURSOR_ACTION_LOOK : {
 				OnLook();
 				break;
 			}
 			
-			case P.ACTION_TELEPORT : {
+			case P.CURSOR_ACTION_TELEPORT : {
 				OnTeleport();
 				break;
 			}
 			
-			case P.ACTION_WALK : {
+			case P.CURSOR_ACTION_WALK : {
 				OnWalk();
 				break;
 			}
