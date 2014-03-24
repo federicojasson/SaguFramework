@@ -4,26 +4,81 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
 
-	// TODO
+	// TODO: maybe add semaphores to access???? is it necessary?
+	private Queue<CharacterAction> scheduledActions;
+
+	public void Awake() {
+		scheduledActions = new Queue<CharacterAction>();
+	}
+
+	public void CancelScheduledActions() {
+		scheduledActions.Clear();
+
+		// TODO: cancel current action
+	}
+
+	public void Look(Vector2 position) {
+		CharacterAction action = new CharacterAction(P.CHARACTER_ACTION_LOOK, position);
+		scheduledActions.Enqueue(action);
+	}
+
+	public void Say(Speech speech) {
+		CharacterAction action = new CharacterAction(P.CHARACTER_ACTION_SAY, speech);
+		scheduledActions.Enqueue(action);
+	}
+
+	public void Walk(Vector2 position) {
+		CharacterAction action = new CharacterAction(P.CHARACTER_ACTION_WALK, position);
+		scheduledActions.Enqueue(action);
+	}
+
+	private void ExecuteNextScheduledAction() {
+		CharacterAction action = scheduledActions.Dequeue();
+
+		switch (action.GetId()) {
+			case P.CHARACTER_ACTION_LOOK : {
+				// TODO
+				break;
+			}
+			
+			case P.CHARACTER_ACTION_SAY : {
+				// TODO
+				break;
+			}
+			
+			case P.CHARACTER_ACTION_WALK : {
+				// TODO
+				break;
+			}
+		}
+	}
+
+	/*// TODO: maybe add semaphores to access???? is it necessary?
+	private bool executingAction;
 	private Queue<CharacterAction> scheduledActions;
 
 	public void CancelScheduledActions() {
 		scheduledActions.Clear();
 
-		// TODO: should also cancel the current action
+		if (executingAction)
+			;// TODO: should also cancel the current action
 	}
 
 	public void ScheduleAction(int actionId, params object[] parameters) {
 		CharacterAction action = new CharacterAction(this, actionId, parameters);
 		scheduledActions.Enqueue(action);
-		CheckScheduledActions();
+		ExecuteNextScheduledAction();
 	}
 
-	private void CheckScheduledActions() {
-		// TODO: execute next scheduled action
+	private void ExecuteNextScheduledAction() {
+		if (! executingAction && scheduledActions.Count > 0) {
+			CharacterAction action = scheduledActions.Dequeue();
+			action.Execute();
+		}
 	}
 
 	public void Awake() {
+		executingAction = false;
 		scheduledActions = new Queue<CharacterAction>();
 	}
 
@@ -39,10 +94,10 @@ public class Character : MonoBehaviour {
 	}
 	
 	public void Say(Speech speech) {
+		executingAction = true;
 		GetComponent<Animator>().SetBool("IsSaying", true);
-		
-		Vector2 position = Utility.FromWorldToViewportPosition((Vector2) transform.position + new Vector2(0, GetComponent<BoxCollider2D>().size.y / 2) + P.OFFSET_SPEECH_TEXT);
-		Factory.GetSpeechText(speech.GetText(), position);
+
+		Factory.GetSpeechText(speech.GetText(), this);
 		
 		audio.clip = speech.GetAudio();
 		audio.Play();
@@ -51,6 +106,7 @@ public class Character : MonoBehaviour {
 	}
 	
 	public void Walk(Vector2 position) {
+		executingAction = true;
 		Look(position);
 		StopCoroutine("WalkCoroutine");
 		StartCoroutine("WalkCoroutine", position);
@@ -61,6 +117,8 @@ public class Character : MonoBehaviour {
 		audio.Stop();
 		
 		GetComponent<Animator>().SetBool("IsSaying", false);
+		executingAction = false;
+		ExecuteNextScheduledAction();
 	}
 	
 	private IEnumerator WalkCoroutine(Vector2 position) {
@@ -82,6 +140,8 @@ public class Character : MonoBehaviour {
 		}
 		
 		GetComponent<Animator>().SetBool("IsWalking", false);
-	}
+		executingAction = false;
+		ExecuteNextScheduledAction();
+	}*/
 	
 }

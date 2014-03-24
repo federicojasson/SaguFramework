@@ -7,13 +7,13 @@ public class Factory : MonoBehaviour {
 	public Texture2D cursorTeleportTexture;
 	public Texture2D cursorWaitTexture;
 	public Texture2D cursorWalkTexture;
-	public PlayerCharacter playerCharacterModel;
+	public Character playerCharacterModel;
 	public GUISkin skin;
-	public GUIText speechTextModel;
+	public SpeechText speechTextModel;
 	private static Factory instance;
 	private CursorLabel cursorLabel;
-	private PlayerCharacter playerCharacter;
-	private GUIText speechText;
+	private Character playerCharacter;
+	private SpeechText speechText;
 
 	public static void DisposeCursorLabel() {
 		Utility.DisableComponent(Factory.instance.cursorLabel);
@@ -46,8 +46,8 @@ public class Factory : MonoBehaviour {
 		return Factory.instance.cursorWalkTexture;
 	}
 
-	public static PlayerCharacter GetPlayerCharacter(Vector2 position) {
-		PlayerCharacter playerCharacter = Factory.instance.playerCharacter;
+	public static Character GetPlayerCharacter(Vector2 position) {
+		Character playerCharacter = Factory.instance.playerCharacter;
 		Utility.EnableComponent(playerCharacter);
 		playerCharacter.transform.position = Utility.ToVector3(position, playerCharacter.transform.position.z);
 		return playerCharacter;
@@ -57,11 +57,11 @@ public class Factory : MonoBehaviour {
 		return Factory.instance.skin;
 	}
 
-	public static GUIText GetSpeechText(string text, Vector2 position) {
-		GUIText speechText = Factory.instance.speechText;
+	public static SpeechText GetSpeechText(string text, Character character) {
+		SpeechText speechText = Factory.instance.speechText;
 		Utility.EnableComponent(speechText);
-		speechText.text = text;
-		speechText.transform.position = Utility.ToVector3(position, speechText.transform.position.z);
+		speechText.SetText(text);
+		speechText.SetCharacter(character);
 		return speechText;
 	}
 
@@ -71,10 +71,10 @@ public class Factory : MonoBehaviour {
 		cursorLabel = (CursorLabel) Instantiate(cursorLabelModel);
 		Utility.DisableComponent(cursorLabel);
 
-		playerCharacter = (PlayerCharacter) Instantiate(playerCharacterModel);
+		playerCharacter = (Character) Instantiate(playerCharacterModel);
 		Utility.DisableComponent(playerCharacter);
 
-		speechText = (GUIText) Instantiate(speechTextModel);
+		speechText = (SpeechText) Instantiate(speechTextModel);
 		Utility.DisableComponent(speechText);
 	}
 

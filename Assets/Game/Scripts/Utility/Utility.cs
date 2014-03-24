@@ -37,6 +37,14 @@ public static class Utility {
 		return rectangle;
 	}
 
+	public static E[] PackParameters<E>(params E[] parameters) {
+		E[] packedParameters = new E[parameters.Length];
+		for (int i = 0; i < packedParameters.Length; ++i)
+			packedParameters[i] = parameters[i];
+
+		return packedParameters;
+	}
+
 	public static void SetCursorTexture(Texture2D texture) {
 		Cursor.SetCursor(texture, new Vector2(texture.width / 2, texture.height / 2), CursorMode.ForceSoftware);
 	}

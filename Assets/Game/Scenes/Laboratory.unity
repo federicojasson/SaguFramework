@@ -638,7 +638,7 @@ MonoBehaviour:
   playerCharacterModel: {fileID: 11400000, guid: d51bd79bc9629e340b1a3740e804ea01,
     type: 2}
   skin: {fileID: 11400000, guid: 50ee75e701358f44b9c48cd5cbe314c5, type: 2}
-  speechTextModel: {fileID: 13200000, guid: 992bc6bd52b8b374c819a4b561f099d9, type: 2}
+  speechTextModel: {fileID: 11400000, guid: 992bc6bd52b8b374c819a4b561f099d9, type: 2}
 --- !u!114 &2083169620
 MonoBehaviour:
   m_ObjectHideFlags: 0
