@@ -15,7 +15,12 @@ public class RoomTeleporter : InteractiveObject {
 	}
 
 	public override void OnTeleport() {
-		Game.GetPlayerCharacter().Walk(transform.position);
+		Character playerCharacter = Game.GetPlayerCharacter();
+		Vector2 position = transform.position;
+
+		playerCharacter.CancelScheduledActions();
+		playerCharacter.Look(position);
+		playerCharacter.Walk(position);
 	}
 
 	public void OnTriggerEnter2D(Collider2D collider) {

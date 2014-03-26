@@ -19,18 +19,17 @@ public class Game : MonoBehaviour {
 		Invoke("InitializeInputManager", P.DELAY_INITIALIZE_INPUT_MANAGER);
 	}
 
-	// TODO: test purposes
-	public void Start() {
-		playerCharacter.Walk(new Vector2(-0.451f, -0.525f));
-		playerCharacter.Say(LanguageManager.GetSpeech("ERLENMEYER_ON_LOOK"));
-	}
-
 	public void Update() {
 		InputManager.CheckInput();
 	}
 
 	private void InitializeInputManager() {
 		InputManager.Initialize();
+
+		// TODO: test purposes
+		playerCharacter.Walk(new Vector2(-0.451f, -0.525f));
+		playerCharacter.Look(new Vector2(-3.832f, -0.525f));
+		playerCharacter.Say(LanguageManager.GetSpeech("ERLENMEYER_ON_LOOK"));
 	}
 
 }

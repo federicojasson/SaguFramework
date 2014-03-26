@@ -57,11 +57,11 @@ public class Factory : MonoBehaviour {
 		return Factory.instance.skin;
 	}
 
-	public static SpeechText GetSpeechText(string text, Character character) {
+	public static SpeechText GetSpeechText(Character character, string text) {
 		SpeechText speechText = Factory.instance.speechText;
 		Utility.EnableComponent(speechText);
-		speechText.SetText(text);
 		speechText.SetCharacter(character);
+		speechText.SetText(text);
 		return speechText;
 	}
 

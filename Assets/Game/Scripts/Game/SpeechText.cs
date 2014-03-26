@@ -13,6 +13,7 @@ public class SpeechText : MonoBehaviour {
 	}
 
 	public void Update() {
+		// TODO
 		transform.position = Utility.ToVector3(Utility.FromWorldToViewportPosition((Vector2) character.transform.position + new Vector2(0, character.GetComponent<BoxCollider2D>().size.y / 2) + P.OFFSET_SPEECH_TEXT), transform.position.z);
 	}
 	

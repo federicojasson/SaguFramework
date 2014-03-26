@@ -21,6 +21,11 @@ public abstract class InteractiveObject : MonoBehaviour {
 				break;
 			}
 			
+			case P.CURSOR_ACTION_WAIT : {
+				OnWait();
+				break;
+			}
+			
 			case P.CURSOR_ACTION_WALK : {
 				OnWalk();
 				break;
@@ -51,6 +56,8 @@ public abstract class InteractiveObject : MonoBehaviour {
 	}
 
 	public virtual void OnTeleport() {}
+
+	public virtual void OnWait() {}
 
 	public virtual void OnWalk() {}
 

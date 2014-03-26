@@ -1,9 +1,11 @@
-﻿public static class InputManager {
+﻿using UnityEngine;
+
+public static class InputManager {
 
 	private static int actionId;
-	private static int rotativeActionsIndex;
-	private static bool enabled; // TODO: methods to disable and enable
+	private static bool enabled;
 	private static bool isActionForced;
+	private static int rotativeActionsIndex;
 
 	public static void CheckInput() {
 		if (enabled) {
@@ -35,9 +37,9 @@
 	}
 
 	public static void Initialize() {
-		rotativeActionsIndex = 0;
 		enabled = true;
 		isActionForced = false;
+		rotativeActionsIndex = 0;
 		SetAction(P.CURSOR_ROTATIVE_ACTIONS[rotativeActionsIndex]);
 	}
 
@@ -63,15 +65,21 @@
 
 	public static void SetForcedAction(int action) {
 		if (enabled) {
-			SetAction(action);
 			isActionForced = true;
+			SetAction(action);
 		}
 	}
 
 	private static void CheckLeftClick() {
 		if (Utility.WasLeftClickPressed())
-			if (actionId == P.CURSOR_ACTION_WALK)
-				Game.GetPlayerCharacter().Walk(Utility.GetCursorWorldPosition());
+			if (actionId == P.CURSOR_ACTION_WALK) {
+				Character playerCharacter = Game.GetPlayerCharacter();
+				Vector2 position = Utility.GetCursorWorldPosition();
+				
+				playerCharacter.CancelScheduledActions();
+				playerCharacter.Look(position);
+				playerCharacter.Walk(position);
+			}
 	}
 	
 	private static void CheckRightClick() {
