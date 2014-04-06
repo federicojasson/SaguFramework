@@ -2,7 +2,7 @@
 
 public static class InputManager {
 
-	/*private static int actionId;
+	private static int actionId;
 	private static bool enabled;
 	private static bool isActionForced;
 	private static int rotativeActionsIndex;
@@ -13,6 +13,43 @@ public static class InputManager {
 			CheckRightClick();
 		}
 	}
+	
+	public static void Initialize() {
+		enabled = true;
+		isActionForced = false;
+		rotativeActionsIndex = 0;
+		SetAction(P.CURSOR_ROTATIVE_ACTIONS[rotativeActionsIndex]);
+	}
+	
+	private static void CheckLeftClick() {
+		if (Utility.WasLeftClickPressed())
+			if (actionId == P.CURSOR_ACTION_WALK) {
+				Debug.Log("left click");
+				// TODO
+				/*Character playerCharacter = Game.GetPlayerCharacter();
+				Vector2 position = Utility.GetCursorWorldPosition();
+				
+				playerCharacter.CancelScheduledActions();
+				playerCharacter.Look(position);
+				playerCharacter.Walk(position);*/
+			}
+	}
+	
+	private static void CheckRightClick() {
+		if (Utility.WasRightClickPressed())
+			if (! isActionForced) {
+				rotativeActionsIndex = (rotativeActionsIndex + 1) % P.CURSOR_ROTATIVE_ACTIONS.Length;
+				SetAction(P.CURSOR_ROTATIVE_ACTIONS[rotativeActionsIndex]);
+			}
+	}
+
+	private static void SetAction(int actionId) {
+		InputManager.actionId = actionId;
+		Utility.SetCursorTexture(Factory.GetCursorTexture(actionId));
+	}
+
+	/*
+
 
 	public static void ClearCursorLabel() {
 		if (enabled)
@@ -33,13 +70,6 @@ public static class InputManager {
 
 	public static void Enable() {
 		enabled = true;
-		SetAction(P.CURSOR_ROTATIVE_ACTIONS[rotativeActionsIndex]);
-	}
-
-	public static void Initialize() {
-		enabled = true;
-		isActionForced = false;
-		rotativeActionsIndex = 0;
 		SetAction(P.CURSOR_ROTATIVE_ACTIONS[rotativeActionsIndex]);
 	}
 
@@ -68,26 +98,6 @@ public static class InputManager {
 			isActionForced = true;
 			SetAction(action);
 		}
-	}
-
-	private static void CheckLeftClick() {
-		if (Utility.WasLeftClickPressed())
-			if (actionId == P.CURSOR_ACTION_WALK) {
-				Character playerCharacter = Game.GetPlayerCharacter();
-				Vector2 position = Utility.GetCursorWorldPosition();
-				
-				playerCharacter.CancelScheduledActions();
-				playerCharacter.Look(position);
-				playerCharacter.Walk(position);
-			}
-	}
-	
-	private static void CheckRightClick() {
-		if (Utility.WasRightClickPressed())
-			if (! isActionForced) {
-				rotativeActionsIndex = (rotativeActionsIndex + 1) % P.CURSOR_ROTATIVE_ACTIONS.Length;
-				SetAction(P.CURSOR_ROTATIVE_ACTIONS[rotativeActionsIndex]);
-			}
 	}
 	
 	private static void SetAction(int action) {

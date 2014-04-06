@@ -9,9 +9,21 @@ public static class Utility {
 		rectangle.y = position.y + rectangle.height / 2;
 		return rectangle;
 	}
+	
+	public static void SetCursorTexture(Texture2D texture) {
+		Cursor.SetCursor(texture, new Vector2(texture.width / 2, texture.height / 2), CursorMode.ForceSoftware);
+	}
 
 	public static float ToFloat(string numberString) {
 		return float.Parse(numberString, CultureInfo.InvariantCulture);
+	}
+	
+	public static bool WasLeftClickPressed() {
+		return Input.GetMouseButtonDown(0);
+	}
+	
+	public static bool WasRightClickPressed() {
+		return Input.GetMouseButtonDown(1);
 	}
 
 	/*public static bool AreEqual(float float1, float float2, float delta) {
@@ -57,20 +69,8 @@ public static class Utility {
 		return packedParameters;
 	}
 
-	public static void SetCursorTexture(Texture2D texture) {
-		Cursor.SetCursor(texture, new Vector2(texture.width / 2, texture.height / 2), CursorMode.ForceSoftware);
-	}
-
 	public static Vector3 ToVector3(Vector2 vector2, float z) {
 		return new Vector3(vector2.x, vector2.y, z);
-	}
-
-	public static bool WasLeftClickPressed() {
-		return Input.GetMouseButtonDown(0);
-	}
-
-	public static bool WasRightClickPressed() {
-		return Input.GetMouseButtonDown(1);
 	}*/
 
 }

@@ -9,12 +9,6 @@ public static class P {
 
 	public const float DELAY_INITIALIZE_INPUT_MANAGER = 0.1f;
 
-	/*public const float DELTA_EQUAL = 0.001f;
-	public const float DELTA_WALK = 0.5f;
-
-	public static Vector2 OFFSET_CURSOR_LABEL = new Vector2(0, -48);
-	public static Vector2 OFFSET_SPEECH_TEXT = new Vector2(0, 0.25f);
-
 	public const int CURSOR_ACTION_LOOK = 0;
 	public const int CURSOR_ACTION_TELEPORT = 1;
 	public const int CURSOR_ACTION_WAIT = 2;
@@ -24,6 +18,16 @@ public static class P {
 		CURSOR_ACTION_WALK,
 		CURSOR_ACTION_LOOK
 	};
+
+	/*public const float DELTA_EQUAL = 0.001f;
+	public const float DELTA_WALK = 0.5f;
+
+	public static Vector2 OFFSET_CURSOR_LABEL = new Vector2(0, -48);
+	public static Vector2 OFFSET_SPEECH_TEXT = new Vector2(0, 0.25f);
+
+
+
+
 
 	public const int CHARACTER_ACTION_LOOK = 0;
 	public const int CHARACTER_ACTION_SAY = 1;

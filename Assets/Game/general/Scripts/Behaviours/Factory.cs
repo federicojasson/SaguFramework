@@ -2,6 +2,10 @@
 
 public class Factory : MonoBehaviour {
 
+	public Texture2D cursorLookTexture;
+	public Texture2D cursorTeleportTexture;
+	public Texture2D cursorWaitTexture;
+	public Texture2D cursorWalkTexture;
 	public RoomItemBehaviour erlenmeyerModel;
 	public CharacterBehaviour scientistModel;
 	private static Factory instance;
@@ -24,29 +28,32 @@ public class Factory : MonoBehaviour {
 		}
 	}
 
+	public static Texture2D GetCursorTexture(int actionId) {
+		switch (actionId) {
+			case P.CURSOR_ACTION_LOOK : return Factory.instance.cursorLookTexture;
+			case P.CURSOR_ACTION_TELEPORT : return Factory.instance.cursorTeleportTexture;
+			case P.CURSOR_ACTION_WAIT : return Factory.instance.cursorWaitTexture;
+			case P.CURSOR_ACTION_WALK : return Factory.instance.cursorWalkTexture;
+			default : return null;
+		}
+	}
+
 	public void Awake() {
 		Factory.instance = this;
-		DontDestroyOnLoad(this);
 	}
 
 	private void CreateErlenmeyer(Vector2 position) {
-		Debug.Log("create erlenmeyer");
 		RoomItemBehaviour erlenmeyer = (RoomItemBehaviour) Instantiate(erlenmeyerModel);
 		erlenmeyer.transform.position = position;
 	}
 
 	private void CreateScientist(Vector2 position) {
-		Debug.Log("create scientist");
 		CharacterBehaviour scientist = (CharacterBehaviour) Instantiate(scientistModel);
 		scientist.transform.position = position;
 	}
 
 	// TODO
 	/*public CursorLabel cursorLabelModel;
-	public Texture2D cursorLookTexture;
-	public Texture2D cursorTeleportTexture;
-	public Texture2D cursorWaitTexture;
-	public Texture2D cursorWalkTexture;
 	public Character playerCharacterModel;
 	public GUISkin skin;
 	public SpeechText speechTextModel;
@@ -68,22 +75,6 @@ public class Factory : MonoBehaviour {
 		Utility.EnableComponent(cursorLabel);
 		cursorLabel.SetText(text);
 		return cursorLabel;
-	}
-
-	public static Texture2D GetCursorLookTexture() {
-		return Factory.instance.cursorLookTexture;
-	}
-	
-	public static Texture2D GetCursorTeleportTexture() {
-		return Factory.instance.cursorTeleportTexture;
-	}
-	
-	public static Texture2D GetCursorWaitTexture() {
-		return Factory.instance.cursorWaitTexture;
-	}
-	
-	public static Texture2D GetCursorWalkTexture() {
-		return Factory.instance.cursorWalkTexture;
 	}
 
 	public static Character GetPlayerCharacter(Vector2 position) {

@@ -11,6 +11,10 @@ public class RoomLoader : MonoBehaviour {
 		StartCoroutine(LoadCoroutine());
 	}
 
+	private void InitializeInputManager() {
+		InputManager.Initialize();
+	}
+
 	private IEnumerator LoadCoroutine() {
 		string roomId = RoomManager.GetCurrentRoomId();
 
@@ -23,9 +27,12 @@ public class RoomLoader : MonoBehaviour {
 		List<RoomItem> roomItems = ItemManager.GetRoomItems(roomId);
 		foreach (RoomItem roomItem in roomItems)
 			Factory.CreateRoomItem(roomItem);
-		
+
 		// TODO: quitar splash
 		Debug.Log("Hide loading splash");
+		
+		// Initializes the input manager
+		Invoke("InitializeInputManager", P.DELAY_INITIALIZE_INPUT_MANAGER);
 
 		yield break;
 	}
