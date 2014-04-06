@@ -1,4 +1,7 @@
 <language>
+	<text id="NEW_GAME_MENU_BUTTON">Nueva partida</text>
+	<text id="LOAD_GAME_MENU_BUTTON">Cargar partida</text>
+	
 	<text id="LABORATORY_MAP_TELEPORTER_CURSOR_LABEL">Salir del laboratorio</text>
 	
 	<text id="ERLENMEYER_CURSOR_LABEL">Erlenmeyer</text>

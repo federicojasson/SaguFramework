@@ -1,0 +1,25 @@
+<savegame>
+	<current-room-id>Laboratory</current-room-id>
+	
+	<character>
+		<id>Scientist</id>
+		<room-id>Laboratory</room-id>
+		<position>
+			<x>0</x>
+			<y>0</y>
+		</position>
+	</character>
+	
+	<room-item>
+		<id>Erlenmeyer</id>
+		<room-id>Laboratory</room-id>
+		<position>
+			<x>0</x>
+			<y>0</y>
+		</position>
+	</room-item>
+	
+	<inventory-item>
+		<id>Prueba</id>
+	</inventory-item>
+</savegame>
