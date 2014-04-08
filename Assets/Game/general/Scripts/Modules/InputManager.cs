@@ -2,11 +2,11 @@
 
 public static class InputManager {
 
-	private static int cursorActionId;
+	private static int currentOrderId;
 	private static bool enabled;
-	private static bool isCursorActionForced;
+	private static bool isCurrentOrderForced;
 	private static float leftClickStartTime;
-	private static int rotativeCursorActionsIndex;
+	private static int rotativeOrdersIndex;
 
 	public static void CheckInput() {
 		if (enabled) {
@@ -20,19 +20,19 @@ public static class InputManager {
 			Factory.HideCursorLabel();
 	}
 
-	public static void ClearForcedCursorAction() {
+	public static void ClearForcedOrder() {
 		if (enabled) {
-			isCursorActionForced = false;
-			SetCursorAction(P.ROTATIVE_CURSOR_ACTIONS[rotativeCursorActionsIndex]);
+			isCurrentOrderForced = false;
+			SetOrder(P.ROTATIVE_ORDERS[rotativeOrdersIndex]);
 		}
 	}
 	
 	public static void Initialize() {
 		enabled = true;
-		isCursorActionForced = false;
+		isCurrentOrderForced = false;
 		leftClickStartTime = -P.DELAY_DOUBLE_CLICK;
-		rotativeCursorActionsIndex = 0;
-		SetCursorAction(P.ROTATIVE_CURSOR_ACTIONS[rotativeCursorActionsIndex]);
+		rotativeOrdersIndex = 0;
+		SetOrder(P.ROTATIVE_ORDERS[rotativeOrdersIndex]);
 	}
 
 	public static void NotifyCursorEnter(InteractiveObject interactiveObject) {
@@ -50,11 +50,11 @@ public static class InputManager {
 			if ((Time.time - leftClickStartTime) > P.DELAY_DOUBLE_CLICK) {
 				// Single click
 				leftClickStartTime = Time.time;
-				interactiveObject.OnCursorAction(cursorActionId);
+				interactiveObject.OnOrder(currentOrderId);
 			} else {
 				// Double click
 				leftClickStartTime = -P.DELAY_DOUBLE_CLICK;
-				interactiveObject.OnCursorActionQuick(cursorActionId);
+				interactiveObject.OnQuickOrder(currentOrderId);
 			}
 	}
 
@@ -63,16 +63,16 @@ public static class InputManager {
 			Factory.ShowCursorLabel(text);
 	}
 	
-	public static void SetForcedCursorAction(int cursorActionId) {
+	public static void SetForcedOrder(int orderId) {
 		if (enabled) {
-			isCursorActionForced = true;
-			SetCursorAction(cursorActionId);
+			isCurrentOrderForced = true;
+			SetOrder(orderId);
 		}
 	}
 	
 	private static void CheckLeftClick() {
 		if (Utility.WasLeftClickPressed())
-			if (cursorActionId == P.CURSOR_ACTION_WALK) {
+			if (currentOrderId == P.ORDER_WALK) {
 				Debug.Log("left click");
 				// TODO
 				/*Character playerCharacter = Game.GetPlayerCharacter();
@@ -86,29 +86,19 @@ public static class InputManager {
 	
 	private static void CheckRightClick() {
 		if (Utility.WasRightClickPressed())
-			if (! isCursorActionForced) {
-				rotativeCursorActionsIndex = (rotativeCursorActionsIndex + 1) % P.ROTATIVE_CURSOR_ACTIONS.Length;
-				SetCursorAction(P.ROTATIVE_CURSOR_ACTIONS[rotativeCursorActionsIndex]);
+			if (! isCurrentOrderForced) {
+				rotativeOrdersIndex = (rotativeOrdersIndex + 1) % P.ROTATIVE_ORDERS.Length;
+				SetOrder(P.ROTATIVE_ORDERS[rotativeOrdersIndex]);
 			}
 	}
 
-	private static void SetCursorAction(int cursorActionId) {
-		InputManager.cursorActionId = cursorActionId;
-		Utility.SetCursorTexture(Factory.GetCursorTexture(cursorActionId));
+	private static void SetOrder(int orderId) {
+		currentOrderId = orderId;
+		Utility.SetCursorTexture(Factory.GetCursorTexture(orderId));
 	}
 
 	/*
-
-
-
-	
-	public static void ClearForcedAction() {
-		if (enabled) {
-			isActionForced = false;
-			SetAction(P.CURSOR_ROTATIVE_ACTIONS[rotativeActionsIndex]);
-		}
-	}
-
+	// TODO
 	public static void Disable() {
 		enabled = false;
 		SetAction(P.CURSOR_ACTION_WAIT);
@@ -117,37 +107,6 @@ public static class InputManager {
 	public static void Enable() {
 		enabled = true;
 		SetAction(P.CURSOR_ROTATIVE_ACTIONS[rotativeActionsIndex]);
-	}
-
-	public static void SetCursorLabel(string text) {
-		if (enabled)
-			Factory.GetCursorLabel(text);
-	}
-	
-	private static void SetAction(int action) {
-		InputManager.actionId = action;
-		
-		switch (action) {
-			case P.CURSOR_ACTION_LOOK : {
-				Utility.SetCursorTexture(Factory.GetCursorLookTexture());
-				break;
-			}
-			
-			case P.CURSOR_ACTION_TELEPORT : {
-				Utility.SetCursorTexture(Factory.GetCursorTeleportTexture());
-				break;
-			}
-			
-			case P.CURSOR_ACTION_WAIT : {
-				Utility.SetCursorTexture(Factory.GetCursorWaitTexture());
-				break;
-			}
-			
-			case P.CURSOR_ACTION_WALK : {
-				Utility.SetCursorTexture(Factory.GetCursorWalkTexture());
-				break;
-			}
-		}
 	}*/
 
 }

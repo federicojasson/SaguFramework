@@ -1,6 +1,6 @@
 ﻿public class CharacterAction {
 	
-	/*private int id;
+	private int id;
 	private object[] parameters;
 
 	public CharacterAction(int id, params object[] parameters) {
@@ -14,6 +14,6 @@
 
 	public object[] GetParameters() {
 		return parameters;
-	}*/
+	}
 
 }

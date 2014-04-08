@@ -1,21 +1,31 @@
-﻿using UnityEngine;
+﻿public class RoomItemBehaviour : InteractiveObject {
 
-public class RoomItemBehaviour : InteractiveObject {
+	public string cursorLabelTextId;
+	public string onOrderLookSpeechId;
+	private string cursorLabelText;
+	private Speech onOrderLookSpeech;
 
-	public override void OnCursorAction(int cursorActionId) {
-		// TODO
+	public void Awake() {
+		cursorLabelText = LanguageManager.GetText(cursorLabelTextId);
+		onOrderLookSpeech = LanguageManager.GetSpeech(onOrderLookSpeechId);
 	}
-	
-	public override void OnCursorActionQuick(int cursorActionId) {
-		// TODO
-	}
-	
+
 	public override void OnDefocus() {
-		// TODO
+		InputManager.ClearCursorLabel();
 	}
 	
 	public override void OnFocus() {
+		InputManager.SetCursorLabel(cursorLabelText);
+	}
+	
+	public override void OnOrderLook() {
 		// TODO
+		UnityEngine.Debug.Log("walk to object and say: " + onOrderLookSpeech.GetText());
+	}
+
+	public override void OnQuickOrderLook() {
+		// TODO
+		UnityEngine.Debug.Log("say: " + onOrderLookSpeech.GetText());
 	}
 
 }

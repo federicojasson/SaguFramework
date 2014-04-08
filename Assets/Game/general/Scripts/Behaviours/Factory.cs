@@ -2,13 +2,16 @@
 
 public class Factory : MonoBehaviour {
 
+	public CursorLabel cursorLabelModel;
 	public Texture2D cursorLookTexture;
 	public Texture2D cursorTeleportTexture;
 	public Texture2D cursorWaitTexture;
 	public Texture2D cursorWalkTexture;
 	public RoomItemBehaviour erlenmeyerModel;
 	public CharacterBehaviour scientistModel;
+	public GUISkin skin;
 	private static Factory instance;
+	private CursorLabel cursorLabel;
 
 	public static void CreateCharacter(Character character) {
 		switch (character.GetId()) {
@@ -30,26 +33,33 @@ public class Factory : MonoBehaviour {
 
 	public static Texture2D GetCursorTexture(int cursorActionId) {
 		switch (cursorActionId) {
-			case P.CURSOR_ACTION_LOOK : return Factory.instance.cursorLookTexture;
-			case P.CURSOR_ACTION_TELEPORT : return Factory.instance.cursorTeleportTexture;
-			case P.CURSOR_ACTION_WAIT : return Factory.instance.cursorWaitTexture;
-			case P.CURSOR_ACTION_WALK : return Factory.instance.cursorWalkTexture;
+			case P.ORDER_LOOK : return Factory.instance.cursorLookTexture;
+			case P.ORDER_TELEPORT : return Factory.instance.cursorTeleportTexture;
+			case P.ORDER_WAIT : return Factory.instance.cursorWaitTexture;
+			case P.ORDER_WALK : return Factory.instance.cursorWalkTexture;
 			default : return null;
 		}
 	}
+
+	public static GUISkin GetSkin() {
+		return Factory.instance.skin;
+	}
 	
 	public static void HideCursorLabel() {
-		// TODO
-		Debug.Log("hide cursor label");
+		Utility.DisableComponent(Factory.instance.cursorLabel);
 	}
 
 	public static void ShowCursorLabel(string text) {
-		// TODO
-		Debug.Log("show cursor label: " + text);
+		CursorLabel cursorLabel = Factory.instance.cursorLabel;
+		Utility.EnableComponent(cursorLabel);
+		cursorLabel.SetText(text);
 	}
 
 	public void Awake() {
 		Factory.instance = this;
+
+		cursorLabel = (CursorLabel) Instantiate(cursorLabelModel);
+		Utility.DisableComponent(cursorLabel);
 	}
 
 	private void CreateErlenmeyer(Vector2 position) {
@@ -65,7 +75,6 @@ public class Factory : MonoBehaviour {
 	// TODO
 	/*public CursorLabel cursorLabelModel;
 	public Character playerCharacterModel;
-	public GUISkin skin;
 	public SpeechText speechTextModel;
 	private static Factory instance;
 	private CursorLabel cursorLabel;
@@ -92,10 +101,6 @@ public class Factory : MonoBehaviour {
 		Utility.EnableComponent(playerCharacter);
 		playerCharacter.transform.position = Utility.ToVector3(position, playerCharacter.transform.position.z);
 		return playerCharacter;
-	}
-	
-	public static GUISkin GetSkin() {
-		return Factory.instance.skin;
 	}
 
 	public static SpeechText GetSpeechText(Character character, string text) {

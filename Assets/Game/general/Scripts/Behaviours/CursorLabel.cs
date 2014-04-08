@@ -2,11 +2,7 @@
 
 public class CursorLabel : MonoBehaviour {
 
-	/*private string text;
-
-	public void Awake() {
-		text = "";
-	}
+	private string text;
 
 	public void OnGUI() {
 		GUI.skin = Factory.GetSkin();
@@ -16,6 +12,6 @@ public class CursorLabel : MonoBehaviour {
 
 	public void SetText(string text) {
 		this.text = text;
-	}*/
-
+	}
+	
 }

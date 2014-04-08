@@ -12,11 +12,11 @@ public class GameLoader : MonoBehaviour {
 	}
 
 	public void OnGUI() {
-		string newGameButtonText = LanguageManager.GetText("NEW_GAME_MENU_BUTTON");
+		string newGameButtonText = LanguageManager.GetText("MENU_NEW_GAME_BUTTON");
 		if (GUI.Button(Utility.GetMenuButtonRectangle(new Vector2(80, 40), newGameButtonText), newGameButtonText))
 			SavegameManager.NewGame();
 
-		string loadGameButtonText = LanguageManager.GetText("LOAD_GAME_MENU_BUTTON");
+		string loadGameButtonText = LanguageManager.GetText("MENU_LOAD_GAME_BUTTON");
 		if (GUI.Button(Utility.GetMenuButtonRectangle(new Vector2(80, 80), loadGameButtonText), loadGameButtonText))
 			SavegameManager.LoadGame();
 	}

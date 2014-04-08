@@ -1,12 +1,12 @@
 <language>
-	<text id="NEW_GAME_MENU_BUTTON">Nueva partida</text>
-	<text id="LOAD_GAME_MENU_BUTTON">Cargar partida</text>
+	<text id="MENU_NEW_GAME_BUTTON">Nueva partida</text>
+	<text id="MENU_LOAD_GAME_BUTTON">Cargar partida</text>
 	
 	<text id="LABORATORY_MAP_TELEPORTER_CURSOR_LABEL">Salir del laboratorio</text>
 	
 	<text id="ERLENMEYER_CURSOR_LABEL">Erlenmeyer</text>
 	
-	<speech id="ERLENMEYER_ON_LOOK">
+	<speech id="ERLENMEYER_ON_ORDER_LOOK">
 		<text>Es un Erlenmeyer</text>
 		<audio>Audios/ErlenmeyerOnLook</audio>
 	</speech>
