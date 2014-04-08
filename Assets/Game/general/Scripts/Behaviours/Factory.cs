@@ -28,14 +28,24 @@ public class Factory : MonoBehaviour {
 		}
 	}
 
-	public static Texture2D GetCursorTexture(int actionId) {
-		switch (actionId) {
+	public static Texture2D GetCursorTexture(int cursorActionId) {
+		switch (cursorActionId) {
 			case P.CURSOR_ACTION_LOOK : return Factory.instance.cursorLookTexture;
 			case P.CURSOR_ACTION_TELEPORT : return Factory.instance.cursorTeleportTexture;
 			case P.CURSOR_ACTION_WAIT : return Factory.instance.cursorWaitTexture;
 			case P.CURSOR_ACTION_WALK : return Factory.instance.cursorWalkTexture;
 			default : return null;
 		}
+	}
+	
+	public static void HideCursorLabel() {
+		// TODO
+		Debug.Log("hide cursor label");
+	}
+
+	public static void ShowCursorLabel(string text) {
+		// TODO
+		Debug.Log("show cursor label: " + text);
 	}
 
 	public void Awake() {

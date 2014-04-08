@@ -1,7 +1,28 @@
 ﻿using UnityEngine;
 
 public abstract class InteractiveObject : MonoBehaviour {
+	
+	public abstract void OnCursorAction(int cursorActionId);
+	
+	public abstract void OnCursorActionQuick(int cursorActionId);
+	
+	public abstract void OnDefocus();
+	
+	public abstract void OnFocus();
 
+	public void OnMouseDown() {
+		InputManager.NotifyLeftClick(this);
+	}
+	
+	public void OnMouseEnter() {
+		InputManager.NotifyCursorEnter(this);
+	}
+	
+	public void OnMouseExit() {
+		InputManager.NotifyCursorExit(this);
+	}
+
+	// TODO
 	/*public string cursorLabelTextId;
 	private string cursorLabelText;
 
@@ -42,18 +63,6 @@ public abstract class InteractiveObject : MonoBehaviour {
 	}
 
 	public virtual void OnLook() {}
-
-	public void OnMouseDown() {
-		InputManager.NotifyLeftClick(this);
-	}
-
-	public void OnMouseEnter() {
-		InputManager.NotifyCursorEnter(this);
-	}
-
-	public void OnMouseExit() {
-		InputManager.NotifyCursorExit(this);
-	}
 
 	public virtual void OnTeleport() {}
 

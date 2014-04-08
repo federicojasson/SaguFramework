@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public partial class CharacterBehaviour : MonoBehaviour {
+public partial class CharacterBehaviour : InteractiveObject {
 
 	/*private void ExecuteLook(Vector2 position) {
 		StartCoroutine("ExecuteLookCoroutine", position);

@@ -2,6 +2,51 @@
 
 public class RoomTeleporter : InteractiveObject {
 
+	public string cursorLabelTextId;
+	public string targetRoomId;
+	private string cursorLabelText;
+
+	public void Awake() {
+		cursorLabelText = LanguageManager.GetText(cursorLabelTextId);
+	}
+
+	public override void OnCursorAction(int cursorActionId) {
+		if (cursorActionId == P.CURSOR_ACTION_TELEPORT)
+			OnCursorActionTeleport();
+	}
+	
+	public override void OnCursorActionQuick(int cursorActionId) {
+		if (cursorActionId == P.CURSOR_ACTION_TELEPORT)
+			OnCursorActionTeleportQuick();
+	}
+	
+	public override void OnDefocus() {
+		InputManager.ClearCursorLabel();
+		InputManager.ClearForcedCursorAction();
+	}
+	
+	public override void OnFocus() {
+		InputManager.SetCursorLabel(cursorLabelText);
+		InputManager.SetForcedCursorAction(P.CURSOR_ACTION_TELEPORT);
+	}
+
+	public void OnTriggerEnter2D(Collider2D collider) {
+		Teleport();
+	}
+
+	private void OnCursorActionTeleport() {
+		// TODO
+		Debug.Log("teleport: " + targetRoomId);
+	}
+
+	private void OnCursorActionTeleportQuick() {
+		Teleport();
+	}
+
+	private void Teleport() {
+		RoomManager.LoadRoom(targetRoomId);
+	}
+
 	/*public Room room;
 
 	public override void OnDefocus() {

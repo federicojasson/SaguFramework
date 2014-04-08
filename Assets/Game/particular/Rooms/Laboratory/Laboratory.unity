@@ -124,6 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b7dcc1bb0b3934882d01dbe0849160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorLabelTextId: LABORATORY_MAP_TELEPORTER_CURSOR_LABEL
+  targetRoomId: Map
 --- !u!1 &641131630
 GameObject:
   m_ObjectHideFlags: 0

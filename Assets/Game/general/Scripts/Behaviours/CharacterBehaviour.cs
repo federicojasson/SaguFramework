@@ -1,7 +1,23 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public partial class CharacterBehaviour : MonoBehaviour {
+public partial class CharacterBehaviour : InteractiveObject {
+
+	public override void OnCursorAction(int cursorActionId) {
+		// TODO
+	}
+	
+	public override void OnCursorActionQuick(int cursorActionId) {
+		// TODO
+	}
+	
+	public override void OnDefocus() {
+		// TODO
+	}
+	
+	public override void OnFocus() {
+		// TODO
+	}
 
 	/*public float walkSpeed = 2;
 	private CharacterAction currentAction;

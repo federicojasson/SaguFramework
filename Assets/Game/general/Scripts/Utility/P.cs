@@ -7,6 +7,7 @@ public static class P {
 	public static string FILE_PATH_LANGUAGE_AUDIO(string languageId, string audioPath) { return "Languages/" + languageId + "/" + audioPath; }
 	public const string FILE_PATH_SAVEGAME = "Savegame";
 
+	public const float DELAY_DOUBLE_CLICK = 0.3f;
 	public const float DELAY_INITIALIZE_INPUT_MANAGER = 0.1f;
 
 	public const int CURSOR_ACTION_LOOK = 0;
@@ -14,7 +15,7 @@ public static class P {
 	public const int CURSOR_ACTION_WAIT = 2;
 	public const int CURSOR_ACTION_WALK = 3;
 
-	public static int[] CURSOR_ROTATIVE_ACTIONS = new int[] {
+	public static int[] ROTATIVE_CURSOR_ACTIONS = new int[] {
 		CURSOR_ACTION_WALK,
 		CURSOR_ACTION_LOOK
 	};
@@ -35,13 +36,3 @@ public static class P {
 	*/
 	
 }
-
-/*using UnityEngine;
-// TODO
-public static class P {
-
-
-	
-	public const float DELAY_DOUBLE_CLICK = 0.3f;
-
-}*/
