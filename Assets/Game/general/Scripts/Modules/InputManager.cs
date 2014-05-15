@@ -10,8 +10,8 @@ public static class InputManager {
 
 	public static void CheckInput() {
 		if (enabled) {
-			CheckLeftClick();
-			CheckRightClick();
+			CheckMouseInput();
+			CheckKeyboardInput();
 		}
 	}
 
@@ -69,6 +69,15 @@ public static class InputManager {
 			SetOrder(orderId);
 		}
 	}
+
+	private static void CheckIKeyDown() {
+		if (Input.GetKeyDown(KeyCode.I))
+			Debug.Log("open inventory");
+	}
+
+	private static void CheckKeyboardInput() {
+		CheckIKeyDown();
+	}
 	
 	private static void CheckLeftClick() {
 		if (Utility.WasLeftClickPressed())
@@ -82,6 +91,11 @@ public static class InputManager {
 				playerCharacter.Look(position);
 				playerCharacter.Walk(position);*/
 			}
+	}
+
+	private static void CheckMouseInput() {
+		CheckLeftClick();
+		CheckRightClick();
 	}
 	
 	private static void CheckRightClick() {
