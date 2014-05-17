@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class REFACTORED_GameLoader : MonoBehaviour {
+public class GameLoader : MonoBehaviour {
 
 	public void Awake() {
 		// TODO: show initial splash

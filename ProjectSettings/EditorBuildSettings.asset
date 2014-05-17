@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Game/System/Scenes/Main.unity
+    path: Assets/WebPlayerTemplates/Game/System/Scenes/Main.unity
   - enabled: 1
-    path: Assets/Game/Application/Rooms/Laboratory/Laboratory.unity
+    path: Assets/WebPlayerTemplates/Game/Application/Rooms/Laboratory/Laboratory.unity
   - enabled: 1
-    path: Assets/Game/Application/Rooms/Map/Map.unity
+    path: Assets/WebPlayerTemplates/Game/Application/Rooms/Map/Map.unity

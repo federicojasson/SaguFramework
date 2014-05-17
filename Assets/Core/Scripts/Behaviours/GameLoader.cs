@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameLoader : MonoBehaviour {
 
 	public GameObject background;
-	public Menu mainMenu;
+	public MonoBehaviour mainMenu;
 	public Sprite mainMenuBackground;
 	public Sprite mainSplashScreen;
 
@@ -13,30 +13,28 @@ public class GameLoader : MonoBehaviour {
 			// Shows the main splash screen
 			background.GetComponent<SpriteRenderer>().sprite = mainSplashScreen;
 
-		// Avoids OnGUI being invoked
-		enabled = false;
+		if (mainMenu != null)
+			// Avoids main menu OnGUI being invoked
+			mainMenu.enabled = false;
 
 		// Loads configurations and resources asynchronously
 		StartCoroutine(LoadCoroutine());
-	}
-	
-	public void OnGUI() {
-		if (mainMenu != null)
-			// Shows the main menu
-			mainMenu.Show();
 	}
 
 	private IEnumerator LoadCoroutine() {
 		// TODO: load configurations and resources
 		Debug.Log("TODO: load configurations and resources");
-		yield return new WaitForSeconds(3); // TODO: debugging
+		ConfigurationManager.LoadConfigurations();
+		LanguageManager.LoadLanguage(ConfigurationManager.GetConfiguration(C.CONFIGURATION_ID_LANGUAGE));
+		yield return new WaitForSeconds(1); // TODO: debugging
 
 		if (background != null && mainMenuBackground != null)
 			// Shows the main menu background
 			background.GetComponent<SpriteRenderer>().sprite = mainMenuBackground;
 
-		// Allows OnGUI being invoked
-		enabled = true;
+		if (mainMenu != null)
+			// Allows main menu OnGUI being invoked
+			mainMenu.enabled = true;
 
 		yield break;
 	}
