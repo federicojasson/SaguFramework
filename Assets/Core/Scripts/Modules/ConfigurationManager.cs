@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml.Linq;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public static class ConfigurationManager {
 		string configuration;
 		if (! configurations.TryGetValue(id, out configuration))
 			// The configuration was not found
-			ErrorManager.Terminate("ConfigurationManager", "A configuration was not found");
+			ErrorManager.Terminate("ConfigurationManager", "The configuration \"" + id + "\" was not found");
 		
 		return configuration;
 	}
@@ -28,14 +29,19 @@ public static class ConfigurationManager {
 			// The configurations file was not found
 			ErrorManager.Terminate("ConfigurationManager", "The configurations file was not found");
 
-		XElement root = XDocument.Parse(textAsset.text).Root;
-		// TODO: what if text can't be parsed? how to detect it? (TRY IT)
+		try {
+			XElement root = XDocument.Parse(textAsset.text).Root;
 
-		// TODO: check errors
-		foreach (XElement node in root.Elements())
-			if (node.Name.LocalName.Equals(C.CONFIGURATION_TAG))
-				configurations.Add(node.Attribute(C.CONFIGURATION_ATTRIBUTE_ID).Value.Trim(), node.Value.Trim());
-				// TODO: what if the Key already exists? ArgumentException!!!
+			foreach (XElement node in root.Elements())
+				if (node.Name.LocalName.Equals(C.CONFIGURATION_TAG)) {
+					string key = node.Attribute(C.CONFIGURATION_ATTRIBUTE_ID).Value.Trim();
+					string value = node.Value.Trim();
+					configurations.Add(key, value);
+				}
+		} catch (Exception exception) {
+			// The configurations file couldn't be parsed
+			ErrorManager.Terminate("ConfigurationManager", "The configurations file couldn't be parsed");
+		}
 	}
 
 }

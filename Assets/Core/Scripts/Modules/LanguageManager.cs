@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml.Linq;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public static class LanguageManager {
 		string text;
 		if (! texts.TryGetValue(id, out text))
 			// The text was not found
-			ErrorManager.Terminate("LanguageManager", "A text was not found");
+			ErrorManager.Terminate("LanguageManager", "The text \"" + id + "\" was not found");
 
 		return text;
 	}
@@ -28,14 +29,19 @@ public static class LanguageManager {
 			// The language texts file was not found
 			ErrorManager.Terminate("LanguageManager", "The language texts file was not found");
 
-		XElement root = XDocument.Parse(textAsset.text).Root;
-		// TODO: what if text can't be parsed? how to detect it? (TRY IT)
-		
-		// TODO: check errors
-		foreach (XElement node in root.Elements())
-			if (node.Name.LocalName.Equals(C.TEXT_TAG))
-				texts.Add(node.Attribute(C.TEXT_ATTRIBUTE_ID).Value.Trim(), node.Value.Trim());
-				// TODO: what if the Key already exists? ArgumentException!!!
+		try {
+			XElement root = XDocument.Parse(textAsset.text).Root;
+
+			foreach (XElement node in root.Elements())
+				if (node.Name.LocalName.Equals(C.TEXT_TAG)) {
+					string key = node.Attribute(C.TEXT_ATTRIBUTE_ID).Value.Trim();
+					string value = node.Value.Trim();
+					texts.Add(key, value);
+				}
+		} catch (Exception exception) {
+			// The language texts file couldn't be parsed
+			ErrorManager.Terminate("LanguageManager", "The language texts file couldn't be parsed");
+		}
 	}
 
 }

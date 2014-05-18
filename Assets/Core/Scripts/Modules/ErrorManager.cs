@@ -7,7 +7,8 @@ public static class ErrorManager {
 			// Prints an error message (debugging purposes)
 			Debug.LogError(context + ": " + message);
 		else
-			;// TODO: maybe write message to log text file
+			// TODO: maybe write message to log text file
+			Debug.Log("TODO: maybe write message to log text file");
 
 		// Quits the application
 		Application.Quit();

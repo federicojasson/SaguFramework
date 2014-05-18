@@ -5,7 +5,6 @@
 
 	public const string CONFIGURATION_TAG = "configuration";
 	public const string CONFIGURATION_ATTRIBUTE_ID = "id";
-
 	public const string CONFIGURATION_ID_LANGUAGE = "LANGUAGE";
 
 	public const string TEXT_TAG = "text";

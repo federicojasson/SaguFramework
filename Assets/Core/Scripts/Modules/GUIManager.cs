@@ -6,7 +6,7 @@ public static class GUIManager {
 		// x and y are viewport coordinates and indicate where the center of the button should be
 
 		// Transforms the position from viewport space to screen space and applies an offset to center it
-		Vector2 screenPoint = Camera.current.ViewportToScreenPoint(new Vector2(x, y));
+		Vector2 screenPoint = Camera.main.ViewportToScreenPoint(new Vector2(x, y));
 		x = screenPoint.x - width / 2;
 		y = screenPoint.y - height / 2;
 
