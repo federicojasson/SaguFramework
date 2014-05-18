@@ -255,7 +255,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11400000, guid: 0081adc2f942536479d545bb04b6d77c, type: 2}
       propertyPath: sprites.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0081adc2f942536479d545bb04b6d77c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -288,15 +288,20 @@ Prefab:
     - target: {fileID: 11400000, guid: 0081adc2f942536479d545bb04b6d77c, type: 2}
       propertyPath: sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: e65e4b1a22c23df4db3fa233ddca6b58,
+      objectReference: {fileID: 21300000, guid: e24f3c7e7d6c3a0469d5994d825b4366,
         type: 3}
     - target: {fileID: 11400000, guid: 0081adc2f942536479d545bb04b6d77c, type: 2}
       propertyPath: sprites.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 2e361a7ec9d989846b6d389ffac72e70,
+      objectReference: {fileID: 21300000, guid: c31e597806213594b8bc64aec5a9e483,
         type: 3}
     - target: {fileID: 11400000, guid: 0081adc2f942536479d545bb04b6d77c, type: 2}
       propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: d13445ac0956dd34f99f00660d638bc6,
+        type: 3}
+    - target: {fileID: 11400000, guid: 0081adc2f942536479d545bb04b6d77c, type: 2}
+      propertyPath: sprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: 3ac399a537082c74b88902a9c4f5586d,
         type: 3}
@@ -388,8 +393,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: e65e4b1a22c23df4db3fa233ddca6b58, type: 3}
-  - {fileID: 21300000, guid: 2e361a7ec9d989846b6d389ffac72e70, type: 3}
+  - {fileID: 21300000, guid: e24f3c7e7d6c3a0469d5994d825b4366, type: 3}
+  - {fileID: 21300000, guid: c31e597806213594b8bc64aec5a9e483, type: 3}
+  - {fileID: 21300000, guid: d13445ac0956dd34f99f00660d638bc6, type: 3}
   - {fileID: 21300000, guid: 3ac399a537082c74b88902a9c4f5586d, type: 3}
 --- !u!212 &1359476200
 SpriteRenderer:
