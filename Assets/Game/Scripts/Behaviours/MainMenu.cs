@@ -2,23 +2,24 @@
 
 public class MainMenu : Menu {
 
+	public Dialog quitDialog;
 	public Menu optionsMenu;
 
 	public void OnGUI() {
 		string newGameButtonText = LanguageManager.GetText(G.TEXT_ID_MAIN_MENU_NEW_GAME_BUTTON);
-		if (GUIManager.DrawButton(newGameButtonText, 0.5f, 0.2f, 120, 30))
+		if (GUIManager.DrawButton(newGameButtonText, 0.5f * Screen.width, 0.2f * Screen.height, 120, 30))
 			OnNewGameButtonClicked();
 
 		string loadGameButtonText = LanguageManager.GetText(G.TEXT_ID_MAIN_MENU_LOAD_GAME_BUTTON);
-		if (GUIManager.DrawButton(loadGameButtonText, 0.5f, 0.4f, 120, 30))
+		if (GUIManager.DrawButton(loadGameButtonText, 0.5f * Screen.width, 0.4f * Screen.height, 120, 30))
 			OnLoadGameButtonClicked();
 
 		string optionsButtonText = LanguageManager.GetText(G.TEXT_ID_MAIN_MENU_OPTIONS_BUTTON);
-		if (GUIManager.DrawButton(optionsButtonText, 0.5f, 0.6f, 120, 30))
+		if (GUIManager.DrawButton(optionsButtonText, 0.5f * Screen.width, 0.6f * Screen.height, 120, 30))
 			OnOptionsButtonClicked();
 
 		string quitButtonText = LanguageManager.GetText(G.TEXT_ID_MAIN_MENU_QUIT_BUTTON);
-		if (GUIManager.DrawButton(quitButtonText, 0.5f, 0.8f, 120, 30))
+		if (GUIManager.DrawButton(quitButtonText, 0.5f * Screen.width, 0.8f * Screen.height, 120, 30))
 			OnQuitButtonClicked();
 	}
 
@@ -33,12 +34,12 @@ public class MainMenu : Menu {
 	
 	private void OnOptionsButtonClicked() {
 		// Shows the options menu
-		MenuManager.ShowMenu(optionsMenu);
+		GUIManager.ShowMenu(optionsMenu);
 	}
 
 	private void OnQuitButtonClicked() {
-		// Quits the application
-		Application.Quit();
+		// Shows the quit dialog
+		GUIManager.ShowDialog(quitDialog);
 	}
 	
 }

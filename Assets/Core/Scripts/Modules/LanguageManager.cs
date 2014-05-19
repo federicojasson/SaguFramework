@@ -38,7 +38,7 @@ public static class LanguageManager {
 					string value = node.Value.Trim();
 					texts.Add(key, value);
 				}
-		} catch (Exception exception) {
+		} catch (Exception) {
 			// The language texts file couldn't be parsed
 			ErrorManager.Terminate("LanguageManager", "The language texts file couldn't be parsed");
 		}

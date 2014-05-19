@@ -26,7 +26,7 @@ public class MainLoader : MonoBehaviour {
 			backgroundObject.SetNextSprite();
 
 		// Shows the main menu
-		MenuManager.ShowMenu(mainMenu);
+		GUIManager.ShowMenu(mainMenu);
 
 		yield break;
 	}

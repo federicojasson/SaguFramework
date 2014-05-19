@@ -38,7 +38,7 @@ public static class ConfigurationManager {
 					string value = node.Value.Trim();
 					configurations.Add(key, value);
 				}
-		} catch (Exception exception) {
+		} catch (Exception) {
 			// The configurations file couldn't be parsed
 			ErrorManager.Terminate("ConfigurationManager", "The configurations file couldn't be parsed");
 		}
