@@ -3,7 +3,7 @@
 public class QuitDialog : Dialog {
 	
 	protected override float GetHeight() {
-		return 200;
+		return G.CONFIRMATION_DIALOG_HEIGHT;
 	}
 	
 	protected override string GetTitle() {
@@ -11,7 +11,7 @@ public class QuitDialog : Dialog {
 	}
 	
 	protected override float GetWidth() {
-		return 512;
+		return G.CONFIRMATION_DIALOG_WIDTH;
 	}
 	
 	protected override float GetX() {
@@ -23,23 +23,24 @@ public class QuitDialog : Dialog {
 	}
 	
 	protected override void OnGUIDialog(int id) {
-		// TODO: label
+		string labelText = LanguageManager.GetText(G.TEXT_ID_QUIT_DIALOG_LABEL);
+		GUIManager.DrawLabel(labelText, G.CONFIRMATION_DIALOG_PADDING, G.CONFIRMATION_DIALOG_PADDING, GetWidth() - 3 * G.CONFIRMATION_DIALOG_PADDING);
 
-		string confirmationButtonText = LanguageManager.GetText(G.TEXT_ID_QUIT_DIALOG_CONFIRMATION_BUTTON);
-		if (GUIManager.DrawButton(confirmationButtonText, 0.2f * GetWidth(), 0.7f * GetHeight(), 120, 30))
-			OnConfirmButtonClicked();
+		string confirmaButtonText = LanguageManager.GetText(G.TEXT_ID_QUIT_DIALOG_CONFIRMATION_BUTTON);
+		if (GUIManager.DrawButton(confirmaButtonText, 0.25f * GetWidth(), 0.75f * GetHeight(), G.CONFIRMATION_DIALOG_BUTTON_WIDTH, G.CONFIRMATION_DIALOG_BUTTON_HEIGHT))
+			OnConfirmButtonActuated();
 		
 		string cancelButtonText = LanguageManager.GetText(G.TEXT_ID_QUIT_DIALOG_CANCEL_BUTTON);
-		if (GUIManager.DrawButton(cancelButtonText, 0.8f * GetWidth(), 0.7f * GetHeight(), 120, 30))
-			OnCancelButtonClicked();
+		if (GUIManager.DrawButton(cancelButtonText, 0.75f * GetWidth(), 0.75f * GetHeight(), G.CONFIRMATION_DIALOG_BUTTON_WIDTH, G.CONFIRMATION_DIALOG_BUTTON_HEIGHT))
+			OnCancelButtonActuated();
 	}
 
-	private void OnCancelButtonClicked() {
+	private void OnCancelButtonActuated() {
 		// Hides the dialog
 		GUIManager.HideDialog();
 	}
 
-	private void OnConfirmButtonClicked() {
+	private void OnConfirmButtonActuated() {
 		// Quits the application
 		Application.Quit();
 	}

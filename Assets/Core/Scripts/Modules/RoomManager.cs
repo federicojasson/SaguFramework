@@ -1,9 +1,17 @@
 ﻿using UnityEngine;
 
 public static class RoomManager {
-	
-	public static void LoadRoom(string id) {
-		Application.LoadLevel(id);
+
+	private static string currentRoom;
+
+	public static string GetCurrentRoom() {
+		return currentRoom;
+	}
+
+	public static void LoadRoom(string room) {
+		// Loads the room
+		Application.LoadLevel(room);
+		currentRoom = room;
 	}
 	
 }

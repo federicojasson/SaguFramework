@@ -3,8 +3,8 @@ using UnityEngine;
 
 public static class GUIManager {
 	
-	private static Stack<Menu> menus;
 	private static Dialog dialog;
+	private static Stack<Menu> menus;
 	
 	static GUIManager() {
 		menus = new Stack<Menu>();
@@ -14,6 +14,14 @@ public static class GUIManager {
 		// x and y are screen coordinates and indicate where the center of the button should be
 		Rect rectangle = GetCenteredRectangle(x, y, width, height);
 		return GUI.Button(rectangle, text);
+	}
+
+	public static void DrawLabel(string text, float x, float y, float maxWidth) {
+		// x and y are screen coordinates and indicate where the left of the label should be
+		Rect rectangle = GUILayoutUtility.GetRect(new GUIContent(text), GUI.skin.label, GUILayout.MaxWidth(maxWidth));
+		rectangle.x += x;
+		rectangle.y += y;
+		GUI.Label(rectangle, text);
 	}
 
 	public static void DrawModalWindow(string title, float x, float y, float width, float height, GUI.WindowFunction function) {

@@ -3,11 +3,14 @@
 public class PauseMenu : Menu {
 
 	public void OnGUI() {
-		// TODO: draw the pause menu
-		UnityEngine.Debug.Log("TODO: draw the pause menu");
-		
-		if (GUIManager.DrawButton("pause", 0.5f * Screen.width, 0.2f * Screen.height, 120, 30))
-			GUIManager.HideMenu();
+		string resumeButtonText = LanguageManager.GetText(G.TEXT_ID_PAUSE_MENU_RESUME_BUTTON);
+		if (GUIManager.DrawButton(resumeButtonText, 0.5f * Screen.width, 0.2f * Screen.height, G.MENU_BUTTON_WIDTH, G.MENU_BUTTON_HEIGHT))
+			OnResumeButtonActuated();
+	}
+
+	private void OnResumeButtonActuated() {
+		// Hides the menu
+		GUIManager.HideMenu();
 	}
 
 }
