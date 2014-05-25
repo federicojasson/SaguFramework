@@ -17,7 +17,12 @@ public static class GameStateManager {
 			foreach (XElement node in root.Elements())
 				switch (node.Name.LocalName) {
 					case C.CHARACTER_TAG : {
-						// TODO
+						string id = node.Attribute(C.CHARACTER_ATTRIBUTE_ID).Value.Trim();
+						string room = node.Element(C.CHARACTER_ROOM_TAG).Value.Trim();
+						float x = Parser.StringToFloat(node.Element(C.CHARACTER_X_TAG).Value.Trim());
+						float y = Parser.StringToFloat(node.Element(C.CHARACTER_Y_TAG).Value.Trim());
+						Character character = new Character(id, room, x, y);
+						CharacterManager.AddCharacter(character);
 						break;
 					}
 					

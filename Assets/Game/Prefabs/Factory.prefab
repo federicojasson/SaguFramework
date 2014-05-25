@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: RoomScripts
+  m_Name: Factory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,11 +35,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e65bab0ebca8f81449f03fcd546907fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 912e804c4bd670f4fa5c67863c552b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundObject: {fileID: 0}
-  pauseMenu: {fileID: 0}
+  erlenmeyer: {fileID: 100000, guid: 85b4dcf1488066343945228dcb52c512, type: 2}
+  inventoryErlenmeyer: {fileID: 100000, guid: 2aef484cba0be384182afc891e040847, type: 2}
+  scientist: {fileID: 100000, guid: 1b3816c14e705014fa8c854c3ca8de5a, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

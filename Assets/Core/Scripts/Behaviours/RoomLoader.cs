@@ -19,7 +19,20 @@ public class RoomLoader : MonoBehaviour {
 		StartCoroutine(LoadCoroutine());
 	}
 
+	public void Update() {
+		// Checks the input
+		InputManager.CheckInput();
+	}
+
 	private IEnumerator LoadCoroutine() {
+		// Loads the room characters and items
+		string room = RoomManager.GetCurrentRoom();
+		CharacterManager.LoadRoomCharacters(room);
+		ItemManager.LoadRoomItems(room);
+
+		// Initializes the necessary modules
+		GUIManager.Initialize();
+		InputManager.Initialize(pauseMenu);
 		yield return new WaitForSeconds(1); // TODO: debugging
 
 		int spriteCount = backgroundObject.GetSpriteCount();

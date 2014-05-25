@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ResolutionCamera : MonoBehaviour {
+public class ScreenCamera : MonoBehaviour {
 	
 	public void Awake() {
 		float aspectRatio = Screen.width / (float) Screen.height;

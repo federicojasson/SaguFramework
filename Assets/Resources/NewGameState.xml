@@ -11,7 +11,7 @@
 	
 	<item id="Erlenmeyer">
 		<room>Laboratory</room>
-		<x>20</x>
-		<y>10</y>
+		<x>0.5</x>
+		<y>0.5</y>
 	</item>
 </savegame>

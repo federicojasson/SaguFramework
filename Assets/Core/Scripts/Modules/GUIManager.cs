@@ -45,6 +45,11 @@ public static class GUIManager {
 			// Shows the previous menu
 			menus.Peek().enabled = true;
 	}
+
+	public static void Initialize() {
+		// Clears the menus
+		menus.Clear();
+	}
 	
 	public static void ShowDialog(Dialog dialog) {
 		if (GUIManager.dialog != null)

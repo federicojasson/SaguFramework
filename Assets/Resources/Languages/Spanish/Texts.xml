@@ -4,6 +4,7 @@
 	<text id="MAIN_MENU_OPTIONS_BUTTON">Opciones</text>
 	<text id="MAIN_MENU_QUIT_BUTTON">Salir</text>
 	
+	<text id="PAUSE_MENU_QUIT_BUTTON">Salir</text>
 	<text id="PAUSE_MENU_RESUME_BUTTON">Reanudar</text>
 	
 	<text id="QUIT_DIALOG_CANCEL_BUTTON">Cancelar</text>
