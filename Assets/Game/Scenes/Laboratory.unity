@@ -253,11 +253,15 @@ Prefab:
     - target: {fileID: 11400000, guid: 927fdaf0f243eae4ba1446b65c978d4f, type: 2}
       propertyPath: backgroundObject
       value: 
-      objectReference: {fileID: 1359476199}
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 927fdaf0f243eae4ba1446b65c978d4f, type: 2}
       propertyPath: m_Name
       value: Loader
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 927fdaf0f243eae4ba1446b65c978d4f, type: 2}
+      propertyPath: curtain
+      value: 
+      objectReference: {fileID: 1359476199}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 927fdaf0f243eae4ba1446b65c978d4f, type: 2}
   m_RootGameObject: {fileID: 1146830962}
@@ -324,9 +328,18 @@ Prefab:
         type: 3}
     - target: {fileID: 100000, guid: 0081adc2f942536479d545bb04b6d77c, type: 2}
       propertyPath: m_Name
-      value: Background
+      value: Curtain
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 21200000, guid: 0081adc2f942536479d545bb04b6d77c, type: 2}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 0081adc2f942536479d545bb04b6d77c, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 0081adc2f942536479d545bb04b6d77c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0081adc2f942536479d545bb04b6d77c, type: 2}
   m_RootGameObject: {fileID: 1359476198}
   m_IsPrefabParent: 0
@@ -373,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65bab0ebca8f81449f03fcd546907fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundObject: {fileID: 1359476199}
+  curtain: {fileID: 1359476199}
   pauseMenu: {fileID: 1146830963}
 --- !u!4 &1146830965
 Transform:
@@ -408,7 +421,7 @@ GameObject:
   - 212: {fileID: 1359476200}
   - 114: {fileID: 1359476199}
   m_Layer: 0
-  m_Name: Background
+  m_Name: Curtain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -417,20 +430,19 @@ GameObject:
 --- !u!114 &1359476199
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 0081adc2f942536479d545bb04b6d77c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1076542587}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1359476198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 585b34db5f6f26b47b12fe022cf0161a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a8376d175ec9f645bcc64a33d4b4ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
+  background: {fileID: 21300000, guid: 3ac399a537082c74b88902a9c4f5586d, type: 3}
+  splashScreens:
   - {fileID: 21300000, guid: e24f3c7e7d6c3a0469d5994d825b4366, type: 3}
   - {fileID: 21300000, guid: c31e597806213594b8bc64aec5a9e483, type: 3}
   - {fileID: 21300000, guid: d13445ac0956dd34f99f00660d638bc6, type: 3}
-  - {fileID: 21300000, guid: 3ac399a537082c74b88902a9c4f5586d, type: 3}
 --- !u!212 &1359476200
 SpriteRenderer:
   m_ObjectHideFlags: 0

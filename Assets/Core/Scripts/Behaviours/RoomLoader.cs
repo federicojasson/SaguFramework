@@ -3,17 +3,15 @@ using UnityEngine;
 
 public class RoomLoader : MonoBehaviour {
 
-	public BackgroundObject backgroundObject;
+	public Curtain curtain;
 	public Menu pauseMenu;
 
 	public void Awake() {
-		int spriteCount = backgroundObject.GetSpriteCount();
-		if (spriteCount > 1)
-			// Shows a random sprite (room splash screen)
-			backgroundObject.SetSprite(Random.Range(0, spriteCount - 1));
-		else
-			// Shows the first sprite (room background)
-			backgroundObject.SetSprite(0);
+		// Shows the background
+		curtain.ShowBackground();
+		
+		// Shows a random splash screen (if there is any)
+		curtain.ShowRandomSplashScreen();
 		
 		// Loads resources asynchronously
 		StartCoroutine(LoadCoroutine());
@@ -31,14 +29,15 @@ public class RoomLoader : MonoBehaviour {
 		ItemManager.LoadRoomItems(room);
 
 		// Initializes the necessary modules
-		GUIManager.Initialize();
 		InputManager.Initialize(pauseMenu);
+		GUIManager.Initialize();
 		yield return new WaitForSeconds(1); // TODO: debugging
 
-		int spriteCount = backgroundObject.GetSpriteCount();
-		if (spriteCount > 1)
-			// Shows the last sprite (room background)
-			backgroundObject.SetSprite(spriteCount - 1);
+		// Shows the background
+		curtain.ShowBackground();
+
+		// Sets the input manager play mode
+		InputManager.SetMode(C.INPUT_MANAGER_MODE_PLAY);
 
 		yield break;
 	}

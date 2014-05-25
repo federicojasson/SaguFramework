@@ -23,8 +23,8 @@ public class PauseMenu : Menu {
 		// Hides the menu
 		GUIManager.HideMenu();
 
-		// Enables the input manager
-		InputManager.Enable();
+		// Sets the input manager in play mode
+		InputManager.SetMode(C.INPUT_MANAGER_MODE_PLAY);
 	}
 
 }

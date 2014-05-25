@@ -2,38 +2,58 @@
 
 public static class InputManager {
 
-	private static bool enabled;
+	private static int mode;
 	private static Menu pauseMenu;
 
 	public static void CheckInput() {
-		if (enabled) {
-			CheckKeyboardInput();
-			CheckMouseInput();
+		switch (mode) {
+			case C.INPUT_MANAGER_MODE_PAUSE : {
+				CheckModePauseKeyboardInput();
+				break;
+			}
+			
+			case C.INPUT_MANAGER_MODE_PLAY : {
+				CheckModePlayKeyboardInput();
+				CheckModePlayMouseInput();
+				break;
+			}
 		}
 	}
 
-	public static void Disable() {
-		enabled = false;
+	public static void Initialize(Menu pauseMenu) {
+		InputManager.mode = C.INPUT_MANAGER_MODE_DISABLED;
+		InputManager.pauseMenu = pauseMenu;
 	}
 	
-	public static void Enable() {
-		enabled = true;
+	public static void SetMode(int mode) {
+		InputManager.mode = mode;
 	}
 
-	public static void Initialize(Menu pauseMenu) {
-		InputManager.pauseMenu = pauseMenu;
-		Enable();
-	}
-
-	private static void CheckKeyboardInput() {
+	private static void CheckModePauseKeyboardInput() {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			// Escape key pressed
-			Disable();
+
+			// Hides all opened menus and dialogs
+			GUIManager.HideAll();
+
+			// Sets the play mode
+			mode = C.INPUT_MANAGER_MODE_PLAY;
+		}
+	}
+
+	private static void CheckModePlayKeyboardInput() {
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			// Escape key pressed
+
+			// Sets the pause mode
+			mode = C.INPUT_MANAGER_MODE_PAUSE;
+
+			// Shows the pause menu
 			GUIManager.ShowMenu(pauseMenu);
 		}
 	}
 	
-	private static void CheckMouseInput() {
+	private static void CheckModePlayMouseInput() {
 		// TODO
 	}
 

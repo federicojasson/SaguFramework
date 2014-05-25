@@ -3,12 +3,15 @@ using UnityEngine;
 
 public class MainLoader : MonoBehaviour {
 
-	public BackgroundObject backgroundObject;
+	public Curtain curtain;
 	public Menu mainMenu;
 
 	public void Awake() {
-		// Shows the first sprite (main splash screen or main background)
-		backgroundObject.SetSprite(0);
+		// Shows the background
+		curtain.ShowBackground();
+		
+		// Shows a random splash screen (if there is any)
+		curtain.ShowRandomSplashScreen();
 
 		// Loads resources asynchronously
 		StartCoroutine(LoadCoroutine());
@@ -20,9 +23,8 @@ public class MainLoader : MonoBehaviour {
 		LanguageManager.LoadLanguage(ConfigurationManager.GetConfiguration(C.CONFIGURATION_ID_LANGUAGE));
 		yield return new WaitForSeconds(1); // TODO: debugging
 
-		if (backgroundObject.GetSpriteCount() > 1)
-			// Shows the next sprite (main background)
-			backgroundObject.SetNextSprite();
+		// Shows the background
+		curtain.ShowBackground();
 
 		// Shows the main menu
 		GUIManager.ShowMenu(mainMenu);

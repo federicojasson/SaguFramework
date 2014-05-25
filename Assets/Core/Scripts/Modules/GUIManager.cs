@@ -29,6 +29,16 @@ public static class GUIManager {
 		Rect rectangle = GetCenteredRectangle(x, y, width, height);
 		GUI.ModalWindow(0, rectangle, function, title);
 	}
+
+	public static void HideAll() {
+		if (dialog != null)
+			// There is an opened dialog
+			HideDialog();
+
+		// Hides all menus
+		while (menus.Count > 0)
+			menus.Pop().enabled = false;
+	}
 	
 	public static void HideDialog() {
 		// Hides the current dialog

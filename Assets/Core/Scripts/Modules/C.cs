@@ -28,4 +28,11 @@
 	public const string TEXT_ATTRIBUTE_ID = "id";
 	public const string TEXT_TAG = "text";
 
+	public const string SORTING_LAYER_BACKGROUND = "Background";
+	public const string SORTING_LAYER_SPLASH_SCREEN = "SplashScreen";
+
+	public const int INPUT_MANAGER_MODE_DISABLED = 0;
+	public const int INPUT_MANAGER_MODE_PAUSE = 1;
+	public const int INPUT_MANAGER_MODE_PLAY = 2;
+
 }
