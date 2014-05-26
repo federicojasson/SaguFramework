@@ -1,22 +1,42 @@
 ﻿using UnityEngine;
 
+//
+// Factory - Behaviour class
+//
+// TODO: write class description
+//
 public abstract class Factory : MonoBehaviour {
 
-	private static Factory instance;
+	private static Factory instance; // Singleton
 
 	public static GameObject CreateCharacter(Character character) {
-		GameObject gameObject = (GameObject) Instantiate(Factory.instance.GetCharacterModel(character.GetId()));
+		// Instantiates the game object
+		string id = character.GetId();
+		GameObject model = Factory.instance.GetCharacterModel(id);
+		GameObject gameObject = (GameObject) Instantiate(model);
+		
+		// Sets the game object's properties
 		gameObject.transform.position = new Vector2(character.GetX(), character.GetY());
 
 		return gameObject;
 	}
 
 	public static GameObject CreateInventoryItem(InventoryItem inventoryItem) {
-		return (GameObject) Instantiate(Factory.instance.GetInventoryItemModel(inventoryItem.GetId()));
+		// Instantiates the game object
+		string id = inventoryItem.GetId();
+		GameObject model = Factory.instance.GetInventoryItemModel(id);
+		GameObject gameObject = (GameObject) Instantiate(model);
+
+		return gameObject;
 	}
 
 	public static GameObject CreateItem(Item item) {
-		GameObject gameObject = (GameObject) Instantiate(Factory.instance.GetItemModel(item.GetId()));
+		// Instantiates the game object
+		string id = item.GetId();
+		GameObject model = Factory.instance.GetItemModel(id);
+		GameObject gameObject = (GameObject) Instantiate(model);
+
+		// Sets the game object's properties
 		gameObject.transform.position = new Vector2(item.GetX(), item.GetY());
 
 		return gameObject;

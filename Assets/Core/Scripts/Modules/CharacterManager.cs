@@ -1,6 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+//
+// CharacterManager - Module class
+//
+// TODO: write class description
+//
 public static class CharacterManager {
 
 	private static Dictionary<string, Character> characters;
@@ -11,11 +16,9 @@ public static class CharacterManager {
 
 	public static void AddCharacter(Character character) {
 		characters.Add(character.GetId(), character);
-		
-		// TODO: check errors?
 	}
 
-	public static void LoadRoomCharacters(string room) {
+	public static void CreateRoomCharacters(string room) {
 		foreach (Character character in characters.Values)
 			if (character.GetRoom().Equals(room)) {
 				// The character is in the room
@@ -24,8 +27,6 @@ public static class CharacterManager {
 				GameObject gameObject = Factory.CreateCharacter(character);
 				character.SetGameObject(gameObject);
 			}
-		
-		// TODO: check errors?
 	}
 
 }

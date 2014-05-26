@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using UnityEngine;
 
+//
+// ConfigurationManager - Module class
+//
+// TODO: write class description
+//
 public static class ConfigurationManager {
 
 	private static Dictionary<string, string> configurations;

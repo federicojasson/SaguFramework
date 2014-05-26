@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+//
+// ErrorManager - Module class
+//
+// TODO: write class description
+//
 public static class ErrorManager {
 
 	public static void Terminate(string context, string message) {
@@ -11,7 +16,7 @@ public static class ErrorManager {
 			Debug.Log("TODO: maybe write message to log text file");
 
 		// Quits the application
-		Application.Quit();
+		GameManager.QuitGame();
 	}
 
 }

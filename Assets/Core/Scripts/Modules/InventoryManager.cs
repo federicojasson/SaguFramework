@@ -1,23 +1,24 @@
 ﻿using System.Collections.Generic;
 
-public static class Inventory {
+//
+// InventoryManager - Module class
+//
+// TODO: write class description
+//
+public static class InventoryManager {
 
 	private static Dictionary<string, InventoryItem> items;
 
-	static Inventory() {
+	static InventoryManager() {
 		items = new Dictionary<string, InventoryItem>();
 	}
 
 	public static void AddItem(InventoryItem item) {
 		items.Add(item.GetId(), item);
-
-		// TODO: check errors?
 	}
 
 	public static void RemoveItem(string id) {
 		items.Remove(id);
-
-		// TODO: check errors?
 	}
 
 }

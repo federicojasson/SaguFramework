@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using UnityEngine;
 
+//
+// LanguageManager - Module class
+//
+// TODO: write class description
+//
 public static class LanguageManager {
 
 	private static Dictionary<string, string> texts;

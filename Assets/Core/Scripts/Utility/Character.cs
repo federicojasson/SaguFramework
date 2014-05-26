@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
 
+//
+// Character - Utility class
+//
+// This class represents a character. Objects of this class are managed by the CharacterManager. A link with its game
+// object is created when the latter is instantiated.
+//
 public class Character {
 	
 	private GameObject gameObject;
@@ -37,6 +43,14 @@ public class Character {
 	
 	public void SetGameObject(GameObject gameObject) {
 		this.gameObject = gameObject;
+	}
+
+	public void SetX(float x) {
+		this.x = x;
+	}
+	
+	public void SetY(float y) {
+		this.y = y;
 	}
 	
 }

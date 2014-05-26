@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 
+//
+// InputManager - Module class
+//
+// TODO: write class description
+//
 public static class InputManager {
 
 	private static int mode;
-	private static Menu pauseMenu;
 
 	public static void CheckInput() {
 		switch (mode) {
@@ -19,38 +23,21 @@ public static class InputManager {
 			}
 		}
 	}
-
-	public static void Initialize(Menu pauseMenu) {
-		InputManager.mode = C.INPUT_MANAGER_MODE_DISABLED;
-		InputManager.pauseMenu = pauseMenu;
-	}
 	
 	public static void SetMode(int mode) {
 		InputManager.mode = mode;
 	}
 
 	private static void CheckModePauseKeyboardInput() {
-		if (Input.GetKeyDown(KeyCode.Escape)) {
+		if (Input.GetKeyDown(KeyCode.Escape))
 			// Escape key pressed
-
-			// Hides all opened menus and dialogs
-			GUIManager.HideAll();
-
-			// Sets the play mode
-			mode = C.INPUT_MANAGER_MODE_PLAY;
-		}
+			GameManager.ResumeGame();
 	}
 
 	private static void CheckModePlayKeyboardInput() {
-		if (Input.GetKeyDown(KeyCode.Escape)) {
+		if (Input.GetKeyDown(KeyCode.Escape))
 			// Escape key pressed
-
-			// Sets the pause mode
-			mode = C.INPUT_MANAGER_MODE_PAUSE;
-
-			// Shows the pause menu
-			GUIManager.ShowMenu(pauseMenu);
-		}
+			GameManager.PauseGame();
 	}
 	
 	private static void CheckModePlayMouseInput() {

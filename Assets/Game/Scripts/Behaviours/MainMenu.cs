@@ -1,5 +1,12 @@
 ﻿using UnityEngine;
 
+//
+// MainMenu - Behaviour class
+//
+// This class implements the main menu. It shows up only when the game application is started.
+//
+// TODO: adjust sizes and positions to improve this menu
+//
 public class MainMenu : Menu {
 	
 	public Menu optionsMenu;
@@ -24,22 +31,18 @@ public class MainMenu : Menu {
 	}
 
 	private void OnLoadGameButtonActuated() {
-		// TODO: on new game
-		Debug.Log("TODO: on load game");
+		GameManager.LoadGame();
 	}
 
 	private void OnNewGameButtonActuated() {
-		// Loads the new game state
-		GameStateManager.LoadNewGameState();
+		GameManager.LoadNewGame();
 	}
 	
 	private void OnOptionsButtonActuated() {
-		// Shows the options menu
 		GUIManager.ShowMenu(optionsMenu);
 	}
 
 	private void OnQuitButtonActuated() {
-		// Shows the quit dialog
 		GUIManager.ShowDialog(quitDialog);
 	}
 	

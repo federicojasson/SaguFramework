@@ -3,10 +3,9 @@
 	<text id="MAIN_MENU_NEW_GAME_BUTTON">Nueva partida</text>
 	<text id="MAIN_MENU_OPTIONS_BUTTON">Opciones</text>
 	<text id="MAIN_MENU_QUIT_BUTTON">Salir</text>
-	
+	<text id="OPTIONS_MENU_CANCEL_BUTTON">Cancelar</text>
 	<text id="PAUSE_MENU_QUIT_BUTTON">Salir</text>
 	<text id="PAUSE_MENU_RESUME_BUTTON">Reanudar</text>
-	
 	<text id="QUIT_DIALOG_CANCEL_BUTTON">Cancelar</text>
 	<text id="QUIT_DIALOG_CONFIRMATION_BUTTON">Salir</text>
 	<text id="QUIT_DIALOG_LABEL">¿Realmente desea salir del juego?</text>

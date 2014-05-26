@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
 
+//
+// Item - Utility class
+//
+// This class represents an item. Objects of this class are managed by the ItemManager. A link with its game object is
+// created when the latter is instantiated.
+//
 public class Item {
 
 	private GameObject gameObject;

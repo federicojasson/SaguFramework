@@ -1,10 +1,23 @@
 ﻿using UnityEngine;
 
+//
+// Menu - Behaviour class
+//
+// TODO: write class description
+//
 public abstract class Menu : MonoBehaviour {
 
 	public void Awake() {
-		// Disables the menu to avoid OnGUI being invoked
+		// Hides the menu initially
+		Hide();
+	}
+
+	public void Hide() {
 		enabled = false;
+	}
+	
+	public void Show() {
+		enabled = true;
 	}
 
 }

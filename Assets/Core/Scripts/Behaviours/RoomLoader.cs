@@ -1,6 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+//
+// RoomLoader - Behaviour class
+//
+// TODO: write class description
+//
 public class RoomLoader : MonoBehaviour {
 
 	public Curtain curtain;
@@ -18,19 +23,18 @@ public class RoomLoader : MonoBehaviour {
 	}
 
 	public void Update() {
-		// Checks the input
 		InputManager.CheckInput();
 	}
 
 	private IEnumerator LoadCoroutine() {
-		// Loads the room characters and items
-		string room = RoomManager.GetCurrentRoom();
-		CharacterManager.LoadRoomCharacters(room);
-		ItemManager.LoadRoomItems(room);
+		// Creates the room characters and items
+		string currentRoom = RoomManager.GetCurrentRoom();
+		CharacterManager.CreateRoomCharacters(currentRoom);
+		ItemManager.CreateRoomItems(currentRoom);
 
-		// Initializes the necessary modules
-		InputManager.Initialize(pauseMenu);
-		GUIManager.Initialize();
+		// Sets the pause menu
+		GameManager.SetPauseMenu(pauseMenu);
+
 		yield return new WaitForSeconds(1); // TODO: debugging
 
 		// Shows the background

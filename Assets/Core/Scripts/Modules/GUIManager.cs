@@ -1,6 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+//
+// GUIManager - Module class
+//
+// TODO: write class description
+//
 public static class GUIManager {
 	
 	private static Dialog dialog;
@@ -32,53 +37,46 @@ public static class GUIManager {
 
 	public static void HideAll() {
 		if (dialog != null)
-			// There is an opened dialog
+			// Hides the dialog
 			HideDialog();
 
 		// Hides all menus
 		while (menus.Count > 0)
-			menus.Pop().enabled = false;
+			HideMenu();
 	}
 	
 	public static void HideDialog() {
-		// Hides the current dialog
-		dialog.enabled = false;
-
-		GUIManager.dialog = null;
+		// Hides the dialog
+		dialog.Hide();
+		dialog = null;
 	}
 	
 	public static void HideMenu() {
 		// Hides the current menu and pops it out of the stack
-		menus.Pop().enabled = false;
+		menus.Pop().Hide();
 		
 		if (menus.Count > 0)
 			// Shows the previous menu
-			menus.Peek().enabled = true;
-	}
-
-	public static void Initialize() {
-		// Clears the menus
-		menus.Clear();
+			menus.Peek().Show();
 	}
 	
 	public static void ShowDialog(Dialog dialog) {
 		if (GUIManager.dialog != null)
-			// There is an opened dialog
-			HideDialog();
+			// Hides the dialog
+			GUIManager.dialog.Hide();
 
 		// Shows the dialog
-		dialog.enabled = true;
-
+		dialog.Show();
 		GUIManager.dialog = dialog;
 	}
 	
 	public static void ShowMenu(Menu menu) {
 		if (menus.Count > 0)
 			// Hides the current menu
-			menus.Peek().enabled = false;
+			menus.Peek().Hide();
 		
 		// Shows the menu and pushes it to the stack
-		menu.enabled = true;
+		menu.Show();
 		menus.Push(menu);
 	}
 

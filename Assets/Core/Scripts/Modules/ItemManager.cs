@@ -1,6 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+//
+// ItemManager - Module class
+//
+// TODO: write class description
+//
 public static class ItemManager {
 
 	private static Dictionary<string, Item> items;
@@ -11,11 +16,9 @@ public static class ItemManager {
 
 	public static void AddItem(Item item) {
 		items.Add(item.GetId(), item);
-		
-		// TODO: check errors?
 	}
 
-	public static void LoadRoomItems(string room) {
+	public static void CreateRoomItems(string room) {
 		foreach (Item item in items.Values)
 			if (item.GetRoom().Equals(room)) {
 				// The item is in the room
@@ -24,14 +27,10 @@ public static class ItemManager {
 				GameObject gameObject = Factory.CreateItem(item);
 				item.SetGameObject(gameObject);
 			}
-
-		// TODO: check errors?
 	}
 	
 	public static void RemoveItem(string id) {
 		items.Remove(id);
-		
-		// TODO: check errors?
 	}
 
 }

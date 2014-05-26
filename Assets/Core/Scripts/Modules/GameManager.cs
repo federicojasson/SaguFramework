@@ -2,13 +2,24 @@
 using System.Xml.Linq;
 using UnityEngine;
 
-public static class GameStateManager {
+//
+// GameManager - Module class
+//
+// TODO: write class description
+//
+public static class GameManager {
 
-	public static void LoadNewGameState() {
+	private static Menu pauseMenu;
+
+	public static void LoadGame() {
+		// TODO
+	}
+
+	public static void LoadNewGame() {
 		TextAsset textAsset = (TextAsset) Resources.Load(C.FILE_PATH_NEW_GAME_STATE, typeof(TextAsset));
 		if (textAsset == null)
 			// The new game state file was not found
-			ErrorManager.Terminate("GameStateManager", "The new game state file was not found");
+			ErrorManager.Terminate("GameManager", "The new game state file was not found");
 		
 		try {
 			XElement root = XDocument.Parse(textAsset.text).Root;
@@ -34,7 +45,7 @@ public static class GameStateManager {
 					case C.INVENTORY_ITEM_TAG : {
 						string id = node.Attribute(C.INVENTORY_ITEM_ATTRIBUTE_ID).Value.Trim();
 						InventoryItem item = new InventoryItem(id);
-						Inventory.AddItem(item);
+						InventoryManager.AddItem(item);
 						break;
 					}
 					
@@ -53,12 +64,36 @@ public static class GameStateManager {
 			RoomManager.LoadRoom(currentRoom);
 		} catch (Exception) {
 			// The new game state file couldn't be parsed
-			ErrorManager.Terminate("GameStateManager", "The new game state file couldn't be parsed");
+			ErrorManager.Terminate("GameManager", "The new game state file couldn't be parsed");
 		}
 	}
+
+	public static void PauseGame() {
+		// Sets the input manager pause mode
+		InputManager.SetMode(C.INPUT_MANAGER_MODE_PAUSE);
+
+		// Shows the pause menu
+		GUIManager.ShowMenu(pauseMenu);
+	}
+
+	public static void QuitGame() {
+		Application.Quit();
+	}
+
+	public static void ResumeGame() {
+		// Hides all menus and dialogs
+		GUIManager.HideAll();
+		
+		// Sets the input manager play mode
+		InputManager.SetMode(C.INPUT_MANAGER_MODE_PLAY);
+	}
 	
-	public static void SaveGameState() {
+	public static void SaveGame() {
 		// TODO: Resources folder is read-only. Figure it out somehow
+	}
+
+	public static void SetPauseMenu(Menu pauseMenu) {
+		GameManager.pauseMenu = pauseMenu;
 	}
 
 }

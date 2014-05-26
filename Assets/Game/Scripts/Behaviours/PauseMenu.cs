@@ -1,5 +1,12 @@
 ﻿using UnityEngine;
 
+//
+// PauseMenu - Behaviour class
+//
+// This class implements the pause menu. It shows up everytime the user pauses the game.
+//
+// TODO: adjust sizes and positions to improve this menu
+//
 public class PauseMenu : Menu {
 
 	public Dialog quitDialog;
@@ -15,16 +22,11 @@ public class PauseMenu : Menu {
 	}
 	
 	private void OnQuitButtonActuated() {
-		// Shows the quit dialog
 		GUIManager.ShowDialog(quitDialog);
 	}
 
 	private void OnResumeButtonActuated() {
-		// Hides the menu
-		GUIManager.HideMenu();
-
-		// Sets the input manager in play mode
-		InputManager.SetMode(C.INPUT_MANAGER_MODE_PLAY);
+		GameManager.ResumeGame();
 	}
 
 }

@@ -1,6 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+//
+// MainLoader - Behaviour class
+//
+// TODO: write class description
+//
 public class MainLoader : MonoBehaviour {
 
 	public Curtain curtain;
@@ -21,6 +26,7 @@ public class MainLoader : MonoBehaviour {
 		// Loads the configurations and the language
 		ConfigurationManager.LoadConfigurations();
 		LanguageManager.LoadLanguage(ConfigurationManager.GetConfiguration(C.CONFIGURATION_ID_LANGUAGE));
+
 		yield return new WaitForSeconds(1); // TODO: debugging
 
 		// Shows the background

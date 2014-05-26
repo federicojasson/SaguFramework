@@ -1,5 +1,13 @@
 ﻿using UnityEngine;
 
+//
+// GameFactory - Behaviour class
+//
+// This class implements the factory interface. It implements the mapping between an object ID and its model. All game
+// object's models must be attached to this script.
+//
+// TODO: decide what to do in case of error
+//
 public class GameFactory : Factory {
 	
 	public GameObject erlenmeyer;
