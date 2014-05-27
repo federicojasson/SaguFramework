@@ -26,7 +26,6 @@ public class MainLoader : MonoBehaviour {
 		// Loads the configurations and the language
 		ConfigurationManager.LoadConfigurations();
 		LanguageManager.LoadLanguage(ConfigurationManager.GetConfiguration(C.CONFIGURATION_ID_LANGUAGE));
-		InputManager.Initialize();
 
 		yield return new WaitForSeconds(1); // TODO: debugging
 

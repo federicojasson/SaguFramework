@@ -1,4 +1,6 @@
-﻿//
+﻿using UnityEngine;
+
+//
 // InputManager - Module class
 //
 // TODO: write class description
@@ -6,6 +8,10 @@
 public static partial class InputManager {
 
 	private static int mode;
+	
+	static InputManager() {
+		mode = C.INPUT_MANAGER_MODE_DISABLED;
+	}
 
 	public static void CheckInput() {
 		switch (mode) {
@@ -24,14 +30,6 @@ public static partial class InputManager {
 				break;
 			}
 		}
-	}
-
-	public static void Initialize() {
-		mode = C.INPUT_MANAGER_MODE_DISABLED;
-
-		InitializeModeDisabled();
-		InitializeModePause();
-		InitializeModePlay();
 	}
 	
 	public static void SetMode(int mode) {
@@ -53,6 +51,11 @@ public static partial class InputManager {
 				break;
 			}
 		}
+	}
+
+	private static void SetCursorImage(Texture2D cursorImage) {
+		// TODO: maybe unnecessary method
+		GUIManager.SetCursorImage(cursorImage);
 	}
 
 }

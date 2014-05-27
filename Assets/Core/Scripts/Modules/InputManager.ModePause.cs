@@ -17,11 +17,9 @@ public static partial class InputManager {
 			GameManager.ResumeGame();
 	}
 
-	private static void InitializeModePause() {}
-
 	private static void SetModePause() {
 		Texture2D cursorImage = Factory.GetCursorImagePauseStatic();
-		GUIManager.SetCursorImage(cursorImage);
+		InputManager.SetCursorImage(cursorImage);
 	}
 
 }

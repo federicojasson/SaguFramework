@@ -7,25 +7,20 @@
 //
 public static partial class InputManager {
 
-	private static int currentOrder;
-	private static bool isCurrentOrderForced;
-	private static int rotativeOrdersIndex;
-
-	public static void ClearForcedOrder() {
-		if (mode == C.INPUT_MANAGER_MODE_PLAY) {
-			isCurrentOrderForced = false;
-			
-			// Sets the former rotative order
-			SetOrder(C.ROTATIVE_ORDERS[rotativeOrdersIndex]);
-		}
+	public static void NotifyOnMouseEnter(InteractiveObject interactiveObject) {
+		if (mode == C.INPUT_MANAGER_MODE_PLAY)
+			interactiveObject.DoFocus();
 	}
 	
-	public static void SetForcedOrder(int order) {
+	public static void NotifyOnMouseExit(InteractiveObject interactiveObject) {
+		if (mode == C.INPUT_MANAGER_MODE_PLAY)
+			interactiveObject.DoDefocus();
+	}
+
+	public static void NotifySetOrder() {
 		if (mode == C.INPUT_MANAGER_MODE_PLAY) {
-			isCurrentOrderForced = true;
-			
-			// Sets the forced order
-			SetOrder(order);
+			int currentOrder = OrderManager.GetCurrentOrder();
+			SetOrderCursorImage(currentOrder);
 		}
 	}
 
@@ -41,25 +36,24 @@ public static partial class InputManager {
 	}
 	
 	private static void CheckMouseModePlay() {
+		if (Input.GetMouseButtonDown(0))
+			// Left mouse button pressed
+			OrderManager.ExecuteCurrentOrder();
+
 		if (Input.GetMouseButtonDown(1))
 			// Right mouse button pressed
-			if (! isCurrentOrderForced) {
-				rotativeOrdersIndex = (rotativeOrdersIndex + 1) % C.ROTATIVE_ORDERS.Length;
-				SetOrder(C.ROTATIVE_ORDERS[rotativeOrdersIndex]);
-			}
-	}
-
-	private static void InitializeModePlay() {
-		isCurrentOrderForced = false;
-		rotativeOrdersIndex = 0;
-		//SetOrder(C.ROTATIVE_ORDERS[rotativeOrdersIndex]); TODO
-		currentOrder = C.ROTATIVE_ORDERS[rotativeOrdersIndex];
+			OrderManager.SetNextRotativeOrder();
 	}
 	
-	private static void SetCurrentOrderCursorImage() {
+	private static void SetModePlay() {
+		int currentOrder = OrderManager.GetCurrentOrder();
+		SetOrderCursorImage(currentOrder);
+	}
+	
+	private static void SetOrderCursorImage(int order) {
 		Texture2D cursorImage = null;
 		
-		switch (currentOrder) {
+		switch (order) {
 			case C.ORDER_LOOK : {
 				cursorImage = Factory.GetCursorImageOrderLookStatic();
 				break;
@@ -75,17 +69,8 @@ public static partial class InputManager {
 				break;
 			}
 		}
-		
-		GUIManager.SetCursorImage(cursorImage);
-	}
-	
-	private static void SetModePlay() {
-		SetCurrentOrderCursorImage();
-	}
-	
-	private static void SetOrder(int order) {
-		currentOrder = order;
-		SetCurrentOrderCursorImage();
+
+		InputManager.SetCursorImage(cursorImage);
 	}
 
 }

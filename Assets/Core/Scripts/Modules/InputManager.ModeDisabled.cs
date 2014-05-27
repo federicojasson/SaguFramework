@@ -9,11 +9,9 @@ public static partial class InputManager {
 
 	private static void CheckInputModeDisabled() {}
 
-	private static void InitializeModeDisabled() {}
-
 	private static void SetModeDisabled() {
 		Texture2D cursorImage = Factory.GetCursorImageDisabledStatic();
-		GUIManager.SetCursorImage(cursorImage);
+		InputManager.SetCursorImage(cursorImage);
 	}
 
 }
