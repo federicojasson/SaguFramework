@@ -326,9 +326,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_SortingLayerID: 2046728509
+  m_SortingLayerID: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1338686437
@@ -558,6 +558,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912e804c4bd670f4fa5c67863c552b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorImageDisabled: {fileID: 2800000, guid: 5a88c22ed9fd23d44832c71ae63039cb, type: 3}
+  cursorImageOrderLook: {fileID: 2800000, guid: d5bf36344a9db3840837456c0992b07b,
+    type: 3}
+  cursorImageOrderTeleport: {fileID: 2800000, guid: ea9f9a7ed73443f49aeb91725f8b813d,
+    type: 3}
+  cursorImageOrderWalk: {fileID: 2800000, guid: e4ab331037abda14cb215fcc06afb59e,
+    type: 3}
+  cursorImagePause: {fileID: 2800000, guid: 9f7f74ed21fe3d94f9e9abe1689564fa, type: 3}
   erlenmeyer: {fileID: 100000, guid: 85b4dcf1488066343945228dcb52c512, type: 2}
   inventoryErlenmeyer: {fileID: 100000, guid: 2aef484cba0be384182afc891e040847, type: 2}
   scientist: {fileID: 100000, guid: 1b3816c14e705014fa8c854c3ca8de5a, type: 2}

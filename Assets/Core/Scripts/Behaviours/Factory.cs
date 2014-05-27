@@ -42,6 +42,26 @@ public abstract class Factory : MonoBehaviour {
 		return gameObject;
 	}
 
+	public static Texture2D GetCursorImageDisabledStatic() {
+		return Factory.instance.GetCursorImageDisabled();
+	}
+
+	public static Texture2D GetCursorImageOrderLookStatic() {
+		return Factory.instance.GetCursorImageOrderLook();
+	}
+	
+	public static Texture2D GetCursorImageOrderTeleportStatic() {
+		return Factory.instance.GetCursorImageOrderTeleport();
+	}
+	
+	public static Texture2D GetCursorImageOrderWalkStatic() {
+		return Factory.instance.GetCursorImageOrderWalk();
+	}
+
+	public static Texture2D GetCursorImagePauseStatic() {
+		return Factory.instance.GetCursorImagePause();
+	}
+
 	public void Awake() {
 		// Allows static references to this class
 		Factory.instance = this;
@@ -55,5 +75,15 @@ public abstract class Factory : MonoBehaviour {
 	protected abstract GameObject GetInventoryItemModel(string id);
 
 	protected abstract GameObject GetItemModel(string id);
+
+	protected abstract Texture2D GetCursorImageDisabled();
+	
+	protected abstract Texture2D GetCursorImageOrderLook();
+
+	protected abstract Texture2D GetCursorImageOrderTeleport();
+
+	protected abstract Texture2D GetCursorImageOrderWalk();
+
+	protected abstract Texture2D GetCursorImagePause();
 	
 }

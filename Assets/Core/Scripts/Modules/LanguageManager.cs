@@ -29,13 +29,13 @@ public static class LanguageManager {
 		// Discards all current texts
 		texts.Clear();
 
-		TextAsset textAsset = (TextAsset) Resources.Load(C.FILE_PATH_LANGUAGE_TEXTS(id), typeof(TextAsset));
-		if (textAsset == null)
+		TextAsset textFile = (TextAsset) Resources.Load(C.FILE_PATH_LANGUAGE_TEXTS(id), typeof(TextAsset));
+		if (textFile == null)
 			// The language texts file was not found
 			ErrorManager.Terminate("LanguageManager", "The language texts file was not found");
 
 		try {
-			XElement root = XDocument.Parse(textAsset.text).Root;
+			XElement root = XDocument.Parse(textFile.text).Root;
 
 			foreach (XElement node in root.Elements())
 				if (node.Name.LocalName.Equals(C.TEXT_TAG)) {

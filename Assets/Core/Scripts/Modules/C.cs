@@ -17,7 +17,9 @@ public static class C {
 	public const string CONFIGURATION_TAG = "configuration";
 	public const string CURRENT_ROOM_TAG = "current-room";
 	public const string FILE_PATH_CONFIGURATIONS = "Configurations";
-	public static string FILE_PATH_LANGUAGE_TEXTS(string id) { return "Languages/" + id + "/Texts"; }
+	public static string FILE_PATH_LANGUAGE_TEXTS(string id) {
+		return "Languages/" + id + "/Texts";
+	}
 	public const string FILE_PATH_NEW_GAME_STATE = "NewGameState";
 	public const int INPUT_MANAGER_MODE_DISABLED = 0;
 	public const int INPUT_MANAGER_MODE_PAUSE = 1;
@@ -29,6 +31,13 @@ public static class C {
 	public const string ITEM_TAG = "item";
 	public const string ITEM_X_TAG = "x";
 	public const string ITEM_Y_TAG = "y";
+	public const int ORDER_LOOK = 0;
+	public const int ORDER_TELEPORT = 1;
+	public const int ORDER_WALK = 2;
+	public static int[] ROTATIVE_ORDERS = new int[] {
+		ORDER_WALK,
+		ORDER_LOOK
+	};
 	public const string SORTING_LAYER_BACKGROUND = "Background";
 	public const string SORTING_LAYER_SPLASH_SCREEN = "SplashScreen";
 	public const string TEXT_ATTRIBUTE_ID = "id";

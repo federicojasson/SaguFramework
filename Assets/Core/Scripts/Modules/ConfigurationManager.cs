@@ -29,13 +29,13 @@ public static class ConfigurationManager {
 		// Discards all current configurations
 		configurations.Clear();
 
-		TextAsset textAsset = (TextAsset) Resources.Load(C.FILE_PATH_CONFIGURATIONS, typeof(TextAsset));
-		if (textAsset == null)
+		TextAsset textFile = (TextAsset) Resources.Load(C.FILE_PATH_CONFIGURATIONS, typeof(TextAsset));
+		if (textFile == null)
 			// The configurations file was not found
 			ErrorManager.Terminate("ConfigurationManager", "The configurations file was not found");
 
 		try {
-			XElement root = XDocument.Parse(textAsset.text).Root;
+			XElement root = XDocument.Parse(textFile.text).Root;
 
 			foreach (XElement node in root.Elements())
 				if (node.Name.LocalName.Equals(C.CONFIGURATION_TAG)) {

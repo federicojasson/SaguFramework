@@ -16,13 +16,13 @@ public static class GameManager {
 	}
 
 	public static void LoadNewGame() {
-		TextAsset textAsset = (TextAsset) Resources.Load(C.FILE_PATH_NEW_GAME_STATE, typeof(TextAsset));
-		if (textAsset == null)
+		TextAsset textFile = (TextAsset) Resources.Load(C.FILE_PATH_NEW_GAME_STATE, typeof(TextAsset));
+		if (textFile == null)
 			// The new game state file was not found
 			ErrorManager.Terminate("GameManager", "The new game state file was not found");
 		
 		try {
-			XElement root = XDocument.Parse(textAsset.text).Root;
+			XElement root = XDocument.Parse(textFile.text).Root;
 
 			string currentRoom = null;
 			foreach (XElement node in root.Elements())

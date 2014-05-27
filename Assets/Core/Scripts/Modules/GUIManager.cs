@@ -59,6 +59,14 @@ public static class GUIManager {
 			// Shows the previous menu
 			menus.Peek().Show();
 	}
+
+	public static void SetCursorImage(Texture2D image) {
+		// Calculates an offset to match the click point with the center of the image
+		Vector2 offset = new Vector2(image.width / 2, image.height / 2);
+
+		// Sets the cursor image
+		Cursor.SetCursor(image, offset, CursorMode.ForceSoftware);
+	}
 	
 	public static void ShowDialog(Dialog dialog) {
 		if (GUIManager.dialog != null)
