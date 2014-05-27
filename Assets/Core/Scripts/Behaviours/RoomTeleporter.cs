@@ -1,4 +1,4 @@
-﻿public class Teleporter : InteractiveObject {
+﻿public abstract class RoomTeleporter : InteractiveObject {
 
 	public override void DoDefocus() {
 		base.DoDefocus();
@@ -9,5 +9,11 @@
 		base.DoFocus();
 		OrderManager.SetForcedOrder(C.ORDER_TELEPORT);
 	}
+
+	public virtual void DoTeleport() {
+		RoomManager.LoadRoom(GetTarget());
+	}
+
+	protected abstract string GetTarget();
 	
 }

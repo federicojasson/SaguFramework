@@ -9,6 +9,7 @@ using UnityEngine;
 public static class CharacterManager {
 
 	private static Dictionary<string, Character> characters;
+	private static Character playerCharacter;
 
 	static CharacterManager() {
 		characters = new Dictionary<string, Character>();
@@ -16,6 +17,11 @@ public static class CharacterManager {
 
 	public static void AddCharacter(Character character) {
 		characters.Add(character.GetId(), character);
+	}
+
+	public static void AddPlayerCharacter(Character character) {
+		AddCharacter(character);
+		playerCharacter = character;
 	}
 
 	public static void CreateRoomCharacters(string room) {
@@ -27,6 +33,10 @@ public static class CharacterManager {
 				GameObject gameObject = Factory.CreateCharacter(character);
 				character.SetGameObject(gameObject);
 			}
+	}
+
+	public static Character GetPlayerCharacter() {
+		return playerCharacter;
 	}
 
 }

@@ -1,5 +1,6 @@
 <savegame>
 	<current-room>Laboratory</current-room>
+	<player-character-id>Scientist</player-character-id>
 	
 	<character id="Scientist">
 		<room>Laboratory</room>

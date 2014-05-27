@@ -6,7 +6,10 @@
 // TODO: make sure that all constants are used somewhere
 //
 public static class C {
-	
+
+	public const int CHARACTER_ACTION_LOOK = 0;
+	public const int CHARACTER_ACTION_SAY = 1;
+	public const int CHARACTER_ACTION_WALK = 2;
 	public const string CHARACTER_ATTRIBUTE_ID = "id";
 	public const string CHARACTER_ROOM_TAG = "room";
 	public const string CHARACTER_TAG = "character";
@@ -34,6 +37,7 @@ public static class C {
 	public const int ORDER_LOOK = 0;
 	public const int ORDER_TELEPORT = 1;
 	public const int ORDER_WALK = 2;
+	public const string PLAYER_CHARACTER_ID_TAG = "player-character-id";
 	public static int[] ROTATIVE_ORDERS = new int[] {
 		ORDER_WALK,
 		ORDER_LOOK

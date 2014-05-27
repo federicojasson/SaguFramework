@@ -25,6 +25,7 @@ public static class GameManager {
 			XElement root = XDocument.Parse(textFile.text).Root;
 
 			string currentRoom = null;
+			string playerCharacterId = null;
 			foreach (XElement node in root.Elements())
 				switch (node.Name.LocalName) {
 					case C.CHARACTER_TAG : {
@@ -33,7 +34,11 @@ public static class GameManager {
 						float x = Parser.StringToFloat(node.Element(C.CHARACTER_X_TAG).Value.Trim());
 						float y = Parser.StringToFloat(node.Element(C.CHARACTER_Y_TAG).Value.Trim());
 						Character character = new Character(id, room, x, y);
-						CharacterManager.AddCharacter(character);
+						
+						if (id.Equals(playerCharacterId))
+							CharacterManager.AddPlayerCharacter(character);
+						else
+							CharacterManager.AddCharacter(character);
 						break;
 					}
 					
@@ -56,6 +61,11 @@ public static class GameManager {
 						float y = Parser.StringToFloat(node.Element(C.ITEM_Y_TAG).Value.Trim());
 						Item item = new Item(id, room, x, y);
 						ItemManager.AddItem(item);
+						break;
+					}
+					
+					case C.PLAYER_CHARACTER_ID_TAG : {
+						playerCharacterId = node.Value.Trim();
 						break;
 					}
 				}

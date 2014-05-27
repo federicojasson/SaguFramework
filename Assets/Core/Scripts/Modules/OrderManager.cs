@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+//
+// OrderManager - Module class
+//
+// TODO: write class description
+//
 public static class OrderManager {
 
 	private static int currentOrder;
