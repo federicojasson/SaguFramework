@@ -10,11 +10,6 @@ public static class C {
 	public const int CHARACTER_ACTION_LOOK = 0;
 	public const int CHARACTER_ACTION_SAY = 1;
 	public const int CHARACTER_ACTION_WALK = 2;
-	public const string CHARACTER_ATTRIBUTE_ID = "id";
-	public const string CHARACTER_ROOM_TAG = "room";
-	public const string CHARACTER_TAG = "character";
-	public const string CHARACTER_X_TAG = "x";
-	public const string CHARACTER_Y_TAG = "y";
 	public const string CONFIGURATION_ATTRIBUTE_ID = "id";
 	public const string CONFIGURATION_ID_LANGUAGE = "LANGUAGE";
 	public const string CONFIGURATION_TAG = "configuration";
@@ -34,10 +29,19 @@ public static class C {
 	public const string ITEM_TAG = "item";
 	public const string ITEM_X_TAG = "x";
 	public const string ITEM_Y_TAG = "y";
+	public const string NON_PLAYER_CHARACTER_ATTRIBUTE_ID = "id";
+	public const string NON_PLAYER_CHARACTER_ROOM_TAG = "room";
+	public const string NON_PLAYER_CHARACTER_TAG = "non-player-character";
+	public const string NON_PLAYER_CHARACTER_X_TAG = "x";
+	public const string NON_PLAYER_CHARACTER_Y_TAG = "y";
 	public const int ORDER_LOOK = 0;
 	public const int ORDER_TELEPORT = 1;
 	public const int ORDER_WALK = 2;
-	public const string PLAYER_CHARACTER_ID_TAG = "player-character-id";
+	public const string PLAYER_CHARACTER_ATTRIBUTE_ID = "id";
+	public const string PLAYER_CHARACTER_ROOM_TAG = "room";
+	public const string PLAYER_CHARACTER_TAG = "player-character";
+	public const string PLAYER_CHARACTER_X_TAG = "x";
+	public const string PLAYER_CHARACTER_Y_TAG = "y";
 	public static int[] ROTATIVE_ORDERS = new int[] {
 		ORDER_WALK,
 		ORDER_LOOK

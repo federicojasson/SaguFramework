@@ -9,37 +9,49 @@ public abstract class Factory : MonoBehaviour {
 
 	private static Factory instance; // Singleton
 
-	public static GameObject CreateCharacter(Character character) {
-		// Instantiates the game object
-		string id = character.GetId();
-		GameObject model = Factory.instance.GetCharacterModel(id);
-		GameObject gameObject = (GameObject) Instantiate(model);
-		
-		// Sets the game object's properties
-		gameObject.transform.position = new Vector2(character.GetX(), character.GetY());
-
-		return gameObject;
-	}
-
-	public static GameObject CreateInventoryItem(InventoryItem inventoryItem) {
-		// Instantiates the game object
+	public static InventoryItemBehaviour CreateInventoryItem(InventoryItem inventoryItem) {
+		// Instantiates the behaviour
 		string id = inventoryItem.GetId();
-		GameObject model = Factory.instance.GetInventoryItemModel(id);
-		GameObject gameObject = (GameObject) Instantiate(model);
+		InventoryItemBehaviour model = Factory.instance.GetInventoryItemModel(id);
+		InventoryItemBehaviour behaviour = (InventoryItemBehaviour) Instantiate(model);
 
-		return gameObject;
+		return behaviour;
 	}
 
-	public static GameObject CreateItem(Item item) {
-		// Instantiates the game object
+	public static ItemBehaviour CreateItem(Item item) {
+		// Instantiates the behaviour
 		string id = item.GetId();
-		GameObject model = Factory.instance.GetItemModel(id);
-		GameObject gameObject = (GameObject) Instantiate(model);
+		ItemBehaviour model = Factory.instance.GetItemModel(id);
+		ItemBehaviour behaviour = (ItemBehaviour) Instantiate(model);
 
-		// Sets the game object's properties
-		gameObject.transform.position = new Vector2(item.GetX(), item.GetY());
+		// Sets the behaviour's properties
+		behaviour.transform.position = new Vector2(item.GetX(), item.GetY());
 
-		return gameObject;
+		return behaviour;
+	}
+	
+	public static NonPlayerCharacterBehaviour CreateNonPlayerCharacter(NonPlayerCharacter nonPlayerCharacter) {
+		// Instantiates the behaviour
+		string id = nonPlayerCharacter.GetId();
+		NonPlayerCharacterBehaviour model = Factory.instance.GetNonPlayerCharacterModel(id);
+		NonPlayerCharacterBehaviour behaviour = (NonPlayerCharacterBehaviour) Instantiate(model);
+		
+		// Sets the behaviour's properties
+		behaviour.transform.position = new Vector2(nonPlayerCharacter.GetX(), nonPlayerCharacter.GetY());
+		
+		return behaviour;
+	}
+	
+	public static PlayerCharacterBehaviour CreatePlayerCharacter(PlayerCharacter playerCharacter) {
+		// Instantiates the behaviour
+		string id = playerCharacter.GetId();
+		PlayerCharacterBehaviour model = Factory.instance.GetPlayerCharacterModel(id);
+		PlayerCharacterBehaviour behaviour = (PlayerCharacterBehaviour) Instantiate(model);
+		
+		// Sets the behaviour's properties
+		behaviour.transform.position = new Vector2(playerCharacter.GetX(), playerCharacter.GetY());
+		
+		return behaviour;
 	}
 
 	public static Texture2D GetCursorImageDisabledStatic() {
@@ -70,11 +82,13 @@ public abstract class Factory : MonoBehaviour {
 		DontDestroyOnLoad(this);
 	}
 
-	protected abstract GameObject GetCharacterModel(string id);
+	protected abstract InventoryItemBehaviour GetInventoryItemModel(string id);
 
-	protected abstract GameObject GetInventoryItemModel(string id);
+	protected abstract ItemBehaviour GetItemModel(string id);
 
-	protected abstract GameObject GetItemModel(string id);
+	protected abstract NonPlayerCharacterBehaviour GetNonPlayerCharacterModel(string id);
+
+	protected abstract PlayerCharacterBehaviour GetPlayerCharacterModel(string id);
 
 	protected abstract Texture2D GetCursorImageDisabled();
 	

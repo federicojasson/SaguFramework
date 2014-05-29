@@ -1,0 +1,2 @@
+﻿public class NonPlayerCharacterBehaviour : CharacterBehaviour {
+}

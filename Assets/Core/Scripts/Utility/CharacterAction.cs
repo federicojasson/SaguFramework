@@ -1,4 +1,9 @@
-﻿public class CharacterAction {
+﻿//
+// CharacterAction - Utility class
+//
+// TODO: write description
+//
+public class CharacterAction {
 
 	private int id;
 	private object[] parameters;

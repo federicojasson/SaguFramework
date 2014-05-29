@@ -61,7 +61,7 @@ public static class GUIManager {
 	}
 
 	public static void SetCursorImage(Texture2D image) {
-		// Calculates an offset to match the click point with the center of the image
+		// Calculates an offset to match the click position with the center of the image
 		Vector2 offset = new Vector2(image.width / 2, image.height / 2);
 
 		// Sets the cursor image

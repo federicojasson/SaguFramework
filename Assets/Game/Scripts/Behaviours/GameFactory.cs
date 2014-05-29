@@ -15,27 +15,33 @@ public class GameFactory : Factory {
 	public Texture2D cursorImageOrderTeleport;
 	public Texture2D cursorImageOrderWalk;
 	public Texture2D cursorImagePause;
-	public GameObject erlenmeyer;
-	public GameObject inventoryErlenmeyer;
-	public GameObject scientist;
+	public ItemBehaviour erlenmeyer;
+	public InventoryItemBehaviour inventoryErlenmeyer;
+	public PlayerCharacterBehaviour scientist;
 
-	protected override GameObject GetCharacterModel(string id) {
-		switch (id) {
-			case G.CHARACTER_ID_SCIENTIST : return scientist;
-			default : return null; // TODO: terminate?
-		}
-	}
-
-	protected override GameObject GetInventoryItemModel(string id) {
+	protected override InventoryItemBehaviour GetInventoryItemModel(string id) {
 		switch (id) {
 			case G.INVENTORY_ITEM_ID_ERLENMEYER : return inventoryErlenmeyer;
 			default : return null; // TODO: terminate?
 		}
 	}
 
-	protected override GameObject GetItemModel(string id) {
+	protected override ItemBehaviour GetItemModel(string id) {
 		switch (id) {
 			case G.ITEM_ID_ERLENMEYER : return erlenmeyer;
+			default : return null; // TODO: terminate?
+		}
+	}
+	
+	protected override NonPlayerCharacterBehaviour GetNonPlayerCharacterModel(string id) {
+		switch (id) {
+			default : return null; // TODO: terminate?
+		}
+	}
+	
+	protected override PlayerCharacterBehaviour GetPlayerCharacterModel(string id) {
+		switch (id) {
+			case G.CHARACTER_ID_SCIENTIST : return scientist;
 			default : return null; // TODO: terminate?
 		}
 	}

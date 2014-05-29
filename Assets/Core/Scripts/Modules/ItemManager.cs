@@ -23,9 +23,9 @@ public static class ItemManager {
 			if (item.GetRoom().Equals(room)) {
 				// The item is in the room
 				
-				// Creates the item game object and attaches it to the item
-				GameObject gameObject = Factory.CreateItem(item);
-				item.SetGameObject(gameObject);
+				// Creates the item behaviour and links it to the item
+				ItemBehaviour behaviour = Factory.CreateItem(item);
+				item.SetBehaviour(behaviour);
 			}
 	}
 	

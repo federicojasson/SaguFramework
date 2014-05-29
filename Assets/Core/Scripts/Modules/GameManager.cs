@@ -25,23 +25,8 @@ public static class GameManager {
 			XElement root = XDocument.Parse(textFile.text).Root;
 
 			string currentRoom = null;
-			string playerCharacterId = null;
 			foreach (XElement node in root.Elements())
 				switch (node.Name.LocalName) {
-					case C.CHARACTER_TAG : {
-						string id = node.Attribute(C.CHARACTER_ATTRIBUTE_ID).Value.Trim();
-						string room = node.Element(C.CHARACTER_ROOM_TAG).Value.Trim();
-						float x = Parser.StringToFloat(node.Element(C.CHARACTER_X_TAG).Value.Trim());
-						float y = Parser.StringToFloat(node.Element(C.CHARACTER_Y_TAG).Value.Trim());
-						Character character = new Character(id, room, x, y);
-						
-						if (id.Equals(playerCharacterId))
-							CharacterManager.AddPlayerCharacter(character);
-						else
-							CharacterManager.AddCharacter(character);
-						break;
-					}
-					
 					case C.CURRENT_ROOM_TAG : {
 						currentRoom = node.Value.Trim();
 						break;
@@ -64,8 +49,23 @@ public static class GameManager {
 						break;
 					}
 					
-					case C.PLAYER_CHARACTER_ID_TAG : {
-						playerCharacterId = node.Value.Trim();
+					case C.NON_PLAYER_CHARACTER_TAG : {
+						string id = node.Attribute(C.NON_PLAYER_CHARACTER_ATTRIBUTE_ID).Value.Trim();
+						string room = node.Element(C.NON_PLAYER_CHARACTER_ROOM_TAG).Value.Trim();
+						float x = Parser.StringToFloat(node.Element(C.NON_PLAYER_CHARACTER_X_TAG).Value.Trim());
+						float y = Parser.StringToFloat(node.Element(C.NON_PLAYER_CHARACTER_Y_TAG).Value.Trim());
+						NonPlayerCharacter nonPlayerCharacter = new NonPlayerCharacter(id, room, x, y);
+						CharacterManager.AddNonPlayerCharacter(nonPlayerCharacter);
+						break;
+					}
+					
+					case C.PLAYER_CHARACTER_TAG : {
+						string id = node.Attribute(C.PLAYER_CHARACTER_ATTRIBUTE_ID).Value.Trim();
+						string room = node.Element(C.PLAYER_CHARACTER_ROOM_TAG).Value.Trim();
+						float x = Parser.StringToFloat(node.Element(C.PLAYER_CHARACTER_X_TAG).Value.Trim());
+						float y = Parser.StringToFloat(node.Element(C.PLAYER_CHARACTER_Y_TAG).Value.Trim());
+						PlayerCharacter playerCharacter = new PlayerCharacter(id, room, x, y);
+						CharacterManager.AddPlayerCharacter(playerCharacter);
 						break;
 					}
 				}

@@ -3,12 +3,10 @@
 //
 // Character - Utility class
 //
-// This class represents a character. Objects of this class are managed by the CharacterManager. A link with its game
-// object is created when the latter is instantiated.
+// This class represents a character. Objects of this class are managed by the CharacterManager.
 //
-public class Character {
-	
-	private GameObject gameObject;
+public abstract class Character {
+
 	private string id;
 	private string room;
 	private float x;
@@ -19,10 +17,6 @@ public class Character {
 		this.room = room;
 		this.x = x;
 		this.y = y;
-	}
-	
-	public GameObject GetGameObject() {
-		return gameObject;
 	}
 	
 	public string GetId() {
@@ -39,10 +33,6 @@ public class Character {
 	
 	public float GetY() {
 		return y;
-	}
-	
-	public void SetGameObject(GameObject gameObject) {
-		this.gameObject = gameObject;
 	}
 
 	public void SetX(float x) {

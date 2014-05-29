@@ -1,12 +1,11 @@
 <savegame>
 	<current-room>Laboratory</current-room>
-	<player-character-id>Scientist</player-character-id>
 	
-	<character id="Scientist">
+	<player-character id="Scientist">
 		<room>Laboratory</room>
 		<x>10</x>
 		<y>10</y>
-	</character>
+	</player-character>
 	
 	<inventory-item id="Goggles"></inventory-item>
 	

@@ -3,12 +3,12 @@
 //
 // Item - Utility class
 //
-// This class represents an item. Objects of this class are managed by the ItemManager. A link with its game object is
+// This class represents an item. Objects of this class are managed by the ItemManager. A link with its behaviour is
 // created when the latter is instantiated.
 //
 public class Item {
 
-	private GameObject gameObject;
+	private ItemBehaviour behaviour;
 	private string id;
 	private string room;
 	private float x;
@@ -21,8 +21,8 @@ public class Item {
 		this.y = y;
 	}
 
-	public GameObject GetGameObject() {
-		return gameObject;
+	public ItemBehaviour GetBehaviour() {
+		return behaviour;
 	}
 
 	public string GetId() {
@@ -41,8 +41,8 @@ public class Item {
 		return y;
 	}
 
-	public void SetGameObject(GameObject gameObject) {
-		this.gameObject = gameObject;
+	public void SetBehaviour(ItemBehaviour behaviour) {
+		this.behaviour = behaviour;
 	}
 
 }

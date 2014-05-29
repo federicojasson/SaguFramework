@@ -1,5 +1,7 @@
 ﻿public abstract class RoomTeleporter : InteractiveObject {
 
+	public string target;
+
 	public override void DoDefocus() {
 		base.DoDefocus();
 		OrderManager.ClearForcedOrder();
@@ -10,10 +12,8 @@
 		OrderManager.SetForcedOrder(C.ORDER_TELEPORT);
 	}
 
-	public virtual void DoTeleport() {
-		RoomManager.LoadRoom(GetTarget());
+	public override void DoTeleport() {
+		RoomManager.LoadRoom(target);
 	}
-
-	protected abstract string GetTarget();
 	
 }
