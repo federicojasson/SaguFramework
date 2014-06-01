@@ -30,13 +30,27 @@ public static class OrderManager {
 	}
 	
 	public static void ExecuteCurrentOrder() {
-		if (target == null) {
-			// There is no target
-		} else {
-			// There is a target
-		}
+		if (currentOrder == C.ORDER_WALK)
+			ActionManager.Walk(CoordinatesManager.GetCursorPosition());
 
-		// TODO: execute currentOrder on target (if it is not null, etc)
+		if (target != null)
+			// There is a target
+			switch (currentOrder) {
+				case C.ORDER_LOOK : {
+					target.DoLook();
+					break;
+				}
+				
+				case C.ORDER_TELEPORT : {
+					target.DoTeleport();
+					break;
+				}
+				
+				case C.ORDER_WALK : {
+					target.DoWalk();
+					break;
+				}
+			}
 	}
 
 	public static int GetCurrentOrder() {

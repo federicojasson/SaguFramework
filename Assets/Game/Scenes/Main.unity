@@ -109,6 +109,11 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: edde671f31aa5b44a83ca07f60f72956, type: 2}
+      propertyPath: scientist
+      value: 
+      objectReference: {fileID: 11400000, guid: 1b3816c14e705014fa8c854c3ca8de5a,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edde671f31aa5b44a83ca07f60f72956, type: 2}
   m_RootGameObject: {fileID: 1835326324}
@@ -223,6 +228,7 @@ GameObject:
   - 114: {fileID: 1314334409}
   - 114: {fileID: 1314334406}
   - 114: {fileID: 1314334410}
+  - 114: {fileID: 1314334411}
   m_Layer: 0
   m_Name: Loader
   m_TagString: Untagged
@@ -288,6 +294,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 508b5fc80a8fb1b4c89d9409e5466633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1314334411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1314334405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db22aac554c6974db68dd8702d2c05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1338686435
@@ -568,4 +585,4 @@ MonoBehaviour:
   cursorImagePause: {fileID: 2800000, guid: 9f7f74ed21fe3d94f9e9abe1689564fa, type: 3}
   erlenmeyer: {fileID: 11400000, guid: 85b4dcf1488066343945228dcb52c512, type: 2}
   inventoryErlenmeyer: {fileID: 0}
-  scientist: {fileID: 0}
+  scientist: {fileID: 11400000, guid: 1b3816c14e705014fa8c854c3ca8de5a, type: 2}

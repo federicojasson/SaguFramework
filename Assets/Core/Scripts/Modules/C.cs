@@ -10,10 +10,16 @@ public static class C {
 	public const int CHARACTER_ACTION_LOOK = 0;
 	public const int CHARACTER_ACTION_SAY = 1;
 	public const int CHARACTER_ACTION_WALK = 2;
+	public const string CHARACTER_CONTROLLER_FACING_LEFT = "FacingLeft";
+	public const string CHARACTER_CONTROLLER_IS_SAYING = "IsSaying";
+	public const string CHARACTER_CONTROLLER_IS_WALKING = "IsWalking";
 	public const string CONFIGURATION_ATTRIBUTE_ID = "id";
 	public const string CONFIGURATION_ID_LANGUAGE = "LANGUAGE";
+	public const string CONFIGURATION_ID_WALKING_SPEED = "WALKING_SPEED";
 	public const string CONFIGURATION_TAG = "configuration";
 	public const string CURRENT_ROOM_TAG = "current-room";
+	public const float DELTA_EQUAL = 0.001f;
+	public const float DELTA_WALK = 0.01f;
 	public const string FILE_PATH_CONFIGURATIONS = "Configurations";
 	public static string FILE_PATH_LANGUAGE_TEXTS(string id) {
 		return "Languages/" + id + "/Texts";

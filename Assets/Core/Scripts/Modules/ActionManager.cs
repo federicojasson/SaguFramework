@@ -38,5 +38,13 @@ public static class ActionManager {
 		// TODO: send actions somehow
 		playerCharacter.ExecuteActions(actions);*/
 	}
+
+	public static void Walk(Vector2 position) {
+		Queue<CharacterAction> actions = new Queue<CharacterAction>();
+		actions.Enqueue(new CharacterAction(C.CHARACTER_ACTION_LOOK, position));
+		actions.Enqueue(new CharacterAction(C.CHARACTER_ACTION_WALK, position));
+
+		CharacterManager.GetPlayerCharacter().GetBehaviour().ExecuteActions(actions);
+	}
 	
 }

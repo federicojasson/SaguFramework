@@ -11,7 +11,8 @@ public partial class CharacterBehaviour : InteractiveObject {
 	}
 
 	private IEnumerator ExecuteLookCoroutine(Vector2 position) {
-		// TODO
+		bool facingLeft = transform.position.x > position.x;
+		GetComponent<Animator>().SetBool(C.CHARACTER_CONTROLLER_FACING_LEFT, facingLeft);
 		
 		OnScheduledActionFinished();
 
@@ -41,7 +42,27 @@ public partial class CharacterBehaviour : InteractiveObject {
 	}
 	
 	private IEnumerator ExecuteWalkCoroutine(Vector2 position) {
-		// TODO
+		Animator animator = GetComponent<Animator>();
+		animator.SetBool(C.CHARACTER_CONTROLLER_IS_WALKING, true);
+
+		float walkingSpeed = Parser.StringToFloat(ConfigurationManager.GetConfiguration(C.CONFIGURATION_ID_WALKING_SPEED));
+		
+		float positionX = position.x;
+		float currentX = transform.position.x;
+
+		while (! CoordinatesManager.AreEqualX(currentX, positionX, C.DELTA_WALK)) {
+			rigidbody2D.velocity = new Vector2(Mathf.Sign(positionX - currentX) * walkingSpeed, 0);
+			yield return new WaitForFixedUpdate();
+			
+			float previousX = currentX;
+			currentX = transform.position.x;
+			
+			if (CoordinatesManager.AreEqualX(previousX, currentX, C.DELTA_EQUAL))
+				// The character stopped walking for some reason
+				break;
+		}
+
+		animator.SetBool(C.CHARACTER_CONTROLLER_IS_WALKING, false);
 		
 		OnScheduledActionFinished();
 		
