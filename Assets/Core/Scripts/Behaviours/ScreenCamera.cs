@@ -7,13 +7,12 @@
 // camera in all scenes.
 //
 public class ScreenCamera : MonoBehaviour {
-	
-	public void Awake() {
+
+	public void Update() {
 		float aspectRatio = Screen.width / (float) Screen.height;
-		float height = G.SCREEN_ASPECT_RATIO * G.SCREEN_HEIGHT / aspectRatio;
 
 		// The orthographic size is half of the vertical size of the viewing volume
-		camera.orthographicSize = (height / 2) / G.SCREEN_PIXELS_PER_UNIT;
+		camera.orthographicSize = (C.GAME_SCREEN_ASPECT_RATIO * C.GAME_SCREEN_VERTICAL_UNITS / 2) / aspectRatio;
 	}
 	
 }

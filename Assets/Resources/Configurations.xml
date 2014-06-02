@@ -1,4 +1,4 @@
 <configurations>
 	<configuration id="LANGUAGE">Spanish</configuration>
-	<configuration id="WALKING_SPEED">0.5</configuration>
+	<configuration id="WALKING_SPEED">0.003</configuration>
 </configurations>

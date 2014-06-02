@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d3c54545128ce684594a615694956c11
+guid: c6c5cb0d08421d44bb9dacff6773bc0c
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -49,9 +49,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 128
-        height: 256
+        y: 320
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistIdle_1
@@ -59,8 +59,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 256
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 

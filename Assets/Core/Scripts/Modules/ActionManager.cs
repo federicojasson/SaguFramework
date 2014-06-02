@@ -39,10 +39,10 @@ public static class ActionManager {
 		playerCharacter.ExecuteActions(actions);*/
 	}
 
-	public static void Walk(Vector2 position) {
+	public static void Walk(Vector2 gamePoint) {
 		Queue<CharacterAction> actions = new Queue<CharacterAction>();
-		actions.Enqueue(new CharacterAction(C.CHARACTER_ACTION_LOOK, position));
-		actions.Enqueue(new CharacterAction(C.CHARACTER_ACTION_WALK, position));
+		actions.Enqueue(new CharacterAction(C.CHARACTER_ACTION_LOOK, gamePoint));
+		actions.Enqueue(new CharacterAction(C.CHARACTER_ACTION_WALK, gamePoint));
 
 		CharacterManager.GetPlayerCharacter().GetBehaviour().ExecuteActions(actions);
 	}

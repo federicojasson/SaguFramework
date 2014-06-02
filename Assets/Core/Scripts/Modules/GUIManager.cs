@@ -16,21 +16,25 @@ public static class GUIManager {
 	}
 	
 	public static bool DrawButton(string text, float x, float y, float width, float height) {
-		// x and y are screen coordinates and indicate where the center of the button should be
+		// x and y are game coordinates and indicate where the center of the button should be
 		Rect rectangle = GetCenteredRectangle(x, y, width, height);
 		return GUI.Button(rectangle, text);
 	}
 
 	public static void DrawLabel(string text, float x, float y, float maxWidth) {
-		// x and y are screen coordinates and indicate where the left of the label should be
-		Rect rectangle = GUILayoutUtility.GetRect(new GUIContent(text), GUI.skin.label, GUILayout.MaxWidth(maxWidth));
-		rectangle.x += x;
-		rectangle.y += y;
+		// x and y are game coordinates and indicate where the left of the label should be
+
+		Vector2 screenPoint = CoordinatesManager.GameToScreenPoint(new Vector2(x, y));
+		Vector2 screenDimensions = CoordinatesManager.GameToScreenDimensions(new Vector2(maxWidth, 0));
+
+		Rect rectangle = GUILayoutUtility.GetRect(new GUIContent(text), GUI.skin.label, GUILayout.MaxWidth(screenDimensions.x));
+		rectangle.x += screenPoint.x;
+		rectangle.y += screenPoint.y;
 		GUI.Label(rectangle, text);
 	}
 
 	public static void DrawModalWindow(string title, float x, float y, float width, float height, GUI.WindowFunction function) {
-		// x and y are screen coordinates and indicate where the center of the modal window should be
+		// x and y are game coordinates and indicate where the center of the modal window should be
 		Rect rectangle = GetCenteredRectangle(x, y, width, height);
 		GUI.ModalWindow(0, rectangle, function, title);
 	}
@@ -61,11 +65,11 @@ public static class GUIManager {
 	}
 
 	public static void SetCursorImage(Texture2D image) {
-		// Calculates an offset to match the click position with the center of the image
-		Vector2 offset = new Vector2(image.width / 2, image.height / 2);
+		// Calculates an offset in pixels to match the click point with the center of the image
+		Vector2 offset = new Vector2(image.width / 2, image.height / 2); // TODO: should be converted with CoordinatesManager?
 
 		// Sets the cursor image
-		Cursor.SetCursor(image, offset, CursorMode.ForceSoftware);
+		Cursor.SetCursor(image, offset, CursorMode.Auto);
 	}
 	
 	public static void ShowDialog(Dialog dialog) {
@@ -92,8 +96,10 @@ public static class GUIManager {
 		// Applies an offset to the coordinates to center the rectangle
 		x -= width / 2;
 		y -= height / 2;
-		
-		return new Rect(x, y, width, height);
+
+		Vector2 screenPoint = CoordinatesManager.GameToScreenPoint(new Vector2(x, y));
+		Vector2 screenDimensions = CoordinatesManager.GameToScreenDimensions(new Vector2(width, height));;
+		return new Rect(screenPoint.x, screenPoint.y, screenDimensions.x, screenDimensions.y);
 	}
 
 }

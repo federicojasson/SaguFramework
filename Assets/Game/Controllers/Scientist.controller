@@ -458,6 +458,11 @@ StateMachine:
   - {x: 372, y: 12, z: 0}
   m_OrderedTransitions:
     data:
+      first: {fileID: 110200000}
+      second:
+      - {fileID: 110100000}
+      - {fileID: 110133583}
+    data:
       first: {fileID: 110285115}
       second:
       - {fileID: 110142255}
@@ -489,11 +494,6 @@ StateMachine:
       - {fileID: 110198706}
       - {fileID: 110134732}
       - {fileID: 110134746}
-    data:
-      first: {fileID: 110200000}
-      second:
-      - {fileID: 110100000}
-      - {fileID: 110133583}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 264, y: -120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

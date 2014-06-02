@@ -31,7 +31,7 @@ public static class OrderManager {
 	
 	public static void ExecuteCurrentOrder() {
 		if (currentOrder == C.ORDER_WALK)
-			ActionManager.Walk(CoordinatesManager.GetCursorPosition());
+			ActionManager.Walk(CoordinatesManager.ScreenToGamePoint(Input.mousePosition));
 
 		if (target != null)
 			// There is a target

@@ -18,13 +18,16 @@ public static class C {
 	public const string CONFIGURATION_ID_WALKING_SPEED = "WALKING_SPEED";
 	public const string CONFIGURATION_TAG = "configuration";
 	public const string CURRENT_ROOM_TAG = "current-room";
-	public const float DELTA_EQUAL = 0.001f;
+	public const float DELTA_EQUAL = 0.0005f;
 	public const float DELTA_WALK = 0.01f;
 	public const string FILE_PATH_CONFIGURATIONS = "Configurations";
 	public static string FILE_PATH_LANGUAGE_TEXTS(string id) {
 		return "Languages/" + id + "/Texts";
 	}
 	public const string FILE_PATH_NEW_GAME_STATE = "NewGameState";
+	public const float GAME_SCREEN_ASPECT_RATIO = 16f / 9f;
+	public const int GAME_SCREEN_PIXELS_PER_UNIT = 100;
+	public const int GAME_SCREEN_VERTICAL_UNITS = 9;
 	public const int INPUT_MANAGER_MODE_DISABLED = 0;
 	public const int INPUT_MANAGER_MODE_PAUSE = 1;
 	public const int INPUT_MANAGER_MODE_PLAY = 2;

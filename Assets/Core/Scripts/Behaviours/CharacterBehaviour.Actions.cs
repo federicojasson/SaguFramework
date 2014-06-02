@@ -5,13 +5,13 @@ public partial class CharacterBehaviour : InteractiveObject {
 
 	private void ExecuteLook(object[] parameters) {
 		// Parses the parameters
-		Vector2 position = (Vector2) parameters[0];
+		Vector2 gamePoint = (Vector2) parameters[0];
 
-		StartCoroutine("ExecuteLookCoroutine", position);
+		StartCoroutine("ExecuteLookCoroutine", gamePoint);
 	}
 
-	private IEnumerator ExecuteLookCoroutine(Vector2 position) {
-		bool facingLeft = transform.position.x > position.x;
+	private IEnumerator ExecuteLookCoroutine(Vector2 gamePoint) {
+		bool facingLeft = CoordinatesManager.WorldToGamePoint(transform.position).x > gamePoint.x;
 		GetComponent<Animator>().SetBool(C.CHARACTER_CONTROLLER_FACING_LEFT, facingLeft);
 		
 		OnScheduledActionFinished();
@@ -36,30 +36,31 @@ public partial class CharacterBehaviour : InteractiveObject {
 
 	private void ExecuteWalk(object[] parameters) {
 		// Parses the parameters
-		Vector2 position = (Vector2) parameters[0];
+		Vector2 gamePoint = (Vector2) parameters[0];
 
-		StartCoroutine("ExecuteWalkCoroutine", position);
+		StartCoroutine("ExecuteWalkCoroutine", gamePoint);
 	}
 	
-	private IEnumerator ExecuteWalkCoroutine(Vector2 position) {
+	private IEnumerator ExecuteWalkCoroutine(Vector2 gamePoint) {
 		Animator animator = GetComponent<Animator>();
 		animator.SetBool(C.CHARACTER_CONTROLLER_IS_WALKING, true);
 
 		float walkingSpeed = Parser.StringToFloat(ConfigurationManager.GetConfiguration(C.CONFIGURATION_ID_WALKING_SPEED));
 		
-		float positionX = position.x;
-		float currentX = transform.position.x;
+		float gamePointX = gamePoint.x;
+		float currentX = CoordinatesManager.WorldToGamePoint(transform.position).x;
 
-		while (! CoordinatesManager.AreEqualX(currentX, positionX, C.DELTA_WALK)) {
-			rigidbody2D.velocity = new Vector2(Mathf.Sign(positionX - currentX) * walkingSpeed, 0);
+		while ( Mathf.Abs(currentX - gamePointX) > C.DELTA_WALK) {
+			transform.position += (Vector3) CoordinatesManager.GameToWorldDimensions(new Vector2(Mathf.Sign(gamePointX - currentX) * walkingSpeed, 0));
 			yield return new WaitForFixedUpdate();
 			
 			float previousX = currentX;
-			currentX = transform.position.x;
-			
-			if (CoordinatesManager.AreEqualX(previousX, currentX, C.DELTA_EQUAL))
+			currentX = CoordinatesManager.WorldToGamePoint(transform.position).x;
+
+			if (Mathf.Abs(previousX - currentX) < C.DELTA_EQUAL) {
 				// The character stopped walking for some reason
 				break;
+			}
 		}
 
 		animator.SetBool(C.CHARACTER_CONTROLLER_IS_WALKING, false);

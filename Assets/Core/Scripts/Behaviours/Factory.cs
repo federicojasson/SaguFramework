@@ -25,7 +25,7 @@ public abstract class Factory : MonoBehaviour {
 		ItemBehaviour behaviour = (ItemBehaviour) Instantiate(model);
 
 		// Sets the behaviour's properties
-		behaviour.transform.position = new Vector2(item.GetX(), item.GetY());
+		behaviour.transform.position = CoordinatesManager.GameToWorldPoint(new Vector2(item.GetX(), item.GetY()));
 
 		return behaviour;
 	}
@@ -37,7 +37,7 @@ public abstract class Factory : MonoBehaviour {
 		NonPlayerCharacterBehaviour behaviour = (NonPlayerCharacterBehaviour) Instantiate(model);
 		
 		// Sets the behaviour's properties
-		behaviour.transform.position = new Vector2(nonPlayerCharacter.GetX(), nonPlayerCharacter.GetY());
+		behaviour.transform.position = CoordinatesManager.GameToWorldPoint(new Vector2(nonPlayerCharacter.GetX(), nonPlayerCharacter.GetY()));
 		
 		return behaviour;
 	}
@@ -49,7 +49,7 @@ public abstract class Factory : MonoBehaviour {
 		PlayerCharacterBehaviour behaviour = (PlayerCharacterBehaviour) Instantiate(model);
 		
 		// Sets the behaviour's properties
-		behaviour.transform.position = new Vector2(playerCharacter.GetX(), playerCharacter.GetY());
+		behaviour.transform.position = CoordinatesManager.GameToWorldPoint(new Vector2(playerCharacter.GetX(), playerCharacter.GetY()));
 		
 		return behaviour;
 	}

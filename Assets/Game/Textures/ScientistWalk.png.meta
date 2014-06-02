@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 71edacfeab3d1db4f86935c356174500
+guid: c6fbaa63a0f309149aa7f6fc2aada58f
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -49,90 +49,90 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 128
-        height: 256
+        y: 320
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 256
+        x: 160
+        y: 320
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 256
+        x: 320
+        y: 320
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 256
+        x: 480
+        y: 320
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_4
       rect:
         serializedVersion: 2
-        x: 512
-        y: 256
-        width: 128
-        height: 256
+        x: 640
+        y: 320
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_5
       rect:
         serializedVersion: 2
-        x: 640
-        y: 256
-        width: 128
-        height: 256
+        x: 800
+        y: 320
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_6
       rect:
         serializedVersion: 2
-        x: 768
-        y: 256
-        width: 128
-        height: 256
+        x: 960
+        y: 320
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_7
       rect:
         serializedVersion: 2
-        x: 896
-        y: 256
-        width: 128
-        height: 256
+        x: 1120
+        y: 320
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_8
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 256
-        width: 128
-        height: 256
+        x: 1280
+        y: 320
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_9
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 256
-        width: 128
-        height: 256
+        x: 1440
+        y: 320
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_10
@@ -140,89 +140,89 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 256
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_11
       rect:
         serializedVersion: 2
-        x: 128
+        x: 160
         y: 0
-        width: 128
-        height: 256
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_12
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 0
-        width: 128
-        height: 256
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_13
       rect:
         serializedVersion: 2
-        x: 384
+        x: 480
         y: 0
-        width: 128
-        height: 256
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_14
       rect:
         serializedVersion: 2
-        x: 512
+        x: 640
         y: 0
-        width: 128
-        height: 256
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_15
       rect:
         serializedVersion: 2
-        x: 640
+        x: 800
         y: 0
-        width: 128
-        height: 256
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_16
       rect:
         serializedVersion: 2
-        x: 768
+        x: 960
         y: 0
-        width: 128
-        height: 256
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_17
       rect:
         serializedVersion: 2
-        x: 896
+        x: 1120
         y: 0
-        width: 128
-        height: 256
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_18
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 1280
         y: 0
-        width: 128
-        height: 256
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistWalk_19
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 1440
         y: 0
-        width: 128
-        height: 256
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 

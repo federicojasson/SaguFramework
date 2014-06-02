@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-//
+﻿//
 // PauseMenu - Behaviour class
 //
 // This class implements the pause menu. It shows up everytime the user pauses the game.
@@ -13,11 +11,11 @@ public class PauseMenu : Menu {
 
 	public void OnGUI() {
 		string resumeButtonText = LanguageManager.GetText(G.TEXT_ID_PAUSE_MENU_RESUME_BUTTON);
-		if (GUIManager.DrawButton(resumeButtonText, 0.5f * Screen.width, 0.2f * Screen.height, G.MENU_BUTTON_WIDTH, G.MENU_BUTTON_HEIGHT))
+		if (GUIManager.DrawButton(resumeButtonText, 0.5f, 0.2f, G.MENU_BUTTON_WIDTH, G.MENU_BUTTON_HEIGHT))
 			OnResumeButtonActuated();
 
 		string quitButtonText = LanguageManager.GetText(G.TEXT_ID_PAUSE_MENU_QUIT_BUTTON);
-		if (GUIManager.DrawButton(quitButtonText, 0.5f * Screen.width, 0.8f * Screen.height, G.MENU_BUTTON_WIDTH, G.MENU_BUTTON_HEIGHT))
+		if (GUIManager.DrawButton(quitButtonText, 0.5f, 0.8f, G.MENU_BUTTON_WIDTH, G.MENU_BUTTON_HEIGHT))
 			OnQuitButtonActuated();
 	}
 	
