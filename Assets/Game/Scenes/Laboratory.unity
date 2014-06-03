@@ -439,6 +439,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 21300000, guid: 3ac399a537082c74b88902a9c4f5586d, type: 3}
+  fadeInSpeed: .200000003
+  fadeOutSpeed: .300000012
+  fadeTexture: {fileID: 2800000, guid: 9e811bfaa070f804f820cb86b8bed487, type: 3}
   splashScreens:
   - {fileID: 21300000, guid: e24f3c7e7d6c3a0469d5994d825b4366, type: 3}
   - {fileID: 21300000, guid: c31e597806213594b8bc64aec5a9e483, type: 3}

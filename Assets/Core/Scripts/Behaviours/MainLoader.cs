@@ -23,6 +23,8 @@ public class MainLoader : MonoBehaviour {
 	}
 
 	private IEnumerator LoadCoroutine() {
+		float beginTime = Time.time;
+
 		// Loads the configurations and the language
 		ConfigurationManager.LoadConfigurations();
 		LanguageManager.LoadLanguage(ConfigurationManager.GetConfiguration(C.CONFIGURATION_ID_LANGUAGE));
@@ -31,10 +33,17 @@ public class MainLoader : MonoBehaviour {
 		float volume = Parser.StringToFloat(ConfigurationManager.GetConfiguration(C.CONFIGURATION_ID_VOLUME));
 		AudioManager.SetVolume(volume);
 
-		yield return new WaitForSeconds(1); // TODO: debugging
+		float endTime = Time.time;
+		float loadTime = endTime - beginTime;
+		float minimumLoadTime = 2; // TODO: set somehow else
+
+		if (loadTime < minimumLoadTime)
+			yield return new WaitForSeconds(minimumLoadTime - loadTime);
 
 		// Shows the background
 		curtain.ShowBackground();
+
+		// TODO: block somehow until fade out completed?
 
 		// Shows the main menu
 		GUIManager.ShowMenu(mainMenu);

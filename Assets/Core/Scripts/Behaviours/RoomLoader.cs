@@ -27,6 +27,8 @@ public class RoomLoader : MonoBehaviour {
 	}
 
 	private IEnumerator LoadCoroutine() {
+		float beginTime = Time.time;
+
 		// Creates the room characters and items
 		string currentRoom = RoomManager.GetCurrentRoom();
 		CharacterManager.CreateRoomCharacters(currentRoom);
@@ -35,10 +37,17 @@ public class RoomLoader : MonoBehaviour {
 		// Sets the pause menu
 		GameManager.SetPauseMenu(pauseMenu);
 
-		yield return new WaitForSeconds(1); // TODO: debugging
+		float endTime = Time.time;
+		float loadTime = endTime - beginTime;
+		float minimumLoadTime = 2; // TODO: set somehow else
+		
+		if (loadTime < minimumLoadTime)
+			yield return new WaitForSeconds(minimumLoadTime - loadTime);
 
 		// Shows the background
 		curtain.ShowBackground();
+
+		// TODO: block somehow until fade out completed?
 
 		// Sets the input manager play mode
 		InputManager.SetMode(C.INPUT_MANAGER_MODE_PLAY);
