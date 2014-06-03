@@ -4,13 +4,13 @@ using UnityEngine;
 public partial class CharacterBehaviour : InteractiveObject {
 
 	private void ExecuteLook(object[] parameters) {
+		StartCoroutine("ExecuteLookCoroutine", parameters);
+	}
+
+	private IEnumerator ExecuteLookCoroutine(object[] parameters) {
 		// Parses the parameters
 		Vector2 gamePoint = (Vector2) parameters[0];
 
-		StartCoroutine("ExecuteLookCoroutine", gamePoint);
-	}
-
-	private IEnumerator ExecuteLookCoroutine(Vector2 gamePoint) {
 		bool facingLeft = CoordinatesManager.WorldToGamePoint(transform.position).x > gamePoint.x;
 		GetComponent<Animator>().SetBool(C.CHARACTER_CONTROLLER_FACING_LEFT, facingLeft);
 		
@@ -20,28 +20,36 @@ public partial class CharacterBehaviour : InteractiveObject {
 	}
 
 	private void ExecuteSay(object[] parameters) {
-		// Parses the parameters
-		string text = (string) parameters[0];
-
-		StartCoroutine("ExecuteSayCoroutine", text);
+		StartCoroutine("ExecuteSayCoroutine", parameters);
 	}
 
-	private IEnumerator ExecuteSayCoroutine(string text) {
-		// TODO
-		
+	public IEnumerator ExecuteSayCoroutine(object[] parameters) {
+		// Parses the parameters
+		string text = (string) parameters[0]; // TODO: use text somehow
+		AudioClip audio = (AudioClip) parameters[1];
+
+		Animator animator = GetComponent<Animator>();
+		animator.SetBool(C.CHARACTER_CONTROLLER_IS_SAYING, true);
+
+		AudioManager.PlayAudio(audio);
+		yield return new WaitForSeconds(AudioManager.GetAudioLength(audio));
+		AudioManager.StopAudio(audio);
+
+		animator.SetBool(C.CHARACTER_CONTROLLER_IS_SAYING, false);
+
 		OnScheduledActionFinished();
 		
 		yield break;
 	}
 
 	private void ExecuteWalk(object[] parameters) {
+		StartCoroutine("ExecuteWalkCoroutine", parameters);
+	}
+	
+	public IEnumerator ExecuteWalkCoroutine(object[] parameters) {
 		// Parses the parameters
 		Vector2 gamePoint = (Vector2) parameters[0];
 
-		StartCoroutine("ExecuteWalkCoroutine", gamePoint);
-	}
-	
-	private IEnumerator ExecuteWalkCoroutine(Vector2 gamePoint) {
 		Animator animator = GetComponent<Animator>();
 		animator.SetBool(C.CHARACTER_CONTROLLER_IS_WALKING, true);
 

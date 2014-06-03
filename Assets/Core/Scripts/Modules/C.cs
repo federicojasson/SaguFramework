@@ -7,6 +7,8 @@
 //
 public static class C {
 
+	public const string AUDIO_ATTRIBUTE_ID = "id";
+	public const string AUDIO_TAG = "audio";
 	public const int CHARACTER_ACTION_LOOK = 0;
 	public const int CHARACTER_ACTION_SAY = 1;
 	public const int CHARACTER_ACTION_WALK = 2;
@@ -21,6 +23,12 @@ public static class C {
 	public const float DELTA_EQUAL = 0.0005f;
 	public const float DELTA_WALK = 0.01f;
 	public const string FILE_PATH_CONFIGURATIONS = "Configurations";
+	public static string FILE_PATH_LANGUAGE_AUDIO(string id, string relativePath) {
+		return "Languages/" + id + "/" + relativePath;
+	}
+	public static string FILE_PATH_LANGUAGE_AUDIOS(string id) {
+		return "Languages/" + id + "/Audios";
+	}
 	public static string FILE_PATH_LANGUAGE_TEXTS(string id) {
 		return "Languages/" + id + "/Texts";
 	}
@@ -38,6 +46,7 @@ public static class C {
 	public const string ITEM_TAG = "item";
 	public const string ITEM_X_TAG = "x";
 	public const string ITEM_Y_TAG = "y";
+	public const float LOOK_DISTANCE = 0.1f;
 	public const string NON_PLAYER_CHARACTER_ATTRIBUTE_ID = "id";
 	public const string NON_PLAYER_CHARACTER_ROOM_TAG = "room";
 	public const string NON_PLAYER_CHARACTER_TAG = "non-player-character";

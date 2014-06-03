@@ -10,6 +10,7 @@ public static class G {
 	public const string CHARACTER_ID_SCIENTIST = "SCIENTIST";
 	public const float DIALOG_BUTTON_HEIGHT = 0.1f;
 	public const float DIALOG_BUTTON_WIDTH = 0.2f;
+	public const string ERLENMEYER_ON_LOOK = "ERLENMEYER_ON_LOOK";
 	public const string INVENTORY_ITEM_ID_ERLENMEYER = "ERLENMEYER";
 	public const string ITEM_ID_ERLENMEYER = "ERLENMEYER";
 	public const float MENU_BUTTON_HEIGHT = 0.1f;
