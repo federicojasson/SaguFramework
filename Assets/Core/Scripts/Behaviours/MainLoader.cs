@@ -27,6 +27,10 @@ public class MainLoader : MonoBehaviour {
 		ConfigurationManager.LoadConfigurations();
 		LanguageManager.LoadLanguage(ConfigurationManager.GetConfiguration(C.CONFIGURATION_ID_LANGUAGE));
 
+		// Sets the game audio volume
+		float volume = Parser.StringToFloat(ConfigurationManager.GetConfiguration(C.CONFIGURATION_ID_VOLUME));
+		AudioManager.SetVolume(volume);
+
 		yield return new WaitForSeconds(1); // TODO: debugging
 
 		// Shows the background

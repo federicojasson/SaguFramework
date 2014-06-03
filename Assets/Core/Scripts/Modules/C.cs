@@ -17,6 +17,7 @@ public static class C {
 	public const string CHARACTER_CONTROLLER_IS_WALKING = "IsWalking";
 	public const string CONFIGURATION_ATTRIBUTE_ID = "id";
 	public const string CONFIGURATION_ID_LANGUAGE = "LANGUAGE";
+	public const string CONFIGURATION_ID_VOLUME = "VOLUME";
 	public const string CONFIGURATION_ID_WALKING_SPEED = "WALKING_SPEED";
 	public const string CONFIGURATION_TAG = "configuration";
 	public const string CURRENT_ROOM_TAG = "current-room";

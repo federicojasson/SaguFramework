@@ -1,2 +1,2 @@
-﻿public class InventoryItemBehaviour : InteractiveObject {
+﻿public abstract class InventoryItemBehaviour : InteractiveObject {
 }

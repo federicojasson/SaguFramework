@@ -11,7 +11,7 @@ public static partial class InputManager {
 
 	private static void SetModeDisabled() {
 		Texture2D cursorImage = Factory.GetCursorImageDisabledStatic();
-		InputManager.SetCursorImage(cursorImage);
+		GUIManager.SetCursorImage(cursorImage);
 	}
 
 }

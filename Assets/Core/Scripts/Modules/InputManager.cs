@@ -53,9 +53,4 @@ public static partial class InputManager {
 		}
 	}
 
-	private static void SetCursorImage(Texture2D cursorImage) {
-		// TODO: maybe unnecessary method
-		GUIManager.SetCursorImage(cursorImage);
-	}
-
 }

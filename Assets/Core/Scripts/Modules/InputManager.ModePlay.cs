@@ -70,7 +70,7 @@ public static partial class InputManager {
 			}
 		}
 
-		InputManager.SetCursorImage(cursorImage);
+		GUIManager.SetCursorImage(cursorImage);
 	}
 
 }
