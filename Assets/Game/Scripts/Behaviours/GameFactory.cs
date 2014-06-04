@@ -9,12 +9,7 @@
 // TODO: decide what to do in case of error
 //
 public class GameFactory : Factory {
-
-	public Texture2D cursorImageDisabled;
-	public Texture2D cursorImageOrderLook;
-	public Texture2D cursorImageOrderTeleport;
-	public Texture2D cursorImageOrderWalk;
-	public Texture2D cursorImagePause;
+	
 	public ItemBehaviour erlenmeyer;
 	public InventoryItemBehaviour inventoryErlenmeyer;
 	public PlayerCharacterBehaviour scientist;
@@ -44,26 +39,6 @@ public class GameFactory : Factory {
 			case G.CHARACTER_ID_SCIENTIST : return scientist;
 			default : return null; // TODO: terminate?
 		}
-	}
-
-	protected override Texture2D GetCursorImageDisabled() {
-		return cursorImageDisabled;
-	}
-	
-	protected override Texture2D GetCursorImageOrderLook() {
-		return cursorImageOrderLook;
-	}
-	
-	protected override Texture2D GetCursorImageOrderTeleport() {
-		return cursorImageOrderTeleport;
-	}
-	
-	protected override Texture2D GetCursorImageOrderWalk() {
-		return cursorImageOrderWalk;
-	}
-	
-	protected override Texture2D GetCursorImagePause() {
-		return cursorImagePause;
 	}
 	
 }

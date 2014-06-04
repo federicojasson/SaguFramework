@@ -1,4 +1,6 @@
-﻿//
+﻿using UnityEngine;
+
+//
 // C - Module class
 //
 // This class defines framework constants. All constants and constant-dependent methods are defined here and only here.
@@ -53,6 +55,7 @@ public static class C {
 	public const string NON_PLAYER_CHARACTER_TAG = "non-player-character";
 	public const string NON_PLAYER_CHARACTER_X_TAG = "x";
 	public const string NON_PLAYER_CHARACTER_Y_TAG = "y";
+	public static Vector2 OFFSET_CURSOR_LABEL = new Vector2(0, - 0.053f);
 	public const int ORDER_LOOK = 0;
 	public const int ORDER_TELEPORT = 1;
 	public const int ORDER_WALK = 2;

@@ -15,4 +15,8 @@ public class Erlenmeyer : ItemBehaviour {
 		onLookText = LanguageManager.GetText(G.ERLENMEYER_ON_LOOK);
 	}
 
+	protected override string GetLabelText() {
+		return LanguageManager.GetText(G.ERLENMEYER_LABEL);
+	}
+
 }

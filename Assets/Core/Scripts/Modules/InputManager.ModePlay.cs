@@ -55,17 +55,17 @@ public static partial class InputManager {
 		
 		switch (order) {
 			case C.ORDER_LOOK : {
-				cursorImage = Factory.GetCursorImageOrderLookStatic();
+				cursorImage = Factory.GetCursorImageOrderLook();
 				break;
 			}
 				
 			case C.ORDER_TELEPORT : {
-				cursorImage = Factory.GetCursorImageOrderTeleportStatic();
+				cursorImage = Factory.GetCursorImageOrderTeleport();
 				break;
 			}
 				
 			case C.ORDER_WALK : {
-				cursorImage = Factory.GetCursorImageOrderWalkStatic();
+				cursorImage = Factory.GetCursorImageOrderWalk();
 				break;
 			}
 		}

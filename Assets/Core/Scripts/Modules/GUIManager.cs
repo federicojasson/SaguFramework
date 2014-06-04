@@ -14,11 +14,26 @@ public static class GUIManager {
 	static GUIManager() {
 		menus = new Stack<Menu>();
 	}
+
+	public static void ClearCursorLabel() {
+		Factory.GetCursorLabel().enabled = false;
+	}
 	
 	public static bool DrawButton(string text, float x, float y, float width, float height) {
 		// x and y are game coordinates and indicate where the center of the button should be
 		Rect rectangle = GetCenteredRectangle(x, y, width, height);
 		return GUI.Button(rectangle, text);
+	}
+
+	public static void DrawCursorLabel(string text, float x, float y) {
+		// x and y are game coordinates and indicate where the labeled object is
+
+		Vector2 screenPoint = CoordinatesManager.GameToScreenPoint(new Vector2(x, y) + C.OFFSET_CURSOR_LABEL);
+
+		Rect rectangle = GUILayoutUtility.GetRect(new GUIContent(text), GUI.skin.label);
+		rectangle.x = screenPoint.x - rectangle.width / 2;
+		rectangle.y = Screen.height - screenPoint.y - rectangle.height / 2; // Label's positions start at the top-left corner
+		GUI.Label(rectangle, text);
 	}
 
 	public static void DrawLabel(string text, float x, float y, float maxWidth) {
@@ -28,8 +43,8 @@ public static class GUIManager {
 		Vector2 screenDimensions = CoordinatesManager.GameToScreenDimensions(new Vector2(maxWidth, 0));
 
 		Rect rectangle = GUILayoutUtility.GetRect(new GUIContent(text), GUI.skin.label, GUILayout.MaxWidth(screenDimensions.x));
-		rectangle.x += screenPoint.x;
-		rectangle.y += screenPoint.y;
+		rectangle.x = screenPoint.x;
+		rectangle.y = Screen.height - screenPoint.y; // Label's positions start at the top-left corner
 		GUI.Label(rectangle, text);
 	}
 
@@ -70,6 +85,14 @@ public static class GUIManager {
 
 		// Sets the cursor image
 		Cursor.SetCursor(image, offset, CursorMode.Auto);
+	}
+
+	public static void SetCursorLabel(string text) {
+		CursorLabel cursorLabel = Factory.GetCursorLabel();
+
+		// Enables the cursor label and sets its text
+		cursorLabel.enabled = true;
+		cursorLabel.SetText(text);
 	}
 	
 	public static void ShowDialog(Dialog dialog) {

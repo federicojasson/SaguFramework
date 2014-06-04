@@ -2,14 +2,14 @@
 
 	public override void DoDefocus() {
 		base.DoDefocus();
-		//GUIManager.SetCursorLabel(GetLabelText());
+		GUIManager.ClearCursorLabel();
 	}
 
 	public override void DoFocus() {
 		base.DoFocus();
-		//GUIManager.ClearCursorLabel();
+		GUIManager.SetCursorLabel(GetLabelText());
 	}
 
-	//protected abstract string GetLabelText();
+	protected abstract string GetLabelText();
 
 }

@@ -30,7 +30,7 @@ public class QuitDialog : Dialog {
 	protected override void OnGUIDialog(int id) {
 		string labelText = LanguageManager.GetText(G.TEXT_ID_QUIT_DIALOG_LABEL);
 		float horizontalPadding = (GetWidth() - 2 * G.DIALOG_BUTTON_WIDTH) / 3;
-		GUIManager.DrawLabel(labelText, horizontalPadding, G.QUIT_DIALOG_PADDING_VERTICAL, GetWidth() - 2 * horizontalPadding);
+		GUIManager.DrawLabel(labelText, horizontalPadding, 1 - G.QUIT_DIALOG_PADDING_VERTICAL, GetWidth() - 2 * horizontalPadding);
 
 		string confirmButtonText = LanguageManager.GetText(G.TEXT_ID_QUIT_DIALOG_CONFIRMATION_BUTTON);
 		if (GUIManager.DrawButton(confirmButtonText, (2 * GetWidth() - G.DIALOG_BUTTON_WIDTH) / 6, 0.75f * GetHeight(), G.DIALOG_BUTTON_WIDTH, G.DIALOG_BUTTON_HEIGHT))

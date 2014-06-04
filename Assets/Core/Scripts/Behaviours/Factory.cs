@@ -7,6 +7,12 @@
 //
 public abstract class Factory : MonoBehaviour {
 
+	public Texture2D cursorImageDisabled;
+	public Texture2D cursorImageOrderLook;
+	public Texture2D cursorImageOrderTeleport;
+	public Texture2D cursorImageOrderWalk;
+	public Texture2D cursorImagePause;
+	public CursorLabel cursorLabel;
 	private static Factory instance; // Singleton
 
 	public static InventoryItemBehaviour CreateInventoryItem(InventoryItem inventoryItem) {
@@ -54,24 +60,28 @@ public abstract class Factory : MonoBehaviour {
 		return behaviour;
 	}
 
-	public static Texture2D GetCursorImageDisabledStatic() {
-		return Factory.instance.GetCursorImageDisabled();
+	public static Texture2D GetCursorImageDisabled() {
+		return Factory.instance.cursorImageDisabled;
 	}
 
-	public static Texture2D GetCursorImageOrderLookStatic() {
-		return Factory.instance.GetCursorImageOrderLook();
+	public static Texture2D GetCursorImageOrderLook() {
+		return Factory.instance.cursorImageOrderLook;
 	}
 	
-	public static Texture2D GetCursorImageOrderTeleportStatic() {
-		return Factory.instance.GetCursorImageOrderTeleport();
+	public static Texture2D GetCursorImageOrderTeleport() {
+		return Factory.instance.cursorImageOrderTeleport;
 	}
 	
-	public static Texture2D GetCursorImageOrderWalkStatic() {
-		return Factory.instance.GetCursorImageOrderWalk();
+	public static Texture2D GetCursorImageOrderWalk() {
+		return Factory.instance.cursorImageOrderWalk;
 	}
 
-	public static Texture2D GetCursorImagePauseStatic() {
-		return Factory.instance.GetCursorImagePause();
+	public static Texture2D GetCursorImagePause() {
+		return Factory.instance.cursorImagePause;
+	}
+
+	public static CursorLabel GetCursorLabel() {
+		return Factory.instance.cursorLabel;
 	}
 
 	public void Awake() {
@@ -89,15 +99,5 @@ public abstract class Factory : MonoBehaviour {
 	protected abstract NonPlayerCharacterBehaviour GetNonPlayerCharacterModel(string id);
 
 	protected abstract PlayerCharacterBehaviour GetPlayerCharacterModel(string id);
-
-	protected abstract Texture2D GetCursorImageDisabled();
-	
-	protected abstract Texture2D GetCursorImageOrderLook();
-
-	protected abstract Texture2D GetCursorImageOrderTeleport();
-
-	protected abstract Texture2D GetCursorImageOrderWalk();
-
-	protected abstract Texture2D GetCursorImagePause();
 	
 }

@@ -18,7 +18,7 @@ public static partial class InputManager {
 	}
 
 	private static void SetModePause() {
-		Texture2D cursorImage = Factory.GetCursorImagePauseStatic();
+		Texture2D cursorImage = Factory.GetCursorImagePause();
 		GUIManager.SetCursorImage(cursorImage);
 	}
 
