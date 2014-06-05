@@ -35,7 +35,7 @@ public class MainLoader : MonoBehaviour {
 
 		float endTime = Time.time;
 		float loadTime = endTime - beginTime;
-		float minimumLoadTime = 2; // TODO: set somehow else
+		float minimumLoadTime = 0.1f; // TODO: set somehow else
 
 		if (loadTime < minimumLoadTime)
 			yield return new WaitForSeconds(minimumLoadTime - loadTime);

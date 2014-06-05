@@ -13,6 +13,7 @@ public abstract class Factory : MonoBehaviour {
 	public Texture2D cursorImageOrderWalk;
 	public Texture2D cursorImagePause;
 	public CursorLabel cursorLabel;
+	public GUISkin skin;
 	private static Factory instance; // Singleton
 
 	public static InventoryItemBehaviour CreateInventoryItem(InventoryItem inventoryItem) {
@@ -82,6 +83,10 @@ public abstract class Factory : MonoBehaviour {
 
 	public static CursorLabel GetCursorLabel() {
 		return Factory.instance.cursorLabel;
+	}
+
+	public static GUISkin GetSkin() {
+		return Factory.instance.skin;
 	}
 
 	public void Awake() {

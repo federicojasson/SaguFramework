@@ -30,10 +30,12 @@ public static class GUIManager {
 
 		Vector2 screenPoint = CoordinatesManager.GameToScreenPoint(new Vector2(x, y) + C.OFFSET_CURSOR_LABEL);
 
-		Rect rectangle = GUILayoutUtility.GetRect(new GUIContent(text), GUI.skin.label);
+		GUIStyle cursorLabelStyle = Factory.GetSkin().GetStyle(C.SKIN_STYLE_CURSOR_LABEL);
+		Rect rectangle = GUILayoutUtility.GetRect(new GUIContent(text), cursorLabelStyle);
 		rectangle.x = screenPoint.x - rectangle.width / 2;
 		rectangle.y = Screen.height - screenPoint.y - rectangle.height / 2; // Label's positions start at the top-left corner
-		GUI.Label(rectangle, text);
+
+		GUI.Label(rectangle, text, cursorLabelStyle);
 	}
 
 	public static void DrawLabel(string text, float x, float y, float maxWidth) {

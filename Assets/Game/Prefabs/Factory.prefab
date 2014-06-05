@@ -47,6 +47,7 @@ MonoBehaviour:
     type: 3}
   cursorImagePause: {fileID: 2800000, guid: 9f7f74ed21fe3d94f9e9abe1689564fa, type: 3}
   cursorLabel: {fileID: 0}
+  skin: {fileID: 11400000, guid: 71f5e5f63921fde42aab8ccfba8b599a, type: 2}
   erlenmeyer: {fileID: 11400000, guid: 85b4dcf1488066343945228dcb52c512, type: 2}
   inventoryErlenmeyer: {fileID: 0}
   scientist: {fileID: 11400000, guid: 1b3816c14e705014fa8c854c3ca8de5a, type: 2}

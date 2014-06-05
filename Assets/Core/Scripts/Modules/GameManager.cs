@@ -79,6 +79,9 @@ public static class GameManager {
 	}
 
 	public static void PauseGame() {
+		// Stops the time flow
+		Time.timeScale = 0;
+
 		// Sets the input manager pause mode
 		InputManager.SetMode(C.INPUT_MANAGER_MODE_PAUSE);
 
@@ -96,6 +99,9 @@ public static class GameManager {
 		
 		// Sets the input manager play mode
 		InputManager.SetMode(C.INPUT_MANAGER_MODE_PLAY);
+
+		// Restarts the time flow
+		Time.timeScale = 1;
 	}
 	
 	public static void SaveGame() {

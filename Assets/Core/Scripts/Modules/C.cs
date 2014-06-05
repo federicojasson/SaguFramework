@@ -68,6 +68,7 @@ public static class C {
 		ORDER_WALK,
 		ORDER_LOOK
 	};
+	public const string SKIN_STYLE_CURSOR_LABEL = "CursorLabel";
 	public const string SORTING_LAYER_BACKGROUND = "Background";
 	public const string SORTING_LAYER_SPLASH_SCREEN = "SplashScreen";
 	public const string TEXT_ATTRIBUTE_ID = "id";
