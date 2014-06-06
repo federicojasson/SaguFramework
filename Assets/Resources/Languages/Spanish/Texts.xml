@@ -1,6 +1,7 @@
 <texts>
 	<text id="ERLENMEYER_LABEL">Erlenmeyer</text>
 	<text id="ERLENMEYER_ON_LOOK">Es un Erlenmeyer</text>
+	<text id="LABORATORY_TO_MAP_TELEPORTER_LABEL">Salir del laboratorio</text>
 	<text id="MAIN_MENU_LOAD_GAME_BUTTON">Cargar partida</text>
 	<text id="MAIN_MENU_NEW_GAME_BUTTON">Nueva partida</text>
 	<text id="MAIN_MENU_OPTIONS_BUTTON">Opciones</text>

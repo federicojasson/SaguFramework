@@ -63,26 +63,32 @@ public class Curtain : MonoBehaviour {
 		object[] parameters = new object[] { sprite, sortingLayer };
 		StartCoroutine("SetSpriteCoroutine", parameters);
 	}
-	
+
 	private IEnumerator SetSpriteCoroutine(object[] parameters) {
 		Sprite sprite = (Sprite) parameters[0];
 		string sortingLayer = (string) parameters[1];
 
-		// Fade out
-		fadeOut = true;
-		while (alpha < 1)
-			yield return null;
-		fadeOut = false;
-
+		yield return StartCoroutine("FadeOut");
+		
 		SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 		spriteRenderer.sprite = sprite;
 		spriteRenderer.sortingLayerName = sortingLayer;
+		
+		yield return StartCoroutine("FadeIn");
+	}
 
-		// Fade in
+	private IEnumerator FadeIn() {
 		fadeIn = true;
 		while (alpha > 0)
 			yield return null;
 		fadeIn = false;
+	}
+	
+	private IEnumerator FadeOut() {
+		fadeOut = true;
+		while (alpha < 1)
+			yield return null;
+		fadeOut = false;
 	}
 
 }

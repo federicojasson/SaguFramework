@@ -82,6 +82,9 @@ public static class GameManager {
 		// Stops the time flow
 		Time.timeScale = 0;
 
+		// Stops any audio currently playing
+		AudioManager.Pause();
+
 		// Sets the input manager pause mode
 		InputManager.SetMode(C.INPUT_MANAGER_MODE_PAUSE);
 
@@ -99,6 +102,9 @@ public static class GameManager {
 		
 		// Sets the input manager play mode
 		InputManager.SetMode(C.INPUT_MANAGER_MODE_PLAY);
+
+		// Resumes any audio currently playing
+		AudioManager.Resume();
 
 		// Restarts the time flow
 		Time.timeScale = 1;
