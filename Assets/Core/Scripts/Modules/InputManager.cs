@@ -1,56 +1,13 @@
-﻿using UnityEngine;
+﻿public static class InputManager {
 
-//
-// InputManager - Module class
-//
-// TODO: write class description
-//
-public static partial class InputManager {
-
-	private static int mode;
-	
-	static InputManager() {
-		mode = C.INPUT_MANAGER_MODE_DISABLED;
-	}
+	private static InputManagerBehaviour behaviour;
 
 	public static void CheckInput() {
-		switch (mode) {
-			case C.INPUT_MANAGER_MODE_DISABLED : {
-				CheckInputModeDisabled();
-				break;
-			}
-			
-			case C.INPUT_MANAGER_MODE_PAUSE : {
-				CheckInputModePause();
-				break;
-			}
-			
-			case C.INPUT_MANAGER_MODE_PLAY : {
-				CheckInputModePlay();
-				break;
-			}
-		}
+		// TODO: check mouse and keyboard input
 	}
-	
-	public static void SetMode(int mode) {
-		InputManager.mode = mode;
 
-		switch (mode) {
-			case C.INPUT_MANAGER_MODE_DISABLED : {
-				SetModeDisabled();
-				break;
-			}
-			
-			case C.INPUT_MANAGER_MODE_PAUSE : {
-				SetModePause();
-				break;
-			}
-			
-			case C.INPUT_MANAGER_MODE_PLAY : {
-				SetModePlay();
-				break;
-			}
-		}
+	public static void SetBehaviour(InputManagerBehaviour behaviour) {
+		InputManager.behaviour = behaviour;
 	}
 
 }
