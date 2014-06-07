@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/WebPlayerTemplates/BACKUP_1/Game/Scenes/Mainbackup.unity
+    path: Assets/Core/Scenes/Main.unity
   - enabled: 1
-    path: Assets/WebPlayerTemplates/BACKUP_1/Game/Scenes/Laboratorybackup.unity
+    path: Assets/Core/Scenes/SplashScreen.unity

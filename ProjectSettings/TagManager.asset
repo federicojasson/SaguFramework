@@ -53,11 +53,7 @@ TagManager:
     userID: 3
     uniqueID: 3598532669
     locked: 0
-  - name: InventoryItem
+  - name: Foreground
     userID: 4
-    uniqueID: 1359491555
-    locked: 0
-  - name: SplashScreen
-    userID: 5
-    uniqueID: 2667602977
+    uniqueID: 1543189837
     locked: 0
