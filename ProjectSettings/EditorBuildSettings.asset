@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Core/Scenes/Main.unity
   - enabled: 1
     path: Assets/Core/Scenes/SplashScreen.unity
+  - enabled: 1
+    path: Assets/Game/Scenes/MainMenu.unity

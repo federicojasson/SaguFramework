@@ -9,13 +9,12 @@ public class Timer : MonoBehaviour {
 		startTime = Time.time;
 	}
 
-	public IEnumerator WaitForAtLeastSecondsCoroutine(float minDelay) {
+	public IEnumerator WaitForAtLeastSecondsCoroutine(float minimumDelayTime) {
 		float currentTime = Time.time;
-		float timeInterval = currentTime - startTime;
+		float elapsedTime = currentTime - startTime;
 
-		if (timeInterval < minDelay) {
-			yield return new WaitForSeconds(minDelay - timeInterval);
-		}
+		if (elapsedTime < minimumDelayTime)
+			yield return new WaitForSeconds(minimumDelayTime - elapsedTime);
 
 		Destroy(gameObject);
 	}
