@@ -6,6 +6,11 @@ public class SerializableDictionary<K, V, T> where T : SerializableDictionaryEnt
 	public T[] Entries;
 
 	private Dictionary<K, V> dictionary;
+	
+	public V this[K key] {
+		get { return dictionary[key]; }
+		set { dictionary[key] = value; }
+	}
 
 	public void Initialize() {
 		// Initializes the dictionary
@@ -14,11 +19,6 @@ public class SerializableDictionary<K, V, T> where T : SerializableDictionaryEnt
 		// Fills the dictionary
 		foreach (T entry in Entries)
 			dictionary.Add(entry.Key, entry.Value);
-	}
-
-	public V this[K key] {
-		get { return dictionary[key]; }
-		set { dictionary[key] = value; }
 	}
 
 }

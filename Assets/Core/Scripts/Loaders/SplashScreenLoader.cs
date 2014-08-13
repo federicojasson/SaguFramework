@@ -8,22 +8,19 @@ public class SplashScreenLoader : MonoBehaviour {
 	}
 
 	private IEnumerator LoadCoroutine() {
-		Timer timer = HelperModule.CreateTimer();
+		Timer timer = UtilityManager.CreateTimer();
 		timer.RegisterStartTime();
 
-		IEnumerator fadeInCoroutine = CurtainModule.FadeInCoroutine(Configuration.SplashScreenCurtainFadeInSpeed);
-		yield return StartCoroutine(fadeInCoroutine);
+		float fadeInSpeed = ConfigurationManager.SplashScreenCurtainFadeInSpeed;
+		yield return StartCoroutine(GuiManager.CurtainFadeInCoroutine(fadeInSpeed));
 
-		// TODO: load resources here
-
-		float minimumDelayTime = Configuration.SplashScreenMinimumDelayTime;
+		float minimumDelayTime = ConfigurationManager.SplashScreenMinimumDelayTime;
 		yield return StartCoroutine(timer.WaitForAtLeastSecondsCoroutine(minimumDelayTime));
 
-		IEnumerator fadeOutCoroutine = CurtainModule.FadeOutCoroutine(Configuration.SplashScreenCurtainFadeOutSpeed);
-		yield return StartCoroutine(fadeOutCoroutine);
-		
-		// Loads the current room
-		RoomModule.LoadRoom(RoomModule.GetCurrentRoom());
+		float fadeOutSpeed = ConfigurationManager.SplashScreenCurtainFadeOutSpeed;
+		yield return StartCoroutine(GuiManager.CurtainFadeOutCoroutine(fadeOutSpeed));
+
+		StateManager.LoadCurrentRoom();
 	}
 	
 }

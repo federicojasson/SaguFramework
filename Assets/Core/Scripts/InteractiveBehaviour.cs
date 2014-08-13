@@ -1,2 +1,3 @@
-﻿public class InteractiveBehaviour {
-}
+﻿using UnityEngine;
+
+public class InteractiveBehaviour : MonoBehaviour {}

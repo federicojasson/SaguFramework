@@ -1,16 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-public class RoomLoader : MonoBehaviour {
+public class MainMenuLoader : MonoBehaviour {
 	
 	public void Start() {
 		StartCoroutine(LoadCoroutine());
 	}
 	
 	private IEnumerator LoadCoroutine() {
-		StateManager.LoadCurrentRoomResources();
-
-		float fadeInSpeed = ConfigurationManager.RoomCurtainFadeInSpeed;
+		float fadeInSpeed = ConfigurationManager.SplashScreenCurtainFadeInSpeed;
 		yield return StartCoroutine(GuiManager.CurtainFadeInCoroutine(fadeInSpeed));
 	}
 	
