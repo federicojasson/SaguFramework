@@ -16,7 +16,7 @@ public static class RoomModule {
 
 	public static void LoadRoomWithSplashScreen(string room) {
 		currentRoom = room;
-		Application.LoadLevel(ParameterModule.SPLASH_SCREEN_SCENE);
+		Application.LoadLevel(ParameterModule.SplashScreenScene);
 	}
 
 	public static void SetBehaviour(RoomModuleBehaviour behaviour) {

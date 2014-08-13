@@ -8,16 +8,16 @@ public class MainSplashScreenLoader : MonoBehaviour {
 	}
 
 	private IEnumerator LoadCoroutine() {
-		Timer timer = FactoryModule.CreateTimer();
+		Timer timer = HelperModule.CreateTimer();
 		timer.RegisterStartTime();
 
-		IEnumerator fadeInCoroutine = CurtainModule.GetFadeInCoroutine(ConfigurationModule.mainSplashScreenCurtainFadeInSpeed);
+		IEnumerator fadeInCoroutine = CurtainModule.FadeInCoroutine(Configuration.MainSplashScreenCurtainFadeInSpeed);
 		yield return StartCoroutine(fadeInCoroutine);
 
 		string initialRoom;
-		if (ConfigurationModule.gameHasMainMenu)
+		if (Configuration.GameHasMainMenu)
 			// The main menu room is the initial one
-			initialRoom = ConfigurationModule.mainMenuRoom;
+			initialRoom = Configuration.MainMenuRoom;
 		else {
 			// TODO: load game state
 			initialRoom = "some room";
@@ -25,10 +25,10 @@ public class MainSplashScreenLoader : MonoBehaviour {
 
 		// TODO: load resources here
 
-		float minimumDelayTime = ConfigurationModule.mainSplashScreenMinimumDelayTime;
+		float minimumDelayTime = Configuration.MainSplashScreenMinimumDelayTime;
 		yield return StartCoroutine(timer.WaitForAtLeastSecondsCoroutine(minimumDelayTime));
 
-		IEnumerator fadeOutCoroutine = CurtainModule.GetFadeOutCoroutine(ConfigurationModule.mainSplashScreenCurtainFadeOutSpeed);
+		IEnumerator fadeOutCoroutine = CurtainModule.FadeOutCoroutine(Configuration.MainSplashScreenCurtainFadeOutSpeed);
 		yield return StartCoroutine(fadeOutCoroutine);
 
 		// Loads the initial room

@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CurtainModuleBehaviour : MonoBehaviour {
 
-	public Texture2D fadeTexture;
 	private float alphaChannelValue;
 	private float fadeSpeed;
 	
@@ -45,7 +44,7 @@ public class CurtainModuleBehaviour : MonoBehaviour {
 
 			// Draws the fade texture
 			GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, clampedAlphaChannelValue);
-			GUI.DrawTexture(CameraModule.GetScreenRectangle(), fadeTexture);
+			GUI.DrawTexture(CameraModule.GetScreenRectangle(), Factory.FadeTexture);
 		}
 	}
 	

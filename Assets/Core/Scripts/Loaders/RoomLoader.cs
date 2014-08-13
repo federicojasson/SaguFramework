@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 public class RoomLoader : MonoBehaviour {
@@ -8,18 +8,18 @@ public class RoomLoader : MonoBehaviour {
 	}
 	
 	private IEnumerator LoadCoroutine() {
-		Timer timer = FactoryModule.CreateTimer();
+		Timer timer = HelperModule.CreateTimer();
 		timer.RegisterStartTime();
 		
-		IEnumerator fadeInCoroutine = CurtainModule.GetFadeInCoroutine(ConfigurationModule.roomCurtainFadeInSpeed);
+		IEnumerator fadeInCoroutine = CurtainModule.FadeInCoroutine(Configuration.RoomCurtainFadeInSpeed);
 		yield return StartCoroutine(fadeInCoroutine);
 		
 		// TODO: load resources here
 		
-		float minimumDelayTime = ConfigurationModule.roomMinimumDelayTime;
+		float minimumDelayTime = Configuration.RoomMinimumDelayTime;
 		yield return StartCoroutine(timer.WaitForAtLeastSecondsCoroutine(minimumDelayTime));
 		
-		IEnumerator fadeOutCoroutine = CurtainModule.GetFadeOutCoroutine(ConfigurationModule.roomCurtainFadeOutSpeed);
+		IEnumerator fadeOutCoroutine = CurtainModule.FadeOutCoroutine(Configuration.RoomCurtainFadeOutSpeed);
 		yield return StartCoroutine(fadeOutCoroutine);
 	}
 	

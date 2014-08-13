@@ -1,6 +1,6 @@
 ﻿public static class ParameterModule {
 
-	public const string SPLASH_SCREEN_SCENE = "SplashScreen";
+	public const string SplashScreenScene = "SplashScreen";
 
 	private static ParameterModuleBehaviour behaviour;
 	

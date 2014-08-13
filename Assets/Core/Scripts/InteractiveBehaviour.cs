@@ -1,2 +1,2 @@
-﻿public static class InteractiveBehaviour {
+﻿public class InteractiveBehaviour {
 }

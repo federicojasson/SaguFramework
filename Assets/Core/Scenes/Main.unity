@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e28f04b9a9daaa4a839869e4913c01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 776660989}
+  Camera: {fileID: 776660989}
 --- !u!1 &486537569
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +199,7 @@ GameObject:
   - 4: {fileID: 586319010}
   - 114: {fileID: 586319011}
   m_Layer: 0
-  m_Name: ConfigurationModule
+  m_Name: Configuration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,17 +227,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9455e0a8d7efe340a9359671f6f7063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameHasMainMenu: 1
-  mainMenuRoom: MainMenu
-  mainSplashScreenCurtainFadeInSpeed: -.400000006
-  mainSplashScreenCurtainFadeOutSpeed: .400000006
-  mainSplashScreenMinimumDelayTime: 2
-  roomCurtainFadeInSpeed: -.400000006
-  roomCurtainFadeOutSpeed: .400000006
-  roomMinimumDelayTime: 0
-  splashScreenCurtainFadeInSpeed: -.400000006
-  splashScreenCurtainFadeOutSpeed: .400000006
-  splashScreenMinimumDelayTime: 2
+  GameHasMainMenu: 1
+  MainMenuRoom: MainMenu
+  MainSplashScreenCurtainFadeInSpeed: -.400000006
+  MainSplashScreenCurtainFadeOutSpeed: .400000006
+  MainSplashScreenMinimumDelayTime: 2
+  RoomCurtainFadeInSpeed: -.400000006
+  RoomCurtainFadeOutSpeed: .400000006
+  RoomMinimumDelayTime: 2
+  SplashScreenCurtainFadeInSpeed: -.400000006
+  SplashScreenCurtainFadeOutSpeed: .400000006
+  SplashScreenMinimumDelayTime: 2
 --- !u!1 &710808500
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +248,7 @@ GameObject:
   - 4: {fileID: 710808501}
   - 114: {fileID: 710808502}
   m_Layer: 0
-  m_Name: FactoryModule
+  m_Name: HelperModule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,10 +273,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 710808500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4094bac634d865649935e7d0c53a2144, type: 3}
+  m_Script: {fileID: 11500000, guid: ff229c7d3c581b04aa44a7a749e0cd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerModel: {fileID: 11400000, guid: 0f50af7b0e8ccf248b4563c383df3888, type: 2}
+  TimerModel: {fileID: 11400000, guid: 0f50af7b0e8ccf248b4563c383df3888, type: 2}
 --- !u!1 &776660985
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +454,49 @@ Transform:
   - {fileID: 486537570}
   - {fileID: 1654057525}
   m_Father: {fileID: 2019792204}
+--- !u!1 &1719832342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1719832343}
+  - 114: {fileID: 1719832344}
+  m_Layer: 0
+  m_Name: Factory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1719832343
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1719832342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1915259480}
+--- !u!114 &1719832344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1719832342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8a9a0eb1dfea741be3a25333a340fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterModels:
+    Entries: []
+  FadeTexture: {fileID: 2800000, guid: d61b5fe2cfc413d42bf158c6580f803a, type: 3}
+  ItemModels:
+    Entries: []
 --- !u!1 &1725415134
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec628cea58e8b624091f69877b5d0f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTexture: {fileID: 2800000, guid: d61b5fe2cfc413d42bf158c6580f803a, type: 3}
 --- !u!1 &1754851646
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +611,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 586319010}
+  - {fileID: 1719832343}
   m_Father: {fileID: 2019792204}
 --- !u!1 &2019792202
 GameObject:

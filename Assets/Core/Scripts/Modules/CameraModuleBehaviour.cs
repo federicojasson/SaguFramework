@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class CameraModuleBehaviour : MonoBehaviour {
-
-	public new Camera camera;
-
+	
+	public Camera Camera;
+	
 	public void Awake() {
 		CameraModule.SetBehaviour(this);
 	}
