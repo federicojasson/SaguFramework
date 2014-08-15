@@ -7,13 +7,12 @@ public class MainMenu : Menu {
 
 		string exitButtonText = "Salir"; // TODO: use LanguageManager
 		Rect exitButtonRectangle = new Rect(64f, 64f, 64f, 64f);
-		if (GuiManager.DrawButton(exitButtonText, exitButtonRectangle))
+		if (DrawingManager.DrawButton(exitButtonText, exitButtonRectangle))
 			OnExitButtonActuated();
 	}
 
 	private void OnExitButtonActuated() {
-		// TODO
-
+		MenuManager.OpenMenu("ExitMenu");
 	}
 	
 }

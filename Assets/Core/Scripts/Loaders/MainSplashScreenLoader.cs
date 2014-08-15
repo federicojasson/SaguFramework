@@ -12,7 +12,7 @@ public class MainSplashScreenLoader : MonoBehaviour {
 		timer.RegisterStartTime();
 
 		float fadeInSpeed = ConfigurationManager.MainSplashScreenCurtainFadeInSpeed;
-		yield return StartCoroutine(GuiManager.CurtainFadeInCoroutine(fadeInSpeed));
+		yield return StartCoroutine(CurtainManager.FadeInCoroutine(fadeInSpeed));
 
 		// TODO: load options
 
@@ -20,7 +20,7 @@ public class MainSplashScreenLoader : MonoBehaviour {
 		yield return StartCoroutine(timer.WaitForAtLeastSecondsCoroutine(minimumDelayTime));
 
 		float fadeOutSpeed = ConfigurationManager.MainSplashScreenCurtainFadeOutSpeed;
-		yield return StartCoroutine(GuiManager.CurtainFadeOutCoroutine(fadeOutSpeed));
+		yield return StartCoroutine(CurtainManager.FadeOutCoroutine(fadeOutSpeed));
 
 		StateManager.LoadMainMenu();
 	}

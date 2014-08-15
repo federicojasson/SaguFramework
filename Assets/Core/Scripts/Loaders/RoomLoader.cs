@@ -11,7 +11,7 @@ public class RoomLoader : MonoBehaviour {
 		StateManager.LoadCurrentRoomResources();
 
 		float fadeInSpeed = ConfigurationManager.RoomCurtainFadeInSpeed;
-		yield return StartCoroutine(GuiManager.CurtainFadeInCoroutine(fadeInSpeed));
+		yield return StartCoroutine(CurtainManager.FadeInCoroutine(fadeInSpeed));
 	}
 	
 }

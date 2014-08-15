@@ -44,7 +44,7 @@ public class CurtainManagerWorker : MonoBehaviour {
 
 			// Draws the fade texture
 			GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, clampedAlphaChannelValue);
-			GUI.DrawTexture(CameraManager.GetScreenRectangle(), GuiManager.FadeTexture);
+			GUI.DrawTexture(CameraManager.GetScreenRectangle(), SkinManager.FadeTexture);
 		}
 	}
 	
