@@ -413,9 +413,10 @@ Transform:
   m_Children:
   - {fileID: 1651806072}
   - {fileID: 1042680764}
-  - {fileID: 1572123888}
   - {fileID: 282716875}
   - {fileID: 1416781731}
+  - {fileID: 1443819372}
+  - {fileID: 1246415294}
   m_Father: {fileID: 1319057910}
 --- !u!1 &1041416398
 GameObject:
@@ -498,6 +499,45 @@ MonoBehaviour:
   SplashScreenMinimumDelayTime: .100000001
   StateFilesDirectoryPath: 
   UseSplashScreens: 1
+--- !u!1 &1246415293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1246415294}
+  - 114: {fileID: 1246415295}
+  m_Layer: 0
+  m_Name: SkinManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1246415294
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1246415293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 968006390}
+--- !u!114 &1246415295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1246415293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8acea66d191f64144aeaa7b676328290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeTexture: {fileID: 2800000, guid: d61b5fe2cfc413d42bf158c6580f803a, type: 3}
 --- !u!1 &1319057909
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,51 +633,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemModels:
     Entries: []
---- !u!1 &1572123887
+--- !u!1 &1443819371
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1572123888}
-  - 114: {fileID: 1572123889}
+  - 4: {fileID: 1443819372}
+  - 114: {fileID: 1443819373}
   m_Layer: 0
-  m_Name: GuiManager
+  m_Name: MenuManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1572123888
+--- !u!4 &1443819372
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1572123887}
+  m_GameObject: {fileID: 1443819371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 968006390}
---- !u!114 &1572123889
+--- !u!114 &1443819373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1572123887}
+  m_GameObject: {fileID: 1443819371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81efe2f73ca7b042a985fd961d680f8, type: 3}
+  m_Script: {fileID: 11500000, guid: efa64723ad67336489b2b3e756614cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogModels:
-    Entries:
-    - Key: ExitDialog
-      Value: {fileID: 11400000, guid: d06bc439d2be4694a83cf210895f707a, type: 2}
-  FadeTexture: {fileID: 2800000, guid: d61b5fe2cfc413d42bf158c6580f803a, type: 3}
   MenuModels:
     Entries:
+    - Key: ExitMenu
+      Value: {fileID: 11400000, guid: d06bc439d2be4694a83cf210895f707a, type: 2}
     - Key: MainMenu
       Value: {fileID: 11400000, guid: f0b32b81ce6b12f46973ea6b083874ae, type: 2}
     - Key: PauseMenu
