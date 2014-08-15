@@ -8,6 +8,8 @@ public class MainMenuLoader : MonoBehaviour {
 	}
 	
 	private IEnumerator LoadCoroutine() {
+		GuiManager.ShowMenu(ConfigurationManager.MainMenuId);
+
 		float fadeInSpeed = ConfigurationManager.SplashScreenCurtainFadeInSpeed;
 		yield return StartCoroutine(GuiManager.CurtainFadeInCoroutine(fadeInSpeed));
 	}

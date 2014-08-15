@@ -1,13 +1,13 @@
-﻿public class Location {
+﻿using UnityEngine;
+
+public class Location {
 
 	public string Room;
-	public float X;
-	public float Y;
+	public Vector2 Position;
 
-	public Location(string room, float x, float y) {
+	public Location(string room, Vector2 position) {
 		Room = room;
-		X = x;
-		Y = y;
+		Position = position;
 	}
 
 }

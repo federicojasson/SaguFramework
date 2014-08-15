@@ -14,7 +14,7 @@ public class CurtainManagerWorker : MonoBehaviour {
 	
 	public IEnumerator FadeInCoroutine(float fadeInSpeed) {
 		alphaChannelValue = 1;
-		fadeSpeed = fadeInSpeed;
+		fadeSpeed = - fadeInSpeed;
 		
 		while (alphaChannelValue > 0)
 			yield return null;

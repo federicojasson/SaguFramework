@@ -188,6 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b04ff9aa5ae0a469cd85f2da8ede90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InventoryItemModels:
+    Entries: []
 --- !u!1 &491139113
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +348,44 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1406153921}
+--- !u!1 &892335785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 892335786}
+  - 114: {fileID: 892335787}
+  m_Layer: 0
+  m_Name: CurtainManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &892335786
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 892335785}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1041416399}
+--- !u!114 &892335787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 892335785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec628cea58e8b624091f69877b5d0f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &968006389
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +412,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1651806072}
+  - {fileID: 1042680764}
   - {fileID: 1572123888}
   - {fileID: 282716875}
   - {fileID: 1416781731}
@@ -402,9 +443,61 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 491139114}
+  - {fileID: 892335786}
   - {fileID: 167051413}
   - {fileID: 607994837}
   m_Father: {fileID: 1319057910}
+--- !u!1 &1042680763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1042680764}
+  - 114: {fileID: 1042680765}
+  m_Layer: 0
+  m_Name: ConfigurationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1042680764
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042680763}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 968006390}
+--- !u!114 &1042680765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042680763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41bfec177e5d06b4b88a8d37c230af28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainMenuId: MainMenu
+  MainMenuScene: MainMenu
+  MainSplashScreenCurtainFadeInSpeed: .899999976
+  MainSplashScreenCurtainFadeOutSpeed: .899999976
+  MainSplashScreenMinimumDelayTime: .100000001
+  RoomCurtainFadeInSpeed: .899999976
+  RoomCurtainFadeOutSpeed: .899999976
+  RoomMinimumDelayTime: .100000001
+  SplashScreenCurtainFadeInSpeed: .899999976
+  SplashScreenCurtainFadeOutSpeed: .899999976
+  SplashScreenMinimumDelayTime: .100000001
+  StateFilesDirectoryPath: 
+  UseSplashScreens: 1
 --- !u!1 &1319057909
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +631,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81efe2f73ca7b042a985fd961d680f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialogModels:
+    Entries:
+    - Key: ExitDialog
+      Value: {fileID: 11400000, guid: d06bc439d2be4694a83cf210895f707a, type: 2}
   FadeTexture: {fileID: 2800000, guid: d61b5fe2cfc413d42bf158c6580f803a, type: 3}
+  MenuModels:
+    Entries:
+    - Key: MainMenu
+      Value: {fileID: 11400000, guid: f0b32b81ce6b12f46973ea6b083874ae, type: 2}
+    - Key: PauseMenu
+      Value: {fileID: 11400000, guid: 4c393618488a8b543b137ebdf231ff2f, type: 2}
 --- !u!1 &1651806071
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,11 +681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterModels:
-    Entries:
-    - Key: 
-      Value: {fileID: 0}
-    - Key: 
-      Value: {fileID: 0}
+    Entries: []
 --- !u!1 &1754851646
 GameObject:
   m_ObjectHideFlags: 0

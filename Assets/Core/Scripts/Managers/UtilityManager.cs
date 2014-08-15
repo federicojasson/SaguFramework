@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Globalization;
+using System.IO;
+using UnityEngine;
 
 public static class UtilityManager {
 	
@@ -10,9 +12,17 @@ public static class UtilityManager {
 		
 		return timer;
 	}
+
+	public static string ReadTextFileContent(string path) {
+		return File.ReadAllText(path);
+	}
 	
 	public static void SetWorker(UtilityManagerWorker worker) {
 		UtilityManager.worker = worker;
+	}
+
+	public static float StringToFloat(string floatString) {
+		return float.Parse(floatString, CultureInfo.InvariantCulture);
 	}
 	
 }

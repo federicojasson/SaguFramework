@@ -11,16 +11,23 @@ public static class ItemManager {
 		activeItems = new List<Item>();
 		itemLocations = new Dictionary<string, Location>();
 	}
+	
+	public static void ClearState() {
+		itemLocations.Clear();
+	}
 
 	public static void CreateRoomItems(string room) {
 		activeItems.Clear();
 
-		foreach (KeyValuePair<string, Location> entry in itemLocations)
-			if (entry.Value.Room == room)
-				activeItems.Add(CreateItem(entry.Key));
+		foreach (KeyValuePair<string, Location> entry in itemLocations) {
+			Location location = entry.Value;
+
+			if (location.Room == room)
+				activeItems.Add(CreateItem(entry.Key, location.Position));
+		}
 	}
 
-	public static void RegisterItemLocation(string id, Location location) {
+	public static void SetItemLocation(string id, Location location) {
 		itemLocations.Add(id, location);
 	}
 
@@ -28,9 +35,11 @@ public static class ItemManager {
 		ItemManager.worker = worker;
 	}
 	
-	private static Item CreateItem(string id) {
+	private static Item CreateItem(string id, Vector2 position) {
+		// TODO: a change of position's coordinates might be necessary
+
 		Item itemModel = worker.ItemModels[id];
-		return (Item) Object.Instantiate(itemModel);
+		return (Item) Object.Instantiate(itemModel, position, Quaternion.identity);
 	}
 
 }

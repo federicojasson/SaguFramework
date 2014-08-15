@@ -8,11 +8,22 @@ public class SerializableDictionary<K, V, T> where T : SerializableDictionaryEnt
 	private Dictionary<K, V> dictionary;
 	
 	public V this[K key] {
-		get { return dictionary[key]; }
-		set { dictionary[key] = value; }
+		get {
+			if (dictionary == null)
+				Initialize();
+
+			return dictionary[key];
+		}
+
+		set {
+			if (dictionary == null)
+				Initialize();
+
+			dictionary[key] = value;
+		}
 	}
 
-	public void Initialize() {
+	private void Initialize() {
 		// Initializes the dictionary
 		dictionary = new Dictionary<K, V>(Entries.Length);
 
