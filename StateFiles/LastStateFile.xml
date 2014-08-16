@@ -1,0 +1,27 @@
+<state-file>
+	
+	<current-room-id>Laboratory</current-room-id>
+	
+	<character player-character="true">
+		<id>Scientist</id>
+		<location>
+			<room-id>Laboratory</room-id>
+			<position>
+				<x>64</x>
+				<y>64</y>
+			</position>
+		</location>
+	</character>
+	
+	<item>
+		<id>Erlenmeyer</id>
+		<location>
+			<room-id>Laboratory</room-id>
+			<position>
+				<x>96</x>
+				<y>64</y>
+			</position>
+		</location>
+	</item>
+	
+</state-file>

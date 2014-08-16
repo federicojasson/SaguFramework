@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Xml.Linq;
 using UnityEngine;
 
@@ -10,6 +12,12 @@ public static class StateManager {
 		RoomManager.CreateRoom(currentRoomId);
 		CharacterManager.CreateRoomCharacters(currentRoomId);
 		ItemManager.CreateRoomItems(currentRoomId);
+	}
+	
+	public static FileInfo[] GetStateFiles() {
+		DirectoryInfo directory = new DirectoryInfo(ConfigurationManager.StateFilesDirectoryPath);
+		FileInfo[] stateFiles = directory.GetFiles("*" + ConfigurationManager.StateFileExtension);
+		return stateFiles.OrderByDescending(value => value.LastWriteTime).ToArray();
 	}
 	
 	public static void LoadCurrentRoom() {

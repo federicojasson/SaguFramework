@@ -540,7 +540,7 @@ MonoBehaviour:
   SplashScreenCurtainFadeInSpeed: .800000012
   SplashScreenCurtainFadeOutSpeed: .800000012
   SplashScreenMinimumDelayTime: 1
-  StateFilesDirectoryPath: 
+  StateFilesDirectoryPath: ./StateFiles
   UseSplashScreens: 1
 --- !u!1 &1246415293
 GameObject:
@@ -580,6 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acea66d191f64144aeaa7b676328290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultSkin: {fileID: 11400000, guid: 9c3467964bef15b47985ce90e7beb630, type: 2}
   FadeTexture: {fileID: 2800000, guid: d61b5fe2cfc413d42bf158c6580f803a, type: 3}
 --- !u!1 &1319057909
 GameObject:

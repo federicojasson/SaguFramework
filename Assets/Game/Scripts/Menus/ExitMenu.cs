@@ -3,17 +3,21 @@
 public class ExitMenu : Menu {
 	
 	public void OnGUI() {
-		// TODO: order this
+		base.OnGUI();
 
-		string cancelButtonText = "Cancelar"; // TODO: use LanguageManager
-		Rect cancelButtonRectangle = new Rect(64f, 64f, 64f, 64f);
-		if (DrawingManager.DrawButton(cancelButtonText, cancelButtonRectangle))
+		GuiManager.BeginArea(GuiManager.Center, GuiManager.Middle, 0.3f, 0.1f);
+
+		GuiManager.BeginArea(GuiManager.Left, GuiManager.Middle, 0.45f, 1f);
+		if (GuiManager.Button("Cancelar")) // TODO: use LanguageManager
 			OnCancelButtonActuated();
+		GuiManager.EndArea();
 
-		string exitButtonText = "Salir"; // TODO: use LanguageManager
-		Rect exitButtonRectangle = new Rect(160f, 64f, 64f, 64f);
-		if (DrawingManager.DrawButton(exitButtonText, exitButtonRectangle))
+		GuiManager.BeginArea(GuiManager.Right, GuiManager.Middle, 0.45f, 1f);
+		if (GuiManager.Button("Salir")) // TODO: use LanguageManager
 			OnExitButtonActuated();
+		GuiManager.EndArea();
+
+		GuiManager.EndArea();
 	}
 
 	private void OnCancelButtonActuated() {

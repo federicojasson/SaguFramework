@@ -3,22 +3,26 @@
 public class MainMenu : Menu {
 	
 	public void OnGUI() {
-		// TODO: order this
+		base.OnGUI();
 
-		string newGameButtonText = "Nueva partida"; // TODO: use LanguageManager
-		Rect newGameButtonRectangle = new Rect(128f, 64f, 160f, 64f);
-		if (DrawingManager.DrawButton(newGameButtonText, newGameButtonRectangle))
+		GuiManager.BeginArea(0.25f, 0.5f, 0.3f, 0.8f);
+		
+		GuiManager.BeginArea(0.5f, 0.2f, 1f, 0.2f);
+		if (GuiManager.Button("Nueva partida")) // TODO: use LanguageManager
 			OnNewGameButtonActuated();
-
-		string loadGameButtonText = "Cargar partida"; // TODO: use LanguageManager
-		Rect loadGameButtonRectangle = new Rect(128f, 160f, 160f, 64f);
-		if (DrawingManager.DrawButton(loadGameButtonText, loadGameButtonRectangle))
+		GuiManager.EndArea();
+		
+		GuiManager.BeginArea(0.5f, 0.5f, 1f, 0.2f);
+		if (GuiManager.Button("Cargar partida")) // TODO: use LanguageManager
 			OnLoadGameButtonActuated();
-
-		string exitButtonText = "Salir"; // TODO: use LanguageManager
-		Rect exitButtonRectangle = new Rect(128f, 256f, 160f, 64f);
-		if (DrawingManager.DrawButton(exitButtonText, exitButtonRectangle))
+		GuiManager.EndArea();
+		
+		GuiManager.BeginArea(0.5f, 0.8f, 1f, 0.2f);
+		if (GuiManager.Button("Salir")) // TODO: use LanguageManager
 			OnExitButtonActuated();
+		GuiManager.EndArea();
+		
+		GuiManager.EndArea();
 	}
 
 	private void OnExitButtonActuated() {

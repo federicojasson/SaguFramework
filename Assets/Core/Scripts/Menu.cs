@@ -10,6 +10,10 @@ public class Menu : MonoBehaviour {
 		enabled = false;
 	}
 
+	public void OnGUI() {
+		GuiManager.SetDefaultSkin();
+	}
+
 	public void Show() {
 		enabled = true;
 	}
