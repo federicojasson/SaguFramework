@@ -1,13 +1,15 @@
 using System.Collections;
 using UnityEngine;
 
-public class MainSplashScreenLoader : MonoBehaviour {
+public class MainLoader : MonoBehaviour {
 	
 	public void Start() {
 		StartCoroutine(LoadCoroutine());
 	}
 
 	private IEnumerator LoadCoroutine() {
+		SplashScreenManager.CreateMainSplashScreen();
+
 		Timer timer = UtilityManager.CreateTimer();
 		timer.RegisterStartTime();
 

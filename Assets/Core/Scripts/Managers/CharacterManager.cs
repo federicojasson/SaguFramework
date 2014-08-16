@@ -18,13 +18,13 @@ public static class CharacterManager {
 		playerCharacterId = null;
 	}
 
-	public static void CreateRoomCharacters(string room) {
+	public static void CreateRoomCharacters(string roomId) {
 		activeCharacters.Clear();
 
 		foreach (KeyValuePair<string, Location> entry in characterLocations) {
 			Location location = entry.Value;
 
-			if (location.Room == room)
+			if (location.RoomId == roomId)
 				activeCharacters.Add(CreateCharacter(entry.Key, location.Position));
 		}
 	}

@@ -16,13 +16,13 @@ public static class ItemManager {
 		itemLocations.Clear();
 	}
 
-	public static void CreateRoomItems(string room) {
+	public static void CreateRoomItems(string roomId) {
 		activeItems.Clear();
 
 		foreach (KeyValuePair<string, Location> entry in itemLocations) {
 			Location location = entry.Value;
 
-			if (location.Room == room)
+			if (location.RoomId == roomId)
 				activeItems.Add(CreateItem(entry.Key, location.Position));
 		}
 	}

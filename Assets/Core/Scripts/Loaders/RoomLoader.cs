@@ -8,7 +8,7 @@ public class RoomLoader : MonoBehaviour {
 	}
 	
 	private IEnumerator LoadCoroutine() {
-		StateManager.LoadCurrentRoomResources();
+		StateManager.CreateCurrentRoom();
 
 		float fadeInSpeed = ConfigurationManager.RoomCurtainFadeInSpeed;
 		yield return StartCoroutine(CurtainManager.FadeInCoroutine(fadeInSpeed));

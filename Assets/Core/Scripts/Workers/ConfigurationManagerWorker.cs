@@ -3,7 +3,6 @@
 public class ConfigurationManagerWorker : MonoBehaviour {
 
 	public string MainMenuId;
-	public string MainMenuScene;
 	public float MainSplashScreenCurtainFadeInSpeed;
 	public float MainSplashScreenCurtainFadeOutSpeed;
 	public float MainSplashScreenMinimumDelayTime;

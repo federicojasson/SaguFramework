@@ -8,6 +8,8 @@ public class SplashScreenLoader : MonoBehaviour {
 	}
 
 	private IEnumerator LoadCoroutine() {
+		SplashScreenManager.CreateRandomSplashScreen();
+
 		Timer timer = UtilityManager.CreateTimer();
 		timer.RegisterStartTime();
 

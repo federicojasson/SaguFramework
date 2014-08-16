@@ -13,6 +13,11 @@ public static class UtilityManager {
 		return timer;
 	}
 
+	public static string ReadResourceTextFileContent(string resourcePath) {
+		TextAsset textAsset = (TextAsset) Resources.Load(resourcePath, typeof(TextAsset));
+		return textAsset.text;
+	}
+
 	public static string ReadTextFileContent(string path) {
 		return File.ReadAllText(path);
 	}

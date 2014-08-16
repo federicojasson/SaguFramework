@@ -2,11 +2,11 @@
 
 public class Location {
 
-	public string Room;
+	public string RoomId;
 	public Vector2 Position;
 
-	public Location(string room, Vector2 position) {
-		Room = room;
+	public Location(string roomId, Vector2 position) {
+		RoomId = roomId;
 		Position = position;
 	}
 

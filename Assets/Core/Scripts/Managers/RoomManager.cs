@@ -2,18 +2,35 @@
 
 public static class RoomManager {
 
-	private static string currentRoom;
+	private static string currentRoomId;
+	private static RoomManagerWorker worker;
 
 	public static void ClearState() {
-		currentRoom = null;
+		currentRoomId = null;
+	}
+	
+	public static void CreateRoom(string id) {
+		Room roomModel = worker.RoomModels[id];
+		Room room = (Room) Object.Instantiate(roomModel);
+		
+		GameObject background = new GameObject("Background"); // TODO: use ConfigurationManager
+		background.transform.parent = room.transform;
+		SpriteRenderer spriteRenderer = background.AddComponent<SpriteRenderer>();
+		spriteRenderer.sortingLayerName = ConfigurationManager.SortingLayerBackground;
+		spriteRenderer.sortingOrder = 0; // TODO: use constant?
+		spriteRenderer.sprite = room.Background;
 	}
 
-	public static string GetCurrentRoom() {
-		return currentRoom;
+	public static string GetCurrentRoomId() {
+		return currentRoomId;
 	}
 
-	public static void SetCurrentRoom(string room) {
-		currentRoom = room;
+	public static void SetCurrentRoomId(string roomId) {
+		currentRoomId = roomId;
+	}
+
+	public static void SetWorker(RoomManagerWorker worker) {
+		RoomManager.worker = worker;
 	}
 	
 }
