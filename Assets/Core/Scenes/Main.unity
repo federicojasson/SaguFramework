@@ -150,45 +150,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f43a3e07fefcb408d28a4f0e4bb9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &773719376
+--- !u!1 &638369930
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 773719377}
-  - 114: {fileID: 773719378}
+  - 4: {fileID: 638369931}
+  - 114: {fileID: 638369932}
   m_Layer: 0
-  m_Name: Utilities
+  m_Name: DisplayEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &773719377
+--- !u!4 &638369931
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 773719376}
+  m_GameObject: {fileID: 638369930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1041416399}
---- !u!114 &773719378
+--- !u!114 &638369932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 773719376}
+  m_GameObject: {fileID: 638369930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90c501102e4c0774f867962a2e47f343, type: 3}
+  m_Script: {fileID: 11500000, guid: 81c7eabcec45f004fb73a293872781df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimerModel: {fileID: 0}
 --- !u!1 &776660985
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,8 +293,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 638369931}
+  - {fileID: 1525839445}
   - {fileID: 609251635}
-  - {fileID: 773719377}
   m_Father: {fileID: 1319057910}
 --- !u!1 &1126315726
 GameObject:
@@ -419,9 +419,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef321cd7d247c94ba8a45a0ed0033fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuModels:
+  DefaultFadeInTexture: {fileID: 0}
+  DefaultFadeOutTexture: {fileID: 0}
+  MainSplashScreenPrefab: {fileID: 0}
+  MenuPrefabs:
     Entries: []
-  SplashScreens: []
+  RoomSplashScreenPrefabs: []
 --- !u!1 &1440169298
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,14 +463,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefc566e126bfce439bf333748935b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterModels:
+  CharacterPrefabs:
     Entries: []
-  InventoryItemModels:
+  InventoryItemPrefabs:
     Entries: []
-  ItemModels:
+  ItemPrefabs:
     Entries: []
-  RoomModels:
+  RoomPrefabs:
     Entries: []
+--- !u!1 &1525839444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1525839445}
+  - 114: {fileID: 1525839446}
+  m_Layer: 0
+  m_Name: FrameworkAssets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1525839445
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525839444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1041416399}
+--- !u!114 &1525839446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525839444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9e1f9288cae454d94ca2ff51695f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimerPrefab: {fileID: 0}
 --- !u!1 &1910369176
 GameObject:
   m_ObjectHideFlags: 0

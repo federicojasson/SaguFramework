@@ -2,9 +2,9 @@
 
 public class StateAssets : MonoBehaviour {
 
-	public CharacterMap CharacterModels;
-	public InventoryItemMap InventoryItemModels;
-	public ItemMap ItemModels;
-	public RoomMap RoomModels;
+	public CharacterMap CharacterPrefabs;
+	public InventoryItemMap InventoryItemPrefabs;
+	public ItemMap ItemPrefabs;
+	public RoomMap RoomPrefabs;
 	
 }
