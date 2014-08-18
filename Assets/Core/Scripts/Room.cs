@@ -1,7 +1,3 @@
 ﻿using UnityEngine;
 
-public class Room : MonoBehaviour {
-
-	public Sprite Background;
-
-}
+public class Room : MonoBehaviour {}
