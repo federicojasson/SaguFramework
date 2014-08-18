@@ -20,6 +20,7 @@ public partial class DisplayEffector : MonoBehaviour {
 
 		// Stops the fade-in
 		instance.fadeSpeed = 0;
+		instance.fadeTextureAlphaValue = 0;
 	}
 
 	public static IEnumerator FadeOutCoroutine(float fadeSpeed, Texture2D fadeTexture) {
@@ -37,6 +38,7 @@ public partial class DisplayEffector : MonoBehaviour {
 		
 		// Stops the fade-out
 		instance.fadeSpeed = 0;
+		instance.fadeTextureAlphaValue = 1;
 	}
 
 }

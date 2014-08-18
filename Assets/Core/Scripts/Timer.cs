@@ -1,13 +1,3 @@
 ﻿using UnityEngine;
 
-public class Timer : MonoBehaviour {
-	
-	public void Start() {
-		
-	}
-	
-	public void Update() {
-		
-	}
-	
-}
+public class Timer : MonoBehaviour {}

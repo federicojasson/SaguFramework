@@ -2,11 +2,10 @@
 
 public partial class GuiAssets : MonoBehaviour {
 
-	public Texture2D DefaultFadeInTexture;
-	public Texture2D DefaultFadeOutTexture;
-	public SplashScreen MainSplashScreenPrefab;
+	public FadeInformation DefaultFadeInformation;
 	public MenuMap MenuPrefabs;
-	public SplashScreen[] RoomSplashScreenPrefabs;
+	public SplashScreenArrayMap SplashScreenPrefabGroups;
+	public SplashScreenMap SplashScreenPrefabs;
 
 	public void Awake() {
 		instance = this;
