@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-public class FadeInformation {
+public class FadeParameters {
 
 	public float FadeInSpeed;
 	public Texture2D FadeInTexture;

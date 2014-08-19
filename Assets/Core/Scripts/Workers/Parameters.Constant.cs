@@ -2,6 +2,11 @@
 
 public partial class Parameters : MonoBehaviour {
 
+	// TODO: order
+
+	public const string StateFileExtension = ".xml";
+
+
 	// Sorting layers
 	
 	public const string SortingLayerCharacterBackground = "CharacterBackground";

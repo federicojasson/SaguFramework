@@ -380,6 +380,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 776660990}
+  - {fileID: 1880904346}
   m_Father: {fileID: 2019792204}
 --- !u!1 &1432791459
 GameObject:
@@ -419,14 +420,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef321cd7d247c94ba8a45a0ed0033fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultFadeInformation:
+  DefaultFadeParameters:
     FadeInSpeed: 0
     FadeInTexture: {fileID: 0}
     FadeOutSpeed: 0
     FadeOutTexture: {fileID: 0}
   MenuPrefabs:
     Entries: []
-  SplashScreenGroupPrefabs:
+  SplashScreenPrefabGroups:
     Entries: []
   SplashScreenPrefabs:
     Entries: []
@@ -515,6 +516,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerPrefab: {fileID: 0}
+--- !u!1 &1880904345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1880904346}
+  - 114: {fileID: 1880904347}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1880904346
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1880904345}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1406153921}
+--- !u!114 &1880904347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1880904345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b4d2da75f9978498e18fefb424cac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1910369176
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,6 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0f6ee967cb0164583c64ce65be67cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StateFilesDirectoryPath: 
 --- !u!1 &2019792202
 GameObject:
   m_ObjectHideFlags: 0

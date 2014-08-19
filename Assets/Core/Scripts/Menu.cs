@@ -3,6 +3,11 @@
 public class Menu : MonoBehaviour {
 	
 	public Sprite Background;
-	public FadeInformation FadeInformation;
+	public FadeParameters FadeParameters;
+
+	public void Awake() {
+		// Hides the menu
+		enabled = false;
+	}
 
 }

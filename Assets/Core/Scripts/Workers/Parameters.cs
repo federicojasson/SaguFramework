@@ -2,17 +2,20 @@
 
 public partial class Parameters : MonoBehaviour {
 
-	// Fade settings
+	// TODO: order
 
-	public static bool UseFadeAtMain;
-	public static bool UseFadeAtMenus;
-	public static bool UseFadeAtRooms;
-	public static bool UseFadeAtSplashScreens;
-
-
+	public string StateFilesDirectoryPath;
+	
+	
 	// Splash screen settings
+	
+	// TODO
+	/*public bool UseSplashScreenAtMain;
+	public bool UseSplashScreenAtRoom;*/
 
-	public static bool UseSplashScreenAtMain;
-	public static bool UseSplashScreenAtRoom;
+
+	public void Awake() {
+		instance = this;
+	}
 
 }

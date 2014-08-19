@@ -1,1 +1,1 @@
-﻿public static class StateManager {}
+﻿public static partial class StateManager {}

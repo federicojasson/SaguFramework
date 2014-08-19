@@ -7,17 +7,9 @@ public partial class DisplayEffector : MonoBehaviour {
 	private float fadeTextureAlphaValue;
 
 	public void Awake() {
-		instance = this;
-
-		// The fade is initially deactivated
 		fadeSpeed = 0;
-
-		if (Parameters.UseFadeAtMain)
-			// The main scene uses fade
-			fadeTextureAlphaValue = 1;
-		else
-			// The main scene doesn't use fade
-			fadeTextureAlphaValue = 0;
+		fadeTextureAlphaValue = 1;
+		instance = this;
 	}
 
 	public void OnGUI() {

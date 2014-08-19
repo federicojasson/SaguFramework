@@ -24,8 +24,8 @@ public partial class GuiAssets : MonoBehaviour {
 		return CreateSplashScreen(splashScreenPrefab);
 	}
 	
-	public static FadeInformation GetDefaultFadeInformation() {
-		return instance.DefaultFadeInformation;
+	public static FadeParameters GetDefaultFadeParameters() {
+		return instance.DefaultFadeParameters;
 	}
 	
 	private static SplashScreen CreateSplashScreen(SplashScreen splashScreenPrefab) {

@@ -2,7 +2,7 @@
 
 public partial class GuiAssets : MonoBehaviour {
 
-	public FadeInformation DefaultFadeInformation;
+	public FadeParameters DefaultFadeParameters;
 	public MenuMap MenuPrefabs;
 	public SplashScreenArrayMap SplashScreenPrefabGroups;
 	public SplashScreenMap SplashScreenPrefabs;

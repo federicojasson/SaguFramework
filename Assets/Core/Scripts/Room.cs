@@ -3,7 +3,7 @@
 public class Room : MonoBehaviour {
 	
 	public Sprite Background;
-	public FadeInformation FadeInformation;
+	public FadeParameters FadeParameters;
 	public Sprite Foreground;
 
 }
