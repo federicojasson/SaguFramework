@@ -5,9 +5,17 @@ public class Menu : MonoBehaviour {
 	public Sprite Background;
 	public FadeParameters FadeParameters;
 
-	public void Awake() {
-		// Hides the menu
+	public virtual void Awake() {
+		// Hides the menu initially
+		Hide();
+	}
+	
+	public void Hide() {
 		enabled = false;
+	}
+	
+	public void Show() {
+		enabled = true;
 	}
 
 }

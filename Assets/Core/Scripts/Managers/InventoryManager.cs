@@ -8,7 +8,7 @@ public static class InventoryManager {
 		inventoryItems = new List<InventoryItem>();
 	}
 
-	public static void AddInventoryItem(string id) {
+	/*public static void AddInventoryItem(string id) {
 		// Creates the inventory item
 		InventoryItem inventoryItem = CreateInventoryItem(id);
 
@@ -20,20 +20,20 @@ public static class InventoryManager {
 		inventoryItems.Remove(inventoryItem);
 
 		// TODO: destroy it?
-	}
+	}*/
 
 	public static void Reset() {
-		// Clears the manager's data structures
+		// Clears the manager's data structure
 		inventoryItems.Clear();
 	}
 	
-	public static void ShowInventory() {
+	/*public static void ShowInventory() {
 		// TODO: create background and inventory items
 	}
 
 	private static InventoryItem CreateInventoryItem(string id) {
 		// TODO
 		return null;
-	}
+	}*/
 
 }

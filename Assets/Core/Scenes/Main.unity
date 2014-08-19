@@ -592,6 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0f6ee967cb0164583c64ce65be67cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OptionsFilePath: 
   StateFilesDirectoryPath: 
 --- !u!1 &2019792202
 GameObject:

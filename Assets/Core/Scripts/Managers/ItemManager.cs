@@ -10,9 +10,9 @@ public static class ItemManager {
 		roomItems = new List<Item>();
 	}
 	
-	public static void CreateItems(string roomId) {
+	/*public static void CreateItems(string roomId) {
 		// TODO
-	}
+	}*/
 
 	public static void Reset() {
 		// Clears the manager's data structures
@@ -20,9 +20,9 @@ public static class ItemManager {
 		roomItems.Clear();
 	}
 
-	public static void SetItemLocation(string id, Location location) {
+	/*public static void SetItemLocation(string id, Location location) {
 		// Sets the item's location (it overrides it if there's already a location registered)
 		itemLocations[id] = location;
-	}
+	}*/
 
 }

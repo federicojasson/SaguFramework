@@ -10,9 +10,9 @@ public static class CharacterManager {
 		roomCharacters = new List<Character>();
 	}
 
-	public static void CreateCharacters(string roomId) {
+	/*public static void CreateCharacters(string roomId) {
 		// TODO
-	}
+	}*/
 
 	public static void Reset() {
 		// Clears the manager's data structures
@@ -20,9 +20,9 @@ public static class CharacterManager {
 		roomCharacters.Clear();
 	}
 
-	public static void SetCharacterLocation(string id, Location location) {
+	/*public static void SetCharacterLocation(string id, Location location) {
 		// Sets the character's location (it overrides it if there's already a location registered)
 		characterLocations[id] = location;
-	}
+	}*/
 
 }

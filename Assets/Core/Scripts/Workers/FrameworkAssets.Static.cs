@@ -4,7 +4,7 @@ public partial class FrameworkAssets : MonoBehaviour {
 	
 	private static FrameworkAssets instance; // Singleton instance
 
-	public static Timer CreateTimer() {
+	public static Timer InstantiateTimer() {
 		// Clones the timer prefab
 		return (Timer) Object.Instantiate(instance.TimerPrefab);
 	}
