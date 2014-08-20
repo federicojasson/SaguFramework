@@ -2,8 +2,18 @@
 
 public static class GameManager {
 
+	public static void ChangeRoom(string roomId) {
+		RoomManager.SetCurrentRoomId(roomId);
+		LoadRoom();
+	}
+
 	public static void Exit() {
 		Application.Quit();
+	}
+
+	public static void LoadGame(string stateId) {
+		StateManager.LoadState(stateId);
+		LoadRoom();
 	}
 
 	public static void LoadMainMenu() {
@@ -12,34 +22,18 @@ public static class GameManager {
 
 	public static void NewGame() {
 		StateManager.LoadInitialState();
-
-		// TODO: change scene
+		LoadRoom();
 	}
 
-	/*public static void LoadMainMenu() {
-		LoadScene(Parameters.SceneMainMenu);
+	public static void SaveGame(string stateId) {
+		StateManager.SaveState(stateId);
 	}
 
-	public static void LoadRoom() {
-		LoadScene(Parameters.SceneRoom);
+	private static void LoadRoom() {
+		if (Parameters.GetUseSplashScreens())
+			SceneManager.LoadScene(Parameters.SplashScreenScene);
+		else
+			SceneManager.LoadScene(Parameters.RoomScene);
 	}
-
-	public static void LoadRoomWithSplashScreen(string roomId) {
-		// Sets the current room
-		RoomManager.SetCurrentRoomId(roomId);
-		
-		GameManager.LoadSplashScreen();
-	}
-	
-	public static void LoadRoomWithoutSplashScreen(string roomId) {
-		// Sets the current room
-		RoomManager.SetCurrentRoomId(roomId);
-		
-		GameManager.LoadRoom();
-	}
-
-	public static void LoadSplashScreen() {
-		LoadScene(Parameters.SceneSplashScreen);
-	}*/
 
 }

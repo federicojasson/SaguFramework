@@ -4,6 +4,10 @@ public static class MenuManager {
 
 	private static Stack<Menu> menus;
 
+	static MenuManager() {
+		menus = new Stack<Menu>();
+	}
+
 	public static void CloseCurrentMenu() {
 		Menu currentMenu = menus.Pop();
 		GuiAssets.DestroyMenu(currentMenu);

@@ -7,7 +7,7 @@ public class SplashScreenSceneLoader : SceneLoader {
 	}
 	
 	protected override IEnumerator LoadSceneCoroutine() {
-
+		SceneManager.LoadScene(Parameters.RoomScene);
 
 		// TODO
 		yield break;

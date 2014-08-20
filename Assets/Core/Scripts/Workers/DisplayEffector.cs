@@ -23,7 +23,7 @@ public partial class DisplayEffector : MonoBehaviour {
 				
 				// Draws the fade texture
 				GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, clampedfadeTextureAlphaValue);
-				GUI.DrawTexture(UtilityManager.ComputeScreenRectangle(), fadeTexture);
+				GUI.DrawTexture(UtilityManager.GetScreenRectangle(), fadeTexture);
 			}
 		}
 	}

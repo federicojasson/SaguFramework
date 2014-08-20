@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Text;
-using System.Xml;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml.Linq;
 
 public static class OptionManager {
@@ -26,15 +25,18 @@ public static class OptionManager {
 	public static string GetString(string id) {
 		return options[id];
 	}
-
-	public static void LoadInitialOptions() {
-		string resourcePath = Parameters.InitialOptionsFileResourcePath;
-		string optionsFileContent = UtilityManager.ReadResourceTextFileContent(resourcePath);
-		LoadOptionsFile(optionsFileContent);
-	}
 	
 	public static void LoadOptions() {
-		// TODO
+		try {
+			string path = Parameters.GetOptionsFilePath();
+			XDocument optionsFile = FileManager.ReadXmlFile(path);
+			LoadOptionsFile(optionsFile);
+		} catch (Exception) {
+			string resourcePath = Parameters.InitialOptionsFileResourcePath;
+			XDocument optionsFile = FileManager.ReadResourceXmlFile(resourcePath);
+			LoadOptionsFile(optionsFile);
+			SaveOptions();
+		}
 	}
 
 	public static void SaveOptions() {
@@ -42,15 +44,9 @@ public static class OptionManager {
 
 		foreach (KeyValuePair<string, string> entry in options)
 			root.Add(new XElement(entry.Key.Trim(), entry.Value.Trim()));
-
-		XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
-		xmlWriterSettings.Indent = true;
-		xmlWriterSettings.IndentChars = "\t";
-		xmlWriterSettings.NewLineChars = System.Environment.NewLine;
-		xmlWriterSettings.NewLineHandling = NewLineHandling.None;
-
-		using (XmlWriter xmlWriter = XmlWriter.Create(Parameters.GetOptionsFilePath(), xmlWriterSettings))
-			root.Save(xmlWriter);
+		
+		XDocument optionsFile = new XDocument(root);
+		FileManager.WriteXmlFile(Parameters.GetOptionsFilePath(), optionsFile);
 	}
 
 	public static void SetBool(string id, bool value) {
@@ -69,11 +65,11 @@ public static class OptionManager {
 		options[id] = value;
 	}
 	
-	private static void LoadOptionsFile(string optionsFileContent) {
+	private static void LoadOptionsFile(XDocument optionsFile) {
 		// Clears the options
 		options.Clear();
 
-		XElement root = XElement.Parse(optionsFileContent);
+		XElement root = optionsFile.Root;
 
 		foreach (XElement node in root.Elements()) {
 			string key = node.Name.LocalName.Trim();

@@ -6,7 +6,7 @@ public partial class Parameters : MonoBehaviour {
 
 	public const string InitialOptionsFileResourcePath = "InitialOptions";
 	public const string InitialStateFileResourcePath = "InitialState";
-	public const string StateFileExtension = ".xml";
+	public const string StateFilesExtension = ".xml";
 
 
 	// Sorting layers

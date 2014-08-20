@@ -6,6 +6,7 @@ public partial class Parameters : MonoBehaviour {
 	
 	public string OptionsFilePath;
 	public string StateFilesDirectoryPath;
+	public bool UseSplashScreens;
 
 
 	public void Awake() {

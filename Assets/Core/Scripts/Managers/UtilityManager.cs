@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.IO;
 using UnityEngine;
 
 public static class UtilityManager {
@@ -9,13 +8,13 @@ public static class UtilityManager {
 		return value.ToString();
 	}
 
-	public static Rect ComputeScreenRectangle() {
-		// TODO: calculate this somehow
-		return new Rect(0, 0, 1600, 900);
-	}
-
 	public static string FloatToString(float value) {
 		return value.ToString(CultureInfo.InvariantCulture);
+	}
+	
+	public static Rect GetScreenRectangle() {
+		// TODO: calculate this somehow
+		return new Rect(0, 0, 1600, 900);
 	}
 
 	public static Timer InstantiateTimer() {
@@ -24,15 +23,6 @@ public static class UtilityManager {
 
 	public static string IntToString(int value) {
 		return value.ToString(CultureInfo.InvariantCulture);
-	}
-
-	public static string ReadResourceTextFileContent(string resourcePath) {
-		TextAsset textAsset = (TextAsset) Resources.Load(resourcePath, typeof(TextAsset));
-		return textAsset.text;
-	}
-	
-	public static string ReadTextFileContent(string path) {
-		return File.ReadAllText(path);
 	}
 
 	public static bool StringToBool(string value) {
