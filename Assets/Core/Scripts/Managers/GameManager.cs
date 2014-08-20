@@ -2,7 +2,8 @@
 
 public static class GameManager {
 	
-	public static void ChangeRoom(string roomId, bool useSplashScreen) {
+	public static void ChangeRoom(bool useSplashScreen, string roomId, string entryPositionId) {
+		RoomManager.SetCurrentEntryPositionId(entryPositionId);
 		RoomManager.SetCurrentRoomId(roomId);
 		LoadRoom(useSplashScreen);
 	}
@@ -21,7 +22,7 @@ public static class GameManager {
 		Application.Quit();
 	}
 
-	public static void LoadGame(string stateId, bool useSplashScreen) {
+	public static void LoadGame(bool useSplashScreen, string stateId) {
 		StateManager.LoadState(stateId);
 		LoadRoom(useSplashScreen);
 	}
