@@ -441,7 +441,7 @@ GameObject:
   - 4: {fileID: 1440169299}
   - 114: {fileID: 1440169300}
   m_Layer: 0
-  m_Name: StateAssets
+  m_Name: GameAssets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

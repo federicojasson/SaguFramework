@@ -7,6 +7,10 @@ public class SplashScreenSceneLoader : SceneLoader {
 	}
 	
 	protected override IEnumerator LoadSceneCoroutine() {
+
+		SplashScreen splashScreen = GuiManager.ShowSplashScreenFromGroup(Parameters.RoomSplashScreenGroup);
+		//splashScreen.FadeParameters; // TODO
+
 		SceneManager.LoadScene(Parameters.RoomScene);
 
 		// TODO

@@ -20,11 +20,11 @@ public static class GuiManager {
 	}
 	
 	public static SplashScreen ShowSplashScreen(string id) {
-		return GuiAssets.InstantiateSplashScreen(id);
+		return GuiAssets.CreateSplashScreen(id);
 	}
 	
 	public static SplashScreen ShowSplashScreenFromGroup(string id) {
-		return GuiAssets.InstantiateSplashScreenFromGroup(id);
+		return GuiAssets.CreateSplashScreenFromGroup(id);
 	}
 
 }

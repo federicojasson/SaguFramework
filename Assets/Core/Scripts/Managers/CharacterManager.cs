@@ -3,17 +3,23 @@
 public static class CharacterManager {
 
 	private static Dictionary<string, Location> characterLocations;
-	private static List<Character> roomCharacters;
 
 	static CharacterManager() {
 		characterLocations = new Dictionary<string, Location>();
-		roomCharacters = new List<Character>();
+	}
+
+	public static void CreateCharacters(string roomId) {
+		foreach (KeyValuePair<string, Location> entry in characterLocations) {
+			Location location = entry.Value;
+			
+			if (location.RoomId == roomId)
+				GameAssets.CreateCharacter(entry.Key, location.Position);
+		}
 	}
 
 	public static void Reset() {
 		// Clears the manager's data structures
 		characterLocations.Clear();
-		roomCharacters.Clear();
 	}
 
 }

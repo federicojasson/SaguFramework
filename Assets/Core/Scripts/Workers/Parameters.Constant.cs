@@ -8,6 +8,8 @@ public partial class Parameters : MonoBehaviour {
 	public const string InitialStateFileResourcePath = "InitialState";
 	public const string StateFilesExtension = ".xml";
 
+	public const string RoomSplashScreenGroup = "Room";
+
 
 	// Sorting layers
 	

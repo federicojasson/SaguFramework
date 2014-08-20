@@ -7,6 +7,10 @@ public class RoomSceneLoader : SceneLoader {
 	}
 	
 	protected override IEnumerator LoadSceneCoroutine() {
+		Room room = GameManager.CreateCurrentRoom();
+
+		//room.FadeParameters; TODO
+
 		// TODO
 		yield break;
 	}

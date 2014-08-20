@@ -20,7 +20,7 @@ public static class MenuManager {
 		if (menus.Count > 0)
 			menus.Peek().Hide();
 		
-		Menu menu = GuiAssets.InstantiateMenu(id);
+		Menu menu = GuiAssets.CreateMenu(id);
 		menus.Push(menu);
 		menu.Show();
 

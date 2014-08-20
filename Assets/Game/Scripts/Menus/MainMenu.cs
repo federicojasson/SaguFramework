@@ -22,7 +22,7 @@ public class MainMenu : Menu {
 	}
 	
 	private void OnNewGameButtonActuated() {
-		GameManager.NewGame();
+		GameManager.NewGame(true);
 	}
 	
 }

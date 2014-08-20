@@ -12,8 +12,4 @@ public partial class Parameters : MonoBehaviour {
 		return instance.StateFilesDirectoryPath;
 	}
 
-	public static bool GetUseSplashScreens() {
-		return instance.UseSplashScreens;
-	}
-
 }
