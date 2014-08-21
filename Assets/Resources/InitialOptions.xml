@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <options>
-	<language>Spanish</language>
+	<string>
+		<id>LanguageId</id>
+		<value>Spanish</value>
+	</string>
 </options>

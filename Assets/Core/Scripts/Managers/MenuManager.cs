@@ -9,8 +9,7 @@ public static class MenuManager {
 	}
 
 	public static void CloseCurrentMenu() {
-		Menu currentMenu = menus.Pop();
-		GuiAssets.DestroyMenu(currentMenu);
+		menus.Pop().Close();
 		
 		if (menus.Count > 0)
 			menus.Peek().Show();

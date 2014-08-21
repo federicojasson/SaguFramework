@@ -7,14 +7,24 @@ public class MainSceneLoader : SceneLoader {
 	}
 	
 	protected override IEnumerator LoadSceneCoroutine() {
-		// TODO: load things
+		SplashScreen splashScreen = GuiManager.ShowSplashScreen(Parameters.GetMainSplashScreenId());
 
+		Timer timer = UtilityManager.CreateTimer();
+		timer.RegisterStartTime();
+
+		// TODO: fade in
+
+		// TODO: load things
 		OptionManager.LoadOptions();
+		string languageId = OptionManager.GetString(Parameters.GetLanguageOptionId());
+		LanguageManager.LoadLanguage(languageId);
+
+		float minimumDelayTime = 2; // TODO: get somehow
+		yield return StartCoroutine(timer.WaitForAtLeastSecondsCoroutine(minimumDelayTime));
+
+		// TODO: fade out
 
 		GameManager.LoadMainMenu();
-
-		// TODO
-		yield break;
 	}
 
 }

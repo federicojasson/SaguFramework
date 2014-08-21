@@ -3,16 +3,12 @@ using UnityEngine;
 
 public static class UtilityManager {
 
-	public static string BoolToString(bool value) {
+	public static string BooleanToString(bool value) {
 		return value.ToString();
 	}
 	
 	public static Timer CreateTimer() {
 		return FrameworkAssets.CreateTimer();
-	}
-
-	public static void Destroy(GameObject gameObject) {
-		Object.Destroy(gameObject);
 	}
 
 	public static string FloatToString(float value) {
@@ -32,11 +28,15 @@ public static class UtilityManager {
 		return (T) Object.Instantiate(prefab, position, Quaternion.identity);
 	}
 	
-	public static string IntToString(int value) {
+	public static string IntegerToString(int value) {
 		return value.ToString(CultureInfo.InvariantCulture);
 	}
 
-	public static bool StringToBool(string value) {
+	public static T LoadResource<T>(string resourcePath) where T : Object {
+		return (T) Resources.Load<T>(resourcePath);
+	}
+
+	public static bool StringToBoolean(string value) {
 		return System.Boolean.Parse(value);
 	}
 
@@ -44,7 +44,7 @@ public static class UtilityManager {
 		return float.Parse(value, CultureInfo.InvariantCulture);
 	}
 	
-	public static int StringToInt(string value) {
+	public static int StringToInteger(string value) {
 		return int.Parse(value, CultureInfo.InvariantCulture);
 	}
 

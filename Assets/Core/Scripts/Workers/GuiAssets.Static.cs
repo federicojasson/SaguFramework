@@ -17,7 +17,9 @@ public partial class GuiAssets : MonoBehaviour {
 		SpriteRenderer backgroundSpriteRenderer = background.AddComponent<SpriteRenderer>();
 		backgroundSpriteRenderer.sortingLayerName = Parameters.MenuBackgroundSortingLayer;
 		backgroundSpriteRenderer.sortingOrder = 0; // TODO: use Parameters?
-		backgroundSpriteRenderer.sprite = menu.Background;
+		backgroundSpriteRenderer.sprite = menu.Image.Sprite;
+
+		// TODO: set opacity
 		
 		return menu;
 	}
@@ -42,12 +44,12 @@ public partial class GuiAssets : MonoBehaviour {
 		return CreateSplashScreen(splashScreenPrefab);
 	}
 
-	public static void DestroyMenu(Menu menu) {
-		UtilityManager.Destroy(menu.gameObject);
+	public static FadeParameters GetDefaultFadeInParameters() {
+		return instance.DefaultFadeInParameters;
 	}
 
-	public static FadeParameters GetDefaultFadeParameters() {
-		return instance.DefaultFadeParameters;
+	public static FadeParameters GetDefaultFadeOutParameters() {
+		return instance.DefaultFadeOutParameters;
 	}
 	
 	private static SplashScreen CreateSplashScreen(SplashScreen splashScreenPrefab) {
@@ -60,7 +62,9 @@ public partial class GuiAssets : MonoBehaviour {
 		SpriteRenderer backgroundSpriteRenderer = background.AddComponent<SpriteRenderer>();
 		backgroundSpriteRenderer.sortingLayerName = Parameters.SplashScreenBackgroundSortingLayer;
 		backgroundSpriteRenderer.sortingOrder = 0; // TODO: use Parameters?
-		backgroundSpriteRenderer.sprite = splashScreen.Background;
+		backgroundSpriteRenderer.sprite = splashScreen.Image.Sprite;
+
+		// TODO: set opacity
 		
 		return splashScreen;
 	}

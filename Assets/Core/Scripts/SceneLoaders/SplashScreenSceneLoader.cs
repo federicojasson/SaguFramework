@@ -7,14 +7,20 @@ public class SplashScreenSceneLoader : SceneLoader {
 	}
 	
 	protected override IEnumerator LoadSceneCoroutine() {
-
-		SplashScreen splashScreen = GuiManager.ShowSplashScreenFromGroup(Parameters.RoomSplashScreenGroup);
+		SplashScreen splashScreen = GuiManager.ShowSplashScreenFromGroup(Parameters.GetRoomSplashScreenGroupId());
 		//splashScreen.FadeParameters; // TODO
 
-		SceneManager.LoadScene(Parameters.RoomScene);
+		Timer timer = UtilityManager.CreateTimer();
+		timer.RegisterStartTime();
 
-		// TODO
-		yield break;
+		// TODO: fade in
+
+		float minimumDelayTime = 2; // TODO: get somehow
+		yield return StartCoroutine(timer.WaitForAtLeastSecondsCoroutine(minimumDelayTime));
+
+		// TODO: fade out
+
+		SceneManager.LoadScene(Parameters.RoomScene);
 	}
 
 }

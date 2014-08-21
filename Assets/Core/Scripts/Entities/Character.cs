@@ -2,6 +2,6 @@
 
 public class Character : MonoBehaviour {
 	
-	public Sprite Background;
+	public GameImage Image;
 
 }

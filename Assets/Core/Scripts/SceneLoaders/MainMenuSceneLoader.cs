@@ -7,6 +7,10 @@ public class MainMenuSceneLoader : SceneLoader {
 	}
 	
 	protected override IEnumerator LoadSceneCoroutine() {
+		GuiManager.OpenMenu(Parameters.GetMainMenuId());
+
+		// TODO: fade in
+
 		// TODO
 		yield break;
 	}

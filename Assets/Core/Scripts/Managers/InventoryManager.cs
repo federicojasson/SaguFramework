@@ -9,7 +9,6 @@ public static class InventoryManager {
 	}
 
 	public static void Reset() {
-		// Clears the manager's data structure
 		inventoryItems.Clear();
 	}
 

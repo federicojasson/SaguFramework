@@ -2,6 +2,6 @@
 
 public class Item : MonoBehaviour {
 	
-	public Sprite Background;
+	public GameImage Image;
 
 }

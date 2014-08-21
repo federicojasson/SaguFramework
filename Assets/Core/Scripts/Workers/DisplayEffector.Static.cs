@@ -5,7 +5,7 @@ public partial class DisplayEffector : MonoBehaviour {
 	
 	private static DisplayEffector instance; // Singleton instance
 
-	public static IEnumerator FadeInCoroutine(float fadeSpeed, Texture2D fadeTexture) {
+	public static IEnumerator FadeInCoroutine(float fadeSpeed, Sprite fadeSprite) {
 		// Sets the fade speed and texture
 		instance.fadeSpeed = - fadeSpeed;
 		instance.fadeTexture = fadeTexture;
@@ -23,7 +23,7 @@ public partial class DisplayEffector : MonoBehaviour {
 		instance.fadeTextureAlphaValue = 0;
 	}
 
-	public static IEnumerator FadeOutCoroutine(float fadeSpeed, Texture2D fadeTexture) {
+	public static IEnumerator FadeOutCoroutine(float fadeSpeed, Sprite fadeSprite) {
 		// Sets the fade speed and texture
 		instance.fadeSpeed = fadeSpeed;
 		instance.fadeTexture = fadeTexture;

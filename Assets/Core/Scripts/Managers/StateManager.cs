@@ -2,24 +2,29 @@
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
+using UnityEngine;
 
 public static class StateManager {
 
 	public static string[] GetStateIds() {
-		// Gets the state files
-		FileInfo[] stateFiles = FileManager.GetDirectoryFiles(Parameters.GetStateFilesDirectoryPath(), Parameters.StateFilesExtension);
+		try {
+			// Gets the state files
+			FileInfo[] stateFiles = FileManager.GetDirectoryFiles(Parameters.GetStateFilesDirectoryPath(), Parameters.StateFilesExtension);
 
-		// TODO: maybe do something else in FileManager
+			// TODO: maybe do something else in FileManager
 
-		// Orders the state files by last write time (in descending order)
-		FileInfo[] orderedStateFiles = stateFiles.OrderByDescending(value => value.LastWriteTime).ToArray();
+			// Orders the state files by last write time (in descending order)
+			FileInfo[] orderedStateFiles = stateFiles.OrderByDescending(value => value.LastWriteTime).ToArray();
 
-		// Gets the state IDs
-		string[] stateIds = new string[orderedStateFiles.Length];
-		for (int i = 0; i < orderedStateFiles.Length; i++)
-			stateIds[i] = Path.GetFileNameWithoutExtension(orderedStateFiles[i].Name);
-		
-		return stateIds;
+			// Gets the state IDs
+			string[] stateIds = new string[orderedStateFiles.Length];
+			for (int i = 0; i < orderedStateFiles.Length; i++)
+				stateIds[i] = Path.GetFileNameWithoutExtension(orderedStateFiles[i].Name);
+			
+			return stateIds;
+		} catch (Exception) {
+			return new string[0];
+		}
 	}
 
 	public static void LoadInitialState() {
@@ -51,7 +56,7 @@ public static class StateManager {
 	}
 
 	private static string GetStateFilePath(string id) {
-		// TODO: maybe do something else in FileManager
+		// TODO: maybe do something else in FileManager or Parameters
 
 		string stateFilePath = "";
 		stateFilePath += Parameters.GetStateFilesDirectoryPath();
@@ -69,7 +74,64 @@ public static class StateManager {
 		ItemManager.Reset();
 		RoomManager.Reset();
 
-		// TODO
+		XElement root = stateFile.Root;
+
+		{
+			string currentRoomId = root.Element(Parameters.XmlTagCurrentRoomId).Value.Trim();
+
+			RoomManager.SetCurrentRoomId(currentRoomId);
+		}
+
+		{
+			XElement node = root.Element(Parameters.XmlTagPlayerCharacter);
+			string id = node.Element(Parameters.XmlTagId).Value.Trim();
+			Location location = ReadXmlLocation(node);
+
+			CharacterManager.SetCharacterLocation(id, location);
+			CharacterManager.SetPlayerCharacterId(id);
+		}
+
+		foreach (XElement node in root.Elements(Parameters.XmlTagCharacter)) {
+			string id = node.Element(Parameters.XmlTagId).Value.Trim();
+			Location location = ReadXmlLocation(node);
+
+			CharacterManager.SetCharacterLocation(id, location);
+		}
+
+		foreach (XElement node in root.Elements(Parameters.XmlTagInventoryItem)) {
+			string id = node.Element(Parameters.XmlTagId).Value.Trim();
+			// TODO
+		}
+
+		foreach (XElement node in root.Elements(Parameters.XmlTagItem)) {
+			string id = node.Element(Parameters.XmlTagId).Value.Trim();
+			Location location = ReadXmlLocation(node);
+
+			ItemManager.SetItemLocation(id, location);
+		}
+	}
+
+	// TODO: refactor XML handling
+
+	private static Location ReadXmlLocation(XElement parentNode) {
+		XElement node = parentNode.Element(Parameters.XmlTagLocation);
+		
+		string roomId = node.Element(Parameters.XmlTagRoomId).Value.Trim();
+		Vector2 position = ReadXmlPosition(node);
+		
+		return new Location(roomId, position);
+	}
+
+	private static Vector2 ReadXmlPosition(XElement parentNode) {
+		XElement node = parentNode.Element(Parameters.XmlTagPosition);
+
+		string x = node.Element(Parameters.XmlTagX).Value.Trim();
+		string y = node.Element(Parameters.XmlTagY).Value.Trim();
+
+		float xValue = UtilityManager.StringToFloat(x);
+		float yValue = UtilityManager.StringToFloat(y);
+		
+		return new Vector2(xValue, yValue);
 	}
 
 }

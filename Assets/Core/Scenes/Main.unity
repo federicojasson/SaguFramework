@@ -267,7 +267,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1406153921}
+  m_Father: {fileID: 1041416399}
 --- !u!1 &1041416398
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,10 +293,12 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 776660990}
   - {fileID: 638369931}
   - {fileID: 1525839445}
   - {fileID: 609251635}
-  m_Father: {fileID: 1319057910}
+  - {fileID: 1880904346}
+  m_Father: {fileID: 2019792204}
 --- !u!1 &1126315726
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,62 +327,6 @@ Transform:
   - {fileID: 1432791460}
   - {fileID: 1910369177}
   - {fileID: 1440169299}
-  m_Father: {fileID: 1319057910}
---- !u!1 &1319057909
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1319057910}
-  m_Layer: 0
-  m_Name: Workers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1319057910
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1319057909}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1041416399}
-  - {fileID: 1126315727}
-  m_Father: {fileID: 2019792204}
---- !u!1 &1406153920
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1406153921}
-  m_Layer: 0
-  m_Name: Entities
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1406153921
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1406153920}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 776660990}
-  - {fileID: 1880904346}
   m_Father: {fileID: 2019792204}
 --- !u!1 &1432791459
 GameObject:
@@ -420,17 +366,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef321cd7d247c94ba8a45a0ed0033fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultFadeParameters:
-    FadeInSpeed: 0
-    FadeInTexture: {fileID: 0}
-    FadeOutSpeed: 0
-    FadeOutTexture: {fileID: 0}
+  DefaultFadeInParameters:
+    FadeSpeed: 0
+    FadeTexture: {fileID: 0}
+    Ignore: 0
+  DefaultFadeOutParameters:
+    FadeSpeed: 0
+    FadeTexture: {fileID: 0}
+    Ignore: 0
   MenuPrefabs:
-    Entries: []
+    Entries:
+    - Key: ExitConfirmationMenu
+      Value: {fileID: 11400000, guid: 0f33645dcc850e146a6a20b5c7aa8a81, type: 2}
+    - Key: LoadGameMenu
+      Value: {fileID: 11400000, guid: c94c1a99a86c21d488b8efb6f7ed6eeb, type: 2}
+    - Key: MainMenu
+      Value: {fileID: 11400000, guid: 95f87c8801146654c8e8e474d343269f, type: 2}
   SplashScreenPrefabGroups:
-    Entries: []
+    Entries:
+    - Key: RoomSplashScreens
+      Value:
+      - {fileID: 11400000, guid: aee7bc91af9b7df48a3932760fe076a5, type: 2}
+      - {fileID: 11400000, guid: ce629741cf5dd664780cf7d8c9ff9311, type: 2}
+      - {fileID: 11400000, guid: 146b9b064de4a9a46bfc429f58893f8e, type: 2}
   SplashScreenPrefabs:
-    Entries: []
+    Entries:
+    - Key: MainSplashScreen
+      Value: {fileID: 11400000, guid: 1e5dda11094adef48a558e302c256b1b, type: 2}
 --- !u!1 &1440169298
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,13 +432,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterPrefabs:
-    Entries: []
+    Entries:
+    - Key: Scientist
+      Value: {fileID: 11400000, guid: 693d64f96c586644aa50ba4c7fee4879, type: 2}
   InventoryItemPrefabs:
-    Entries: []
+    Entries:
+    - Key: InventoryErlenmeyer
+      Value: {fileID: 11400000, guid: 78f6c98a8209e9946a6997ad77fd93ca, type: 2}
   ItemPrefabs:
-    Entries: []
+    Entries:
+    - Key: Erlenmeyer
+      Value: {fileID: 11400000, guid: db540b8e2eb8d894ab5a845f830d45d8, type: 2}
   RoomPrefabs:
-    Entries: []
+    Entries:
+    - Key: Laboratory
+      Value: {fileID: 11400000, guid: 600e361a6854a9c478b45651d6573b51, type: 2}
 --- !u!1 &1525839444
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce9e1f9288cae454d94ca2ff51695f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimerPrefab: {fileID: 0}
+  TimerPrefab: {fileID: 11400000, guid: f0e72281e43e0f04a8a7aa6a4e6744fd, type: 2}
 --- !u!1 &1880904345
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,7 +512,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1406153921}
+  m_Father: {fileID: 1041416399}
 --- !u!114 &1880904347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +563,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OptionsFilePath: "%USERPROFILE%\\EmergenciaQu\xEDmica\\Options.xml"
-  StateFilesDirectoryPath: 
+  StateFilesDirectoryPath: "%USERPROFILE%\\EmergenciaQu\xEDmica\\States"
+  LanguageOptionId: Language
+  MainMenuId: MainMenu
+  MainSplashScreenId: MainSplashScreen
+  RoomSplashScreenGroupId: RoomSplashScreens
 --- !u!1 &2019792202
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,6 +605,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1319057910}
-  - {fileID: 1406153921}
+  - {fileID: 1041416399}
+  - {fileID: 1126315727}
   m_Father: {fileID: 0}

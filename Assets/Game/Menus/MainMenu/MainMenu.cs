@@ -9,6 +9,9 @@ public class MainMenu : Menu {
 		if (GUILayout.Button("Cargar partida")) // TODO: use LanguageManager
 			OnLoadGameButtonActuated();
 
+		if (GUILayout.Button("Opciones")) // TODO: use LanguageManager
+			OnOptionsButtonActuated();
+
 		if (GUILayout.Button("Salir")) // TODO: use LanguageManager
 			OnExitButtonActuated();
 	}
@@ -23,6 +26,10 @@ public class MainMenu : Menu {
 	
 	private void OnNewGameButtonActuated() {
 		GameManager.NewGame(true);
+	}
+	
+	private void OnOptionsButtonActuated() {
+		GuiManager.OpenMenu("OptionsMenu");
 	}
 	
 }

@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 
 public partial class DisplayEffector : MonoBehaviour {
-	
-	private float fadeSpeed;
+
+	//private GameImage fadeImage;
+
+	/*private float fadeSpeed;
 	private Texture2D fadeTexture;
 	private float fadeTextureAlphaValue;
 
@@ -26,6 +28,6 @@ public partial class DisplayEffector : MonoBehaviour {
 				GUI.DrawTexture(UtilityManager.GetScreenRectangle(), fadeTexture);
 			}
 		}
-	}
+	}*/
 	
 }

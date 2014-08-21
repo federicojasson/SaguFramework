@@ -2,7 +2,7 @@
 
 public class InventoryItem : MonoBehaviour {
 
-	public Sprite Background;
+	public GameImage Image;
 
 	public void Awake() {
 		// Hides the inventory item initially

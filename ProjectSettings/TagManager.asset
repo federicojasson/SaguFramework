@@ -41,35 +41,39 @@ TagManager:
     userID: 0
     uniqueID: 0
     locked: 0
-  - name: RoomBackground
+  - name: RoomBackgroundImage
     userID: 1
     uniqueID: 2046728509
     locked: 0
-  - name: ItemBackground
+  - name: ItemImage
     userID: 2
     uniqueID: 2457803451
     locked: 0
-  - name: CharacterBackground
+  - name: CharacterImage
     userID: 3
     uniqueID: 18817131
     locked: 0
-  - name: RoomForeground
+  - name: RoomForegroundImage
     userID: 4
     uniqueID: 1543189837
     locked: 0
-  - name: InventoryBackground
+  - name: InventoryImage
     userID: 5
     uniqueID: 1172991397
     locked: 0
-  - name: InventoryItemBackground
+  - name: InventoryItemImage
     userID: 6
     uniqueID: 416819029
     locked: 0
-  - name: MenuBackground
+  - name: MenuImage
     userID: 7
     uniqueID: 2045928539
     locked: 0
-  - name: SplashScreenBackground
+  - name: SplashScreenImage
     userID: 8
     uniqueID: 2710799997
+    locked: 0
+  - name: CurtainImage
+    userID: 9
+    uniqueID: 871211793
     locked: 0

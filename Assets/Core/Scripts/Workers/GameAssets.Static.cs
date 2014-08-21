@@ -17,7 +17,9 @@ public partial class GameAssets : MonoBehaviour {
 		SpriteRenderer backgroundSpriteRenderer = background.AddComponent<SpriteRenderer>();
 		backgroundSpriteRenderer.sortingLayerName = Parameters.CharacterBackgroundSortingLayer;
 		backgroundSpriteRenderer.sortingOrder = 0; // TODO: use Parameters?
-		backgroundSpriteRenderer.sprite = character.Background;
+		backgroundSpriteRenderer.sprite = character.Image.Sprite;
+
+		// TODO: set opacity
 		
 		return character;
 	}
@@ -35,7 +37,9 @@ public partial class GameAssets : MonoBehaviour {
 		SpriteRenderer backgroundSpriteRenderer = background.AddComponent<SpriteRenderer>();
 		backgroundSpriteRenderer.sortingLayerName = Parameters.ItemBackgroundSortingLayer;
 		backgroundSpriteRenderer.sortingOrder = 0; // TODO: use Parameters?
-		backgroundSpriteRenderer.sprite = item.Background;
+		backgroundSpriteRenderer.sprite = item.Image.Sprite;
+
+		// TODO: set opacity
 
 		return item;
 	}
@@ -53,7 +57,9 @@ public partial class GameAssets : MonoBehaviour {
 		SpriteRenderer backgroundSpriteRenderer = background.AddComponent<SpriteRenderer>();
 		backgroundSpriteRenderer.sortingLayerName = Parameters.RoomBackgroundSortingLayer;
 		backgroundSpriteRenderer.sortingOrder = 0; // TODO: use Parameters?
-		backgroundSpriteRenderer.sprite = room.Background;
+		backgroundSpriteRenderer.sprite = room.BackgroundImage.Sprite;
+
+		// TODO: set opacity
 
 		// Creates a game object that shows the foreground
 		GameObject foreground = new GameObject("Foreground"); // TODO: use Parameters?
@@ -61,7 +67,9 @@ public partial class GameAssets : MonoBehaviour {
 		SpriteRenderer foregroundSpriteRenderer = foreground.AddComponent<SpriteRenderer>();
 		foregroundSpriteRenderer.sortingLayerName = Parameters.RoomForegroundSortingLayer;
 		foregroundSpriteRenderer.sortingOrder = 0; // TODO: use Parameters?
-		foregroundSpriteRenderer.sprite = room.Foreground;
+		foregroundSpriteRenderer.sprite = room.ForegroundImage.Sprite;
+
+		// TODO: set opacity
 
 		return room;
 	}

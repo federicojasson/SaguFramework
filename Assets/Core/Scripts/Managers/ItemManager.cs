@@ -18,8 +18,11 @@ public static class ItemManager {
 	}
 
 	public static void Reset() {
-		// Clears the manager's data structures
 		itemLocations.Clear();
+	}
+
+	public static void SetItemLocation(string id, Location location) {
+		itemLocations[id] = location;
 	}
 
 }

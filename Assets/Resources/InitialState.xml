@@ -1,8 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <state>
-	
 	<current-room-id>Laboratory</current-room-id>
-	
-	<character player-character="true">
+	<player-character>
 		<id>Scientist</id>
 		<location>
 			<room-id>Laboratory</room-id>
@@ -11,8 +10,7 @@
 				<y>64</y>
 			</position>
 		</location>
-	</character>
-	
+	</player-character>
 	<item>
 		<id>Erlenmeyer</id>
 		<location>
@@ -23,5 +21,4 @@
 			</position>
 		</location>
 	</item>
-	
 </state>

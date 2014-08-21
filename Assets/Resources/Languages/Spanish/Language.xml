@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+	<audio>
+		<id></id>
+		<resource-path></resource-path>
+	</audio>
+	<text>
+		<id>MainMenuExitButton</id>
+		<value>Salir</value>
+	</text>
+	<text>
+		<id>MainMenuLoadGameButton</id>
+		<value>Cargar partida</value>
+	</text>
+	<text>
+		<id>MainMenuNewGameButton</id>
+		<value>Nueva partida</value>
+	</text>
+	<text>
+		<id>MainMenuOptionsButton</id>
+		<value>Opciones</value>
+	</text>
+</language>

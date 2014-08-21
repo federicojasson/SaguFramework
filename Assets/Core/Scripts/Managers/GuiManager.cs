@@ -7,12 +7,12 @@ public static class GuiManager {
 		MenuManager.CloseCurrentMenu();
 	}
 	
-	public static IEnumerator FadeInCoroutine(float fadeSpeed, Texture2D fadeTexture) {
-		return DisplayEffector.FadeInCoroutine(fadeSpeed, fadeTexture);
+	public static IEnumerator FadeInCoroutine(float fadeSpeed, Sprite fadeSprite) {
+		return DisplayEffector.FadeInCoroutine(fadeSpeed, fadeSprite);
 	}
 
-	public static IEnumerator FadeOutCoroutine(float fadeSpeed, Texture2D fadeTexture) {
-		return DisplayEffector.FadeOutCoroutine(fadeSpeed, fadeTexture);
+	public static IEnumerator FadeOutCoroutine(float fadeSpeed, Sprite fadeSprite) {
+		return DisplayEffector.FadeOutCoroutine(fadeSpeed, fadeSprite);
 	}
 
 	public static Menu OpenMenu(string id) {
