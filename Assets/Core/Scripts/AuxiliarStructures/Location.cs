@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
 public class Location {
-
-	public string RoomId;
+	
 	public Vector2 Position;
+	public string RoomId;
 
-	public Location(string roomId, Vector2 position) {
-		RoomId = roomId;
+	public Location(Vector2 position, string roomId) {
 		Position = position;
+		RoomId = roomId;
 	}
 
 }

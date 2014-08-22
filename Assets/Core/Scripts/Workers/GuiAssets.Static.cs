@@ -11,15 +11,8 @@ public partial class GuiAssets : MonoBehaviour {
 		// Instantiates the menu prefab
 		Menu menu = UtilityManager.Instantiate<Menu>(menuPrefab);
 		
-		// Creates a game object that shows the background
-		GameObject background = new GameObject("Background"); // TODO: use Parameters?
-		background.transform.parent = menu.transform;
-		SpriteRenderer backgroundSpriteRenderer = background.AddComponent<SpriteRenderer>();
-		backgroundSpriteRenderer.sortingLayerName = Parameters.MenuBackgroundSortingLayer;
-		backgroundSpriteRenderer.sortingOrder = 0; // TODO: use Parameters?
-		backgroundSpriteRenderer.sprite = menu.Image.Sprite;
-
-		// TODO: set opacity
+		// Creates a game object that shows the image
+		UtilityManager.CreateImageObject(menu.transform, menu.Image, Parameters.MenuImageSortingLayer);
 		
 		return menu;
 	}
@@ -44,27 +37,16 @@ public partial class GuiAssets : MonoBehaviour {
 		return CreateSplashScreen(splashScreenPrefab);
 	}
 
-	public static FadeParameters GetDefaultFadeInParameters() {
-		return instance.DefaultFadeInParameters;
-	}
-
-	public static FadeParameters GetDefaultFadeOutParameters() {
-		return instance.DefaultFadeOutParameters;
+	public static Sprite GetDefaultFadeSprite() {
+		return instance.DefaultFadeSprite;
 	}
 	
 	private static SplashScreen CreateSplashScreen(SplashScreen splashScreenPrefab) {
 		// Instantiates the splash screen prefab
 		SplashScreen splashScreen = UtilityManager.Instantiate<SplashScreen>(splashScreenPrefab);
 		
-		// Creates a game object that shows the background
-		GameObject background = new GameObject("Background"); // TODO: use Parameters?
-		background.transform.parent = splashScreen.transform;
-		SpriteRenderer backgroundSpriteRenderer = background.AddComponent<SpriteRenderer>();
-		backgroundSpriteRenderer.sortingLayerName = Parameters.SplashScreenBackgroundSortingLayer;
-		backgroundSpriteRenderer.sortingOrder = 0; // TODO: use Parameters?
-		backgroundSpriteRenderer.sprite = splashScreen.Image.Sprite;
-
-		// TODO: set opacity
+		// Creates a game object that shows the image
+		UtilityManager.CreateImageObject(splashScreen.transform, splashScreen.Image, Parameters.SplashScreenImageSortingLayer);
 		
 		return splashScreen;
 	}

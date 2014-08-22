@@ -7,22 +7,25 @@ public class MainSceneLoader : SceneLoader {
 	}
 	
 	protected override IEnumerator LoadSceneCoroutine() {
-		SplashScreen splashScreen = GuiManager.ShowSplashScreen(Parameters.GetMainSplashScreenId());
+		SplashScreen splashScreen = GuiManager.ShowSplashScreen(Parameters.MainSplashScreenId);
 
 		Timer timer = UtilityManager.CreateTimer();
 		timer.RegisterStartTime();
 
-		// TODO: fade in
+		FadeParameters fadeInParameters = splashScreen.FadeInParameters;
+		if (! fadeInParameters.Ignore)
+			yield return StartCoroutine(GuiManager.FadeInCoroutine(fadeInParameters.Speed, fadeInParameters.Sprite));
 
-		// TODO: load things
 		OptionManager.LoadOptions();
-		string languageId = OptionManager.GetString(Parameters.GetLanguageOptionId());
+		string languageId = OptionManager.GetString(Parameters.LanguageOptionId);
 		LanguageManager.LoadLanguage(languageId);
 
 		float minimumDelayTime = 2; // TODO: get somehow
 		yield return StartCoroutine(timer.WaitForAtLeastSecondsCoroutine(minimumDelayTime));
 
-		// TODO: fade out
+		FadeParameters fadeOutParameters = splashScreen.FadeOutParameters;
+		if (! fadeOutParameters.Ignore)
+			yield return StartCoroutine(GuiManager.FadeOutCoroutine(fadeOutParameters.Speed, fadeOutParameters.Sprite));
 
 		GameManager.LoadMainMenu();
 	}

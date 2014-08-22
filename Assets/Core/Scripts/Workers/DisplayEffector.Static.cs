@@ -5,40 +5,38 @@ public partial class DisplayEffector : MonoBehaviour {
 	
 	private static DisplayEffector instance; // Singleton instance
 
-	public static IEnumerator FadeInCoroutine(float fadeSpeed, Sprite fadeSprite) {
-		// Sets the fade speed and texture
-		instance.fadeSpeed = - fadeSpeed;
-		instance.fadeTexture = fadeTexture;
+	public static IEnumerator FadeInCoroutine(float speed, Sprite sprite) {
+		// Sets the fade speed and sprite
+		instance.fadeSpeed = - speed;
+		instance.spriteRenderer.sprite = sprite;
 		
-		while (instance.fadeTextureAlphaValue > 0)
+		while (instance.spriteRenderer.color.a > 0)
 			if (instance.fadeSpeed >= 0)
 				// The fade speed has been reverted, so the coroutine has to end
 				yield break;
 			else
-				// Waits until the fade texture's alpha value is lower than 0
+				// Waits until the fade sprite's opacity is lower than 0
 				yield return null;
 
 		// Stops the fade-in
 		instance.fadeSpeed = 0;
-		instance.fadeTextureAlphaValue = 0;
 	}
 
-	public static IEnumerator FadeOutCoroutine(float fadeSpeed, Sprite fadeSprite) {
-		// Sets the fade speed and texture
-		instance.fadeSpeed = fadeSpeed;
-		instance.fadeTexture = fadeTexture;
+	public static IEnumerator FadeOutCoroutine(float speed, Sprite sprite) {
+		// Sets the fade speed and sprite
+		instance.fadeSpeed = speed;
+		instance.spriteRenderer.sprite = sprite;
 		
-		while (instance.fadeTextureAlphaValue < 1)
+		while (instance.spriteRenderer.color.a < 1)
 			if (instance.fadeSpeed <= 0)
 				// The fade speed has been reverted, so the coroutine has to end
 				yield break;
 			else
-				// Waits until the fade texture's alpha value is greater than 0
+				// Waits until the fade sprite's opacity is greater than 0
 				yield return null;
 		
 		// Stops the fade-out
 		instance.fadeSpeed = 0;
-		instance.fadeTextureAlphaValue = 1;
 	}
 
 }

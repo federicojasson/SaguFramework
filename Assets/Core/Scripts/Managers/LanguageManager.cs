@@ -32,9 +32,9 @@ public static class LanguageManager {
 		
 		string languageFileResourcePath = "";
 		languageFileResourcePath += Parameters.LanguagesDirectoryResourcePath;
-		languageFileResourcePath += Path.DirectorySeparatorChar;
+		languageFileResourcePath += "/";
 		languageFileResourcePath += id;
-		languageFileResourcePath += Path.DirectorySeparatorChar;
+		languageFileResourcePath += "/";
 		languageFileResourcePath += Parameters.LanguageFilename;
 		
 		return languageFileResourcePath;

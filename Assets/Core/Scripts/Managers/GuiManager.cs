@@ -6,13 +6,17 @@ public static class GuiManager {
 	public static void CloseCurrentMenu() {
 		MenuManager.CloseCurrentMenu();
 	}
-	
-	public static IEnumerator FadeInCoroutine(float fadeSpeed, Sprite fadeSprite) {
-		return DisplayEffector.FadeInCoroutine(fadeSpeed, fadeSprite);
+
+	public static IEnumerator FadeInCoroutine(float speed, Sprite sprite) {
+		return DisplayEffector.FadeInCoroutine(speed, sprite);
 	}
 
-	public static IEnumerator FadeOutCoroutine(float fadeSpeed, Sprite fadeSprite) {
-		return DisplayEffector.FadeOutCoroutine(fadeSpeed, fadeSprite);
+	public static IEnumerator FadeOutCoroutine(float speed, Sprite sprite) {
+		return DisplayEffector.FadeOutCoroutine(speed, sprite);
+	}
+
+	public static Sprite GetDefaultFadeSprite() {
+		return GuiAssets.GetDefaultFadeSprite();
 	}
 
 	public static Menu OpenMenu(string id) {

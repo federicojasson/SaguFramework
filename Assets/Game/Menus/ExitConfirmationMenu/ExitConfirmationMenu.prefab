@@ -38,15 +38,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd86fc5ca18eb34458a222273bb6f13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Background: {fileID: 0}
   FadeInParameters:
-    FadeSpeed: 0
-    FadeTexture: {fileID: 0}
-    Ignore: 0
+    Ignore: 1
+    Speed: 0
+    Sprite: {fileID: 0}
   FadeOutParameters:
-    FadeSpeed: 0
-    FadeTexture: {fileID: 0}
-    Ignore: 0
+    Ignore: 1
+    Speed: 0
+    Sprite: {fileID: 0}
+  Image:
+    Opacity: 1
+    Size: 1
+    Sprite: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

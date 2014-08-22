@@ -6,6 +6,19 @@ public static class UtilityManager {
 	public static string BooleanToString(bool value) {
 		return value.ToString();
 	}
+
+	public static void CreateImageObject(Transform parent, GameImage image, string sortingLayer) {
+		GameObject imageObject = new GameObject(Parameters.ImageObjectName);
+		imageObject.transform.parent = parent;
+
+		SpriteRenderer backgroundSpriteRenderer = imageObject.AddComponent<SpriteRenderer>();
+		backgroundSpriteRenderer.color = GetColor(backgroundSpriteRenderer.color, image.Opacity);
+		backgroundSpriteRenderer.sortingLayerName = sortingLayer;
+		backgroundSpriteRenderer.sortingOrder = 0; // TODO: how to assign it?
+		backgroundSpriteRenderer.sprite = image.Sprite;
+
+		// TODO: apply size here?
+	}
 	
 	public static Timer CreateTimer() {
 		return FrameworkAssets.CreateTimer();
@@ -13,6 +26,10 @@ public static class UtilityManager {
 
 	public static string FloatToString(float value) {
 		return value.ToString(CultureInfo.InvariantCulture);
+	}
+
+	public static Color GetColor(Color color, float opacity) {
+		return new Color(color.r, color.g, color.b, opacity);
 	}
 	
 	public static Rect GetScreenRectangle() {

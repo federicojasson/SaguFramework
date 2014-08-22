@@ -46,7 +46,7 @@ public static class StateManager {
 	}
 
 	public static void SaveState(string id) {
-		XElement root = new XElement("state"); // TODO: use parameters?
+		XElement root = new XElement(Parameters.XmlTagState);
 
 		// TODO: fill root
 		
@@ -116,10 +116,10 @@ public static class StateManager {
 	private static Location ReadXmlLocation(XElement parentNode) {
 		XElement node = parentNode.Element(Parameters.XmlTagLocation);
 		
-		string roomId = node.Element(Parameters.XmlTagRoomId).Value.Trim();
 		Vector2 position = ReadXmlPosition(node);
+		string roomId = node.Element(Parameters.XmlTagRoomId).Value.Trim();
 		
-		return new Location(roomId, position);
+		return new Location(position, roomId);
 	}
 
 	private static Vector2 ReadXmlPosition(XElement parentNode) {

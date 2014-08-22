@@ -7,7 +7,7 @@ public class MainMenuSceneLoader : SceneLoader {
 	}
 	
 	protected override IEnumerator LoadSceneCoroutine() {
-		GuiManager.OpenMenu(Parameters.GetMainMenuId());
+		GuiManager.OpenMenu(Parameters.MainMenuId);
 
 		// TODO: fade in
 

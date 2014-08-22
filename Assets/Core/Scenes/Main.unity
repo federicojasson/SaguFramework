@@ -159,6 +159,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 638369931}
   - 114: {fileID: 638369932}
+  - 212: {fileID: 638369933}
   m_Layer: 0
   m_Name: DisplayEffector
   m_TagString: Untagged
@@ -188,6 +189,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c7eabcec45f004fb73a293872781df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &638369933
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 638369930}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 9
+  m_SortingOrder: 0
+  m_SortingLayerID: 871211793
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &776660985
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,14 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef321cd7d247c94ba8a45a0ed0033fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultFadeInParameters:
-    FadeSpeed: 0
-    FadeTexture: {fileID: 0}
-    Ignore: 0
-  DefaultFadeOutParameters:
-    FadeSpeed: 0
-    FadeTexture: {fileID: 0}
-    Ignore: 0
+  DefaultFadeSprite: {fileID: 21300000, guid: 70759d336411fbf4eb232f6836615157, type: 3}
   MenuPrefabs:
     Entries:
     - Key: ExitConfirmationMenu
@@ -382,13 +399,15 @@ MonoBehaviour:
       Value: {fileID: 11400000, guid: c94c1a99a86c21d488b8efb6f7ed6eeb, type: 2}
     - Key: MainMenu
       Value: {fileID: 11400000, guid: 95f87c8801146654c8e8e474d343269f, type: 2}
+    - Key: OptionsMenu
+      Value: {fileID: 11400000, guid: 1a30107bbdab03e45b18a20d5074f1ee, type: 2}
   SplashScreenPrefabGroups:
     Entries:
     - Key: RoomSplashScreens
       Value:
       - {fileID: 11400000, guid: aee7bc91af9b7df48a3932760fe076a5, type: 2}
       - {fileID: 11400000, guid: ce629741cf5dd664780cf7d8c9ff9311, type: 2}
-      - {fileID: 11400000, guid: 146b9b064de4a9a46bfc429f58893f8e, type: 2}
+      - {fileID: 0}
   SplashScreenPrefabs:
     Entries:
     - Key: MainSplashScreen
@@ -564,10 +583,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OptionsFilePath: "%USERPROFILE%\\EmergenciaQu\xEDmica\\Options.xml"
   StateFilesDirectoryPath: "%USERPROFILE%\\EmergenciaQu\xEDmica\\States"
-  LanguageOptionId: Language
-  MainMenuId: MainMenu
-  MainSplashScreenId: MainSplashScreen
-  RoomSplashScreenGroupId: RoomSplashScreens
 --- !u!1 &2019792202
 GameObject:
   m_ObjectHideFlags: 0

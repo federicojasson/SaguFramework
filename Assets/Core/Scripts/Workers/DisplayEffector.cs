@@ -2,32 +2,23 @@
 
 public partial class DisplayEffector : MonoBehaviour {
 
-	//private GameImage fadeImage;
-
-	/*private float fadeSpeed;
-	private Texture2D fadeTexture;
-	private float fadeTextureAlphaValue;
+	private float fadeSpeed;
+	private SpriteRenderer spriteRenderer;
 
 	public void Awake() {
 		fadeSpeed = 0;
-		fadeTextureAlphaValue = 1;
 		instance = this;
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		spriteRenderer.color = UtilityManager.GetColor(spriteRenderer.color, 1);
 	}
 
-	public void OnGUI() {
-		if (Event.current.type == EventType.Repaint) {
-			// Exactly one repaint event is sent every frame
+	public void Update() {
+		// Calculates the opacity
+		float opacity = spriteRenderer.color.a + fadeSpeed * Time.deltaTime;
+		float clampedOpacity = Mathf.Clamp01(opacity);
 
-			if (fadeTexture != null) {
-				// Updates the fade texture's alpha value
-				fadeTextureAlphaValue += fadeSpeed * Time.deltaTime;
-				float clampedfadeTextureAlphaValue = Mathf.Clamp01(fadeTextureAlphaValue);
-				
-				// Draws the fade texture
-				GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, clampedfadeTextureAlphaValue);
-				GUI.DrawTexture(UtilityManager.GetScreenRectangle(), fadeTexture);
-			}
-		}
-	}*/
+		// Changes the sprite renderer opacity
+		spriteRenderer.color = UtilityManager.GetColor(spriteRenderer.color, clampedOpacity);
+	}
 	
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <options>
 	<string>
-		<id>LanguageId</id>
+		<id>Language</id>
 		<value>Spanish</value>
 	</string>
 </options>

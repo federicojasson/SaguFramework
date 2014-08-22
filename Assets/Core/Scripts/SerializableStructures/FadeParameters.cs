@@ -3,9 +3,9 @@ using UnityEngine;
 
 [Serializable]
 public class FadeParameters {
-
-	public float FadeSpeed;
-	public Texture2D FadeTexture;
-	public bool Ignore;
+	
+	public bool Ignore = true;
+	public float Speed;
+	public Sprite Sprite;
 	
 }

@@ -6,19 +6,29 @@ public partial class Parameters : MonoBehaviour {
 	public const string StateFilesExtension = ".xml";
 	public const string LanguagesDirectoryResourcePath = "Languages";
 	public const string LanguageFilename = "Language";
-	
+
+	public const string ImageObjectName = "ImageObject";
+
 	public const string InitialOptionsFileResourcePath = "InitialOptions";
 	public const string InitialStateFileResourcePath = "InitialState";
+	public const string LanguageOptionId = "Language";
+
+	public const string MainMenuId = "MainMenu";
+	public const string MainSplashScreenId = "MainSplashScreen";
+	public const string RoomSplashScreenGroupId = "RoomSplashScreens";
 
 
 	// Sorting layers
 	
-	public const string CharacterBackgroundSortingLayer = "CharacterBackground";
-	public const string ItemBackgroundSortingLayer = "ItemBackground";
-	public const string MenuBackgroundSortingLayer = "MenuBackground";
-	public const string RoomBackgroundSortingLayer = "RoomBackground";
-	public const string RoomForegroundSortingLayer = "RoomForeground";
-	public const string SplashScreenBackgroundSortingLayer = "SplashScreenBackground";
+	public const string CharacterImageSortingLayer = "CharacterImage";
+	public const string FadeImageSortingLayer = "FadeImage";
+	public const string InventoryImageSortingLayer = "InventoryImage";
+	public const string InventoryItemImageSortingLayer = "InventoryItemImage";
+	public const string ItemImageSortingLayer = "ItemImage";
+	public const string MenuImageSortingLayer = "MenuImage";
+	public const string RoomBackgroundImageSortingLayer = "RoomBackgroundImage";
+	public const string RoomForegroundImageSortingLayer = "RoomForegroundImage";
+	public const string SplashScreenImageSortingLayer = "SplashScreenImage";
 
 
 	// Scenes
@@ -32,6 +42,8 @@ public partial class Parameters : MonoBehaviour {
 
 	// Xml
 
+	public const string XmlTagState = "state";
+	public const string XmlTagOptions = "options";
 	public const string XmlTagText = "text";
 	public const string XmlTagId = "id";
 	public const string XmlTagValue = "value";

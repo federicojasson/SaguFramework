@@ -47,11 +47,35 @@ public static class OptionManager {
 	}
 
 	public static void SaveOptions() {
-		XElement root = new XElement("options"); // TODO: use parameters?
+		XElement root = new XElement(Parameters.XmlTagOptions);
 
-		// TODO
-		/*foreach (KeyValuePair<string, string> entry in options)
-			root.Add(new XElement(entry.Key.Trim(), entry.Value.Trim()));*/
+		foreach (KeyValuePair<string, bool> entry in booleans) {
+			XElement idNode = new XElement(Parameters.XmlTagId, entry.Key.Trim());
+			XElement valueNode = new XElement(Parameters.XmlTagValue, UtilityManager.BooleanToString(entry.Value));
+			XElement booleanNode = new XElement(Parameters.XmlTagBoolean, idNode, valueNode);
+			root.Add(booleanNode);
+		}
+
+		foreach (KeyValuePair<string, float> entry in floats) {
+			XElement idNode = new XElement(Parameters.XmlTagId, entry.Key.Trim());
+			XElement valueNode = new XElement(Parameters.XmlTagValue, UtilityManager.FloatToString(entry.Value));
+			XElement floatNode = new XElement(Parameters.XmlTagFloat, idNode, valueNode);
+			root.Add(floatNode);
+		}
+		
+		foreach (KeyValuePair<string, int> entry in integers) {
+			XElement idNode = new XElement(Parameters.XmlTagId, entry.Key.Trim());
+			XElement valueNode = new XElement(Parameters.XmlTagValue, UtilityManager.IntegerToString(entry.Value));
+			XElement integerNode = new XElement(Parameters.XmlTagInteger, idNode, valueNode);
+			root.Add(integerNode);
+		}
+
+		foreach (KeyValuePair<string, string> entry in strings) {
+			XElement idNode = new XElement(Parameters.XmlTagId, entry.Key.Trim());
+			XElement valueNode = new XElement(Parameters.XmlTagValue, entry.Value.Trim());
+			XElement stringNode = new XElement(Parameters.XmlTagString, idNode, valueNode);
+			root.Add(stringNode);
+		}
 		
 		XDocument optionsFile = new XDocument(root);
 		FileManager.WriteXmlFile(Parameters.GetOptionsFilePath(), optionsFile);
