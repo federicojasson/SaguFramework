@@ -3,9 +3,11 @@
 public partial class Parameters : MonoBehaviour {
 
 	// TODO: order
-	
-	public string OptionsFilePath;
-	public string StateFilesDirectoryPath;
+	public int PixelsPerUnit = 1;
+	public float GameScreenAspectRatio = 16f / 9f;
+
+	public string OptionsFilePath = "%USERPROFILE%\\GameName\\Options.xml";
+	public string StateFilesDirectoryPath = "%USERPROFILE%\\GameName\\States";
 
 
 	public void Awake() {

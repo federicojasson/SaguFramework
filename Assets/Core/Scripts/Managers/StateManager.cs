@@ -9,9 +9,9 @@ public static class StateManager {
 	public static string[] GetStateIds() {
 		try {
 			// Gets the state files
-			FileInfo[] stateFiles = FileManager.GetDirectoryFiles(Parameters.GetStateFilesDirectoryPath(), Parameters.StateFilesExtension);
+			FileInfo[] stateFiles = UtilityManager.GetDirectoryFiles(Parameters.GetStateFilesDirectoryPath(), Parameters.StateFilesExtension);
 
-			// TODO: maybe do something else in FileManager
+			// TODO: maybe do something else in UtilityManager
 
 			// Orders the state files by last write time (in descending order)
 			FileInfo[] orderedStateFiles = stateFiles.OrderByDescending(value => value.LastWriteTime).ToArray();
@@ -29,14 +29,14 @@ public static class StateManager {
 
 	public static void LoadInitialState() {
 		string resourcePath = Parameters.InitialStateFileResourcePath;
-		XDocument stateFile = FileManager.ReadResourceXmlFile(resourcePath);
+		XDocument stateFile = UtilityManager.ReadResourceXmlFile(resourcePath);
 		LoadStateFile(stateFile);
 	}
 
 	public static bool LoadState(string id) {
 		try {
 			string path = GetStateFilePath(id);
-			XDocument stateFile = FileManager.ReadXmlFile(path);
+			XDocument stateFile = UtilityManager.ReadXmlFile(path);
 			LoadStateFile(stateFile);
 
 			return true;
@@ -52,11 +52,11 @@ public static class StateManager {
 		
 		XDocument stateFile = new XDocument(root);
 		string path = GetStateFilePath(id);
-		FileManager.WriteXmlFile(path, stateFile);
+		UtilityManager.WriteXmlFile(path, stateFile);
 	}
 
 	private static string GetStateFilePath(string id) {
-		// TODO: maybe do something else in FileManager or Parameters
+		// TODO: maybe do something else in UtilityManager or Parameters
 
 		string stateFilePath = "";
 		stateFilePath += Parameters.GetStateFilesDirectoryPath();

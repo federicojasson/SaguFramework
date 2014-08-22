@@ -12,7 +12,7 @@ public partial class GuiAssets : MonoBehaviour {
 		Menu menu = UtilityManager.Instantiate<Menu>(menuPrefab);
 		
 		// Creates a game object that shows the image
-		UtilityManager.CreateImageObject(menu.transform, menu.Image, Parameters.MenuImageSortingLayer);
+		//UtilityManager.CreateImageObject(menu.transform, menu.Image, Parameters.MenuImageSortingLayer);
 		
 		return menu;
 	}
@@ -46,7 +46,7 @@ public partial class GuiAssets : MonoBehaviour {
 		SplashScreen splashScreen = UtilityManager.Instantiate<SplashScreen>(splashScreenPrefab);
 		
 		// Creates a game object that shows the image
-		UtilityManager.CreateImageObject(splashScreen.transform, splashScreen.Image, Parameters.SplashScreenImageSortingLayer);
+		//UtilityManager.CreateImageObject(splashScreen.transform, splashScreen.Image, Parameters.SplashScreenImageSortingLayer);
 		
 		return splashScreen;
 	}

@@ -8,11 +8,11 @@ public static class GuiManager {
 	}
 
 	public static IEnumerator FadeInCoroutine(float speed, Sprite sprite) {
-		return DisplayEffector.FadeInCoroutine(speed, sprite);
+		return Fader.FadeInCoroutine(speed, sprite);
 	}
 
 	public static IEnumerator FadeOutCoroutine(float speed, Sprite sprite) {
-		return DisplayEffector.FadeOutCoroutine(speed, sprite);
+		return Fader.FadeOutCoroutine(speed, sprite);
 	}
 
 	public static Sprite GetDefaultFadeSprite() {

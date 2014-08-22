@@ -4,7 +4,7 @@ public class Menu : MonoBehaviour {
 
 	public FadeParameters FadeInParameters;
 	public FadeParameters FadeOutParameters;
-	public GameImage Image;
+	public GameImageParameters ImageParameters;
 
 	public virtual void Awake() {
 		if (FadeInParameters.Sprite == null)
@@ -12,6 +12,9 @@ public class Menu : MonoBehaviour {
 
 		if (FadeOutParameters.Sprite == null)
 			FadeOutParameters.Sprite = GuiManager.GetDefaultFadeSprite();
+
+		if (ImageParameters.SortingLayer.Length == 0)
+			ImageParameters.SortingLayer = Parameters.MenuImageSortingLayer;
 
 		// Hides the menu initially
 		Hide();

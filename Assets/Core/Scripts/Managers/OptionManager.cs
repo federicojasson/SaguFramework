@@ -36,11 +36,11 @@ public static class OptionManager {
 	public static void LoadOptions() {
 		try {
 			string path = Parameters.GetOptionsFilePath();
-			XDocument optionsFile = FileManager.ReadXmlFile(path);
+			XDocument optionsFile = UtilityManager.ReadXmlFile(path);
 			LoadOptionsFile(optionsFile);
 		} catch (Exception) {
 			string resourcePath = Parameters.InitialOptionsFileResourcePath;
-			XDocument optionsFile = FileManager.ReadResourceXmlFile(resourcePath);
+			XDocument optionsFile = UtilityManager.ReadResourceXmlFile(resourcePath);
 			LoadOptionsFile(optionsFile);
 			SaveOptions();
 		}
@@ -78,7 +78,7 @@ public static class OptionManager {
 		}
 		
 		XDocument optionsFile = new XDocument(root);
-		FileManager.WriteXmlFile(Parameters.GetOptionsFilePath(), optionsFile);
+		UtilityManager.WriteXmlFile(Parameters.GetOptionsFilePath(), optionsFile);
 	}
 
 	public static void SetBoolean(string id, bool value) {

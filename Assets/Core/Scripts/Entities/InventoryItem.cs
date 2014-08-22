@@ -2,19 +2,11 @@
 
 public class InventoryItem : MonoBehaviour {
 
-	public GameImage Image;
+	public GameImageParameters ImageParameters;
 
 	public void Awake() {
-		// Hides the inventory item initially
-		Hide();
-	}
-
-	public void Hide() {
-		enabled = false;
-	}
-
-	public void Show() {
-		enabled = true;
+		if (ImageParameters.SortingLayer.Length == 0)
+			ImageParameters.SortingLayer = Parameters.InventoryItemImageSortingLayer;
 	}
 
 }

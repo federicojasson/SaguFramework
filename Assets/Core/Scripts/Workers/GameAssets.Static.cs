@@ -12,7 +12,7 @@ public partial class GameAssets : MonoBehaviour {
 		Character character = UtilityManager.Instantiate<Character>(characterPrefab, position);
 		
 		// Creates a game object that shows the image
-		UtilityManager.CreateImageObject(character.transform, character.Image, Parameters.CharacterImageSortingLayer);
+		//UtilityManager.CreateImageObject(character.transform, character.Image, Parameters.CharacterImageSortingLayer);
 		
 		return character;
 	}
@@ -25,7 +25,7 @@ public partial class GameAssets : MonoBehaviour {
 		Item item = UtilityManager.Instantiate<Item>(itemPrefab, position);
 
 		// Creates a game object that shows the image
-		UtilityManager.CreateImageObject(item.transform, item.Image, Parameters.ItemImageSortingLayer);
+		//UtilityManager.CreateImageObject(item.transform, item.Image, Parameters.ItemImageSortingLayer);
 
 		return item;
 	}
@@ -38,10 +38,10 @@ public partial class GameAssets : MonoBehaviour {
 		Room room = UtilityManager.Instantiate<Room>(roomPrefab);
 		
 		// Creates a game object that shows the background image
-		UtilityManager.CreateImageObject(room.transform, room.BackgroundImage, Parameters.RoomBackgroundImageSortingLayer);
+		//UtilityManager.CreateImageObject(room.transform, room.BackgroundImage, Parameters.RoomBackgroundImageSortingLayer);
 
 		// Creates a game object that shows the foreground image
-		UtilityManager.CreateImageObject(room.transform, room.ForegroundImage, Parameters.RoomForegroundImageSortingLayer);
+		//UtilityManager.CreateImageObject(room.transform, room.ForegroundImage, Parameters.RoomForegroundImageSortingLayer);
 
 		return room;
 	}

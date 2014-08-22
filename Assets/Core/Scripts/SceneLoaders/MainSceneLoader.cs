@@ -23,6 +23,7 @@ public class MainSceneLoader : SceneLoader {
 		float minimumDelayTime = 2; // TODO: get somehow
 		yield return StartCoroutine(timer.WaitForAtLeastSecondsCoroutine(minimumDelayTime));
 
+		// TODO: do this somehow in OnUnloadScene
 		FadeParameters fadeOutParameters = splashScreen.FadeOutParameters;
 		if (! fadeOutParameters.Ignore)
 			yield return StartCoroutine(GuiManager.FadeOutCoroutine(fadeOutParameters.Speed, fadeOutParameters.Sprite));

@@ -23,12 +23,12 @@ public static class LanguageManager {
 
 	public static void LoadLanguage(string id) {
 		string resourcePath = GetLanguageFileResourcePath(id);
-		XDocument languageFile = FileManager.ReadResourceXmlFile(resourcePath);
+		XDocument languageFile = UtilityManager.ReadResourceXmlFile(resourcePath);
 		LoadLanguageFile(languageFile);
 	}
 
 	private static string GetLanguageFileResourcePath(string id) {
-		// TODO: maybe do something else in FileManager or Parameters
+		// TODO: maybe do something else in UtilityManager or Parameters
 		
 		string languageFileResourcePath = "";
 		languageFileResourcePath += Parameters.LanguagesDirectoryResourcePath;

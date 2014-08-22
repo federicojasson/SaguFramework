@@ -41,7 +41,7 @@ MonoBehaviour:
   Image:
     Opacity: 1
     Size: .5
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300002, guid: c6c5cb0d08421d44bb9dacff6773bc0c, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
