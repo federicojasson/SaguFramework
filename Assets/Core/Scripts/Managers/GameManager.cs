@@ -10,10 +10,10 @@ public static class GameManager {
 	
 	public static Room CreateCurrentRoom() {
 		string currentRoomId = RoomManager.GetCurrentRoomId();
-
-		CharacterManager.CreateCharacters(currentRoomId);
-		ItemManager.CreateItems(currentRoomId);
+		
 		Room room = RoomManager.CreateRoom(currentRoomId);
+		CharacterManager.CreateCharacters(currentRoomId, room);
+		ItemManager.CreateItems(currentRoomId, room);
 		
 		return room;
 	}

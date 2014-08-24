@@ -2,44 +2,87 @@
 
 public class GameImage : MonoBehaviour {
 
-	private SpriteRenderer spriteRenderer;
+	private float opacity;
+	private float relativeSize;
+	private string sortingLayer;
+	private Sprite sprite;
 
 	public void Awake() {
-		spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+		gameObject.AddComponent<SpriteRenderer>();
 	}
 
 	public float GetOpacity() {
-		return spriteRenderer.color.a;
+		return opacity;
+	}
+
+	public float GetRelativeSize() {
+		return relativeSize;
+	}
+
+	public string GetSortingLayer() {
+		return sortingLayer;
+	}
+
+	public Sprite GetSprite() {
+		return sprite;
 	}
 	
 	public void SetOpacity(float opacity) {
-		spriteRenderer.color = UtilityManager.GetColor(spriteRenderer.color, opacity);
+		this.opacity = opacity;
+
+		if (sprite != null)
+			ChangeOpacity();
 	}
 
 	public void SetParameters(GameImageParameters parameters) {
+		SetSprite(null);
 		SetOpacity(parameters.Opacity);
-		SetSize(parameters.Size);
+		SetRelativeSize(parameters.RelativeSize);
 		SetSortingLayer(parameters.SortingLayer);
 		SetSprite(parameters.Sprite);
 	}
 
-	public void SetSize(float size) {
-		int pixelsPerUnit = Parameters.GetPixelsPerUnit();
-		float spriteWidth = spriteRenderer.bounds.size.x;
-		float spriteHeight = spriteRenderer.bounds.size.y;
+	public void SetRelativeSize(float relativeSize) {
+		this.relativeSize = relativeSize;
 
-		float xScale = size * UtilityManager.GetGameScreenWidth() / (pixelsPerUnit * spriteWidth);
-		float yScale = size * UtilityManager.GetGameScreenHeight() / (pixelsPerUnit * spriteHeight);
-
-		transform.localScale = new Vector3(xScale, yScale, transform.localScale.z);
+		if (sprite != null)
+			ChangeRelativeSize();
 	}
 
 	public void SetSortingLayer(string sortingLayer) {
-		spriteRenderer.sortingLayerName = sortingLayer;
+		this.sortingLayer = sortingLayer;
+
+		if (sprite != null)
+			ChangeSortingLayer();
 	}
 
 	public void SetSprite(Sprite sprite) {
-		spriteRenderer.sprite = sprite;
+		this.sprite = sprite;
+
+		if (sprite != null) {
+			ChangeSprite();
+			ChangeOpacity();
+			ChangeRelativeSize();
+			ChangeSortingLayer();
+		}
+	}
+
+	private void ChangeOpacity() {
+		SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+		spriteRenderer.color = UtilityManager.GetColor(spriteRenderer.color, opacity);
+	}
+	
+	private void ChangeRelativeSize() {
+		float scale = relativeSize * UtilityManager.GetSpriteHeightUnits(sprite);
+		transform.localScale = new Vector3(scale, scale, transform.localScale.z);
+	}
+	
+	private void ChangeSortingLayer() {
+		gameObject.GetComponent<SpriteRenderer>().sortingLayerName = sortingLayer;
+	}
+	
+	private void ChangeSprite() {
+		gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
 	}
 	
 }

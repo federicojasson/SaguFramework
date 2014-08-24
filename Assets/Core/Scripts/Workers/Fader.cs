@@ -6,12 +6,12 @@ public partial class Fader : MonoBehaviour {
 	private float fadeSpeed;
 
 	public void Awake() {
-		fadeImage = UtilityManager.CreateGameImage();
+		fadeImage = GetComponentInChildren<GameImage>();
 		fadeSpeed = 0;
 		instance = this;
 
 		fadeImage.SetOpacity(1);
-		fadeImage.SetSize(1);
+		fadeImage.SetRelativeSize(1);
 		fadeImage.SetSortingLayer(Parameters.FadeImageSortingLayer);
 	}
 

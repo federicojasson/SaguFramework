@@ -38,9 +38,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a4a999ead999e419ab33d304036190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BackgroundImage:
+  BackgroundImageParameters:
     Opacity: 1
-    Size: 1
+    RelativeSize: 1
+    SortingLayer: 
     Sprite: {fileID: 21300000, guid: b467f425d1acfae4fb5e950938549af9, type: 3}
   EntryPositions:
     Entries:
@@ -54,11 +55,12 @@ MonoBehaviour:
     Ignore: 1
     Speed: 0
     Sprite: {fileID: 0}
-  ForegroundImage:
+  ForegroundImageParameters:
     Opacity: 1
-    Size: 1
+    RelativeSize: 1
+    SortingLayer: 
     Sprite: {fileID: 0}
-  ScaleFactor: 0
+  ScaleFactor: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

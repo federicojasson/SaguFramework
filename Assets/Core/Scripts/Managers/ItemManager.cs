@@ -8,12 +8,12 @@ public static class ItemManager {
 		itemLocations = new Dictionary<string, Location>();
 	}
 
-	public static void CreateItems(string roomId) {
+	public static void CreateItems(string roomId, Room room) {
 		foreach (KeyValuePair<string, Location> entry in itemLocations) {
 			Location location = entry.Value;
 			
 			if (location.RoomId == roomId)
-				GameAssets.CreateItem(entry.Key, location.Position);
+				GameAssets.CreateItem(entry.Key, location.Position, room);
 		}
 	}
 

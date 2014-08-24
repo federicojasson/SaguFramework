@@ -38,10 +38,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a51d68e133fd0564bbad208a25907ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Image:
+  ImageParameters:
     Opacity: 1
-    Size: .5
-    Sprite: {fileID: 21300002, guid: c6c5cb0d08421d44bb9dacff6773bc0c, type: 3}
+    RelativeSize: .5
+    SortingLayer: 
+    Sprite: {fileID: 21300000, guid: c6c5cb0d08421d44bb9dacff6773bc0c, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

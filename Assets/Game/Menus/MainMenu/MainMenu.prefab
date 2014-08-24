@@ -46,9 +46,10 @@ MonoBehaviour:
     Ignore: 0
     Speed: .400000006
     Sprite: {fileID: 0}
-  Image:
+  ImageParameters:
     Opacity: 1
-    Size: 1
+    RelativeSize: 1
+    SortingLayer: 
     Sprite: {fileID: 21300000, guid: e65e4b1a22c23df4db3fa233ddca6b58, type: 3}
 --- !u!1001 &100100000
 Prefab:

@@ -38,9 +38,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60511a1b488f22e43b5fd5a2c9903301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Image:
+  ImageParameters:
     Opacity: 1
-    Size: .5
+    RelativeSize: .5
+    SortingLayer: 
     Sprite: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

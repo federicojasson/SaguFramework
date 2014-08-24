@@ -3,7 +3,7 @@
 public class GameCamera : MonoBehaviour {
 	
 	public void Start() {
-		camera.orthographicSize = UtilityManager.GetCameraOrthographicSize();
+		camera.orthographicSize = UtilityManager.GetCameraOrthographicSizeUnits();
 	}
 
 	public void Update() {
