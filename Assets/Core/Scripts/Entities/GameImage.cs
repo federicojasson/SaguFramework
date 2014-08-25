@@ -10,6 +10,17 @@ public class GameImage : MonoBehaviour {
 	public void Awake() {
 		gameObject.AddComponent<SpriteRenderer>();
 	}
+	
+	public float GetHeightPixels() {
+		float heightUnits = GetHeightUnits();
+		float heightPixels = UtilityManager.UnitsToPixels(heightUnits);
+		
+		return heightPixels;
+	}
+	
+	public float GetHeightUnits() {
+		return gameObject.GetComponent<SpriteRenderer>().bounds.size.y;
+	}
 
 	public float GetOpacity() {
 		return opacity;
@@ -25,6 +36,17 @@ public class GameImage : MonoBehaviour {
 
 	public Sprite GetSprite() {
 		return sprite;
+	}
+
+	public float GetWidthPixels() {
+		float widthUnits = GetWidthUnits();
+		float widthPixels = UtilityManager.UnitsToPixels(widthUnits);
+
+		return widthPixels;
+	}
+
+	public float GetWidthUnits() {
+		return gameObject.GetComponent<SpriteRenderer>().bounds.size.x;
 	}
 	
 	public void SetOpacity(float opacity) {
@@ -73,7 +95,10 @@ public class GameImage : MonoBehaviour {
 	}
 	
 	private void ChangeRelativeSize() {
-		float scale = relativeSize * UtilityManager.GetSpriteHeightUnits(sprite);
+		float gameHeightUnits = UtilityManager.GetGameHeightUnits();
+		float spriteHeightUnits = sprite.bounds.size.y;
+
+		float scale = relativeSize * gameHeightUnits / spriteHeightUnits;
 		transform.localScale = new Vector3(scale, scale, transform.localScale.z);
 	}
 	

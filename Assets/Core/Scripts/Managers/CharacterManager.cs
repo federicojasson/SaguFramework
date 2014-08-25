@@ -14,7 +14,7 @@ public static class CharacterManager {
 			Location location = entry.Value;
 			
 			if (location.RoomId == roomId)
-				GameAssets.CreateCharacter(entry.Key, location.GamePosition, scaleFactor);
+				GameAssets.CreateCharacter(entry.Key, location.PositionInGame, scaleFactor);
 		}
 	}
 

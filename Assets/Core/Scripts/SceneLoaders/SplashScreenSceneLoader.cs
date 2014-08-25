@@ -8,7 +8,9 @@ public class SplashScreenSceneLoader : SceneLoader {
 	
 	protected override IEnumerator LoadSceneCoroutine() {
 		SplashScreen splashScreen = GuiManager.ShowSplashScreenFromGroup(Parameters.RoomSplashScreenGroupId);
-		//splashScreen.FadeParameters; // TODO
+
+		// TODO: manager?
+		GameCamera.SetTarget(splashScreen.transform);
 
 		Timer timer = UtilityManager.CreateTimer();
 		timer.RegisterStartTime();

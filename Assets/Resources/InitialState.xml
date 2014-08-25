@@ -4,20 +4,20 @@
 	<player-character>
 		<id>Scientist</id>
 		<location>
-			<game-position>
+			<position-in-game>
 				<x>2</x>
 				<y>1</y>
-			</game-position>
+			</position-in-game>
 			<room-id>Laboratory</room-id>
 		</location>
 	</player-character>
 	<item>
 		<id>Erlenmeyer</id>
 		<location>
-			<game-position>
+			<position-in-game>
 				<x>0</x>
 				<y>0</y>
-			</game-position>
+			</position-in-game>
 			<room-id>Laboratory</room-id>
 		</location>
 	</item>

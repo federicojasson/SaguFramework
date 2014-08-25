@@ -9,6 +9,9 @@ public class MainSceneLoader : SceneLoader {
 	protected override IEnumerator LoadSceneCoroutine() {
 		SplashScreen splashScreen = GuiManager.ShowSplashScreen(Parameters.MainSplashScreenId);
 
+		// TODO: manager?
+		GameCamera.SetTarget(splashScreen.transform);
+
 		Timer timer = UtilityManager.CreateTimer();
 		timer.RegisterStartTime();
 

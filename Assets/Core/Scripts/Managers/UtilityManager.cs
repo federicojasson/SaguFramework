@@ -19,6 +19,10 @@ public static partial class UtilityManager {
 		return new Color(color.r, color.g, color.b, opacity);
 	}
 
+	public static Vector3 GetPosition(Vector3 position, float z) {
+		return new Vector3(position.x, position.y, z);
+	}
+
 	public static T Instantiate<T>(T prefab) where T : Object {
 		return (T) Object.Instantiate(prefab);
 	}

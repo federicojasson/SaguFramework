@@ -23,7 +23,12 @@ public partial class Fader : MonoBehaviour {
 			if (fadeTexture != null) {
 				// Draws the fade texture
 				GUI.color = UtilityManager.GetColor(GUI.color, clampedFadeTextureOpacity);
-				GUI.DrawTexture(UtilityManager.GetGameScreenRectangle(), fadeTexture);
+				Rect gameRectangle = UtilityManager.GetGameRectangle();
+
+				// GUI space has (0, 0) at top-left
+				gameRectangle.y = UtilityManager.GetScreenHeightPixels() - gameRectangle.y;
+
+				GUI.DrawTexture(gameRectangle, fadeTexture);
 			}
 		}
 	}

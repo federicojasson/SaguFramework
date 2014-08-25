@@ -13,7 +13,7 @@ public static class ItemManager {
 			Location location = entry.Value;
 			
 			if (location.RoomId == roomId)
-				GameAssets.CreateItem(entry.Key, location.GamePosition, scaleFactor);
+				GameAssets.CreateItem(entry.Key, location.PositionInGame, scaleFactor);
 		}
 	}
 

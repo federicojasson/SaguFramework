@@ -4,7 +4,7 @@ public partial class GameAssets : MonoBehaviour {
 	
 	private static GameAssets instance; // Singleton instance
 
-	public static Character CreateCharacter(string id, Vector2 gamePosition, float scaleFactor) {
+	public static Character CreateCharacter(string id, Vector2 positionInGame, float scaleFactor) {
 		// Gets the character prefab
 		Character characterPrefab = instance.CharacterPrefabs[id];
 
@@ -17,14 +17,13 @@ public partial class GameAssets : MonoBehaviour {
 		characterImage.SetParameters(character.ImageParameters);
 		characterImage.SetRelativeSize(scaleFactor * characterImage.GetRelativeSize());
 		
-		// Sets the world position
-		Vector2 worldPosition = UtilityManager.GameToWorldPosition(gamePosition);
-		character.transform.position = worldPosition;
+		// Sets the position in the world
+		character.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
 
 		return character;
 	}
 
-	public static Item CreateItem(string id, Vector2 gamePosition, float scaleFactor) {
+	public static Item CreateItem(string id, Vector2 positionInGame, float scaleFactor) {
 		// Gets the item prefab
 		Item itemPrefab = instance.ItemPrefabs[id];
 
@@ -37,9 +36,8 @@ public partial class GameAssets : MonoBehaviour {
 		itemImage.SetParameters(item.ImageParameters);
 		itemImage.SetRelativeSize(scaleFactor * itemImage.GetRelativeSize());
 
-		// Sets the world position
-		Vector2 worldPosition = UtilityManager.GameToWorldPosition(gamePosition);
-		item.transform.position = worldPosition;
+		// Sets the position in the world
+		item.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
 
 		return item;
 	}
@@ -61,12 +59,15 @@ public partial class GameAssets : MonoBehaviour {
 		roomForegroundImage.transform.parent = room.transform;
 		roomForegroundImage.SetParameters(room.ForegroundImageParameters);
 		
-		// Sets the world position
-		// TODO: order this
-		float x = 0.5f * Parameters.PixelsPerUnit * roomBackgroundImage.renderer.bounds.size.x / (UtilityManager.GetGameScreenWidthPixels());
-		Vector2 gamePosition = new Vector2(x, 0.5f);
-		Vector2 worldPosition = UtilityManager.GameToWorldPosition(gamePosition);
-		room.transform.position = worldPosition;
+		// Sets the position in the world
+		float roomHeightUnits = roomBackgroundImage.GetHeightUnits();
+		float roomWidthUnits = roomBackgroundImage.GetWidthUnits();
+		float gameHeightUnits = UtilityManager.GetGameHeightUnits();
+		float gameWidthUnits = UtilityManager.GetGameWidthUnits();
+		float xInGame = 0.5f * roomWidthUnits / gameWidthUnits;
+		float yInGame = 0.5f * roomHeightUnits / gameHeightUnits;
+		Vector2 positionInGame = new Vector2(xInGame, yInGame);
+		room.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
 
 		return room;
 	}

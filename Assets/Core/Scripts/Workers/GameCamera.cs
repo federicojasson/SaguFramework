@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 
-public class GameCamera : MonoBehaviour {
-	
+public partial class GameCamera : MonoBehaviour {
+
+	private Transform target;
+
 	public void Awake() {
+		instance = this;
+
 		camera.orthographicSize = UtilityManager.GetCameraOrthographicSizeUnits();
 	}
 	
 	public void LateUpdate() {
-		// TODO: follow character
+		if (target != null)
+			transform.position = UtilityManager.GetPosition(target.position, transform.position.z);
 	}
 	
 }

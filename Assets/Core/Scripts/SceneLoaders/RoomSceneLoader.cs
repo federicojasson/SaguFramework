@@ -8,7 +8,9 @@ public class RoomSceneLoader : SceneLoader {
 	
 	protected override IEnumerator LoadSceneCoroutine() {
 		Room room = GameManager.CreateCurrentRoom();
-		//room.FadeParameters; TODO
+
+		// TODO: manager?
+		//GameCamera.SetTarget(room.transform); TODO: target = player character
 
 		// TODO: fade in
 

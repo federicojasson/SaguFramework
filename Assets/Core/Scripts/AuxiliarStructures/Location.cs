@@ -2,11 +2,11 @@
 
 public class Location {
 	
-	public Vector2 GamePosition;
+	public Vector2 PositionInGame;
 	public string RoomId;
 
-	public Location(Vector2 gamePosition, string roomId) {
-		GamePosition = gamePosition;
+	public Location(Vector2 positionInGame, string roomId) {
+		PositionInGame = positionInGame;
 		RoomId = roomId;
 	}
 
