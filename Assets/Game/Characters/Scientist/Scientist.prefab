@@ -40,7 +40,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImageParameters:
     Opacity: 1
-    RelativeSize: .5
+    RelativeSize: .400000006
     SortingLayer: 
     Sprite: {fileID: 21300000, guid: c6c5cb0d08421d44bb9dacff6773bc0c, type: 3}
 --- !u!1001 &100100000

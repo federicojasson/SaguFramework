@@ -11,11 +11,13 @@ public static class GameManager {
 	public static Room CreateCurrentRoom() {
 		string currentRoomId = RoomManager.GetCurrentRoomId();
 		
-		Room room = RoomManager.CreateRoom(currentRoomId);
-		CharacterManager.CreateCharacters(currentRoomId, room);
-		ItemManager.CreateItems(currentRoomId, room);
+		RoomManager.CreateRoom(currentRoomId);
+		Room currentRoom = RoomManager.GetCurrentRoom();
+
+		CharacterManager.CreateCharacters(currentRoomId, currentRoom.ScaleFactor);
+		ItemManager.CreateItems(currentRoomId, currentRoom.ScaleFactor);
 		
-		return room;
+		return currentRoom;
 	}
 
 	public static void Exit() {

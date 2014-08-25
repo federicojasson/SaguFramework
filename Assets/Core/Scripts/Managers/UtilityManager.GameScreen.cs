@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 
 public static partial class UtilityManager {
+	
+	/*public static Vector2 GameToWorldPosition(Vector2 gamePosition) {
+		float x = (gamePosition.x - 0.5f) * GetGameScreenWidthPixels() / Parameters.PixelsPerUnit;
+		float y = (gamePosition.y - 0.5f) * GetGameScreenHeightPixels() / Parameters.PixelsPerUnit;
+		
+		return new Vector2(x, y);
+	}
 
 	public static float GetCameraOrthographicSizeUnits() {
 		return Screen.height / (2f * Parameters.PixelsPerUnit);
@@ -38,6 +45,6 @@ public static partial class UtilityManager {
 	public static float GetSpriteHeightUnits(Sprite sprite) {
 		float spriteHeight = sprite.bounds.size.y;
 		return GetGameScreenHeightPixels() / (Parameters.PixelsPerUnit * spriteHeight);
-	}
+	}*/
 
 }

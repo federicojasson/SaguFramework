@@ -42,7 +42,7 @@ MonoBehaviour:
     Opacity: 1
     RelativeSize: 1
     SortingLayer: 
-    Sprite: {fileID: 21300000, guid: b467f425d1acfae4fb5e950938549af9, type: 3}
+    Sprite: {fileID: 21300000, guid: e59069f0f9d064240a5b5918b52e98b1, type: 3}
   EntryPositions:
     Entries:
     - Key: LeftDoor
@@ -50,11 +50,11 @@ MonoBehaviour:
   FadeInParameters:
     Ignore: 1
     Speed: 0
-    Sprite: {fileID: 0}
+    Texture: {fileID: 0}
   FadeOutParameters:
     Ignore: 1
     Speed: 0
-    Sprite: {fileID: 0}
+    Texture: {fileID: 0}
   ForegroundImageParameters:
     Opacity: 1
     RelativeSize: 1

@@ -116,14 +116,14 @@ public static class StateManager {
 	private static Location ReadXmlLocation(XElement parentNode) {
 		XElement node = parentNode.Element(Parameters.XmlTagLocation);
 		
-		Vector2 position = ReadXmlPosition(node);
+		Vector2 gamePosition = ReadXmlGamePosition(node);
 		string roomId = node.Element(Parameters.XmlTagRoomId).Value.Trim();
 		
-		return new Location(position, roomId);
+		return new Location(gamePosition, roomId);
 	}
 
-	private static Vector2 ReadXmlPosition(XElement parentNode) {
-		XElement node = parentNode.Element(Parameters.XmlTagPosition);
+	private static Vector2 ReadXmlGamePosition(XElement parentNode) {
+		XElement node = parentNode.Element(Parameters.XmlTagGamePosition);
 
 		string x = node.Element(Parameters.XmlTagX).Value.Trim();
 		string y = node.Element(Parameters.XmlTagY).Value.Trim();

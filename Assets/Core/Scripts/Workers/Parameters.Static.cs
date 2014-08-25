@@ -4,8 +4,8 @@ public partial class Parameters : MonoBehaviour {
 	
 	private static Parameters instance; // Singleton instance
 	
-	public static float GetGameScreenAspectRatio() {
-		return instance.GameScreenAspectRatio;
+	public static float GetGameAspectRatio() {
+		return instance.GameAspectRatio;
 	}
 
 	public static string GetOptionsFilePath() {

@@ -4,21 +4,21 @@
 	<player-character>
 		<id>Scientist</id>
 		<location>
+			<game-position>
+				<x>2</x>
+				<y>1</y>
+			</game-position>
 			<room-id>Laboratory</room-id>
-			<position>
-				<x>64</x>
-				<y>64</y>
-			</position>
 		</location>
 	</player-character>
 	<item>
 		<id>Erlenmeyer</id>
 		<location>
+			<game-position>
+				<x>0</x>
+				<y>0</y>
+			</game-position>
 			<room-id>Laboratory</room-id>
-			<position>
-				<x>32</x>
-				<y>64</y>
-			</position>
 		</location>
 	</item>
 </state>

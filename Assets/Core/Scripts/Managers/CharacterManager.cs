@@ -9,12 +9,12 @@ public static class CharacterManager {
 		characterLocations = new Dictionary<string, Location>();
 	}
 
-	public static void CreateCharacters(string roomId, Room room) {
+	public static void CreateCharacters(string roomId, float scaleFactor) {
 		foreach (KeyValuePair<string, Location> entry in characterLocations) {
 			Location location = entry.Value;
 			
 			if (location.RoomId == roomId)
-				GameAssets.CreateCharacter(entry.Key, location.Position, room);
+				GameAssets.CreateCharacter(entry.Key, location.GamePosition, scaleFactor);
 		}
 	}
 

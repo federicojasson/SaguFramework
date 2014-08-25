@@ -66,10 +66,10 @@ public partial class Parameters : MonoBehaviour {
 	public const string XmlTagInventoryItem = "inventory-item";
 	public const string XmlTagItem = "item";
 	public const string XmlTagPlayerCharacter = "player-character";
-
+	
+	public const string XmlTagGamePosition = "game-position";
 	public const string XmlTagLocation = "location";
 	public const string XmlTagRoomId = "room-id";
-	public const string XmlTagPosition = "position";
 	public const string XmlTagX = "x";
 	public const string XmlTagY = "y";
 	

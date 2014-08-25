@@ -23,10 +23,6 @@ public static partial class UtilityManager {
 		return (T) Object.Instantiate(prefab);
 	}
 
-	public static T Instantiate<T>(T prefab, Vector2 position) where T : Object {
-		return (T) Object.Instantiate(prefab, position, Quaternion.identity);
-	}
-
 	public static T LoadResource<T>(string resourcePath) where T : Object {
 		return (T) Resources.Load<T>(resourcePath);
 	}

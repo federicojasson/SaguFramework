@@ -1,10 +1,15 @@
 ﻿public static class RoomManager {
 
 	private static string currentEntryPositionId;
+	private static Room currentRoom;
 	private static string currentRoomId;
 
-	public static Room CreateRoom(string id) {
-		return GameAssets.CreateRoom(id);
+	public static void CreateRoom(string id) {
+		currentRoom = GameAssets.CreateRoom(id);
+	}
+
+	public static Room GetCurrentRoom() {
+		return currentRoom;
 	}
 
 	public static string GetCurrentRoomId() {
