@@ -12,10 +12,6 @@ public partial class Parameters : MonoBehaviour {
 		return instance.OptionsFilePath;
 	}
 
-	public static int GetPixelsPerUnit() {
-		return instance.PixelsPerUnit;
-	}
-
 	public static string GetStateFilesDirectoryPath() {
 		return instance.StateFilesDirectoryPath;
 	}

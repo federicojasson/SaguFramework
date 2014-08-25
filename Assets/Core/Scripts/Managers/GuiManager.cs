@@ -7,16 +7,16 @@ public static class GuiManager {
 		MenuManager.CloseCurrentMenu();
 	}
 
-	public static IEnumerator FadeInCoroutine(float speed, Sprite sprite) {
-		return Fader.FadeInCoroutine(speed, sprite);
+	public static IEnumerator FadeInCoroutine(float speed, Texture2D texture) {
+		return Fader.FadeInCoroutine(speed, texture);
 	}
 
-	public static IEnumerator FadeOutCoroutine(float speed, Sprite sprite) {
-		return Fader.FadeOutCoroutine(speed, sprite);
+	public static IEnumerator FadeOutCoroutine(float speed, Texture2D texture) {
+		return Fader.FadeOutCoroutine(speed, texture);
 	}
 
-	public static Sprite GetDefaultFadeSprite() {
-		return GuiAssets.GetDefaultFadeSprite();
+	public static Texture2D GetDefaultFadeTexture() {
+		return GuiAssets.GetDefaultFadeTexture();
 	}
 
 	public static Menu OpenMenu(string id) {

@@ -7,11 +7,11 @@ public class SplashScreen : MonoBehaviour {
 	public GameImageParameters ImageParameters;
 
 	public virtual void Awake() {
-		if (FadeInParameters.Sprite == null)
-			FadeInParameters.Sprite = GuiManager.GetDefaultFadeSprite();
+		if (FadeInParameters.Texture == null)
+			FadeInParameters.Texture = GuiManager.GetDefaultFadeTexture();
 		
-		if (FadeOutParameters.Sprite == null)
-			FadeOutParameters.Sprite = GuiManager.GetDefaultFadeSprite();
+		if (FadeOutParameters.Texture == null)
+			FadeOutParameters.Texture = GuiManager.GetDefaultFadeTexture();
 		
 		if (ImageParameters.SortingLayer.Length == 0)
 			ImageParameters.SortingLayer = Parameters.SplashScreenImageSortingLayer;

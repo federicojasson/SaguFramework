@@ -13,11 +13,11 @@ public class Room : MonoBehaviour {
 		if (BackgroundImageParameters.SortingLayer.Length == 0)
 			BackgroundImageParameters.SortingLayer = Parameters.RoomBackgroundImageSortingLayer;
 
-		if (FadeInParameters.Sprite == null)
-			FadeInParameters.Sprite = GuiManager.GetDefaultFadeSprite();
+		if (FadeInParameters.Texture == null)
+			FadeInParameters.Texture = GuiManager.GetDefaultFadeTexture();
 		
-		if (FadeOutParameters.Sprite == null)
-			FadeOutParameters.Sprite = GuiManager.GetDefaultFadeSprite();
+		if (FadeOutParameters.Texture == null)
+			FadeOutParameters.Texture = GuiManager.GetDefaultFadeTexture();
 
 		if (ForegroundImageParameters.SortingLayer.Length == 0)
 			ForegroundImageParameters.SortingLayer = Parameters.RoomForegroundImageSortingLayer;

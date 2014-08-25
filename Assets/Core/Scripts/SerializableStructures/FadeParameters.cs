@@ -6,6 +6,6 @@ public class FadeParameters {
 	
 	public bool Ignore = true;
 	public float Speed;
-	public Sprite Sprite;
+	public Texture2D Texture;
 	
 }

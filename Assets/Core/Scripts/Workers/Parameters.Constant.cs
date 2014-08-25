@@ -3,6 +3,8 @@
 public partial class Parameters : MonoBehaviour {
 
 	// TODO: order this
+	public const int PixelsPerUnit = 1;
+
 	public const string StateFilesExtension = ".xml";
 	public const string LanguagesDirectoryResourcePath = "Languages";
 	public const string LanguageFilename = "Language";

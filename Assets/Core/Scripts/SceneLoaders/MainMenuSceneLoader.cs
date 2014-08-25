@@ -11,7 +11,7 @@ public class MainMenuSceneLoader : SceneLoader {
 
 		FadeParameters fadeInParameters = menu.FadeInParameters;
 		if (! fadeInParameters.Ignore)
-			yield return StartCoroutine(GuiManager.FadeInCoroutine(fadeInParameters.Speed, fadeInParameters.Sprite));
+			yield return StartCoroutine(GuiManager.FadeInCoroutine(fadeInParameters.Speed, fadeInParameters.Texture));
 
 		// TODO
 		yield break;

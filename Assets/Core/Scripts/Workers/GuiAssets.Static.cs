@@ -39,8 +39,8 @@ public partial class GuiAssets : MonoBehaviour {
 		return CreateSplashScreen(splashScreenPrefab);
 	}
 
-	public static Sprite GetDefaultFadeSprite() {
-		return instance.DefaultFadeSprite;
+	public static Texture2D GetDefaultFadeTexture() {
+		return instance.DefaultFadeTexture;
 	}
 	
 	private static SplashScreen CreateSplashScreen(SplashScreen splashScreenPrefab) {

@@ -1,27 +1,31 @@
 ﻿using UnityEngine;
 
 public partial class Fader : MonoBehaviour {
-	
-	private GameImage fadeImage;
+
 	private float fadeSpeed;
+	private Texture2D fadeTexture;
+	private float fadeTextureOpacity;
 
 	public void Awake() {
-		fadeImage = GetComponentInChildren<GameImage>();
 		fadeSpeed = 0;
+		fadeTextureOpacity = 1;
 		instance = this;
-
-		fadeImage.SetOpacity(1);
-		fadeImage.SetRelativeSize(1);
-		fadeImage.SetSortingLayer(Parameters.FadeImageSortingLayer);
 	}
 
-	public void Update() {
-		// Calculates the opacity
-		float opacity = fadeImage.GetOpacity() + fadeSpeed * Time.deltaTime;
-		float clampedOpacity = Mathf.Clamp01(opacity);
+	public void OnGUI() {
+		if (Event.current.type == EventType.Repaint) {
+			// Exactly one repaint event is sent every frame
 
-		// Changes the image opacity
-		fadeImage.SetOpacity(clampedOpacity);
+			// Updates the fade texture's opacity
+			fadeTextureOpacity += fadeSpeed * Time.deltaTime;
+			float clampedFadeTextureOpacity = Mathf.Clamp01(fadeTextureOpacity);
+
+			if (fadeTexture != null) {
+				// Draws the fade texture
+				GUI.color = UtilityManager.GetColor(GUI.color, clampedFadeTextureOpacity);
+				GUI.DrawTexture(UtilityManager.GetGameScreenRectangle(), fadeTexture);
+			}
+		}
 	}
 	
 }

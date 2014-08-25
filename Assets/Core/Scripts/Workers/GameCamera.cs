@@ -2,11 +2,11 @@
 
 public class GameCamera : MonoBehaviour {
 	
-	public void Start() {
+	public void Awake() {
 		camera.orthographicSize = UtilityManager.GetCameraOrthographicSizeUnits();
 	}
-
-	public void Update() {
+	
+	public void LateUpdate() {
 		// TODO: follow character
 	}
 	
