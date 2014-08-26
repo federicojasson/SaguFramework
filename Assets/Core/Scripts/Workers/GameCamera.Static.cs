@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 
-public partial class GameCamera : MonoBehaviour {
+namespace FrameworkNamespace {
 
-	private static GameCamera instance; // Singleton instance
+	public partial class GameCamera : MonoBehaviour {
 
-	public static void SetTarget(Transform target) {
-		instance.target = target;
+		private static GameCamera instance; // Singleton instance
+
+		public static void SetTarget(Transform target) {
+			instance.target = target;
+		}
+
 	}
 
 }

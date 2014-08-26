@@ -1,36 +1,40 @@
 ﻿using UnityEngine;
 
-public partial class Fader : MonoBehaviour {
+namespace FrameworkNamespace {
 
-	private float fadeSpeed;
-	private Texture2D fadeTexture;
-	private float fadeTextureOpacity;
+	public partial class Fader : MonoBehaviour {
 
-	public void Awake() {
-		fadeSpeed = 0;
-		fadeTextureOpacity = 1;
-		instance = this;
-	}
+		private float fadeSpeed;
+		private Texture2D fadeTexture;
+		private float fadeTextureOpacity;
 
-	public void OnGUI() {
-		if (Event.current.type == EventType.Repaint) {
-			// Exactly one repaint event is sent every frame
+		public void Awake() {
+			fadeSpeed = 0;
+			fadeTextureOpacity = 1;
+			instance = this;
+		}
 
-			// Updates the fade texture's opacity
-			fadeTextureOpacity += fadeSpeed * Time.deltaTime;
-			float clampedFadeTextureOpacity = Mathf.Clamp01(fadeTextureOpacity);
+		public void OnGUI() {
+			if (Event.current.type == EventType.Repaint) {
+				// Exactly one repaint event is sent every frame
 
-			if (fadeTexture != null) {
-				// Draws the fade texture
-				GUI.color = UtilityManager.GetColor(GUI.color, clampedFadeTextureOpacity);
-				Rect gameRectangle = UtilityManager.GetGameRectangle();
+				// Updates the fade texture's opacity
+				fadeTextureOpacity += fadeSpeed * Time.deltaTime;
+				float clampedFadeTextureOpacity = Mathf.Clamp01(fadeTextureOpacity);
 
-				// GUI space has (0, 0) at top-left
-				gameRectangle.y = UtilityManager.GetScreenHeightPixels() - gameRectangle.y;
+				if (fadeTexture != null) {
+					// Draws the fade texture
+					GUI.color = UtilityManager.GetColor(GUI.color, clampedFadeTextureOpacity);
+					Rect gameRectangle = UtilityManager.GetGameRectangle();
 
-				GUI.DrawTexture(gameRectangle, fadeTexture);
+					// GUI space has (0, 0) at top-left
+					gameRectangle.y = UtilityManager.GetScreenHeightPixels() - gameRectangle.y;
+
+					GUI.DrawTexture(gameRectangle, fadeTexture);
+				}
 			}
 		}
+		
 	}
-	
+
 }

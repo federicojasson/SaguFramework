@@ -48,12 +48,12 @@ MonoBehaviour:
     - Key: LeftDoor
       Value: {x: 0, y: 0}
   FadeInParameters:
-    Ignore: 1
-    Speed: 0
+    Ignore: 0
+    Speed: .400000006
     Texture: {fileID: 0}
   FadeOutParameters:
-    Ignore: 1
-    Speed: 0
+    Ignore: 0
+    Speed: .400000006
     Texture: {fileID: 0}
   ForegroundImageParameters:
     Opacity: 1

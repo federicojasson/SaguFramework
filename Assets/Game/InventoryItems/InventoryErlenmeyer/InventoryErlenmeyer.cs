@@ -1,1 +1,3 @@
-﻿public class InventoryErlenmeyer : InventoryItem {}
+﻿using FrameworkNamespace;
+
+public class InventoryErlenmeyer : InventoryItem {}

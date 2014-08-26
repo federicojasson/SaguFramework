@@ -1,28 +1,32 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
-public static class ItemManager {
+namespace FrameworkNamespace {
 
-	private static Dictionary<string, Location> itemLocations;
+	public static class ItemManager {
 
-	static ItemManager() {
-		itemLocations = new Dictionary<string, Location>();
-	}
+		private static Dictionary<string, Location> itemLocations;
 
-	public static void CreateItems(string roomId, float scaleFactor) {
-		foreach (KeyValuePair<string, Location> entry in itemLocations) {
-			Location location = entry.Value;
-			
-			if (location.RoomId == roomId)
-				GameAssets.CreateItem(entry.Key, location.PositionInGame, scaleFactor);
+		static ItemManager() {
+			itemLocations = new Dictionary<string, Location>();
 		}
-	}
+		
+		public static void ClearItemLocations() {
+			itemLocations.Clear();
+		}
 
-	public static void Reset() {
-		itemLocations.Clear();
-	}
+		public static void CreateItems(string roomId, float scaleFactor) {
+			foreach (KeyValuePair<string, Location> entry in itemLocations) {
+				Location location = entry.Value;
+				
+				if (location.RoomId == roomId)
+					GameAssets.CreateItem(entry.Key, location.PositionInGame, scaleFactor);
+			}
+		}
 
-	public static void SetItemLocation(string id, Location location) {
-		itemLocations[id] = location;
+		public static void SetItemLocation(string id, Location location) {
+			itemLocations[id] = location;
+		}
+
 	}
 
 }

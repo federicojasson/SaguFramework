@@ -1,4 +1,8 @@
 ﻿using System;
 
-[Serializable]
-public class ItemMap : SerializableMap<string, Item, ItemMapEntry> {}
+namespace FrameworkNamespace {
+
+	[Serializable]
+	public class ItemMap : SerializableMap<string, Item, ItemMapEntry> {}
+
+}

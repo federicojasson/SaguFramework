@@ -1,1 +1,3 @@
-﻿public class Scientist : Character {}
+﻿using FrameworkNamespace;
+
+public class Scientist : Character {}

@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 
-public partial class FrameworkAssets : MonoBehaviour {
+namespace FrameworkNamespace {
 
-	public GameImage GameImagePrefab;
-	public Timer TimerPrefab;
+	public partial class FrameworkAssets : MonoBehaviour {
 
-	public void Awake() {;
-		instance = this;
+		public GameImage GameImagePrefab;
+
+		public void Awake() {;
+			instance = this;
+		}
+		
 	}
-	
+
 }

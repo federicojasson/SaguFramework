@@ -1,14 +1,19 @@
 ﻿using UnityEngine;
 
-public partial class GuiAssets : MonoBehaviour {
+namespace FrameworkNamespace {
 
-	public Texture2D DefaultFadeTexture;
-	public MenuMap MenuPrefabs;
-	public SplashScreenArrayMap SplashScreenPrefabGroups;
-	public SplashScreenMap SplashScreenPrefabs;
+	public partial class GuiAssets : MonoBehaviour {
 
-	public void Awake() {
-		instance = this;
+		public Texture2D DefaultFadeTexture;
+		public MainMenuMap MainMenuPrefabs;
+		public MenuMap MenuPrefabs;
+		public SplashScreenArrayMap SplashScreenPrefabGroups;
+		public SplashScreenMap SplashScreenPrefabs;
+
+		public void Awake() {
+			instance = this;
+		}
+
 	}
 
 }

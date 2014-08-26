@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FrameworkNamespace;
+using UnityEngine;
 
 public class LoadGameMenu : Menu {
 

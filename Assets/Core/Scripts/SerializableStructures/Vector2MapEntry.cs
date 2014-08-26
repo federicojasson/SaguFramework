@@ -1,5 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
-public class Vector2MapEntry : SerializableMapEntry<string, Vector2> {}
+namespace FrameworkNamespace {
+
+	[Serializable]
+	public class Vector2MapEntry : SerializableMapEntry<string, Vector2> {}
+
+}

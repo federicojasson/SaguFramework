@@ -1,4 +1,8 @@
 ﻿using System;
 
-[Serializable]
-public class MenuMapEntry : SerializableMapEntry<string, Menu> {}
+namespace FrameworkNamespace {
+	
+	[Serializable]
+	public class MenuMapEntry : SerializableMapEntry<string, Menu> {}
+	
+}

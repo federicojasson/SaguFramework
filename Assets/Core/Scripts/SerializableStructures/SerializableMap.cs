@@ -1,29 +1,33 @@
 ﻿using System.Collections.Generic;
 
-public class SerializableMap<K, V, E> where E : SerializableMapEntry<K, V> {
+namespace FrameworkNamespace {
 
-	public E[] Entries;
+	public class SerializableMap<K, V, E> where E : SerializableMapEntry<K, V> {
 
-	private Dictionary<K, V> dictionary;
+		public E[] Entries;
 
-	public V this[K key] {
-		get {
-			if (dictionary == null)
-				// The internal dictionary has not been initialized yet
-				Initialize();
+		private Dictionary<K, V> dictionary;
 
-			// Delegates the query to the internal dictionary
-			return dictionary[key];
+		public V this[K key] {
+			get {
+				if (dictionary == null)
+					// The internal dictionary has not been initialized yet
+					Initialize();
+
+				// Delegates the query to the internal dictionary
+				return dictionary[key];
+			}
 		}
+
+		private void Initialize() {
+			// Initializes the internal dictionary
+			dictionary = new Dictionary<K, V>(Entries.Length);
+			
+			// Copies all the entries to the dictionary
+			foreach (E entry in Entries)
+				dictionary.Add(entry.Key, entry.Value);
+		}
+		
 	}
 
-	private void Initialize() {
-		// Initializes the internal dictionary
-		dictionary = new Dictionary<K, V>(Entries.Length);
-		
-		// Copies all the entries to the dictionary
-		foreach (E entry in Entries)
-			dictionary.Add(entry.Key, entry.Value);
-	}
-	
 }

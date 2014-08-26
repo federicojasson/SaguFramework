@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 
-public partial class Inventory : MonoBehaviour {
+namespace FrameworkNamespace {
 
-	public void Awake() {
-		instance = this;
+	public partial class Inventory : MonoBehaviour {
+
+		public void Awake() {
+			instance = this;
+		}
+
 	}
 
 }

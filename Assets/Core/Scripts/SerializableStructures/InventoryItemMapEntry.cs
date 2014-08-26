@@ -1,4 +1,8 @@
 ﻿using System;
 
-[Serializable]
-public class InventoryItemMapEntry : SerializableMapEntry<string, InventoryItem> {}
+namespace FrameworkNamespace {
+
+	[Serializable]
+	public class InventoryItemMapEntry : SerializableMapEntry<string, InventoryItem> {}
+
+}

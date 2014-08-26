@@ -1,1 +1,3 @@
-﻿public class Erlenmeyer : Item {}
+﻿using FrameworkNamespace;
+
+public class Erlenmeyer : Item {}

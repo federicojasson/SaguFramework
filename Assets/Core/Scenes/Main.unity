@@ -336,9 +336,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1440169299}
   - {fileID: 1432791460}
   - {fileID: 1910369177}
-  - {fileID: 1440169299}
   m_Father: {fileID: 2019792204}
 --- !u!1 &1432791459
 GameObject:
@@ -379,14 +379,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultFadeTexture: {fileID: 2800000, guid: d61b5fe2cfc413d42bf158c6580f803a, type: 3}
+  MainMenuPrefabs:
+    Entries:
+    - Key: GameMainMenu
+      Value: {fileID: 11400000, guid: 95f87c8801146654c8e8e474d343269f, type: 2}
   MenuPrefabs:
     Entries:
     - Key: ExitConfirmationMenu
       Value: {fileID: 11400000, guid: 0f33645dcc850e146a6a20b5c7aa8a81, type: 2}
     - Key: LoadGameMenu
       Value: {fileID: 11400000, guid: c94c1a99a86c21d488b8efb6f7ed6eeb, type: 2}
-    - Key: MainMenu
-      Value: {fileID: 11400000, guid: 95f87c8801146654c8e8e474d343269f, type: 2}
     - Key: OptionsMenu
       Value: {fileID: 11400000, guid: 1a30107bbdab03e45b18a20d5074f1ee, type: 2}
   SplashScreenPrefabGroups:
@@ -398,7 +400,7 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 146b9b064de4a9a46bfc429f58893f8e, type: 2}
   SplashScreenPrefabs:
     Entries:
-    - Key: MainSplashScreen
+    - Key: GameSplashScreen
       Value: {fileID: 11400000, guid: 1e5dda11094adef48a558e302c256b1b, type: 2}
 --- !u!1 &1440169298
 GameObject:
@@ -493,7 +495,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameImagePrefab: {fileID: 11400000, guid: aa64f2960a07cf24abeb28217b1baea6, type: 2}
-  TimerPrefab: {fileID: 11400000, guid: f0e72281e43e0f04a8a7aa6a4e6744fd, type: 2}
 --- !u!1 &1880904345
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0f6ee967cb0164583c64ce65be67cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameScreenAspectRatio: 1.77777779
+  GameAspectRatio: 1.77777779
   OptionsFilePath: "%USERPROFILE%\\EmergenciaQu\xEDmica\\Options.xml"
   StateFilesDirectoryPath: "%USERPROFILE%\\EmergenciaQu\xEDmica\\States"
 --- !u!1 &2019792202
@@ -597,7 +598,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2019792202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90b98222abbc92844887a5d169e6bb63, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fa92693ef7e73b43adea4a371e28348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &2019792204

@@ -1,3 +1,7 @@
 ﻿using UnityEngine;
 
-public class InputReader : MonoBehaviour {}
+namespace FrameworkNamespace {
+
+	public class InputReader : MonoBehaviour {}
+
+}

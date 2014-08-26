@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: MainMenu
+  m_Name: GameSplashScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,22 +35,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fd705168437f31488582b546a569e03, type: 3}
+  m_Script: {fileID: 11500000, guid: b57779709267d0e488ece887c74d11ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   FadeInParameters:
     Ignore: 0
     Speed: .400000006
-    Sprite: {fileID: 0}
+    Texture: {fileID: 0}
   FadeOutParameters:
     Ignore: 0
     Speed: .400000006
-    Sprite: {fileID: 0}
+    Texture: {fileID: 0}
   ImageParameters:
     Opacity: 1
     RelativeSize: 1
     SortingLayer: 
-    Sprite: {fileID: 21300000, guid: e65e4b1a22c23df4db3fa233ddca6b58, type: 3}
+    Sprite: {fileID: 21300000, guid: 9a43c0be4590dc042adf5be338630e9e, type: 3}
+  MinimumDelayTime: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

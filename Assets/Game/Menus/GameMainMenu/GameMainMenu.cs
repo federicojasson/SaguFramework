@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using FrameworkNamespace;
+using UnityEngine;
 
-public class MainMenu : Menu {
+public class GameMainMenu : MainMenu {
 	
 	public void OnGUI() {
 		if (GUILayout.Button("Nueva partida")) // TODO: use LanguageManager
@@ -25,6 +26,7 @@ public class MainMenu : Menu {
 	}
 	
 	private void OnNewGameButtonActuated() {
+		GuiManager.CloseCurrentMenu();
 		GameManager.NewGame(true);
 	}
 	

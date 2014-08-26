@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 
-public partial class GameAssets : MonoBehaviour {
+namespace FrameworkNamespace {
 
-	public CharacterMap CharacterPrefabs;
-	public InventoryItemMap InventoryItemPrefabs;
-	public ItemMap ItemPrefabs;
-	public RoomMap RoomPrefabs;
+	public partial class GameAssets : MonoBehaviour {
 
-	public void Awake() {
-		instance = this;
+		public CharacterMap CharacterPrefabs;
+		public InventoryItemMap InventoryItemPrefabs;
+		public ItemMap ItemPrefabs;
+		public RoomMap RoomPrefabs;
+
+		public void Awake() {
+			instance = this;
+		}
+		
 	}
-	
+
 }

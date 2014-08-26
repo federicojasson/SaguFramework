@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
 
-public partial class Parameters : MonoBehaviour {
+namespace FrameworkNamespace {
 
-	// TODO: order
-	public float GameAspectRatio = 16f / 9f;
+	public partial class Parameters : MonoBehaviour {
 
-	public string OptionsFilePath = "%USERPROFILE%\\GameName\\Options.xml";
-	public string StateFilesDirectoryPath = "%USERPROFILE%\\GameName\\States";
+		// TODO: order
+		public float GameAspectRatio = 16f / 9f;
+
+		public string OptionsFilePath = "%USERPROFILE%\\GameName\\Options.xml";
+		public string StateFilesDirectoryPath = "%USERPROFILE%\\GameName\\States";
 
 
-	public void Awake() {
-		instance = this;
+		public void Awake() {
+			instance = this;
+		}
+
 	}
 
 }

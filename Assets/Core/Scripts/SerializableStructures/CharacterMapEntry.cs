@@ -1,4 +1,8 @@
 ﻿using System;
 
-[Serializable]
-public class CharacterMapEntry : SerializableMapEntry<string, Character> {}
+namespace FrameworkNamespace {
+
+	[Serializable]
+	public class CharacterMapEntry : SerializableMapEntry<string, Character> {}
+
+}

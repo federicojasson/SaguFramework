@@ -39,13 +39,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeInParameters:
-    Ignore: 1
-    Speed: 0
-    Sprite: {fileID: 0}
+    Ignore: 0
+    Speed: .400000006
+    Texture: {fileID: 0}
   FadeOutParameters:
-    Ignore: 1
-    Speed: 0
-    Sprite: {fileID: 0}
+    Ignore: 0
+    Speed: .400000006
+    Texture: {fileID: 0}
   ImageParameters:
     Opacity: 1
     RelativeSize: 1

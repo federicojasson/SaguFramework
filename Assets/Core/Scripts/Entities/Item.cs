@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 
-public class Item : MonoBehaviour {
-	
-	public GameImageParameters ImageParameters;
+namespace FrameworkNamespace {
 
-	public void Awake() {
-		if (ImageParameters.SortingLayer.Length == 0)
-			ImageParameters.SortingLayer = Parameters.ItemImageSortingLayer;
+	public class Item : MonoBehaviour {
+		
+		public GameImageParameters ImageParameters;
+
+		public void Awake() {
+			if (ImageParameters.SortingLayer.Length == 0)
+				ImageParameters.SortingLayer = Parameters.ItemImageSortingLayer;
+		}
+
 	}
 
 }

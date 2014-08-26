@@ -1,31 +1,38 @@
-﻿public static class RoomManager {
+﻿namespace FrameworkNamespace {
 
-	private static string currentEntryPositionId;
-	private static Room currentRoom;
-	private static string currentRoomId;
+	public static class RoomManager {
 
-	public static void CreateRoom(string id) {
-		currentRoom = GameAssets.CreateRoom(id);
-	}
+		private static string currentEntryPositionId;
+		private static Room currentRoom;
+		private static string currentRoomId;
 
-	public static Room GetCurrentRoom() {
-		return currentRoom;
-	}
+		public static void CreateCurrentRoom() {
+			currentRoom = GameAssets.CreateRoom(currentRoomId);
 
-	public static string GetCurrentRoomId() {
-		return currentRoomId;
-	}
+			CharacterManager.CreateCharacters(currentRoomId, currentRoom.ScaleFactor);
+			ItemManager.CreateItems(currentRoomId, currentRoom.ScaleFactor);
+		}
 
-	public static void Reset() {
-		// TODO
-	}
+		/*public static void CreateRoom(string id) {
+			currentRoom = GameAssets.CreateRoom(id);
+		}*/
 
-	public static void SetCurrentEntryPositionId(string entryPositionId) {
-		currentEntryPositionId = entryPositionId;
-	}
+		public static Room GetCurrentRoom() {
+			return currentRoom;
+		}
 
-	public static void SetCurrentRoomId(string roomId) {
-		currentRoomId = roomId;
+		/*public static string GetCurrentRoomId() {
+			return currentRoomId;
+		}*/
+
+		public static void SetCurrentEntryPositionId(string entryPositionId) {
+			currentEntryPositionId = entryPositionId;
+		}
+
+		public static void SetCurrentRoomId(string roomId) {
+			currentRoomId = roomId;
+		}
+
 	}
 
 }

@@ -1,15 +1,19 @@
 ﻿using System.Collections.Generic;
 
-public static class InventoryManager {
+namespace FrameworkNamespace {
 
-	private static List<InventoryItem> inventoryItems;
+	public static class InventoryManager {
 
-	static InventoryManager() {
-		inventoryItems = new List<InventoryItem>();
-	}
+		private static List<InventoryItem> inventoryItems;
 
-	public static void Reset() {
-		inventoryItems.Clear();
+		static InventoryManager() {
+			inventoryItems = new List<InventoryItem>();
+		}
+
+		public static void ClearInventory() {
+			inventoryItems.Clear();
+		}
+
 	}
 
 }

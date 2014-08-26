@@ -1,35 +1,31 @@
 ﻿using UnityEngine;
 
-public class Menu : MonoBehaviour {
+namespace FrameworkNamespace {
 
-	public FadeParameters FadeInParameters;
-	public FadeParameters FadeOutParameters;
-	public GameImageParameters ImageParameters;
+	public class Menu : MonoBehaviour {
 
-	public virtual void Awake() {
-		if (FadeInParameters.Texture == null)
-			FadeInParameters.Texture = GuiManager.GetDefaultFadeTexture();
+		public GameImageParameters ImageParameters;
 
-		if (FadeOutParameters.Texture == null)
-			FadeOutParameters.Texture = GuiManager.GetDefaultFadeTexture();
+		public virtual void Awake() {
+			if (ImageParameters.SortingLayer.Length == 0)
+				ImageParameters.SortingLayer = Parameters.MenuImageSortingLayer;
 
-		if (ImageParameters.SortingLayer.Length == 0)
-			ImageParameters.SortingLayer = Parameters.MenuImageSortingLayer;
+			// Hides the menu initially
+			Hide();
+		}
 
-		// Hides the menu initially
-		Hide();
-	}
+		public void Close() {
+			Destroy(this);
+		}
 
-	public void Close() {
-		Destroy(gameObject);
-	}
-	
-	public void Hide() {
-		gameObject.SetActive(false);
-	}
-	
-	public void Show() {
-		gameObject.SetActive(true);
+		public void Hide() {
+			gameObject.SetActive(false);
+		}
+		
+		public void Show() {
+			gameObject.SetActive(true);
+		}
+		
 	}
 
 }

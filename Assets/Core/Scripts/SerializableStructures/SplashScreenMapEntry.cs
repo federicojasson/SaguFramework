@@ -1,4 +1,8 @@
 ﻿using System;
 
-[Serializable]
-public class SplashScreenMapEntry : SerializableMapEntry<string, SplashScreen> {}
+namespace FrameworkNamespace {
+
+	[Serializable]
+	public class SplashScreenMapEntry : SerializableMapEntry<string, SplashScreen> {}
+
+}

@@ -1,75 +1,79 @@
 ﻿using UnityEngine;
 
-public partial class GameAssets : MonoBehaviour {
-	
-	private static GameAssets instance; // Singleton instance
+namespace FrameworkNamespace {
 
-	public static Character CreateCharacter(string id, Vector2 positionInGame, float scaleFactor) {
-		// Gets the character prefab
-		Character characterPrefab = instance.CharacterPrefabs[id];
-
-		// Instantiates the character prefab
-		Character character = UtilityManager.Instantiate<Character>(characterPrefab);
+	public partial class GameAssets : MonoBehaviour {
 		
-		// Creates a game image to show the character
-		GameImage characterImage = UtilityManager.CreateGameImage();
-		characterImage.transform.parent = character.transform;
-		characterImage.SetParameters(character.ImageParameters);
-		characterImage.SetRelativeSize(scaleFactor * characterImage.GetRelativeSize());
-		
-		// Sets the position in the world
-		character.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
+		private static GameAssets instance; // Singleton instance
 
-		return character;
-	}
+		public static Character CreateCharacter(string id, Vector2 positionInGame, float scaleFactor) {
+			// Gets the character prefab
+			Character characterPrefab = instance.CharacterPrefabs[id];
 
-	public static Item CreateItem(string id, Vector2 positionInGame, float scaleFactor) {
-		// Gets the item prefab
-		Item itemPrefab = instance.ItemPrefabs[id];
+			// Instantiates the character prefab
+			Character character = UtilityManager.Instantiate<Character>(characterPrefab);
+			
+			// Creates a game image to show the character
+			GameImage characterImage = UtilityManager.CreateGameImage();
+			characterImage.transform.parent = character.transform;
+			characterImage.SetParameters(character.ImageParameters);
+			characterImage.SetRelativeSize(scaleFactor * characterImage.GetRelativeSize());
+			
+			// Sets the position in the world
+			character.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
 
-		// Instantiates the item prefab
-		Item item = UtilityManager.Instantiate<Item>(itemPrefab);
+			return character;
+		}
 
-		// Creates a game image to show the item
-		GameImage itemImage = UtilityManager.CreateGameImage();
-		itemImage.transform.parent = item.transform;
-		itemImage.SetParameters(item.ImageParameters);
-		itemImage.SetRelativeSize(scaleFactor * itemImage.GetRelativeSize());
+		public static Item CreateItem(string id, Vector2 positionInGame, float scaleFactor) {
+			// Gets the item prefab
+			Item itemPrefab = instance.ItemPrefabs[id];
 
-		// Sets the position in the world
-		item.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
+			// Instantiates the item prefab
+			Item item = UtilityManager.Instantiate<Item>(itemPrefab);
 
-		return item;
-	}
+			// Creates a game image to show the item
+			GameImage itemImage = UtilityManager.CreateGameImage();
+			itemImage.transform.parent = item.transform;
+			itemImage.SetParameters(item.ImageParameters);
+			itemImage.SetRelativeSize(scaleFactor * itemImage.GetRelativeSize());
 
-	public static Room CreateRoom(string id) {
-		// Gets the room prefab
-		Room roomPrefab = instance.RoomPrefabs[id];
-		
-		// Instantiates the room prefab
-		Room room = UtilityManager.Instantiate<Room>(roomPrefab);
-		
-		// Creates a game image to show the room's background
-		GameImage roomBackgroundImage = UtilityManager.CreateGameImage();
-		roomBackgroundImage.transform.parent = room.transform;
-		roomBackgroundImage.SetParameters(room.BackgroundImageParameters);
+			// Sets the position in the world
+			item.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
 
-		// Creates a game image to show the room's foreground
-		GameImage roomForegroundImage = UtilityManager.CreateGameImage();
-		roomForegroundImage.transform.parent = room.transform;
-		roomForegroundImage.SetParameters(room.ForegroundImageParameters);
-		
-		// Sets the position in the world
-		float roomHeightUnits = roomBackgroundImage.GetHeightUnits();
-		float roomWidthUnits = roomBackgroundImage.GetWidthUnits();
-		float gameHeightUnits = UtilityManager.GetGameHeightUnits();
-		float gameWidthUnits = UtilityManager.GetGameWidthUnits();
-		float xInGame = 0.5f * roomWidthUnits / gameWidthUnits;
-		float yInGame = 0.5f * roomHeightUnits / gameHeightUnits;
-		Vector2 positionInGame = new Vector2(xInGame, yInGame);
-		room.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
+			return item;
+		}
 
-		return room;
+		public static Room CreateRoom(string id) {
+			// Gets the room prefab
+			Room roomPrefab = instance.RoomPrefabs[id];
+			
+			// Instantiates the room prefab
+			Room room = UtilityManager.Instantiate<Room>(roomPrefab);
+			
+			// Creates a game image to show the room's background
+			GameImage roomBackgroundImage = UtilityManager.CreateGameImage();
+			roomBackgroundImage.transform.parent = room.transform;
+			roomBackgroundImage.SetParameters(room.BackgroundImageParameters);
+
+			// Creates a game image to show the room's foreground
+			GameImage roomForegroundImage = UtilityManager.CreateGameImage();
+			roomForegroundImage.transform.parent = room.transform;
+			roomForegroundImage.SetParameters(room.ForegroundImageParameters);
+			
+			// Sets the position in the world
+			float roomHeightUnits = roomBackgroundImage.GetHeightUnits();
+			float roomWidthUnits = roomBackgroundImage.GetWidthUnits();
+			float gameHeightUnits = UtilityManager.GetGameHeightUnits();
+			float gameWidthUnits = UtilityManager.GetGameWidthUnits();
+			float xInGame = 0.5f * roomWidthUnits / gameWidthUnits;
+			float yInGame = 0.5f * roomHeightUnits / gameHeightUnits;
+			Vector2 positionInGame = new Vector2(xInGame, yInGame);
+			room.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
+
+			return room;
+		}
+
 	}
 
 }

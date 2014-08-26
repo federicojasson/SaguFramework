@@ -1,23 +1,27 @@
 ﻿using UnityEngine;
 
-public class InventoryItem : MonoBehaviour {
+namespace FrameworkNamespace {
 
-	public GameImageParameters ImageParameters;
+	public class InventoryItem : MonoBehaviour {
 
-	public void Awake() {
-		if (ImageParameters.SortingLayer.Length == 0)
-			ImageParameters.SortingLayer = Parameters.InventoryItemImageSortingLayer;
+		public GameImageParameters ImageParameters;
 
-		// Hides the inventory item initially
-		Hide();
-	}
+		public void Awake() {
+			if (ImageParameters.SortingLayer.Length == 0)
+				ImageParameters.SortingLayer = Parameters.InventoryItemImageSortingLayer;
 
-	public void Hide() {
-		gameObject.SetActive(false);
-	}
-	
-	public void Show() {
-		gameObject.SetActive(true);
+			// Hides the inventory item initially
+			Hide();
+		}
+
+		public void Hide() {
+			gameObject.SetActive(false);
+		}
+		
+		public void Show() {
+			gameObject.SetActive(true);
+		}
+
 	}
 
 }
