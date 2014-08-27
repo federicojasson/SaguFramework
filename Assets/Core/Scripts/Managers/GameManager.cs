@@ -1,13 +1,28 @@
 ﻿using UnityEngine;
 
-namespace FrameworkNamespace {
+namespace SaguFramework.Managers {
 
 	public static class GameManager {
 		
+		// TODO: usar esta clase unicamente como interfaz para las clases del juego
+
 		public static void ChangeRoom(string roomId, string entryPositionId, bool useSplashScreen) {
-			RoomManager.SetCurrentRoomId(roomId);
-			RoomManager.SetCurrentEntryPositionId(entryPositionId);
-			LoadRoom(useSplashScreen);
+			// TODO
+		}
+
+		public static void CloseMenu() {
+			// Closes the last opened menu
+			ObjectManager.GetMenu().Close();
+
+			// Checks if there is another opened menu and shows it
+			if (ObjectManager.GetMenuCount() > 0)
+				ObjectManager.GetMenu().Show();
+		}
+
+		public static void CloseMenus() {
+			// Closes all the opened menus
+			while (ObjectManager.GetMenuCount() > 0)
+				ObjectManager.GetMenu().Close();
 		}
 
 		public static void Exit() {
@@ -15,33 +30,27 @@ namespace FrameworkNamespace {
 		}
 
 		public static void LoadGame(string stateId, bool useSplashScreen) {
-			StateManager.LoadState(stateId);
-			LoadRoom(useSplashScreen);
-		}
-
-		public static void LoadGameMainMenu() {
-			LoadMainMenu(Parameters.GameMainMenuId);
-		}
-
-		public static void LoadMainMenu(string mainMenuId) {
-			GuiManager.SetCurrentMainMenuId(mainMenuId);
-			SceneManager.LoadScene(Parameters.MainMenuScene);
-		}
-		
-		public static void LoadRoom(bool useSplashScreen) {
-			if (useSplashScreen)
-				SceneManager.LoadScene(Parameters.SplashScreenScene);
-			else
-				SceneManager.LoadScene(Parameters.RoomScene);
+			// TODO
 		}
 
 		public static void NewGame(bool useSplashScreen) {
-			StateManager.LoadInitialState();
-			LoadRoom(useSplashScreen);
+			// TODO
+		}
+
+		public static void OpenMainMenu() {
+			// TODO: change scene, etc
+		}
+
+		public static void OpenMenu(string menuId) {
+			// Checks if there is any opened menu and hides it
+			if (ObjectManager.GetMenuCount() > 0)
+				ObjectManager.GetMenu().Hide();
+
+			// TODO: create menu
 		}
 
 		public static void SaveGame(string stateId) {
-			StateManager.SaveState(stateId);
+			// TODO
 		}
 
 	}

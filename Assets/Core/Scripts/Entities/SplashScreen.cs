@@ -1,39 +1,20 @@
-﻿using System.Collections;
+﻿using SaguFramework.Managers;
 using UnityEngine;
 
-namespace FrameworkNamespace {
-
+namespace SaguFramework.Entities {
+	
 	public class SplashScreen : MonoBehaviour {
 
-		public FadeParameters FadeInParameters;
-		public FadeParameters FadeOutParameters;
-		public GameImageParameters ImageParameters;
-		public float MinimumDelayTime;
-
-		private float startTime;
-
-		public virtual void Awake() {
-			if (FadeInParameters.Texture == null)
-				FadeInParameters.Texture = GuiManager.GetDefaultFadeTexture();
-			
-			if (FadeOutParameters.Texture == null)
-				FadeOutParameters.Texture = GuiManager.GetDefaultFadeTexture();
-			
-			if (ImageParameters.SortingLayer.Length == 0)
-				ImageParameters.SortingLayer = Parameters.SplashScreenImageSortingLayer;
-
-			// Registers the current time
-			startTime = Time.time;
+		public void Awake() {
+			// Registers itself with the ObjectManager
+			ObjectManager.RegisterSplashScreen(this);
 		}
 
-		public IEnumerator Delay() {
-			float currentTime = Time.time;
-			float elapsedTime = currentTime - startTime;
-			
-			if (elapsedTime < MinimumDelayTime)
-				yield return new WaitForSeconds(MinimumDelayTime - elapsedTime);
+		public void OnDestroy() {
+			// Unregisters itself from the ObjectManager
+			ObjectManager.UnregisterSplashScreen();
 		}
 
 	}
-
+	
 }

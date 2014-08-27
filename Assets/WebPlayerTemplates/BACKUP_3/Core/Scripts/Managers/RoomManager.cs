@@ -13,17 +13,9 @@
 			ItemManager.CreateItems(currentRoomId, currentRoom.ScaleFactor);
 		}
 
-		/*public static void CreateRoom(string id) {
-			currentRoom = GameAssets.CreateRoom(id);
-		}*/
-
 		public static Room GetCurrentRoom() {
 			return currentRoom;
 		}
-
-		/*public static string GetCurrentRoomId() {
-			return currentRoomId;
-		}*/
 
 		public static void SetCurrentEntryPositionId(string entryPositionId) {
 			currentEntryPositionId = entryPositionId;

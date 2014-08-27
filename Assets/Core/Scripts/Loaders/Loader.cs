@@ -1,31 +1,29 @@
-﻿using System;
+﻿using SaguFramework.Managers;
 using System.Collections;
 using UnityEngine;
 
-namespace FrameworkNamespace {
+namespace SaguFramework.Loaders {
 
 	public abstract class Loader : MonoBehaviour {
 
 		public void Awake() {
-			SceneManager.SetCurrentLoader(this);
+			// Registers itself with the ObjectManager
+			ObjectManager.RegisterLoader(this);
+		}
+
+		public void OnDestroy() {
+			// Unregisters itself from the ObjectManager
+			ObjectManager.UnregisterLoader();
 		}
 
 		public void Start() {
+			// Starts a coroutine to load the scene in a non-blocking way
 			StartCoroutine(LoadSceneCoroutine());
 		}
-		
-		public void UnloadScene(Action onUnloadSceneAction) {
-			StartCoroutine(UnloadSceneAndInvokeActionCoroutine(onUnloadSceneAction));
-		}
-		
+
 		protected abstract IEnumerator LoadSceneCoroutine();
-
+		
 		protected abstract IEnumerator UnloadSceneCoroutine();
-
-		private IEnumerator UnloadSceneAndInvokeActionCoroutine(Action onUnloadSceneAction) {
-			yield return StartCoroutine(UnloadSceneCoroutine());
-			onUnloadSceneAction.Invoke();
-		}
 
 	}
 

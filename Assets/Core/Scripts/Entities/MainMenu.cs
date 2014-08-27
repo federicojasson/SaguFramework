@@ -1,22 +1,19 @@
-﻿using UnityEngine;
+﻿using SaguFramework.Managers;
 
-namespace FrameworkNamespace {
-
+namespace SaguFramework.Entities {
+	
 	public class MainMenu : Menu {
 
-		public FadeParameters FadeInParameters;
-		public FadeParameters FadeOutParameters;
-		
-		public virtual void Awake() {
-			base.Awake();
-
-			if (FadeInParameters.Texture == null)
-				FadeInParameters.Texture = GuiManager.GetDefaultFadeTexture();
-			
-			if (FadeOutParameters.Texture == null)
-				FadeOutParameters.Texture = GuiManager.GetDefaultFadeTexture();
+		public override void Awake() {
+			// Registers itself with the ObjectManager
+			ObjectManager.RegisterMainMenu(this);
 		}
 		
-	}
+		public override void OnDestroy() {
+			// Unregisters itself from the ObjectManager
+			ObjectManager.UnregisterMainMenu();
+		}
 
+	}
+	
 }

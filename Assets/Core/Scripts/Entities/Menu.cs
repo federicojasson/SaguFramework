@@ -1,31 +1,35 @@
-﻿using UnityEngine;
+﻿using SaguFramework.Managers;
+using UnityEngine;
 
-namespace FrameworkNamespace {
-
+namespace SaguFramework.Entities {
+	
 	public class Menu : MonoBehaviour {
 
-		public GameImageParameters ImageParameters;
-
 		public virtual void Awake() {
-			if (ImageParameters.SortingLayer.Length == 0)
-				ImageParameters.SortingLayer = Parameters.MenuImageSortingLayer;
-
-			// Hides the menu initially
-			Hide();
+			// Registers itself with the ObjectManager
+			ObjectManager.RegisterMenu(this);
 		}
 
 		public void Close() {
-			Destroy(this);
+			// Destroys the object
+			Destroy(gameObject);
 		}
 
 		public void Hide() {
+			// Deactivates the object in order to make the menu invisible
 			gameObject.SetActive(false);
 		}
 		
-		public void Show() {
-			gameObject.SetActive(true);
+		public virtual void OnDestroy() {
+			// Unregisters itself from the ObjectManager
+			ObjectManager.UnregisterMenu();
 		}
 		
-	}
+		public void Show() {
+			// Activates the object in order to make the menu visible
+			gameObject.SetActive(true);
+		}
 
+	}
+	
 }

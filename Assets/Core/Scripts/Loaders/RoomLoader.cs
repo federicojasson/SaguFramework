@@ -1,25 +1,19 @@
 ﻿using System.Collections;
 
-namespace FrameworkNamespace {
-
+namespace SaguFramework.Loaders {
+	
 	public class RoomLoader : Loader {
 
 		protected override IEnumerator LoadSceneCoroutine() {
-			RoomManager.CreateCurrentRoom();
-
-			Room room = RoomManager.GetCurrentRoom();
-
-			// TODO: manager?
-			//GameCamera.SetTarget(room.transform); TODO: target = player character
-
-			yield return StartCoroutine(GuiManager.FadeInCoroutine(room.FadeInParameters));
+			// TODO
+			yield break;
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			Room room = RoomManager.GetCurrentRoom();
-			yield return StartCoroutine(GuiManager.FadeOutCoroutine(room.FadeOutParameters));
+			// TODO
+			yield break;
 		}
 
 	}
-
+	
 }

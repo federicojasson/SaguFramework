@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-namespace FrameworkNamespace {
+namespace SaguFramework.Workers {
 
 	public class Framework : MonoBehaviour {
-
+		
 		public void Awake() {
-			// Prevents this game object from being destroyed when the scene changes
+			// Prevents this object from being destroyed when the scene changes
 			DontDestroyOnLoad(this);
 		}
 		

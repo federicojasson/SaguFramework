@@ -15,13 +15,17 @@ namespace FrameworkNamespace {
 			characterLocations.Clear();
 		}
 
-		public static void CreateCharacters(string roomId, float scaleFactor) {
+		public static void CreateRoomCharacters(string roomId, float scaleFactor) {
 			foreach (KeyValuePair<string, Location> entry in characterLocations) {
 				Location location = entry.Value;
 				
 				if (location.RoomId == roomId)
 					GameAssets.CreateCharacter(entry.Key, location.PositionInGame, scaleFactor);
 			}
+		}
+
+		public static string GetPlayerCharacterId() {
+			return playerCharacterId;
 		}
 		
 		public static void SetCharacterLocation(string id, Location location) {

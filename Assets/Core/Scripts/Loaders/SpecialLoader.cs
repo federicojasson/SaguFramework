@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 
-namespace FrameworkNamespace {
-
+namespace SaguFramework.Loaders {
+	
 	public class SpecialLoader : Loader {
-		
+
 		protected override IEnumerator LoadSceneCoroutine() {
 			// TODO
 			yield break;
@@ -13,7 +13,7 @@ namespace FrameworkNamespace {
 			// TODO
 			yield break;
 		}
-		
-	}
 
+	}
+	
 }

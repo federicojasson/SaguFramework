@@ -1,32 +1,35 @@
 ﻿using UnityEngine;
 
-namespace FrameworkNamespace {
+namespace SaguFramework.Managers {
 
-	public static partial class UtilityManager {
-		
+	public static class UtilityManager {
+
+		// TODO: comentar
+
 		public static float GameToScreenHeight(float heightInGame) {
 			float gameHeightPixels = GetGameHeightPixels();
 			
 			return heightInGame * gameHeightPixels;
 		}
-
+		
 		public static Vector2 GameToScreenPosition(Vector2 positionInGame) {
+			// Converts each coordinate to screen space
 			float xInScreen = GameToScreenX(positionInGame.x);
 			float yInScreen = GameToScreenY(positionInGame.y);
-
+			
 			return new Vector2(xInScreen, yInScreen);
 		}
 		
 		public static float GameToScreenWidth(float widthInGame) {
 			float gameWidthPixels = GetGameWidthPixels();
-
+			
 			return widthInGame * gameWidthPixels;
 		}
-
+		
 		public static float GameToScreenX(float xInGame) {
 			float gameWidthPixels = GetGameWidthPixels();
 			float screenWidthPixels = GetScreenWidthPixels();
-
+			
 			return (xInGame - 0.5f) * gameWidthPixels + 0.5f * screenWidthPixels;
 		}
 		
@@ -36,32 +39,33 @@ namespace FrameworkNamespace {
 			
 			return (yInGame - 0.5f) * gameHeightPixels + 0.5f * screenHeightPixels;
 		}
-
+		
 		public static float GameToWorldHeight(float heightInGame) {
 			float heightInScreen = GameToScreenHeight(heightInGame);
 			float heightInWorld = ScreenToWorldHeight(heightInScreen);
 			
 			return heightInWorld;
 		}
-
+		
 		public static Vector2 GameToWorldPosition(Vector2 positionInGame) {
+			// Converts the position to screen space and then to world space
 			Vector2 positionInScreen = GameToScreenPosition(positionInGame);
 			Vector2 positionInWorld = ScreenToWorldPosition(positionInScreen);
 			
 			return positionInWorld;
 		}
-
+		
 		public static float GameToWorldWidth(float widthInGame) {
 			float widthInScreen = GameToScreenWidth(widthInGame);
 			float widthInWorld = ScreenToWorldWidth(widthInScreen);
-
+			
 			return widthInWorld;
 		}
 		
 		public static float GameToWorldX(float xInGame) {
 			float xInScreen = GameToScreenX(xInGame);
 			float xInWorld = ScreenToWorldX(xInScreen);
-
+			
 			return xInWorld;
 		}
 		
@@ -71,18 +75,17 @@ namespace FrameworkNamespace {
 			
 			return yInWorld;
 		}
-
+		
 		public static float GetCameraOrthographicSizeUnits() {
-			float screenHeightPixels = GetScreenHeightPixels();
-			float pixelsPerUnit = GetPixelsPerUnit();
-
-			return screenHeightPixels / (2f * pixelsPerUnit);
+			float screenHeightUnits = GetScreenHeightUnits();
+			
+			return screenHeightUnits / 2f;
 		}
-
+		
 		public static float GetGameAspectRatio() {
-			return Parameters.GetGameAspectRatio();
+			return AssetManager.GetGameAspectRatio();
 		}
-
+		
 		public static float GetGameHeightPixels() {
 			float gameAspectRatio = GetGameAspectRatio();
 			float screenAspectRatio = GetScreenAspectRatio();
@@ -101,13 +104,13 @@ namespace FrameworkNamespace {
 			
 			return gameHeightUnits;
 		}
-
+		
 		public static Rect GetGameRectangle() {
 			float height = GetGameHeightPixels();
 			float left = UtilityManager.GameToScreenX(0f);
 			float top = UtilityManager.GameToScreenY(1f);
 			float width = GetGameWidthPixels();
-
+			
 			return new Rect(left, top, width, height);
 		}
 		
@@ -129,7 +132,7 @@ namespace FrameworkNamespace {
 			
 			return gameWidthUnits;
 		}
-
+		
 		public static float GetPixelsPerUnit() {
 			return Parameters.PixelsPerUnit;
 		}
@@ -137,7 +140,7 @@ namespace FrameworkNamespace {
 		public static float GetScreenAspectRatio() {
 			float screenHeightPixels = GetScreenHeightPixels();
 			float screenWidthPixels = GetScreenWidthPixels();
-
+			
 			return screenWidthPixels / screenHeightPixels;
 		}
 		
@@ -174,17 +177,18 @@ namespace FrameworkNamespace {
 			
 			return heightInScreen / gameHeightPixels;
 		}
-
+		
 		public static Vector2 ScreenToGamePosition(Vector2 positionInScreen) {
+			// Converts each coordinate to game space
 			float xInGame = ScreenToGameX(positionInScreen.x);
 			float yInGame = ScreenToGameY(positionInScreen.y);
 			
 			return new Vector2(xInGame, yInGame);
 		}
-
+		
 		public static float ScreenToGameWidth(float widthInScreen) {
 			float gameWidthPixels = GetGameWidthPixels();
-
+			
 			return widthInScreen / gameWidthPixels;
 		}
 		
@@ -207,23 +211,24 @@ namespace FrameworkNamespace {
 			
 			return heightInScreen / pixelsPerUnit;
 		}
-
+		
 		public static Vector2 ScreenToWorldPosition(Vector2 positionInScreen) {
+			// Converts each coordinate to world space
 			float xInWorld = ScreenToWorldX(positionInScreen.x);
 			float yInWorld = ScreenToWorldY(positionInScreen.y);
 			
 			return new Vector2(xInWorld, yInWorld);
 		}
-
+		
 		public static float ScreenToWorldWidth(float widthInScreen) {
 			float pixelsPerUnit = GetPixelsPerUnit();
-
+			
 			return widthInScreen / pixelsPerUnit;
 		}
 		
 		public static float ScreenToWorldX(float xInScreen) {
 			float xInWorld = PixelsToUnits(xInScreen);
-
+			
 			return xInWorld;
 		}
 		
@@ -245,25 +250,26 @@ namespace FrameworkNamespace {
 			
 			return heightInGame;
 		}
-
+		
 		public static Vector2 WorldToGamePosition(Vector2 positionInWorld) {
+			// Converts the position to screen space and then to game space
 			Vector2 positionInScreen = WorldToScreenPosition(positionInWorld);
 			Vector2 positionInGame = ScreenToGamePosition(positionInScreen);
-
+			
 			return positionInGame;
 		}
-
+		
 		public static float WorldToGameWidth(float widthInWorld) {
 			float widthInScreen = WorldToScreenWidth(widthInWorld);
 			float widthInGame = ScreenToGameWidth(widthInScreen);
-
+			
 			return widthInGame;
 		}
 		
 		public static float WorldToGameX(float xInWorld) {
 			float xInScreen = WorldToScreenX(xInWorld);
 			float xInGame = ScreenToGameX(xInScreen);
-
+			
 			return xInGame;
 		}
 		
@@ -281,21 +287,22 @@ namespace FrameworkNamespace {
 		}
 		
 		public static Vector2 WorldToScreenPosition(Vector2 positionInWorld) {
+			// Converts each coordinate to screen space
 			float xInScreen = WorldToScreenX(positionInWorld.x);
 			float yInScreen = WorldToScreenY(positionInWorld.y);
 			
 			return new Vector2(xInScreen, yInScreen);
 		}
-
+		
 		public static float WorldToScreenWidth(float widthInWorld) {
 			float pixelsPerUnit = GetPixelsPerUnit();
-
+			
 			return widthInWorld * pixelsPerUnit;
 		}
 		
 		public static float WorldToScreenX(float xInWorld) {
 			float xInScreen = UnitsToPixels(xInWorld);
-
+			
 			return xInScreen;
 		}
 		

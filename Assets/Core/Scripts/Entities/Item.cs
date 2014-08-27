@@ -1,16 +1,20 @@
-﻿using UnityEngine;
+﻿using SaguFramework.Managers;
+using UnityEngine;
 
-namespace FrameworkNamespace {
-
+namespace SaguFramework.Entities {
+	
 	public class Item : MonoBehaviour {
-		
-		public GameImageParameters ImageParameters;
 
 		public void Awake() {
-			if (ImageParameters.SortingLayer.Length == 0)
-				ImageParameters.SortingLayer = Parameters.ItemImageSortingLayer;
+			// Registers itself with the ObjectManager
+			ObjectManager.RegisterItem(this);
+		}
+
+		public void OnDestroy() {
+			// Unregisters itself from the ObjectManager
+			ObjectManager.UnregisterItem(this);
 		}
 
 	}
-
+	
 }

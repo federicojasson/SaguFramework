@@ -1,27 +1,20 @@
-﻿using UnityEngine;
+﻿using SaguFramework.Managers;
+using UnityEngine;
 
-namespace FrameworkNamespace {
-
+namespace SaguFramework.Entities {
+	
 	public class InventoryItem : MonoBehaviour {
 
-		public GameImageParameters ImageParameters;
-
 		public void Awake() {
-			if (ImageParameters.SortingLayer.Length == 0)
-				ImageParameters.SortingLayer = Parameters.InventoryItemImageSortingLayer;
-
-			// Hides the inventory item initially
-			Hide();
+			// Registers itself with the ObjectManager
+			ObjectManager.RegisterInventoryItem(this);
 		}
 
-		public void Hide() {
-			gameObject.SetActive(false);
-		}
-		
-		public void Show() {
-			gameObject.SetActive(true);
+		public void OnDestroy() {
+			// Unregisters itself from the ObjectManager
+			ObjectManager.UnregisterInventoryItem(this);
 		}
 
 	}
-
+	
 }
