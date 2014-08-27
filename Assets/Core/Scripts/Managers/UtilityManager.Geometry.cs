@@ -2,7 +2,7 @@
 
 namespace SaguFramework.Managers {
 
-	public static class UtilityManager {
+	public static partial class UtilityManager {
 
 		// TODO: comentar
 
@@ -83,7 +83,7 @@ namespace SaguFramework.Managers {
 		}
 		
 		public static float GetGameAspectRatio() {
-			return AssetManager.GetGameAspectRatio();
+			return ParameterManager.GetGameAspectRatio();
 		}
 		
 		public static float GetGameHeightPixels() {
@@ -134,7 +134,7 @@ namespace SaguFramework.Managers {
 		}
 		
 		public static float GetPixelsPerUnit() {
-			return Parameters.PixelsPerUnit;
+			return ParameterManager.PixelsPerUnit;
 		}
 		
 		public static float GetScreenAspectRatio() {

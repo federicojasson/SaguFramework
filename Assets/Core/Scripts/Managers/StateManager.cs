@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SaguFramework.Managers {
 	
-	public static class StateManager {
+	public static partial class StateManager {
 		
 		// TODO: usar esta clase para registrar el estado actual del mundo
 
@@ -11,12 +11,17 @@ namespace SaguFramework.Managers {
 		private static string currentRoomId;
 		private static List<string> inventoryItemIds;
 		private static Dictionary<string, Location> itemLocations;
+		private static string playerCharacterId;
 
 		static StateManager() {
 			// Initializes the data structures
 			characterLocations = new Dictionary<string, Location>();
 			inventoryItemIds = new List<string>();
 			itemLocations = new Dictionary<string, Location>();
+		}
+		
+		public static void AddInventoryItem(string inventoryItemId) {
+			inventoryItemIds.Add(inventoryItemId);
 		}
 
 		public static Location GetCharacterLocation(string characterId) {
@@ -29,6 +34,10 @@ namespace SaguFramework.Managers {
 
 		public static Location GetItemLocation(string itemId) {
 			return itemLocations[itemId];
+		}
+
+		public static string GetPlayerCharacterId() {
+			return playerCharacterId;
 		}
 
 		public static List<string> GetRoomCharacterIds(string roomId) {
@@ -55,6 +64,34 @@ namespace SaguFramework.Managers {
 					itemIds.Add(entry.Key);
 			
 			return itemIds;
+		}
+
+		public static void RemoveCharacter(string characterId) {
+			characterLocations.Remove(characterId);
+		}
+
+		public static void RemoveInventoryItem(string inventoryItemId) {
+			inventoryItemIds.Remove(inventoryItemId);
+		}
+
+		public static void RemoveItem(string itemId) {
+			itemLocations.Remove(itemId);
+		}
+		
+		public static void SetCharacterLocation(string characterId, Location characterLocation) {
+			characterLocations[characterId] = characterLocation;
+		}
+
+		public static void SetCurrentRoomId(string roomId) {
+			currentRoomId = roomId;
+		}
+		
+		public static void SetItemLocation(string itemId, Location itemLocation) {
+			itemLocations[itemId] = itemLocation;
+		}
+
+		public static void SetPlayerCharacterId(string characterId) {
+			playerCharacterId = characterId;
 		}
 
 	}

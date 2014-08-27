@@ -1,10 +1,11 @@
-﻿using SaguFramework.Structures.Serializable;
+﻿using System;
 using UnityEngine;
 
-namespace SaguFramework.Workers {
-
-	public partial class Assets : MonoBehaviour {
-
+namespace SaguFramework.Structures.Serializable {
+	
+	[Serializable]
+	public class GameParameters {
+		
 		public CharacterParametersMap CharacterParameters;
 		public float GameAspectRatio;
 		public InventoryItemParametersMap InventoryItemParameters;
@@ -15,12 +16,8 @@ namespace SaguFramework.Workers {
 		public MenuParametersMap MenuParameters;
 		public RoomParametersMap RoomParameters;
 		public SplashScreenParameters[] SplashScreensParameters;
-
-		public void Awake() {
-			// Sets itself as the singleton instance
-			instance = this;
-		}
-
+		public string StateFilesDirectoryPath;
+		
 	}
-
+	
 }

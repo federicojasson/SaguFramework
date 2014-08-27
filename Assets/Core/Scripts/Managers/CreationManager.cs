@@ -7,70 +7,7 @@ namespace SaguFramework.Managers {
 
 	public static class CreationManager {
 
-		public static void CreateCurrentRoom() {
-			// Gets the current room ID
-			string currentRoomId = StateManager.GetCurrentRoomId();
-
-			// Gets the IDs of the characters and items located in the room
-			List<string> characterIds = StateManager.GetRoomCharacterIds(currentRoomId);
-			List<string> itemIds = StateManager.GetRoomItemIds(currentRoomId);
-
-			// Creates the room
-			RoomParameters roomParameters = AssetManager.GetRoomParameters(currentRoomId);
-			CreateRoom(roomParameters);
-
-			// Creates the characters
-			foreach (string characterId in characterIds) {
-				Vector2 positionInGame = StateManager.GetCharacterLocation(characterId).GetPositionInGame();
-				CharacterParameters characterParameters = AssetManager.GetCharacterParameters(characterId);
-				CreateCharacter(characterParameters, positionInGame, roomParameters.ScaleFactor);
-			}
-
-			// Creates the items
-			foreach (string itemId in itemIds) {
-				Vector2 positionInGame = StateManager.GetItemLocation(itemId).GetPositionInGame();
-				ItemParameters itemParameters = AssetManager.GetItemParameters(itemId);
-				CreateItem(itemParameters, positionInGame, roomParameters.ScaleFactor);
-			}
-		}
-
-		public static void CreateMainMenu() {
-			// Gets the main menu's parameters
-			MenuParameters mainMenuParameters = AssetManager.GetMainMenuParameters();
-			
-			// Creates the main menu
-			CreateMenu(mainMenuParameters);
-		}
-
-		public static void CreateMainSplashScreen() {
-			// Gets the main splash screen's parameters
-			SplashScreenParameters mainSplashScreenParameters = AssetManager.GetMainSplashScreenParameters();
-
-			// Creates the main splash screen
-			CreateSplashScreen(mainSplashScreenParameters);
-		}
-
-		public static void CreateMenu(string menuId) {
-			// Gets the menu's parameters
-			MenuParameters menuParameters = AssetManager.GetMenuParameters(menuId);
-
-			// Creates the menu
-			CreateMenu(menuParameters);
-		}
-
-		public static void CreateSplashScreen() {
-			// Gets the splash screens' parameters
-			SplashScreenParameters[] splashScreensParameters = AssetManager.GetSplashScreensParameters();
-
-			// Selects a random splash screen
-			int randomIndex = Random.Range(0, splashScreensParameters.Length);
-			SplashScreenParameters splashScreenParameters = splashScreensParameters[randomIndex];
-
-			// Creates the splash screen
-			CreateSplashScreen(splashScreenParameters);
-		}
-
-		private static void CreateCharacter(CharacterParameters characterParameters, Vector2 positionInGame, float scaleFactor) {
+		public static void CreateCharacter(CharacterParameters characterParameters, Vector2 positionInGame, float scaleFactor) {
 			GameObject character = new GameObject();
 			character.AddComponent<Character>();
 			character.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
@@ -99,11 +36,11 @@ namespace SaguFramework.Managers {
 			return character;*/
 		}
 
-		private static void CreateItem(ItemParameters itemParameters, Vector2 positionInGame, float scaleFactor) {
+		public static void CreateItem(ItemParameters itemParameters, Vector2 positionInGame, float scaleFactor) {
 			GameObject item = new GameObject();
-			item.AddComponent<Item>();
+			item.AddComponent<Item>().SetBehaviour(itemParameters.Behaviour);
 			item.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
-			
+
 			GameObject itemImage = new GameObject();
 			itemImage.transform.parent = item.transform;
 			itemImage.transform.localPosition = Vector3.zero;
@@ -126,12 +63,16 @@ namespace SaguFramework.Managers {
 			
 			return item;*/
 		}
+		
+		public static void CreateMainMenu(MainMenuParameters mainMenuParameters) {
+			// TODO
+		}
 
-		private static void CreateMenu(MenuParameters menuParameters) {
+		public static void CreateMenu(MenuParameters menuParameters) {
 			// TODO
 		}
 		
-		private static void CreateRoom(RoomParameters roomParameters) {
+		public static void CreateRoom(RoomParameters roomParameters) {
 			// TODO
 			/*// Gets the room prefab
 			Room roomPrefab = instance.RoomPrefabs[id];
@@ -161,8 +102,8 @@ namespace SaguFramework.Managers {
 			
 			return room;*/
 		}
-
-		private static void CreateSplashScreen(SplashScreenParameters splashScreenParameters) {
+		
+		public static void CreateSplashScreen(SplashScreenParameters splashScreenParameters) {
 			// TODO
 		}
 

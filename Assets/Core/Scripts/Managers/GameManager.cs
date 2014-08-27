@@ -29,12 +29,23 @@ namespace SaguFramework.Managers {
 			Application.Quit();
 		}
 
-		public static void LoadGame(string stateId, bool useSplashScreen) {
+		public static string[] GetStateIds() {
 			// TODO
+			return new string[0];
+		}
+
+		public static void LoadGame(string stateId, bool useSplashScreen) {
+			// Reads the state file
+			StateManager.ReadStateFile(stateId);
+
+			// TODO: change scene
 		}
 
 		public static void NewGame(bool useSplashScreen) {
-			// TODO
+			// Reads the initial state file
+			StateManager.ReadInitialStateFile();
+			
+			// TODO: change scene
 		}
 
 		public static void OpenMainMenu() {
@@ -50,6 +61,9 @@ namespace SaguFramework.Managers {
 		}
 
 		public static void SaveGame(string stateId) {
+			// Writes the state file
+			StateManager.WriteStateFile(stateId);
+
 			// TODO
 		}
 

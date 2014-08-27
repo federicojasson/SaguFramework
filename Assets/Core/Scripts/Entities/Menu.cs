@@ -1,9 +1,12 @@
-﻿using SaguFramework.Managers;
+﻿using SaguFramework.Behaviours;
+using SaguFramework.Managers;
 using UnityEngine;
 
 namespace SaguFramework.Entities {
 	
 	public class Menu : MonoBehaviour {
+
+		private MenuBehaviour behaviour;
 
 		public virtual void Awake() {
 			// Registers itself with the ObjectManager
@@ -23,6 +26,14 @@ namespace SaguFramework.Entities {
 		public virtual void OnDestroy() {
 			// Unregisters itself from the ObjectManager
 			ObjectManager.UnregisterMenu();
+		}
+
+		public void OnGUI() {
+			behaviour.OnShow();
+		}
+
+		public void SetBehaviour(MenuBehaviour behaviour) {
+			this.behaviour = behaviour;
 		}
 		
 		public void Show() {

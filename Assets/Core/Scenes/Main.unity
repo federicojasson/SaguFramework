@@ -112,32 +112,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3332e5b3a38cf5845bab2fd805faf284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterParameters:
-    Entries: []
-  InventoryParameters:
-    BackgroundImage:
-      Opacity: 0
-      RelativeHeight: 0
-      SortingLayer: 
-      Sprite: {fileID: 0}
-  InventoryItemParameters:
-    Entries: []
-  ItemParameters:
-    Entries: []
-  MainMenuParameters:
-    BackgroundImage:
-      Opacity: 0
-      RelativeHeight: 0
-      SortingLayer: 
-      Sprite: {fileID: 0}
-  MenuParameters:
-    Entries: []
-  RoomParameters:
-    Entries: []
-  SplashScreenGroups:
-    Entries: []
-  SplashScreenParameters:
-    Entries: []
+  GameParameters:
+    CharacterParameters:
+      Entries: []
+    GameAspectRatio: 0
+    InventoryItemParameters:
+      Entries: []
+    InventoryParameters:
+      BackgroundImage:
+        Opacity: 0
+        RelativeHeight: 0
+        SortingLayer: 
+        Sprite: {fileID: 0}
+    ItemParameters:
+      Entries: []
+    MainMenuParameters:
+      Behaviour: {fileID: 0}
+      BackgroundImage:
+        Opacity: 0
+        RelativeHeight: 0
+        SortingLayer: 
+        Sprite: {fileID: 0}
+    MainSplashScreenParameters:
+      Image:
+        Opacity: 0
+        RelativeHeight: 0
+        SortingLayer: 
+        Sprite: {fileID: 0}
+      MinimumDelayTime: 0
+    MenuParameters:
+      Entries: []
+    RoomParameters:
+      Entries: []
+    SplashScreensParameters: []
+    StateFilesDirectoryPath: 
 --- !u!1 &464748630
 GameObject:
   m_ObjectHideFlags: 0
