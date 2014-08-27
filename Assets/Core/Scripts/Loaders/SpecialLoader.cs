@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace SaguFramework.Loaders {
+namespace SaguFramework {
 	
 	public class SpecialLoader : Loader {
 

@@ -1,8 +1,7 @@
-﻿using SaguFramework.Structures.Auxiliar;
-using System;
+﻿using System;
 using UnityEngine;
 
-namespace SaguFramework.Structures.Serializable {
+namespace SaguFramework {
 	
 	[Serializable]
 	public class Vector2MapEntry : MapEntry<string, Vector2> {}

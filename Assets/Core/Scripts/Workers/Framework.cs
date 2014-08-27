@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SaguFramework.Workers {
+namespace SaguFramework {
 
 	public class Framework : MonoBehaviour {
 		

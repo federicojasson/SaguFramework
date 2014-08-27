@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SaguFramework.Behaviours {
+namespace SaguFramework {
 	
 	public abstract class InventoryItemBehaviour : MonoBehaviour {
 	}

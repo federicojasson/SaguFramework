@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SaguFramework.Structures.Serializable {
+namespace SaguFramework {
 	
 	[Serializable]
 	public class InventoryParameters {

@@ -1,7 +1,6 @@
-﻿using SaguFramework.Structures.Serializable;
-using SaguFramework.Workers;
+﻿using UnityEngine;
 
-namespace SaguFramework.Managers {
+namespace SaguFramework {
 
 	public static partial class ParameterManager {
 
@@ -11,8 +10,20 @@ namespace SaguFramework.Managers {
 			return Game.GetInstance().GameParameters.CharacterParameters[characterId];
 		}
 
+		public static Texture2D GetDefaultFadingTexture() {
+			return Game.GetInstance().GameParameters.DefaultFadingTexture;
+		}
+
 		public static float GetGameAspectRatio() {
 			return Game.GetInstance().GameParameters.GameAspectRatio;
+		}
+		
+		public static MainMenuParameters GetGameMainMenuParameters() {
+			return Game.GetInstance().GameParameters.GameMainMenuParameters;
+		}
+		
+		public static SplashScreenParameters GetGameSplashScreenParameters() {
+			return Game.GetInstance().GameParameters.GameSplashScreenParameters;
 		}
 
 		public static InventoryItemParameters GetInventoryItemParameters(string inventoryItemId) {
@@ -25,14 +36,6 @@ namespace SaguFramework.Managers {
 
 		public static ItemParameters GetItemParameters(string itemId) {
 			return Game.GetInstance().GameParameters.ItemParameters[itemId];
-		}
-
-		public static MainMenuParameters GetMainMenuParameters() {
-			return Game.GetInstance().GameParameters.MainMenuParameters;
-		}
-		
-		public static SplashScreenParameters GetMainSplashScreenParameters() {
-			return Game.GetInstance().GameParameters.MainSplashScreenParameters;
 		}
 
 		public static MenuParameters GetMenuParameters(string menuId) {

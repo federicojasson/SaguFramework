@@ -1,21 +1,14 @@
-﻿using SaguFramework.Behaviours;
-using SaguFramework.Managers;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace SaguFramework.Entities {
+namespace SaguFramework {
 	
 	public class Item : MonoBehaviour {
 
-		private ItemBehaviour behaviour; // TODO
+		private ItemBehaviour behaviour;
 
 		public void Awake() {
 			// Registers itself with the ObjectManager
 			ObjectManager.RegisterItem(this);
-		}
-
-		// TODO: remove this
-		public void Start() {
-			behaviour.TestMethod();
 		}
 
 		public void OnDestroy() {
@@ -23,7 +16,6 @@ namespace SaguFramework.Entities {
 			ObjectManager.UnregisterItem(this);
 		}
 
-		// TODO
 		public void SetBehaviour(ItemBehaviour behaviour) {
 			this.behaviour = behaviour;
 		}

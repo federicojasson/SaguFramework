@@ -1,8 +1,6 @@
-﻿using SaguFramework.Managers;
-using SaguFramework.Structures.Serializable;
-using System.Collections;
+﻿using System.Collections;
 
-namespace SaguFramework.Loaders {
+namespace SaguFramework {
 	
 	public class MainMenuLoader : Loader {
 
@@ -12,27 +10,23 @@ namespace SaguFramework.Loaders {
 			// Creates the main menu
 			mainMenuParameters = CreateMainMenu();
 			
-			// TODO: fade in
-			
-			// TODO
-			yield break;
+			// Fades in
+			yield return StartCoroutine(Fader.GetInstance().FadeInCoroutine(mainMenuParameters.FadingIn));
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			// TODO: fade out
-			
-			// TODO
-			yield break;
+			// Fades out
+			yield return StartCoroutine(Fader.GetInstance().FadeOutCoroutine(mainMenuParameters.FadingOut));
 		}
 		
 		private MainMenuParameters CreateMainMenu() {
-			// Gets the main menu's parameters
-			MainMenuParameters mainMenuParameters = ParameterManager.GetMainMenuParameters();
+			// Gets the game main menu's parameters
+			MainMenuParameters gameMainMenuParameters = ParameterManager.GetGameMainMenuParameters();
 			
 			// Creates the main menu
-			CreationManager.CreateMainMenu(mainMenuParameters);
+			CreationManager.CreateMainMenu(gameMainMenuParameters);
 			
-			return mainMenuParameters;
+			return gameMainMenuParameters;
 		}
 
 	}

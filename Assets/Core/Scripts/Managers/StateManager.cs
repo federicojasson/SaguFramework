@@ -1,7 +1,6 @@
-﻿using SaguFramework.Structures.Auxiliar;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace SaguFramework.Managers {
+namespace SaguFramework {
 	
 	public static partial class StateManager {
 		

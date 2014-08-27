@@ -1,12 +1,14 @@
 ﻿using System;
 
-namespace SaguFramework.Structures.Serializable {
+namespace SaguFramework {
 	
 	[Serializable]
 	public class SplashScreenParameters {
 
+		public FadingParameters FadingIn;
+		public FadingParameters FadingOut;
 		public ImageParameters Image;
-		public float MinimumDelayTime;
+		public float MinimumDelayTime = 2f;
 
 	}
 	

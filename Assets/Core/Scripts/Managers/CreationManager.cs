@@ -1,75 +1,107 @@
-﻿using SaguFramework.Entities;
-using SaguFramework.Structures.Serializable;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace SaguFramework.Managers {
+namespace SaguFramework {
 
 	public static class CreationManager {
 
+		// TODO: comments
+
 		public static void CreateCharacter(CharacterParameters characterParameters, Vector2 positionInGame, float scaleFactor) {
-			GameObject character = new GameObject();
-			character.AddComponent<Character>();
-			character.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
-
-			GameObject characterImage = new GameObject();
-			Image image = character.AddComponent<Image>();
-			characterImage.transform.parent = character.transform;
-			characterImage.transform.localPosition = Vector3.zero;
-
-			// TODO
-			/*// Gets the character prefab
-			Character characterPrefab = instance.CharacterPrefabs[id];
+			// Gets the image's parameters
+			ImageParameters imageParameters = characterParameters.Image;
 			
-			// Instantiates the character prefab
-			Character character = UtilityManager.Instantiate<Character>(characterPrefab);
+			// Creates an object for the character
+			GameObject characterObject = new GameObject();
+			Character character = characterObject.AddComponent<Character>();
 			
-			// Creates a game image to show the character
-			GameImage characterImage = UtilityManager.CreateGameImage();
-			characterImage.transform.parent = character.transform;
-			characterImage.SetParameters(character.ImageParameters);
-			characterImage.SetRelativeSize(scaleFactor * characterImage.GetRelativeSize());
+			// Sets the character's behaviour
+			character.SetBehaviour(characterParameters.Behaviour);
 			
-			// Sets the position in the world
-			character.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
+			// Creates an object for the image
+			GameObject imageObject = new GameObject();
+			Image image = imageObject.AddComponent<Image>();
 			
-			return character;*/
+			// Sets the image's parameters
+			image.SetParameters(imageParameters);
+			
+			// Corrects the image's relative height according to the scale factor
+			image.SetRelativeHeight(scaleFactor * image.GetRelativeHeight());
+			
+			if (imageParameters.SortingLayer.Length == 0)
+				// Sets the default sorting layer for the character images
+				image.SetSortingLayer(ParameterManager.SortingLayerCharacterImage);
+			
+			// Sets the character's position
+			characterObject.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
+			
+			// Sets the image object's parent and local position
+			imageObject.transform.parent = characterObject.transform;
+			imageObject.transform.localPosition = Vector3.zero;
 		}
 
 		public static void CreateItem(ItemParameters itemParameters, Vector2 positionInGame, float scaleFactor) {
-			GameObject item = new GameObject();
-			item.AddComponent<Item>().SetBehaviour(itemParameters.Behaviour);
-			item.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
+			// Gets the image's parameters
+			ImageParameters imageParameters = itemParameters.Image;
+			
+			// Creates an object for the item
+			GameObject itemObject = new GameObject();
+			Item item = itemObject.AddComponent<Item>();
+			
+			// Sets the item's behaviour
+			item.SetBehaviour(itemParameters.Behaviour);
+			
+			// Creates an object for the image
+			GameObject imageObject = new GameObject();
+			Image image = imageObject.AddComponent<Image>();
+			
+			// Sets the image's parameters
+			image.SetParameters(imageParameters);
 
-			GameObject itemImage = new GameObject();
-			itemImage.transform.parent = item.transform;
-			itemImage.transform.localPosition = Vector3.zero;
+			// Corrects the image's relative height according to the scale factor
+			image.SetRelativeHeight(scaleFactor * image.GetRelativeHeight());
 
-			// TODO
-			/*// Gets the item prefab
-			Item itemPrefab = instance.ItemPrefabs[id];
-			
-			// Instantiates the item prefab
-			Item item = UtilityManager.Instantiate<Item>(itemPrefab);
-			
-			// Creates a game image to show the item
-			GameImage itemImage = UtilityManager.CreateGameImage();
-			itemImage.transform.parent = item.transform;
-			itemImage.SetParameters(item.ImageParameters);
-			itemImage.SetRelativeSize(scaleFactor * itemImage.GetRelativeSize());
-			
-			// Sets the position in the world
-			item.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
-			
-			return item;*/
+			if (imageParameters.SortingLayer.Length == 0)
+				// Sets the default sorting layer for the item images
+				image.SetSortingLayer(ParameterManager.SortingLayerItemImage);
+
+			// Sets the item's position
+			itemObject.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
+
+			// Sets the image object's parent and local position
+			imageObject.transform.parent = itemObject.transform;
+			imageObject.transform.localPosition = Vector3.zero;
 		}
 		
 		public static void CreateMainMenu(MainMenuParameters mainMenuParameters) {
-			// TODO
+			// The creation process is the same for the menus than for the main menus
+			CreateMenu(mainMenuParameters);
 		}
 
 		public static void CreateMenu(MenuParameters menuParameters) {
-			// TODO
+			// Gets the background image's parameters
+			ImageParameters backgroundImageParameters = menuParameters.BackgroundImage;
+			
+			// Creates an object for the menu
+			GameObject menuObject = new GameObject();
+			Menu menu = menuObject.AddComponent<Menu>();
+
+			// Sets the menu's behaviour
+			menu.SetBehaviour(menuParameters.Behaviour);
+			
+			// Creates an object for the background image
+			GameObject backgroundImageObject = new GameObject();
+			Image backgroundImage = backgroundImageObject.AddComponent<Image>();
+			
+			// Sets the background image's parameters
+			backgroundImage.SetParameters(backgroundImageParameters);
+			
+			if (backgroundImageParameters.SortingLayer.Length == 0)
+				// Sets the default sorting layer for the menu background images
+				backgroundImage.SetSortingLayer(ParameterManager.SortingLayerMenuBackgroundImage);
+			
+			// Sets the background image object's parent and local position
+			backgroundImageObject.transform.parent = menuObject.transform;
+			backgroundImageObject.transform.localPosition = Vector3.zero;
 		}
 		
 		public static void CreateRoom(RoomParameters roomParameters) {
@@ -104,7 +136,27 @@ namespace SaguFramework.Managers {
 		}
 		
 		public static void CreateSplashScreen(SplashScreenParameters splashScreenParameters) {
-			// TODO
+			// Gets the image's parameters
+			ImageParameters imageParameters = splashScreenParameters.Image;
+
+			// Creates an object for the splash screen
+			GameObject splashScreenObject = new GameObject();
+			SplashScreen splashScreen = splashScreenObject.AddComponent<SplashScreen>();
+
+			// Creates an object for the image
+			GameObject imageObject = new GameObject();
+			Image image = imageObject.AddComponent<Image>();
+
+			// Sets the image's parameters
+			image.SetParameters(imageParameters);
+
+			if (imageParameters.SortingLayer.Length == 0)
+				// Sets the default sorting layer for the splash screen images
+				image.SetSortingLayer(ParameterManager.SortingLayerSplashScreenImage);
+
+			// Sets the image object's parent and local position
+			imageObject.transform.parent = splashScreenObject.transform;
+			imageObject.transform.localPosition = Vector3.zero;
 		}
 
 	}

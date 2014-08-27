@@ -1,5 +1,4 @@
-﻿using SaguFramework.Behaviours;
-using UnityEngine;
+﻿using SaguFramework;
 
 namespace EmergenciaQuimica {
 

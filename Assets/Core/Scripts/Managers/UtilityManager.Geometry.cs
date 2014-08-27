@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SaguFramework.Managers {
+namespace SaguFramework {
 
 	public static partial class UtilityManager {
 

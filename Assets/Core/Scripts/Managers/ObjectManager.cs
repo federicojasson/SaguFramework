@@ -1,8 +1,6 @@
-﻿using SaguFramework.Entities;
-using SaguFramework.Loaders;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace SaguFramework.Managers {
+namespace SaguFramework {
 	
 	public static class ObjectManager {
 		

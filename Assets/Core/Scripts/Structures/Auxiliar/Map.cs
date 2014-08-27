@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SaguFramework.Structures.Auxiliar {
+namespace SaguFramework {
 
 	public class Map<K, V, E> where E : MapEntry<K, V> {
 

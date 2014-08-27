@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SaguFramework.Entities {
+namespace SaguFramework {
 	
 	public class Room : MonoBehaviour {
 	}

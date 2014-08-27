@@ -1,7 +1,6 @@
-﻿using SaguFramework.Structures.Serializable;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace SaguFramework.Workers {
+namespace SaguFramework {
 	
 	public partial class Game : MonoBehaviour {
 		

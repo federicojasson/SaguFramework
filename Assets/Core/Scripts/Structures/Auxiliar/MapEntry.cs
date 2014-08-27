@@ -1,4 +1,4 @@
-﻿namespace SaguFramework.Structures.Auxiliar {
+﻿namespace SaguFramework {
 	
 	public class MapEntry<K, V>  {
 		

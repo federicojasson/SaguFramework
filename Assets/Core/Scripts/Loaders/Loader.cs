@@ -1,8 +1,8 @@
-﻿using SaguFramework.Managers;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 
-namespace SaguFramework.Loaders {
+namespace SaguFramework {
 
 	public abstract class Loader : MonoBehaviour {
 
@@ -21,9 +21,22 @@ namespace SaguFramework.Loaders {
 			StartCoroutine(LoadSceneCoroutine());
 		}
 
+		public void UnloadScene(Action onUnloadSceneAction) {
+			// Starts a coroutine to unload the scene in a non-blocking way and execute an action afterwards
+			StartCoroutine(UnloadSceneAndExecuteActionCoroutine(onUnloadSceneAction));
+		}
+
 		protected abstract IEnumerator LoadSceneCoroutine();
 		
 		protected abstract IEnumerator UnloadSceneCoroutine();
+
+		private IEnumerator UnloadSceneAndExecuteActionCoroutine(Action onUnloadSceneAction) {
+			// Unloads the scene
+			yield return StartCoroutine(UnloadSceneCoroutine());
+
+			// Executes the action
+			onUnloadSceneAction.Invoke();
+		}
 
 	}
 

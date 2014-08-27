@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-namespace SaguFramework.Structures.Serializable {
+namespace SaguFramework {
 	
 	[Serializable]
 	public class FadingParameters {
 
-		public bool Ignore;
-		public float Speed;
+		public bool Ignore = false;
+		public float Speed = 0.4f;
 		public Texture2D Texture;
 		
 	}

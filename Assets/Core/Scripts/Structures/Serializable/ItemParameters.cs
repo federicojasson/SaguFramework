@@ -1,7 +1,6 @@
-﻿using SaguFramework.Behaviours;
-using System;
+﻿using System;
 
-namespace SaguFramework.Structures.Serializable {
+namespace SaguFramework {
 	
 	[Serializable]
 	public class ItemParameters {

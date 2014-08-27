@@ -1,7 +1,6 @@
-﻿using SaguFramework.Structures.Auxiliar;
-using System;
+﻿using System;
 
-namespace SaguFramework.Structures.Serializable {
+namespace SaguFramework {
 	
 	[Serializable]
 	public class CharacterParametersMap : Map<string, CharacterParameters, CharacterParametersMapEntry> {}

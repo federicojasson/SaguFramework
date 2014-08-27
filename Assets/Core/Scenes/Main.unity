@@ -74,39 +74,28 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
---- !u!1 &461746748
+--- !u!1 &226641206
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 461746749}
-  - 114: {fileID: 461746750}
+  - 4: {fileID: 226641208}
+  - 114: {fileID: 226641207}
   m_Layer: 0
-  m_Name: Assets
+  m_Name: Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &461746749
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 461746748}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1443686909}
---- !u!114 &461746750
+--- !u!114 &226641207
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 461746748}
+  m_GameObject: {fileID: 226641206}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3332e5b3a38cf5845bab2fd805faf284, type: 3}
@@ -115,37 +104,133 @@ MonoBehaviour:
   GameParameters:
     CharacterParameters:
       Entries: []
-    GameAspectRatio: 0
+    DefaultFadingTexture: {fileID: 2800000, guid: d61b5fe2cfc413d42bf158c6580f803a,
+      type: 3}
+    GameAspectRatio: 1.77777779
+    GameMainMenuParameters:
+      BackgroundImage:
+        Opacity: 1
+        RelativeHeight: 1
+        SortingLayer: 
+        Sprite: {fileID: 21300000, guid: e65e4b1a22c23df4db3fa233ddca6b58, type: 3}
+      Behaviour: {fileID: 11400000, guid: d04496d09f7ab7641bf29957e9bd85de, type: 2}
+      FadingIn:
+        Ignore: 0
+        Speed: .400000006
+        Texture: {fileID: 0}
+      FadingOut:
+        Ignore: 0
+        Speed: .400000006
+        Texture: {fileID: 0}
+    GameSplashScreenParameters:
+      FadingIn:
+        Ignore: 0
+        Speed: .400000006
+        Texture: {fileID: 0}
+      FadingOut:
+        Ignore: 0
+        Speed: .400000006
+        Texture: {fileID: 0}
+      Image:
+        Opacity: 1
+        RelativeHeight: 1
+        SortingLayer: 
+        Sprite: {fileID: 21300000, guid: 9a43c0be4590dc042adf5be338630e9e, type: 3}
+      MinimumDelayTime: 2
     InventoryItemParameters:
       Entries: []
     InventoryParameters:
       BackgroundImage:
-        Opacity: 0
-        RelativeHeight: 0
+        Opacity: 1
+        RelativeHeight: 1
         SortingLayer: 
         Sprite: {fileID: 0}
     ItemParameters:
       Entries: []
-    MainMenuParameters:
-      Behaviour: {fileID: 0}
-      BackgroundImage:
-        Opacity: 0
-        RelativeHeight: 0
-        SortingLayer: 
-        Sprite: {fileID: 0}
-    MainSplashScreenParameters:
-      Image:
-        Opacity: 0
-        RelativeHeight: 0
-        SortingLayer: 
-        Sprite: {fileID: 0}
-      MinimumDelayTime: 0
     MenuParameters:
       Entries: []
     RoomParameters:
-      Entries: []
-    SplashScreensParameters: []
-    StateFilesDirectoryPath: 
+      Entries:
+      - Key: Laboratory
+        Value:
+          BackgroundImage:
+            Opacity: 1
+            RelativeHeight: 1
+            SortingLayer: 
+            Sprite: {fileID: 21300000, guid: e59069f0f9d064240a5b5918b52e98b1, type: 3}
+          EntryPositions:
+            Entries:
+            - Key: LeftDoor
+              Value: {x: 0, y: 0}
+          FadingIn:
+            Ignore: 0
+            Speed: .400000006
+            Texture: {fileID: 0}
+          FadingOut:
+            Ignore: 0
+            Speed: .400000006
+            Texture: {fileID: 0}
+          ForegroundImage:
+            Opacity: 1
+            RelativeHeight: 1
+            SortingLayer: 
+            Sprite: {fileID: 0}
+          ScaleFactor: 1
+    SplashScreensParameters:
+    - FadingIn:
+        Ignore: 0
+        Speed: .400000006
+        Texture: {fileID: 0}
+      FadingOut:
+        Ignore: 0
+        Speed: .400000006
+        Texture: {fileID: 0}
+      Image:
+        Opacity: 1
+        RelativeHeight: 1
+        SortingLayer: 
+        Sprite: {fileID: 21300000, guid: b61d05b27dc704646af547b14589d16f, type: 3}
+      MinimumDelayTime: 2
+    - FadingIn:
+        Ignore: 0
+        Speed: .400000006
+        Texture: {fileID: 0}
+      FadingOut:
+        Ignore: 0
+        Speed: .400000006
+        Texture: {fileID: 0}
+      Image:
+        Opacity: 1
+        RelativeHeight: 1
+        SortingLayer: 
+        Sprite: {fileID: 21300000, guid: a7bae905c91be9040a42830fb3c92520, type: 3}
+      MinimumDelayTime: 2
+    - FadingIn:
+        Ignore: 0
+        Speed: .400000006
+        Texture: {fileID: 0}
+      FadingOut:
+        Ignore: 0
+        Speed: .400000006
+        Texture: {fileID: 0}
+      Image:
+        Opacity: 1
+        RelativeHeight: 1
+        SortingLayer: 
+        Sprite: {fileID: 21300000, guid: 3db5ea6917b85004099ae46e2ec8cf8c, type: 3}
+      MinimumDelayTime: 2
+    StateFilesDirectoryPath: '%USERPROFILE%\EmergenciaQuimica\StateFiles'
+--- !u!4 &226641208
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 226641206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &464748630
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +311,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2126090122}
+  m_Father: {fileID: 1296652789}
 --- !u!114 &464748636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,8 +387,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2126090122}
-  - {fileID: 1443686909}
+  - {fileID: 1578363813}
+  - {fileID: 464748635}
   m_Father: {fileID: 0}
 --- !u!114 &1296652790
 MonoBehaviour:
@@ -316,57 +401,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b0780d1568d524587ac6caef680a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1443686908
+--- !u!1 &1578363812
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1443686909}
+  - 4: {fileID: 1578363813}
+  - 114: {fileID: 1578363814}
   m_Layer: 0
-  m_Name: Game
+  m_Name: Fader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1443686909
+--- !u!4 &1578363813
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1443686908}
+  m_GameObject: {fileID: 1578363812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 461746749}
+  m_Children: []
   m_Father: {fileID: 1296652789}
---- !u!1 &2126090121
-GameObject:
+--- !u!114 &1578363814
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2126090122}
-  m_Layer: 0
-  m_Name: Core
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2126090122
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2126090121}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 464748635}
-  m_Father: {fileID: 1296652789}
+  m_GameObject: {fileID: 1578363812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029f88fa3d345cb46be53387b3320974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

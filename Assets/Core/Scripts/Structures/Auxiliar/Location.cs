@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SaguFramework.Structures.Auxiliar {
+namespace SaguFramework {
 
 	public class Location {
 

@@ -1,8 +1,6 @@
-﻿using SaguFramework.Managers;
-using SaguFramework.Structures.Serializable;
-using System.Collections;
+﻿using System.Collections;
 
-namespace SaguFramework.Loaders {
+namespace SaguFramework {
 
 	public class MainLoader : Loader {
 
@@ -11,31 +9,32 @@ namespace SaguFramework.Loaders {
 		protected override IEnumerator LoadSceneCoroutine() {
 			// Creates the splash screen
 			splashScreenParameters = CreateSplashScreen();
-			
-			// TODO: fade in
-			
-			// TODO
-			yield break;
+
+			// Fades in
+			yield return StartCoroutine(Fader.GetInstance().FadeInCoroutine(splashScreenParameters.FadingIn));
+
+			// TODO: load
+
+			// Delays the execution to show the splash screen
+			yield return StartCoroutine(ObjectManager.GetSplashScreen().Delay(splashScreenParameters.MinimumDelayTime));
 
 			// Opens the main menu
 			GameManager.OpenMainMenu();
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			// TODO: fade out
-			
-			// TODO
-			yield break;
+			// Fades out
+			yield return StartCoroutine(Fader.GetInstance().FadeOutCoroutine(splashScreenParameters.FadingOut));
 		}
 		
 		private SplashScreenParameters CreateSplashScreen() {
-			// Gets the main splash screens' parameters
-			SplashScreenParameters mainSplashScreenParameters = ParameterManager.GetMainSplashScreenParameters();
+			// Gets the game splash screens' parameters
+			SplashScreenParameters gameSplashScreenParameters = ParameterManager.GetGameSplashScreenParameters();
 
 			// Creates the splash screen
-			CreationManager.CreateSplashScreen(mainSplashScreenParameters);
+			CreationManager.CreateSplashScreen(gameSplashScreenParameters);
 			
-			return splashScreenParameters;
+			return gameSplashScreenParameters;
 		}
 
 	}

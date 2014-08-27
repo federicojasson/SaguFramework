@@ -1,13 +1,12 @@
-﻿using SaguFramework.Behaviours;
-using System;
+﻿using System;
 
-namespace SaguFramework.Structures.Serializable {
+namespace SaguFramework {
 	
 	[Serializable]
 	public class MenuParameters {
 
-		public MenuBehaviour Behaviour;
 		public ImageParameters BackgroundImage;
+		public MenuBehaviour Behaviour;
 
 	}
 	

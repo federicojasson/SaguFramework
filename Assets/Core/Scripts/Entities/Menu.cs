@@ -1,8 +1,6 @@
-﻿using SaguFramework.Behaviours;
-using SaguFramework.Managers;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace SaguFramework.Entities {
+namespace SaguFramework {
 	
 	public class Menu : MonoBehaviour {
 
@@ -11,6 +9,9 @@ namespace SaguFramework.Entities {
 		public virtual void Awake() {
 			// Registers itself with the ObjectManager
 			ObjectManager.RegisterMenu(this);
+
+			// Sets itself as the game camera's active target
+			GameCamera.GetInstance().SetTarget(transform, true);
 		}
 
 		public void Close() {

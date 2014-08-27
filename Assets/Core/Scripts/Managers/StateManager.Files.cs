@@ -1,7 +1,6 @@
-﻿using SaguFramework.Structures.Auxiliar;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 
-namespace SaguFramework.Managers {
+namespace SaguFramework {
 	
 	public static partial class StateManager {
 		

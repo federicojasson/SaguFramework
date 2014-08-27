@@ -1,5 +1,4 @@
-﻿using SaguFramework.Structures.Auxiliar;
-using System;
+﻿using System;
 using System.Globalization;
 using System.IO;
 using System.Text;
@@ -7,7 +6,7 @@ using System.Xml;
 using System.Xml.Linq;
 using UnityEngine;
 
-namespace SaguFramework.Managers {
+namespace SaguFramework {
 	
 	public static partial class UtilityManager {
 

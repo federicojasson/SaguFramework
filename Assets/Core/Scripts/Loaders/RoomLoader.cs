@@ -1,10 +1,8 @@
-﻿using SaguFramework.Managers;
-using SaguFramework.Structures.Serializable;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SaguFramework.Loaders {
+namespace SaguFramework {
 	
 	public class RoomLoader : Loader {
 
@@ -19,18 +17,17 @@ namespace SaguFramework.Loaders {
 
 			// Creates the items
 			CreateItems(roomParameters);
-			
-			// TODO: fade in
+
+			// Fades in
+			yield return StartCoroutine(Fader.GetInstance().FadeInCoroutine(roomParameters.FadingIn));
 			
 			// TODO
 			yield break;
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			// TODO: fade out
-			
-			// TODO
-			yield break;
+			// Fades out
+			yield return StartCoroutine(Fader.GetInstance().FadeOutCoroutine(roomParameters.FadingOut));
 		}
 
 		private void CreateCharacters(RoomParameters roomParameters) {

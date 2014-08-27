@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-namespace SaguFramework.Managers {
+namespace SaguFramework {
 
 	public static class GameManager {
 		
@@ -49,7 +50,8 @@ namespace SaguFramework.Managers {
 		}
 
 		public static void OpenMainMenu() {
-			// TODO: change scene, etc
+			// Loads the main menu scene
+			LoadScene(ParameterManager.SceneMainMenu);
 		}
 
 		public static void OpenMenu(string menuId) {
@@ -65,6 +67,16 @@ namespace SaguFramework.Managers {
 			StateManager.WriteStateFile(stateId);
 
 			// TODO
+		}
+
+		private static void LoadScene(string sceneId) {
+			// Defines an action to execute after the scene is unloaded
+			Action onUnloadSceneAction = () => {
+				Application.LoadLevel(sceneId);
+			};
+
+			// Unloads the scene
+			ObjectManager.GetLoader().UnloadScene(onUnloadSceneAction);
 		}
 
 	}

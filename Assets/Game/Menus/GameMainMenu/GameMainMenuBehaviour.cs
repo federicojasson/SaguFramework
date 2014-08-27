@@ -1,4 +1,4 @@
-﻿using SaguFramework.Behaviours;
+﻿using SaguFramework;
 
 namespace EmergenciaQuimica {
 

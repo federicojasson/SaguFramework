@@ -1,13 +1,25 @@
-﻿using SaguFramework.Structures.Serializable;
-using SaguFramework.Workers;
-
-namespace SaguFramework.Managers {
+﻿namespace SaguFramework {
 	
 	public static partial class ParameterManager {
 		
 		// TODO: usar esta clase para obtener parametros del framework
 
 		public const float PixelsPerUnit = 1;
+
+		public const string SceneMain = "Main";
+		public const string SceneMainMenu = "MainMenu";
+		public const string SceneRoom = "Room";
+		public const string SceneSpecial = "Special";
+		public const string SceneSplashScreen = "SplashScreen";
+
+		public const string SortingLayerCharacterImage = "CharacterImage";
+		public const string SortingLayerInventoryImage = "InventoryImage";
+		public const string SortingLayerInventoryItemImage = "InventoryItemImage";
+		public const string SortingLayerItemImage = "ItemImage";
+		public const string SortingLayerMenuBackgroundImage = "MenuBackgroundImage";
+		public const string SortingLayerRoomBackgroundImage = "RoomBackgroundImage";
+		public const string SortingLayerRoomForegroundImage = "RoomForegroundImage";
+		public const string SortingLayerSplashScreenImage = "SplashScreenImage";
 
 		public const string StateFileExtension = ".xml";
 
