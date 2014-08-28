@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using UnityEngine;
 
 namespace SaguFramework {
@@ -37,25 +36,12 @@ namespace SaguFramework {
 		}
 
 		public static string[] GetStateIds() {
-			// TODO: errors, exceptions?
-
-			// Gets the state files
-			FileInfo[] stateFiles = UtilityManager.GetDirectoryFiles(ParameterManager.GetStateFilesDirectoryPath(), ParameterManager.StateFileExtension);
-
-			// Orders the state files by last write time (in descending order)
-			FileInfo[] orderedStateFiles = UtilityManager.OrderFilesByLastWriteTimeDescending(stateFiles);
-			
-			// Gets the state IDs (that is, the file's name without its extension)
-			string[] stateIds = new string[orderedStateFiles.Length];
-			for (int i = 0; i < orderedStateFiles.Length; i++)
-				stateIds[i] = UtilityManager.GetFileNameWithoutExtension(orderedStateFiles[i]);
-			
-			return stateIds;
+			return StateManager.GetStateIds();
 		}
 
 		public static void LoadGame(string stateId, bool useSplashScreen) {
-			// Reads the state file
-			StateManager.ReadStateFile(stateId);
+			// Loads the state
+			StateManager.LoadState(stateId);
 
 			// Gets the loader
 			Loader loader = ObjectManager.GetLoader();
@@ -69,8 +55,8 @@ namespace SaguFramework {
 		}
 
 		public static void NewGame(bool useSplashScreen) {
-			// Reads the initial state file
-			StateManager.ReadInitialStateFile();
+			// Loads the initial state
+			StateManager.LoadInitialState();
 
 			// Gets the loader
 			Loader loader = ObjectManager.GetLoader();
@@ -101,8 +87,8 @@ namespace SaguFramework {
 		}
 
 		public static void SaveGame(string stateId) {
-			// Writes the state file
-			StateManager.WriteStateFile(stateId);
+			// Saves the state
+			StateManager.SaveState(stateId);
 		}
 
 	}

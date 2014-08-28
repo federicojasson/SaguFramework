@@ -14,6 +14,7 @@ namespace SaguFramework {
 			yield return StartCoroutine(Fader.GetInstance().FadeInCoroutine(splashScreenParameters.FadingIn));
 
 			// TODO: load
+			LanguageManager.LoadLanguage("Spanish"); // TODO: get this from options
 
 			// Delays the execution to show the splash screen
 			yield return StartCoroutine(ObjectManager.GetSplashScreen().Delay(splashScreenParameters.MinimumDelayTime));

@@ -4,8 +4,6 @@ namespace SaguFramework {
 
 	public static class CreationManager {
 
-		// TODO: comments
-
 		public static void CreateCharacter(CharacterParameters characterParameters, Vector2 positionInGame, float scaleFactor) {
 			// Gets the image's parameters
 			ImageParameters imageParameters = characterParameters.Image;
@@ -44,8 +42,44 @@ namespace SaguFramework {
 			characterBehaviour.transform.localPosition = Vector3.zero;
 		}
 
-		public static void CreateInventoryItem(InventoryItemParameters inventoryItemParameters) {
+		public static void CreateInventory(InventoryParameters inventoryParameters) {
 			// TODO
+		}
+
+		public static void CreateInventoryItem(InventoryItemParameters inventoryItemParameters) {
+			// Gets the image's parameters
+			ImageParameters imageParameters = inventoryItemParameters.Image;
+			
+			// Creates an object for the inventory item
+			GameObject inventoryItemObject = new GameObject();
+			InventoryItem inventoryItem = inventoryItemObject.AddComponent<InventoryItem>();
+			
+			// Instantiates the behaviour prefab
+			InventoryItemBehaviour inventoryItemBehaviour = (InventoryItemBehaviour) Object.Instantiate(inventoryItemParameters.Behaviour);
+			
+			// Sets the inventory item's behaviour
+			inventoryItem.SetBehaviour(inventoryItemBehaviour);
+			
+			// Creates an object for the image
+			GameObject imageObject = new GameObject();
+			Image image = imageObject.AddComponent<Image>();
+			
+			// Sets the image's parameters
+			image.SetParameters(imageParameters);
+
+			// TODO
+			/*// Corrects the image's relative height according to the scale factor
+			image.SetRelativeHeight(scaleFactor * image.GetRelativeHeight());*/
+			
+			if (imageParameters.SortingLayer.Length == 0)
+				// Sets the default sorting layer for the inventory item images
+				image.SetSortingLayer(ParameterManager.SortingLayerInventoryItemImage);
+			
+			// Connects the objects
+			imageObject.transform.parent = inventoryItemObject.transform;
+			imageObject.transform.localPosition = Vector3.zero;
+			inventoryItemBehaviour.transform.parent = inventoryItemObject.transform;
+			inventoryItemBehaviour.transform.localPosition = Vector3.zero;
 		}
 
 		public static void CreateItem(ItemParameters itemParameters, Vector2 positionInGame, float scaleFactor) {
@@ -151,34 +185,47 @@ namespace SaguFramework {
 		}
 		
 		public static void CreateRoom(RoomParameters roomParameters) {
-			// TODO
-			/*// Gets the room prefab
-			Room roomPrefab = instance.RoomPrefabs[id];
+			// Gets the background and foreground images' parameters
+			ImageParameters backgroundImageParameters = roomParameters.BackgroundImage;
+			ImageParameters foregroundImageParameters = roomParameters.ForegroundImage;
 			
-			// Instantiates the room prefab
-			Room room = UtilityManager.Instantiate<Room>(roomPrefab);
+			// Creates an object for the room
+			GameObject roomObject = new GameObject();
+			roomObject.AddComponent<Room>();
 			
-			// Creates a game image to show the room's background
-			GameImage roomBackgroundImage = UtilityManager.CreateGameImage();
-			roomBackgroundImage.transform.parent = room.transform;
-			roomBackgroundImage.SetParameters(room.BackgroundImageParameters);
+			// Creates an object for the background and foreground images
+			GameObject backgroundImageObject = new GameObject();
+			Image backgroundImage = backgroundImageObject.AddComponent<Image>();
+			GameObject foregroundImageObject = new GameObject();
+			Image foregroundImage = foregroundImageObject.AddComponent<Image>();
 			
-			// Creates a game image to show the room's foreground
-			GameImage roomForegroundImage = UtilityManager.CreateGameImage();
-			roomForegroundImage.transform.parent = room.transform;
-			roomForegroundImage.SetParameters(room.ForegroundImageParameters);
+			// Sets the background and foreground images' parameters
+			backgroundImage.SetParameters(backgroundImageParameters);
+			foregroundImage.SetParameters(foregroundImageParameters);
 			
-			// Sets the position in the world
-			float roomHeightUnits = roomBackgroundImage.GetHeightUnits();
-			float roomWidthUnits = roomBackgroundImage.GetWidthUnits();
+			if (backgroundImageParameters.SortingLayer.Length == 0)
+				// Sets the default sorting layer for the room background images
+				backgroundImage.SetSortingLayer(ParameterManager.SortingLayerRoomBackgroundImage);
+
+			if (foregroundImageParameters.SortingLayer.Length == 0)
+				// Sets the default sorting layer for the room foreground images
+				foregroundImage.SetSortingLayer(ParameterManager.SortingLayerRoomForegroundImage);
+			
+			// Connects the objects
+			backgroundImageObject.transform.parent = roomObject.transform;
+			backgroundImageObject.transform.localPosition = Vector3.zero;
+			foregroundImageObject.transform.parent = roomObject.transform;
+			foregroundImageObject.transform.localPosition = Vector3.zero;
+
+			// Sets the room object's position in the world
+			float roomHeightUnits = backgroundImage.GetHeightUnits();
+			float roomWidthUnits = backgroundImage.GetWidthUnits();
 			float gameHeightUnits = UtilityManager.GetGameHeightUnits();
 			float gameWidthUnits = UtilityManager.GetGameWidthUnits();
 			float xInGame = 0.5f * roomWidthUnits / gameWidthUnits;
 			float yInGame = 0.5f * roomHeightUnits / gameHeightUnits;
 			Vector2 positionInGame = new Vector2(xInGame, yInGame);
-			room.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
-			
-			return room;*/
+			roomObject.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
 		}
 		
 		public static void CreateSplashScreen(SplashScreenParameters splashScreenParameters) {

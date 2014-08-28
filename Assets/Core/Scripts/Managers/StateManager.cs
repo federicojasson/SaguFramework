@@ -31,6 +31,10 @@ namespace SaguFramework {
 			return currentRoomId;
 		}
 
+		public static List<string> GetInventoryItemIds() {
+			return inventoryItemIds;
+		}
+
 		public static Location GetItemLocation(string itemId) {
 			return itemLocations[itemId];
 		}
