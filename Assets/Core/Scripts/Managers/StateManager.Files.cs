@@ -5,6 +5,15 @@ namespace SaguFramework {
 	public static partial class StateManager {
 		
 		public static void ReadInitialStateFile() {
+			// Gets the initial state file path
+			string resourcePath = ParameterManager.InitialStateFileResourcePath;
+
+			// Reads the state file
+			XDocument stateFile = UtilityManager.ReadResourceXmlFile(resourcePath);
+
+			// Processes the state file
+			ProcessStateFile(stateFile);
+
 			// TODO
 		}
 		
@@ -26,7 +35,7 @@ namespace SaguFramework {
 			UtilityManager.WriteXmlFile(path, stateFile);
 		}
 
-		private static void ReadStateFile(XDocument stateFile) {
+		private static void ProcessStateFile(XDocument stateFile) {
 			// Nullify the current room and player character's IDs
 			StateManager.currentRoomId = null;
 			StateManager.playerCharacterId = null;

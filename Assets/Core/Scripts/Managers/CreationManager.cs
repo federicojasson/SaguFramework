@@ -14,8 +14,11 @@ namespace SaguFramework {
 			GameObject characterObject = new GameObject();
 			Character character = characterObject.AddComponent<Character>();
 			
+			// Instantiates the behaviour prefab
+			CharacterBehaviour characterBehaviour = (CharacterBehaviour) Object.Instantiate(characterParameters.Behaviour);
+			
 			// Sets the character's behaviour
-			character.SetBehaviour(characterParameters.Behaviour);
+			character.SetBehaviour(characterBehaviour);
 			
 			// Creates an object for the image
 			GameObject imageObject = new GameObject();
@@ -34,9 +37,15 @@ namespace SaguFramework {
 			// Sets the character's position
 			characterObject.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
 			
-			// Sets the image object's parent and local position
+			// Connects the objects
 			imageObject.transform.parent = characterObject.transform;
 			imageObject.transform.localPosition = Vector3.zero;
+			characterBehaviour.transform.parent = characterObject.transform;
+			characterBehaviour.transform.localPosition = Vector3.zero;
+		}
+
+		public static void CreateInventoryItem(InventoryItemParameters inventoryItemParameters) {
+			// TODO
 		}
 
 		public static void CreateItem(ItemParameters itemParameters, Vector2 positionInGame, float scaleFactor) {
@@ -47,8 +56,11 @@ namespace SaguFramework {
 			GameObject itemObject = new GameObject();
 			Item item = itemObject.AddComponent<Item>();
 			
+			// Instantiates the behaviour prefab
+			ItemBehaviour itemBehaviour = (ItemBehaviour) Object.Instantiate(itemParameters.Behaviour);
+			
 			// Sets the item's behaviour
-			item.SetBehaviour(itemParameters.Behaviour);
+			item.SetBehaviour(itemBehaviour);
 			
 			// Creates an object for the image
 			GameObject imageObject = new GameObject();
@@ -67,14 +79,43 @@ namespace SaguFramework {
 			// Sets the item's position
 			itemObject.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
 
-			// Sets the image object's parent and local position
+			// Connects the objects
 			imageObject.transform.parent = itemObject.transform;
 			imageObject.transform.localPosition = Vector3.zero;
+			itemBehaviour.transform.parent = itemObject.transform;
+			itemBehaviour.transform.localPosition = Vector3.zero;
 		}
 		
 		public static void CreateMainMenu(MainMenuParameters mainMenuParameters) {
-			// The creation process is the same for the menus than for the main menus
-			CreateMenu(mainMenuParameters);
+			// Gets the background image's parameters
+			ImageParameters backgroundImageParameters = mainMenuParameters.BackgroundImage;
+			
+			// Creates an object for the main menu
+			GameObject mainMenuObject = new GameObject();
+			MainMenu mainMenu = mainMenuObject.AddComponent<MainMenu>();
+
+			// Instantiates the behaviour prefab
+			MenuBehaviour menuBehaviour = (MenuBehaviour) Object.Instantiate(mainMenuParameters.Behaviour);
+
+			// Sets the main menu's behaviour
+			mainMenu.SetBehaviour(menuBehaviour);
+			
+			// Creates an object for the background image
+			GameObject backgroundImageObject = new GameObject();
+			Image backgroundImage = backgroundImageObject.AddComponent<Image>();
+			
+			// Sets the background image's parameters
+			backgroundImage.SetParameters(backgroundImageParameters);
+			
+			if (backgroundImageParameters.SortingLayer.Length == 0)
+				// Sets the default sorting layer for the menu background images
+				backgroundImage.SetSortingLayer(ParameterManager.SortingLayerMenuBackgroundImage);
+
+			// Connects the objects
+			backgroundImageObject.transform.parent = mainMenuObject.transform;
+			backgroundImageObject.transform.localPosition = Vector3.zero;
+			menuBehaviour.transform.parent = mainMenuObject.transform;
+			menuBehaviour.transform.localPosition = Vector3.zero;
 		}
 
 		public static void CreateMenu(MenuParameters menuParameters) {
@@ -85,8 +126,11 @@ namespace SaguFramework {
 			GameObject menuObject = new GameObject();
 			Menu menu = menuObject.AddComponent<Menu>();
 
+			// Instantiates the behaviour prefab
+			MenuBehaviour menuBehaviour = (MenuBehaviour) Object.Instantiate(menuParameters.Behaviour);
+
 			// Sets the menu's behaviour
-			menu.SetBehaviour(menuParameters.Behaviour);
+			menu.SetBehaviour(menuBehaviour);
 			
 			// Creates an object for the background image
 			GameObject backgroundImageObject = new GameObject();
@@ -99,9 +143,11 @@ namespace SaguFramework {
 				// Sets the default sorting layer for the menu background images
 				backgroundImage.SetSortingLayer(ParameterManager.SortingLayerMenuBackgroundImage);
 			
-			// Sets the background image object's parent and local position
+			// Connects the objects
 			backgroundImageObject.transform.parent = menuObject.transform;
 			backgroundImageObject.transform.localPosition = Vector3.zero;
+			menuBehaviour.transform.parent = menuObject.transform;
+			menuBehaviour.transform.localPosition = Vector3.zero;
 		}
 		
 		public static void CreateRoom(RoomParameters roomParameters) {
@@ -141,7 +187,7 @@ namespace SaguFramework {
 
 			// Creates an object for the splash screen
 			GameObject splashScreenObject = new GameObject();
-			SplashScreen splashScreen = splashScreenObject.AddComponent<SplashScreen>();
+			splashScreenObject.AddComponent<SplashScreen>();
 
 			// Creates an object for the image
 			GameObject imageObject = new GameObject();
@@ -154,7 +200,7 @@ namespace SaguFramework {
 				// Sets the default sorting layer for the splash screen images
 				image.SetSortingLayer(ParameterManager.SortingLayerSplashScreenImage);
 
-			// Sets the image object's parent and local position
+			// Connects the objects
 			imageObject.transform.parent = splashScreenObject.transform;
 			imageObject.transform.localPosition = Vector3.zero;
 		}

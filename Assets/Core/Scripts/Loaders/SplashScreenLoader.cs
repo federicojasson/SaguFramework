@@ -17,7 +17,8 @@ namespace SaguFramework {
 			// Delays the execution to show the splash screen
 			yield return StartCoroutine(ObjectManager.GetSplashScreen().Delay(splashScreenParameters.MinimumDelayTime));
 
-			// TODO: change scene
+			// Loads the room scene
+			LoadScene(ParameterManager.SceneRoom);
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {

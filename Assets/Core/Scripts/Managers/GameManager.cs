@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using UnityEngine;
 
 namespace SaguFramework {
@@ -8,7 +9,18 @@ namespace SaguFramework {
 		// TODO: usar esta clase unicamente como interfaz para las clases del juego
 
 		public static void ChangeRoom(string roomId, string entryPositionId, bool useSplashScreen) {
-			// TODO
+			// Gets the player character ID
+			string playerCharacterId = StateManager.GetPlayerCharacterId();
+
+			// Gets the new room's parameters
+			RoomParameters roomParameters = ParameterManager.GetRoomParameters(roomId);
+
+			// Gets the player character's new location
+			Vector2 positionInGame = roomParameters.EntryPositions[entryPositionId];
+			Location location = new Location(positionInGame, roomId);
+
+			// Sets the player character's new location
+			StateManager.SetCharacterLocation(playerCharacterId, location);
 		}
 
 		public static void CloseMenu() {
@@ -20,38 +32,60 @@ namespace SaguFramework {
 				ObjectManager.GetMenu().Show();
 		}
 
-		public static void CloseMenus() {
-			// Closes all the opened menus
-			while (ObjectManager.GetMenuCount() > 0)
-				ObjectManager.GetMenu().Close();
-		}
-
 		public static void Exit() {
 			Application.Quit();
 		}
 
 		public static string[] GetStateIds() {
-			// TODO
-			return new string[0];
+			// TODO: errors, exceptions?
+
+			// Gets the state files
+			FileInfo[] stateFiles = UtilityManager.GetDirectoryFiles(ParameterManager.GetStateFilesDirectoryPath(), ParameterManager.StateFileExtension);
+
+			// Orders the state files by last write time (in descending order)
+			FileInfo[] orderedStateFiles = UtilityManager.OrderFilesByLastWriteTimeDescending(stateFiles);
+			
+			// Gets the state IDs (that is, the file's name without its extension)
+			string[] stateIds = new string[orderedStateFiles.Length];
+			for (int i = 0; i < orderedStateFiles.Length; i++)
+				stateIds[i] = UtilityManager.GetFileNameWithoutExtension(orderedStateFiles[i]);
+			
+			return stateIds;
 		}
 
 		public static void LoadGame(string stateId, bool useSplashScreen) {
 			// Reads the state file
 			StateManager.ReadStateFile(stateId);
 
-			// TODO: change scene
+			// Gets the loader
+			Loader loader = ObjectManager.GetLoader();
+
+			if (useSplashScreen)
+				// Loads the splash screen scene
+				loader.LoadScene(ParameterManager.SceneSplashScreen);
+			else
+				// Loads the room scene
+				loader.LoadScene(ParameterManager.SceneRoom);
 		}
 
 		public static void NewGame(bool useSplashScreen) {
 			// Reads the initial state file
 			StateManager.ReadInitialStateFile();
-			
-			// TODO: change scene
+
+			// Gets the loader
+			Loader loader = ObjectManager.GetLoader();
+
+			if (useSplashScreen)
+				// Loads the splash screen scene
+				loader.LoadScene(ParameterManager.SceneSplashScreen);
+			else
+				// Loads the room scene
+				loader.LoadScene(ParameterManager.SceneRoom);
 		}
 
 		public static void OpenMainMenu() {
 			// Loads the main menu scene
-			LoadScene(ParameterManager.SceneMainMenu);
+			ObjectManager.GetLoader().LoadScene(ParameterManager.SceneMainMenu);
 		}
 
 		public static void OpenMenu(string menuId) {
@@ -59,24 +93,16 @@ namespace SaguFramework {
 			if (ObjectManager.GetMenuCount() > 0)
 				ObjectManager.GetMenu().Hide();
 
-			// TODO: create menu
+			// Gets the menu's parameters
+			MenuParameters menuParameters = ParameterManager.GetMenuParameters(menuId);
+			
+			// Creates the menu
+			CreationManager.CreateMenu(menuParameters);
 		}
 
 		public static void SaveGame(string stateId) {
 			// Writes the state file
 			StateManager.WriteStateFile(stateId);
-
-			// TODO
-		}
-
-		private static void LoadScene(string sceneId) {
-			// Defines an action to execute after the scene is unloaded
-			Action onUnloadSceneAction = () => {
-				Application.LoadLevel(sceneId);
-			};
-
-			// Unloads the scene
-			ObjectManager.GetLoader().UnloadScene(onUnloadSceneAction);
 		}
 
 	}

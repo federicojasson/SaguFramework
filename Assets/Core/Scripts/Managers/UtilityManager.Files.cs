@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
@@ -11,6 +12,29 @@ namespace SaguFramework {
 	public static partial class UtilityManager {
 
 		private static Encoding encoding;
+
+		public static FileInfo[] GetDirectoryFiles(string directoryPath, string fileExtension) {
+			// TODO: errors, exceptions?
+			
+			// Translates environment variables into actual paths
+			directoryPath = Environment.ExpandEnvironmentVariables(directoryPath);
+
+			// Initializes the directory's handler
+			DirectoryInfo directory = new DirectoryInfo(directoryPath);
+
+			// Gets the directory files that match the file extension
+			FileInfo[] directoryFiles = directory.GetFiles("*" + fileExtension);
+			
+			return directoryFiles;
+		}
+
+		public static string GetFileNameWithoutExtension(FileInfo file) {
+			// Gets the file's name
+			string fileName = file.Name;
+
+			// Gets the file's name without extension and returns it
+			return Path.GetFileNameWithoutExtension(fileName);
+		}
 
 		public static string GetPath(string directoryPath, string fileName, string fileExtension) {
 			// Initializes the path
@@ -74,6 +98,22 @@ namespace SaguFramework {
 
 			// Initializes the vector and returns it
 			return new Vector2(x, y);
+		}
+
+		public static FileInfo[] OrderFilesByLastWriteTimeDescending(FileInfo[] files) {
+			// Orders the files into a new array and returns it
+			return files.OrderByDescending(value => value.LastWriteTime).ToArray();
+		}
+
+		public static XDocument ReadResourceXmlFile(string resourcePath) {
+			// Loads the resource
+			TextAsset textAsset = Resources.Load<TextAsset>(resourcePath);
+
+			// Reads all the text's content and parses it
+			string xmlFileContent = textAsset.text;
+			XDocument xmlFile = XDocument.Parse(xmlFileContent);
+			
+			return xmlFile;
 		}
 
 		public static XDocument ReadXmlFile(string path) {

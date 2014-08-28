@@ -20,9 +20,6 @@ namespace SaguFramework {
 
 			// Fades in
 			yield return StartCoroutine(Fader.GetInstance().FadeInCoroutine(roomParameters.FadingIn));
-			
-			// TODO
-			yield break;
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {

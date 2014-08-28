@@ -10,6 +10,11 @@ namespace SaguFramework {
 			// Registers itself with the ObjectManager
 			ObjectManager.RegisterLoader(this);
 		}
+		
+		public void LoadScene(string sceneId) {
+			// Starts a coroutine to unload the scene in a non-blocking way and load the new scene
+			StartCoroutine(UnloadSceneAndLoadNewSceneCoroutine(sceneId));
+		}
 
 		public void OnDestroy() {
 			// Unregisters itself from the ObjectManager
@@ -21,21 +26,16 @@ namespace SaguFramework {
 			StartCoroutine(LoadSceneCoroutine());
 		}
 
-		public void UnloadScene(Action onUnloadSceneAction) {
-			// Starts a coroutine to unload the scene in a non-blocking way and execute an action afterwards
-			StartCoroutine(UnloadSceneAndExecuteActionCoroutine(onUnloadSceneAction));
-		}
-
 		protected abstract IEnumerator LoadSceneCoroutine();
 		
 		protected abstract IEnumerator UnloadSceneCoroutine();
 
-		private IEnumerator UnloadSceneAndExecuteActionCoroutine(Action onUnloadSceneAction) {
+		private IEnumerator UnloadSceneAndLoadNewSceneCoroutine(string sceneId) {
 			// Unloads the scene
 			yield return StartCoroutine(UnloadSceneCoroutine());
 
-			// Executes the action
-			onUnloadSceneAction.Invoke();
+			// Loads the new scene
+			Application.LoadLevel(sceneId);
 		}
 
 	}

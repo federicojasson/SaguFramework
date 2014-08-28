@@ -13,6 +13,9 @@ namespace SaguFramework {
 
 			// Sets the orthographic size
 			camera.orthographicSize = UtilityManager.GetCameraOrthographicSizeUnits();
+
+			// Sets the background color
+			camera.backgroundColor = ParameterManager.GetCameraBackgroundColor();
 		}
 
 		public void LateUpdate() {

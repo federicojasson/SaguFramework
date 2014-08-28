@@ -60,6 +60,7 @@ namespace SaguFramework {
 
 		public static void RegisterMainMenu(MainMenu mainMenu) {
 			ObjectManager.mainMenu = mainMenu;
+			menus.Push(mainMenu);
 		}
 
 		public static void RegisterMenu(Menu menu) {
@@ -88,6 +89,7 @@ namespace SaguFramework {
 
 		public static void UnregisterMainMenu() {
 			mainMenu = null;
+			menus.Pop();
 		}
 
 		public static void UnregisterMenu() {

@@ -3,6 +3,8 @@
 	public static partial class ParameterManager {
 		
 		// TODO: usar esta clase para obtener parametros del framework
+		
+		public const string InitialStateFileResourcePath = "InitialState";
 
 		public const float PixelsPerUnit = 1;
 

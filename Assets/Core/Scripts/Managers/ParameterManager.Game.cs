@@ -6,6 +6,10 @@ namespace SaguFramework {
 
 		// TODO: usar esta clase para obtener parametros del juego
 
+		public static Color GetCameraBackgroundColor() {
+			return Game.GetInstance().GameParameters.CameraBackgroundColor;
+		}
+
 		public static CharacterParameters GetCharacterParameters(string characterId) {
 			return Game.GetInstance().GameParameters.CharacterParameters[characterId];
 		}

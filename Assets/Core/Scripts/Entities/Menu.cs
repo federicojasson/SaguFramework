@@ -14,9 +14,9 @@ namespace SaguFramework {
 			GameCamera.GetInstance().SetTarget(transform, true);
 		}
 
-		public void Close() {
+		public virtual void Close() {
 			// Destroys the object
-			Destroy(gameObject);
+			DestroyImmediate(gameObject);
 		}
 
 		public void Hide() {
@@ -30,7 +30,7 @@ namespace SaguFramework {
 		}
 
 		public void OnGUI() {
-			behaviour.OnShow();
+			behaviour.OnShowing();
 		}
 
 		public void SetBehaviour(MenuBehaviour behaviour) {
