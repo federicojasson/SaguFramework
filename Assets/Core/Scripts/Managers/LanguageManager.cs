@@ -39,7 +39,7 @@ namespace SaguFramework {
 			audios.Clear();
 			texts.Clear();
 
-			// Gets the root node
+			// Language
 			XElement languageNode = languageFile.Element(ParameterManager.XmlTagLanguage);
 
 			// Audios

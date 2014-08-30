@@ -11,9 +11,6 @@ namespace SaguFramework {
 			// Registers itself with the ObjectManager
 			ObjectManager.RegisterSplashScreen(this);
 
-			// Sets itself as the game camera's passive target
-			GameCamera.GetInstance().SetTarget(transform, false);
-
 			// Registers the current time
 			creationTime = Time.time;
 		}

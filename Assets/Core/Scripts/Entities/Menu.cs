@@ -9,9 +9,6 @@ namespace SaguFramework {
 		public virtual void Awake() {
 			// Registers itself with the ObjectManager
 			ObjectManager.RegisterMenu(this);
-
-			// Sets itself as the game camera's active target
-			GameCamera.GetInstance().SetTarget(transform, true);
 		}
 
 		public virtual void Close() {

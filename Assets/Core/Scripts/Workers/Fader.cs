@@ -84,8 +84,8 @@ namespace SaguFramework {
 					// Sets the texture's opacity
 					GUI.color = UtilityManager.GetColor(GUI.color, clampedFadeTextureOpacity);
 
-					// Gets the game space rectangle
-					Rect gameRectangle = UtilityManager.GetGameRectangle();
+					// Gets the game rectangle in pixels
+					Rect gameRectangle = UtilityManager.GetGameRectangleInScreen();
 					
 					// GUI space has (0, 0) at top-left
 					gameRectangle.y = UtilityManager.GetScreenHeightPixels() - gameRectangle.y;

@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameParameters:
-    CameraBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+    CameraBackgroundColor: {r: .970588207, g: .071366787, b: .071366787, a: 0}
     CharacterParameters:
       Entries:
       - Key: Scientist
@@ -110,7 +110,7 @@ MonoBehaviour:
           Behaviour: {fileID: 11400000, guid: 6502cee60a12c0640a17afa0dbf2a8ee, type: 2}
           Image:
             Opacity: 1
-            RelativeHeight: .25
+            RelativeHeight: .600000024
             SortingLayer: 
             Sprite: {fileID: 21300002, guid: c6c5cb0d08421d44bb9dacff6773bc0c, type: 3}
     DefaultFadingTexture: {fileID: 2800000, guid: d61b5fe2cfc413d42bf158c6580f803a,
@@ -161,7 +161,7 @@ MonoBehaviour:
           Behaviour: {fileID: 11400000, guid: 181ed9c5fa0b50f45951e245b8884185, type: 2}
           Image:
             Opacity: 1
-            RelativeHeight: .100000001
+            RelativeHeight: .0844444409
             SortingLayer: 
             Sprite: {fileID: 21300000, guid: f483a91a5eaa9e346a1fd325994a6613, type: 3}
     MenuParameters:
@@ -215,7 +215,7 @@ MonoBehaviour:
             Opacity: 1
             RelativeHeight: 1
             SortingLayer: 
-            Sprite: {fileID: 0}
+            Sprite: {fileID: 21300000, guid: 82af699dd8b21864889d8f3c45d6896d, type: 3}
           ScaleFactor: 1
     SplashScreensParameters:
     - FadingIn:

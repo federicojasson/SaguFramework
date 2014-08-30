@@ -128,6 +128,57 @@ namespace SaguFramework {
 			
 			return xmlFile;
 		}
+		
+		public static void SetXmlNodeBooleanValue(XElement node, bool value) {
+			// Converts the boolean value to string
+			string stringValue = value.ToString();
+			
+			// Sets the node's string value
+			SetXmlNodeStringValue(node, stringValue);
+		}
+		
+		public static void SetXmlNodeFloatValue(XElement node, float value) {
+			// Converts the float value to string
+			string stringValue = value.ToString(CultureInfo.InvariantCulture);
+			
+			// Sets the node's string value
+			SetXmlNodeStringValue(node, stringValue);
+		}
+		
+		public static void SetXmlNodeIntegerValue(XElement node, int value) {
+			// Converts the integer value to string
+			string stringValue = value.ToString(CultureInfo.InvariantCulture);
+
+			// Sets the node's string value
+			SetXmlNodeStringValue(node, stringValue);
+		}
+		
+		public static void SetXmlNodeLocationValue(XElement node, Location value) {
+			// Initializes the position in game and room's ID nodes and sets its values
+			XElement positionInGameNode = new XElement(ParameterManager.XmlTagPositionInGame);
+			SetXmlNodeVector2Value(positionInGameNode, value.GetPositionInGame());
+			XElement roomIdNode = new XElement(ParameterManager.XmlTagRoomId);
+			SetXmlNodeStringValue(roomIdNode, value.GetRoomId());
+			
+			// Adds the position in game and room's ID nodes as node's children
+			node.Add(positionInGameNode, roomIdNode);
+		}
+		
+		public static void SetXmlNodeStringValue(XElement node, string value) {
+			// Trims the string value and sets it
+			node.Value = value.Trim();
+		}
+		
+		public static void SetXmlNodeVector2Value(XElement node, Vector2 value) {
+			// Initializes the X and Y nodes and sets its values
+			XElement xNode = new XElement(ParameterManager.XmlTagX);
+			SetXmlNodeFloatValue(xNode, value.x);
+			XElement yNode = new XElement(ParameterManager.XmlTagY);
+			SetXmlNodeFloatValue(yNode, value.y);
+
+			// Adds the X and Y nodes as node's children
+			node.Add(xNode, yNode);
+		}
 
 		public static void WriteXmlFile(string path, XDocument xmlFile) {
 			// TODO: errors, exceptions?

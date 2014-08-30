@@ -38,7 +38,7 @@ namespace EmergenciaQuimica {
 		private void OnNewGameButtonActuated() {
 			if (! isLocked) {
 				// Locks the menu
-				isLocked = true;
+				//isLocked = true;// TODO
 
 				// Starts a new game
 				GameManager.NewGame(true);

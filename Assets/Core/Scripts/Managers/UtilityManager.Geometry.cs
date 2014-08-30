@@ -105,11 +105,20 @@ namespace SaguFramework {
 			return gameHeightUnits;
 		}
 		
-		public static Rect GetGameRectangle() {
+		public static Rect GetGameRectangleInScreen() {
+			float width = GetGameWidthPixels();
 			float height = GetGameHeightPixels();
 			float left = UtilityManager.GameToScreenX(0f);
 			float top = UtilityManager.GameToScreenY(1f);
-			float width = GetGameWidthPixels();
+			
+			return new Rect(left, top, width, height);
+		}
+		
+		public static Rect GetGameRectangleInWorld() {
+			float width = GetGameWidthUnits();
+			float height = GetGameHeightUnits();
+			float left = UtilityManager.GameToWorldX(0f);
+			float top = UtilityManager.GameToWorldY(1f);
 			
 			return new Rect(left, top, width, height);
 		}
@@ -153,6 +162,24 @@ namespace SaguFramework {
 			float screenHeightUnits = PixelsToUnits(screenHeightPixels);
 			
 			return screenHeightUnits;
+		}
+
+		public static Rect GetScreenRectangleInScreen() {
+			float width = GetScreenWidthPixels();
+			float height = GetScreenHeightPixels();
+			float left = 0f;
+			float top = height;
+			
+			return new Rect(left, top, width, height);
+		}
+		
+		public static Rect GetScreenRectangleInWorld() {
+			float width = GetScreenWidthUnits();
+			float height = GetScreenHeightUnits();
+			float left = UtilityManager.ScreenToWorldX(0f);
+			float top = UtilityManager.ScreenToWorldY(height);
+			
+			return new Rect(left, top, width, height);
 		}
 		
 		public static float GetScreenWidthPixels() {

@@ -12,6 +12,7 @@ namespace SaguFramework {
 		private static Loader loader;
 		private static MainMenu mainMenu;
 		private static Stack<Menu> menus;
+		private static PlayerCharacter playerCharacter;
 		private static SplashScreen splashScreen;
 
 		static ObjectManager() {
@@ -67,6 +68,10 @@ namespace SaguFramework {
 			menus.Push(menu);
 		}
 
+		public static void RegisterPlayerCharacter(PlayerCharacter playerCharacter) {
+			ObjectManager.playerCharacter = playerCharacter;
+		}
+
 		public static void RegisterSplashScreen(SplashScreen splashScreen) {
 			ObjectManager.splashScreen = splashScreen;
 		}
@@ -94,6 +99,10 @@ namespace SaguFramework {
 
 		public static void UnregisterMenu() {
 			menus.Pop();
+		}
+
+		public static void UnregisterPlayerCharacter() {
+			playerCharacter = null;
 		}
 
 		public static void UnregisterSplashScreen() {

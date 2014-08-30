@@ -8,9 +8,6 @@ namespace SaguFramework {
 		// TODO: usar esta clase unicamente como interfaz para las clases del juego
 
 		public static void ChangeRoom(string roomId, string entryPositionId, bool useSplashScreen) {
-			// Gets the player character ID
-			string playerCharacterId = StateManager.GetPlayerCharacterId();
-
 			// Gets the new room's parameters
 			RoomParameters roomParameters = ParameterManager.GetRoomParameters(roomId);
 
@@ -18,8 +15,17 @@ namespace SaguFramework {
 			Vector2 positionInGame = roomParameters.EntryPositions[entryPositionId];
 			Location location = new Location(positionInGame, roomId);
 
+			// Gets the player character's ID
+			string playerCharacterId = StateManager.GetPlayerCharacterId();
+
 			// Sets the player character's new location
 			StateManager.SetCharacterLocation(playerCharacterId, location);
+
+			// Sets the current room's ID
+			StateManager.SetCurrentRoomId(roomId);
+
+			// Reloads the room scene
+			ObjectManager.GetLoader().LoadScene(ParameterManager.SceneRoom);
 		}
 
 		public static void CloseMenu() {

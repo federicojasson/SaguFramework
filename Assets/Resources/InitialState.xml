@@ -5,8 +5,8 @@
 		<id>Scientist</id>
 		<location>
 			<position-in-game>
-				<x>2</x>
-				<y>1</y>
+				<x>0.1</x>
+				<y>0.343525</y>
 			</position-in-game>
 			<room-id>Laboratory</room-id>
 		</location>
@@ -15,8 +15,8 @@
 		<id>Erlenmeyer</id>
 		<location>
 			<position-in-game>
-				<x>0</x>
-				<y>0</y>
+				<x>1.483125</x>
+				<y>0.451221</y>
 			</position-in-game>
 			<room-id>Laboratory</room-id>
 		</location>

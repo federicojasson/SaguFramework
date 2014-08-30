@@ -150,6 +150,9 @@ namespace SaguFramework {
 			backgroundImageObject.transform.localPosition = Vector3.zero;
 			menuBehaviour.transform.parent = mainMenuObject.transform;
 			menuBehaviour.transform.localPosition = Vector3.zero;
+			
+			// Sets the main menu as the game camera's passive target
+			GameCamera.GetInstance().SetTarget(mainMenuObject.transform, false);
 		}
 
 		public static void CreateMenu(MenuParameters menuParameters) {
@@ -182,6 +185,42 @@ namespace SaguFramework {
 			backgroundImageObject.transform.localPosition = Vector3.zero;
 			menuBehaviour.transform.parent = menuObject.transform;
 			menuBehaviour.transform.localPosition = Vector3.zero;
+			
+			// Sets the menu as the game camera's active target
+			GameCamera.GetInstance().SetTarget(menuObject.transform, true);
+		}
+
+		public static void CreatePlayerCharacter(CharacterParameters characterParameters, Vector2 positionInGame, float scaleFactor) {
+			// Gets the image's parameters
+			ImageParameters imageParameters = characterParameters.Image;
+			
+			// Creates an object for the player character
+			GameObject playerCharacterObject = new GameObject();
+			PlayerCharacter playerCharacter = playerCharacterObject.AddComponent<PlayerCharacter>();
+			
+			// Creates an object for the image
+			GameObject imageObject = new GameObject();
+			Image image = imageObject.AddComponent<Image>();
+			
+			// Sets the image's parameters
+			image.SetParameters(imageParameters);
+			
+			// Corrects the image's relative height according to the scale factor
+			image.SetRelativeHeight(scaleFactor * image.GetRelativeHeight());
+			
+			if (imageParameters.SortingLayer.Length == 0)
+				// Sets the default sorting layer for the character images
+				image.SetSortingLayer(ParameterManager.SortingLayerCharacterImage);
+			
+			// Sets the player character's position
+			playerCharacterObject.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
+			
+			// Connects the objects
+			imageObject.transform.parent = playerCharacterObject.transform;
+			imageObject.transform.localPosition = Vector3.zero;
+			
+			// Sets the player character as the game camera's active target
+			GameCamera.GetInstance().SetTarget(playerCharacterObject.transform, true);
 		}
 		
 		public static void CreateRoom(RoomParameters roomParameters) {
@@ -217,7 +256,7 @@ namespace SaguFramework {
 			foregroundImageObject.transform.parent = roomObject.transform;
 			foregroundImageObject.transform.localPosition = Vector3.zero;
 
-			// Sets the room object's position in the world
+			// Sets the room object's position so that its bottom-left corner matches the game's (0, 0)
 			float roomHeightUnits = backgroundImage.GetHeightUnits();
 			float roomWidthUnits = backgroundImage.GetWidthUnits();
 			float gameHeightUnits = UtilityManager.GetGameHeightUnits();
@@ -226,6 +265,16 @@ namespace SaguFramework {
 			float yInGame = 0.5f * roomHeightUnits / gameHeightUnits;
 			Vector2 positionInGame = new Vector2(xInGame, yInGame);
 			roomObject.transform.position = UtilityManager.GameToWorldPosition(positionInGame);
+
+			// Calculates the room's boundaries
+			float height = roomHeightUnits;
+			float left = UtilityManager.GameToWorldX(0f);
+			float top = UtilityManager.GameToWorldY(0f) + roomHeightUnits;
+			float width = roomWidthUnits;
+			Rect roomBoundaries = new Rect(left, top, width, height);
+
+			// Sets the room's boundaries as the game camera's boundaries
+			GameCamera.GetInstance().SetBoundaries(roomBoundaries);
 		}
 		
 		public static void CreateSplashScreen(SplashScreenParameters splashScreenParameters) {
@@ -250,6 +299,9 @@ namespace SaguFramework {
 			// Connects the objects
 			imageObject.transform.parent = splashScreenObject.transform;
 			imageObject.transform.localPosition = Vector3.zero;
+			
+			// Sets the splash screen as the game camera's passive target
+			GameCamera.GetInstance().SetTarget(splashScreenObject.transform, false);
 		}
 
 	}

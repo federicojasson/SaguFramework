@@ -37,6 +37,9 @@ namespace SaguFramework {
 			// Gets the current room's ID
 			string currentRoomId = StateManager.GetCurrentRoomId();
 
+			// Gets the player character's ID
+			string playerCharacterId = StateManager.GetPlayerCharacterId();
+
 			// Gets the IDs of the characters located in the room
 			List<string> characterIds = StateManager.GetRoomCharacterIds(currentRoomId);
 
@@ -48,8 +51,12 @@ namespace SaguFramework {
 				// Gets the character's parameters
 				CharacterParameters characterParameters = ParameterManager.GetCharacterParameters(characterId);
 
-				// Creates the character
-				CreationManager.CreateCharacter(characterParameters, positionInGame, roomParameters.ScaleFactor);
+				if (characterId == playerCharacterId)
+					// Creates the player character
+					CreationManager.CreatePlayerCharacter(characterParameters, positionInGame, roomParameters.ScaleFactor);
+				else
+					// Creates the character
+					CreationManager.CreateCharacter(characterParameters, positionInGame, roomParameters.ScaleFactor);
 			}
 		}
 
