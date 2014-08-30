@@ -5,10 +5,13 @@ namespace SaguFramework {
 	public class InputReader : MonoBehaviour {
 		
 		public void Update() {
-			// TODO
+			// TODO: just to debug
 
 			if (Input.GetKeyDown(KeyCode.P))
 				GameManager.OpenMenu("PauseMenu");
+
+			if (Input.GetKeyDown(KeyCode.M))
+				GameManager.OpenMainMenu();
 		}
 		
 	}

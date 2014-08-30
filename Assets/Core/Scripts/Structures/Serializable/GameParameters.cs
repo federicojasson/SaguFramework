@@ -29,6 +29,12 @@ namespace SaguFramework {
 		public LoaderParameters SpecialLoaderParameters;
 		public LoaderParameters SplashScreenLoaderParameters;
 
+		public AudioClip MainSong;
+		public AudioClip MainMenuSong;
+		public AudioClip[] Songs;
+		public float DelayBetweenSongs = 1;
+		public bool ShuffleSongs = false;
+
 		public Color CameraBackgroundColor;
 		
 	}

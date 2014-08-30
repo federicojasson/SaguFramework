@@ -14,6 +14,10 @@ namespace SaguFramework {
 			return Game.GetInstance().GameParameters.CharacterParameters[characterId];
 		}
 
+		public static float GetDelayBetweenSongs() {
+			return Game.GetInstance().GameParameters.DelayBetweenSongs;
+		}
+
 		public static float GetGameAspectRatio() {
 			return Game.GetInstance().GameParameters.GameAspectRatio;
 		}
@@ -46,6 +50,14 @@ namespace SaguFramework {
 			return Game.GetInstance().GameParameters.MainMenuParameters;
 		}
 
+		public static AudioClip GetMainSong() {
+			return Game.GetInstance().GameParameters.MainSong;
+		}
+
+		public static AudioClip GetMainMenuSong() {
+			return Game.GetInstance().GameParameters.MainMenuSong;
+		}
+
 		public static MenuParameters GetMenuParameters(string menuId) {
 			return Game.GetInstance().GameParameters.MenuParameters[menuId];
 		}
@@ -56,6 +68,10 @@ namespace SaguFramework {
 
 		public static RoomParameters GetRoomParameters(string roomId) {
 			return Game.GetInstance().GameParameters.RoomParameters[roomId];
+		}
+
+		public static AudioClip[] GetSongs() {
+			return Game.GetInstance().GameParameters.Songs;
 		}
 		
 		public static LoaderParameters GetSpecialLoaderParameters() {
@@ -72,6 +88,10 @@ namespace SaguFramework {
 
 		public static string GetStateFilesDirectoryPath() {
 			return Game.GetInstance().GameParameters.StateFilesDirectoryPath;
+		}
+
+		public static bool ShuffleSongs() {
+			return Game.GetInstance().GameParameters.ShuffleSongs;
 		}
 
 	}

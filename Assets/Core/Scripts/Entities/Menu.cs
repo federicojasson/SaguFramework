@@ -27,7 +27,12 @@ namespace SaguFramework {
 		}
 
 		public void OnGUI() {
+			// Begins an area that covers the game rectangle
+			GUILayout.BeginArea(UtilityManager.GetGuiRectangle(UtilityManager.GetGameRectangleInScreen()));
+
 			behaviour.OnShowing();
+
+			GUILayout.EndArea();
 		}
 
 		public void SetBehaviour(MenuBehaviour behaviour) {

@@ -5,6 +5,9 @@ namespace SaguFramework {
 	public class MainLoader : Loader {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
+			// Plays the main song
+			AudioPlayer.GetInstance().PlaySong(ParameterManager.GetMainSong());
+
 			// Creates the splash screen
 			SplashScreenParameters splashScreenParameters = CreateSplashScreen();
 
@@ -24,6 +27,9 @@ namespace SaguFramework {
 		protected override IEnumerator UnloadSceneCoroutine() {
 			// Fades out
 			yield return StartCoroutine(Masker.GetInstance().FadeOutCoroutine(ParameterManager.GetMainLoaderParameters().FadingOut));
+
+			// Stops the main song
+			AudioPlayer.GetInstance().StopSongs();
 		}
 		
 		private SplashScreenParameters CreateSplashScreen() {

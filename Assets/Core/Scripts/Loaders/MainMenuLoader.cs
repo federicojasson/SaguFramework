@@ -5,6 +5,12 @@ namespace SaguFramework {
 	public class MainMenuLoader : Loader {
 
 		protected override IEnumerator LoadSceneCoroutine() {
+			// Stops any playing song
+			AudioPlayer.GetInstance().StopSongs();
+
+			// Plays the main menu song
+			AudioPlayer.GetInstance().PlaySong(ParameterManager.GetMainMenuSong());
+
 			// Creates the menu
 			CreateMenu();
 			
@@ -15,6 +21,12 @@ namespace SaguFramework {
 		protected override IEnumerator UnloadSceneCoroutine() {
 			// Fades out
 			yield return StartCoroutine(Masker.GetInstance().FadeOutCoroutine(ParameterManager.GetMainMenuLoaderParameters().FadingOut));
+			
+			// Stops the main menu song
+			AudioPlayer.GetInstance().StopSongs();
+			
+			// Starts playing the songs
+			AudioPlayer.GetInstance().PlaySongs(ParameterManager.GetSongs());
 		}
 		
 		private void CreateMenu() {

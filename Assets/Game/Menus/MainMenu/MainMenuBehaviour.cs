@@ -12,8 +12,6 @@ namespace EmergenciaQuimica {
 		}
 
 		public override void OnShowing() {
-			GUILayout.BeginArea(UtilityManager.GetGuiRectangle(UtilityManager.GetGameRectangleInScreen()));
-
 			if (GUILayout.Button("Nueva partida")) // TODO: use LanguageManager
 				OnNewGameButtonActuated();
 			
@@ -25,8 +23,6 @@ namespace EmergenciaQuimica {
 			
 			if (GUILayout.Button("Salir")) // TODO: use LanguageManager
 				OnExitButtonActuated();
-
-			GUILayout.EndArea();
 		}
 
 		private void OnExitButtonActuated() {
