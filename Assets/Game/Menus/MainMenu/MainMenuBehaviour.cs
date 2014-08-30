@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EmergenciaQuimica {
 
-	public class GameMainMenuBehaviour : MenuBehaviour {
+	public class MainMenuBehaviour : MenuBehaviour {
 
 		private bool isLocked;
 
@@ -12,6 +12,8 @@ namespace EmergenciaQuimica {
 		}
 
 		public override void OnShowing() {
+			GUILayout.BeginArea(UtilityManager.GetGuiRectangle(UtilityManager.GetGameRectangleInScreen()));
+
 			if (GUILayout.Button("Nueva partida")) // TODO: use LanguageManager
 				OnNewGameButtonActuated();
 			
@@ -23,6 +25,8 @@ namespace EmergenciaQuimica {
 			
 			if (GUILayout.Button("Salir")) // TODO: use LanguageManager
 				OnExitButtonActuated();
+
+			GUILayout.EndArea();
 		}
 
 		private void OnExitButtonActuated() {
@@ -38,7 +42,7 @@ namespace EmergenciaQuimica {
 		private void OnNewGameButtonActuated() {
 			if (! isLocked) {
 				// Locks the menu
-				//isLocked = true;// TODO
+				isLocked = true;
 
 				// Starts a new game
 				GameManager.NewGame(true);

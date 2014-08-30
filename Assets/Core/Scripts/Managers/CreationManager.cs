@@ -119,41 +119,6 @@ namespace SaguFramework {
 			itemBehaviour.transform.parent = itemObject.transform;
 			itemBehaviour.transform.localPosition = Vector3.zero;
 		}
-		
-		public static void CreateMainMenu(MainMenuParameters mainMenuParameters) {
-			// Gets the background image's parameters
-			ImageParameters backgroundImageParameters = mainMenuParameters.BackgroundImage;
-			
-			// Creates an object for the main menu
-			GameObject mainMenuObject = new GameObject();
-			MainMenu mainMenu = mainMenuObject.AddComponent<MainMenu>();
-
-			// Instantiates the behaviour prefab
-			MenuBehaviour menuBehaviour = (MenuBehaviour) Object.Instantiate(mainMenuParameters.Behaviour);
-
-			// Sets the main menu's behaviour
-			mainMenu.SetBehaviour(menuBehaviour);
-			
-			// Creates an object for the background image
-			GameObject backgroundImageObject = new GameObject();
-			Image backgroundImage = backgroundImageObject.AddComponent<Image>();
-			
-			// Sets the background image's parameters
-			backgroundImage.SetParameters(backgroundImageParameters);
-			
-			if (backgroundImageParameters.SortingLayer.Length == 0)
-				// Sets the default sorting layer for the menu background images
-				backgroundImage.SetSortingLayer(ParameterManager.SortingLayerMenuBackgroundImage);
-
-			// Connects the objects
-			backgroundImageObject.transform.parent = mainMenuObject.transform;
-			backgroundImageObject.transform.localPosition = Vector3.zero;
-			menuBehaviour.transform.parent = mainMenuObject.transform;
-			menuBehaviour.transform.localPosition = Vector3.zero;
-			
-			// Sets the main menu as the game camera's passive target
-			GameCamera.GetInstance().SetTarget(mainMenuObject.transform, false);
-		}
 
 		public static void CreateMenu(MenuParameters menuParameters) {
 			// Gets the background image's parameters
@@ -185,9 +150,20 @@ namespace SaguFramework {
 			backgroundImageObject.transform.localPosition = Vector3.zero;
 			menuBehaviour.transform.parent = menuObject.transform;
 			menuBehaviour.transform.localPosition = Vector3.zero;
+
+			// Gets the game camera
+			GameCamera gameCamera = GameCamera.GetInstance();
+
+			// Moves the menu in front of the camera
+			Vector2 gameCameraPosition = gameCamera.GetPosition();
+			menuObject.transform.position = UtilityManager.GetPosition(gameCameraPosition, menuObject.transform.position.z);
 			
-			// Sets the menu as the game camera's active target
-			GameCamera.GetInstance().SetTarget(menuObject.transform, true);
+			// Sets the game rectangle as the game camera's boundaries
+			Rect gameRectangle = UtilityManager.GetGameRectangleInWorld();
+			gameCamera.SetBoundaries(gameRectangle);
+			
+			// Sets the main menu as the game camera's target
+			gameCamera.SetTarget(menuObject.transform);
 		}
 
 		public static void CreatePlayerCharacter(CharacterParameters characterParameters, Vector2 positionInGame, float scaleFactor) {
@@ -219,8 +195,8 @@ namespace SaguFramework {
 			imageObject.transform.parent = playerCharacterObject.transform;
 			imageObject.transform.localPosition = Vector3.zero;
 			
-			// Sets the player character as the game camera's active target
-			GameCamera.GetInstance().SetTarget(playerCharacterObject.transform, true);
+			// Sets the player character as the game camera's target
+			GameCamera.GetInstance().SetTarget(playerCharacterObject.transform);
 		}
 		
 		public static void CreateRoom(RoomParameters roomParameters) {
@@ -299,9 +275,20 @@ namespace SaguFramework {
 			// Connects the objects
 			imageObject.transform.parent = splashScreenObject.transform;
 			imageObject.transform.localPosition = Vector3.zero;
+
+			// Gets the game camera
+			GameCamera gameCamera = GameCamera.GetInstance();
+
+			// Moves the splash screen in front of the camera
+			Vector2 gameCameraPosition = gameCamera.GetPosition();
+			splashScreenObject.transform.position = UtilityManager.GetPosition(gameCameraPosition, splashScreenObject.transform.position.z);
 			
-			// Sets the splash screen as the game camera's passive target
-			GameCamera.GetInstance().SetTarget(splashScreenObject.transform, false);
+			// Sets the game rectangle as the game camera's boundaries
+			Rect gameRectangle = UtilityManager.GetGameRectangleInWorld();
+			gameCamera.SetBoundaries(gameRectangle);
+			
+			// Sets the splash screen as the game camera's target
+			gameCamera.SetTarget(splashScreenObject.transform);
 		}
 
 	}

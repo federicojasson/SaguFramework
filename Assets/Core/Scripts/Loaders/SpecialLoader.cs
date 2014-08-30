@@ -6,12 +6,14 @@ namespace SaguFramework {
 
 		protected override IEnumerator LoadSceneCoroutine() {
 			// TODO
-			yield break;
+
+			// Fades in
+			yield return StartCoroutine(Masker.GetInstance().FadeInCoroutine(ParameterManager.GetSpecialLoaderParameters().FadingIn));
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			// TODO
-			yield break;
+			// Fades out
+			yield return StartCoroutine(Masker.GetInstance().FadeOutCoroutine(ParameterManager.GetSpecialLoaderParameters().FadingOut));
 		}
 
 	}

@@ -10,7 +10,6 @@ namespace SaguFramework {
 		private static List<InventoryItem> inventoryItems;
 		private static List<Item> items;
 		private static Loader loader;
-		private static MainMenu mainMenu;
 		private static Stack<Menu> menus;
 		private static PlayerCharacter playerCharacter;
 		private static SplashScreen splashScreen;
@@ -25,10 +24,6 @@ namespace SaguFramework {
 
 		public static Loader GetLoader() {
 			return loader;
-		}
-
-		public static MainMenu GetMainMenu() {
-			return mainMenu;
 		}
 		
 		public static Menu GetMenu() {
@@ -59,11 +54,6 @@ namespace SaguFramework {
 			ObjectManager.loader = loader;
 		}
 
-		public static void RegisterMainMenu(MainMenu mainMenu) {
-			ObjectManager.mainMenu = mainMenu;
-			menus.Push(mainMenu);
-		}
-
 		public static void RegisterMenu(Menu menu) {
 			menus.Push(menu);
 		}
@@ -90,11 +80,6 @@ namespace SaguFramework {
 
 		public static void UnregisterLoader() {
 			loader = null;
-		}
-
-		public static void UnregisterMainMenu() {
-			mainMenu = null;
-			menus.Pop();
 		}
 
 		public static void UnregisterMenu() {

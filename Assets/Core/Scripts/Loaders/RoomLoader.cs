@@ -6,17 +6,15 @@ namespace SaguFramework {
 	
 	public class RoomLoader : Loader {
 
-		private RoomParameters roomParameters;
-
 		protected override IEnumerator LoadSceneCoroutine() {
-			// Creates the room
-			roomParameters = CreateRoom();
-
 			// Creates the inventory
 			InventoryParameters inventoryParameters = CreateInventory();
-
+			
 			// Creates the inventory items
 			CreateInventoryItems(inventoryParameters);
+
+			// Creates the room
+			RoomParameters roomParameters = CreateRoom();
 
 			// Creates the characters
 			CreateCharacters(roomParameters);
@@ -25,12 +23,12 @@ namespace SaguFramework {
 			CreateItems(roomParameters);
 
 			// Fades in
-			yield return StartCoroutine(Fader.GetInstance().FadeInCoroutine(roomParameters.FadingIn));
+			yield return StartCoroutine(Masker.GetInstance().FadeInCoroutine(ParameterManager.GetRoomLoaderParameters().FadingIn));
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
 			// Fades out
-			yield return StartCoroutine(Fader.GetInstance().FadeOutCoroutine(roomParameters.FadingOut));
+			yield return StartCoroutine(Masker.GetInstance().FadeOutCoroutine(ParameterManager.GetRoomLoaderParameters().FadingOut));
 		}
 
 		private void CreateCharacters(RoomParameters roomParameters) {

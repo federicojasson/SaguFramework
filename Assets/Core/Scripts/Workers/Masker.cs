@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SaguFramework {
 
-	public partial class Fader : MonoBehaviour {
+	public partial class Masker : MonoBehaviour {
 
 		private float fadingSpeed;
 		private Texture2D fadingTexture;
@@ -28,7 +28,7 @@ namespace SaguFramework {
 			
 			// Sets the texture
 			if (fadingParameters.Texture == null)
-				fadingTexture = ParameterManager.GetDefaultFadingTexture();
+				fadingTexture = ParameterManager.GetFadingTexture();
 			else
 				fadingTexture = fadingParameters.Texture;
 
@@ -54,7 +54,7 @@ namespace SaguFramework {
 
 			// Sets the texture
 			if (fadingParameters.Texture == null)
-				fadingTexture = ParameterManager.GetDefaultFadingTexture();
+				fadingTexture = ParameterManager.GetFadingTexture();
 			else
 				fadingTexture = fadingParameters.Texture;
 			
@@ -73,27 +73,47 @@ namespace SaguFramework {
 		public void OnGUI() {
 			if (Event.current.type == EventType.Repaint) {
 				// Exactly one repaint event is sent every frame
-				
-				// Updates the texture's opacity
-				fadingTextureOpacity += fadingSpeed * Time.deltaTime;
-				float clampedFadeTextureOpacity = Mathf.Clamp01(fadingTextureOpacity);
 
-				if (fadingTexture != null) {
-					// There is a fading texture to draw
+				// Fading
+				Fade();
 
-					// Sets the texture's opacity
-					GUI.color = UtilityManager.GetColor(GUI.color, clampedFadeTextureOpacity);
-
-					// Gets the game rectangle in pixels
-					Rect gameRectangle = UtilityManager.GetGameRectangleInScreen();
-					
-					// GUI space has (0, 0) at top-left
-					gameRectangle.y = UtilityManager.GetScreenHeightPixels() - gameRectangle.y;
-
-					// Draws the texture
-					GUI.DrawTexture(gameRectangle, fadingTexture);
-				}
+				// Windowboxing
+				Windowbox();
 			}
+		}
+
+		private void Fade() {
+			// Updates the texture's opacity
+			fadingTextureOpacity += fadingSpeed * Time.deltaTime;
+			float clampedFadeTextureOpacity = Mathf.Clamp01(fadingTextureOpacity);
+			
+			if (fadingTexture != null) {
+				// There is a fading texture to draw
+				
+				// Gets the game rectangle in the screen space
+				Rect gameRectangle = UtilityManager.GetGameRectangleInScreen();
+				
+				// Sets the texture's opacity
+				GUI.color = UtilityManager.GetColor(GUI.color, clampedFadeTextureOpacity);
+				
+				// Draws the texture
+				GUI.DrawTexture(UtilityManager.GetGuiRectangle(gameRectangle), fadingTexture);
+			}
+		}
+
+		private void Windowbox() {
+			// Gets the windowboxing rectangles in the screen space
+			Rect[] windowboxingRectangles = UtilityManager.GetWindowboxingRectanglesInScreen();
+
+			// Sets the texture's opacity
+			GUI.color = UtilityManager.GetColor(GUI.color, 1);
+			
+			// Gets the windowboxing texture
+			Texture2D windowboxingTexture = ParameterManager.GetWindowboxingTexture();
+
+			// Draws the textures
+			foreach (Rect windowboxingRectangle in windowboxingRectangles)
+				GUI.DrawTexture(UtilityManager.GetGuiRectangle(windowboxingRectangle), windowboxingTexture);
 		}
 
 	}

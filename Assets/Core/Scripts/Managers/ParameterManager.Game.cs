@@ -14,16 +14,8 @@ namespace SaguFramework {
 			return Game.GetInstance().GameParameters.CharacterParameters[characterId];
 		}
 
-		public static Texture2D GetDefaultFadingTexture() {
-			return Game.GetInstance().GameParameters.DefaultFadingTexture;
-		}
-
 		public static float GetGameAspectRatio() {
 			return Game.GetInstance().GameParameters.GameAspectRatio;
-		}
-		
-		public static MainMenuParameters GetGameMainMenuParameters() {
-			return Game.GetInstance().GameParameters.GameMainMenuParameters;
 		}
 		
 		public static SplashScreenParameters GetGameSplashScreenParameters() {
@@ -42,12 +34,36 @@ namespace SaguFramework {
 			return Game.GetInstance().GameParameters.ItemParameters[itemId];
 		}
 
+		public static LoaderParameters GetMainLoaderParameters() {
+			return Game.GetInstance().GameParameters.MainLoaderParameters;
+		}
+		
+		public static LoaderParameters GetMainMenuLoaderParameters() {
+			return Game.GetInstance().GameParameters.MainMenuLoaderParameters;
+		}
+
+		public static MenuParameters GetMainMenuParameters() {
+			return Game.GetInstance().GameParameters.MainMenuParameters;
+		}
+
 		public static MenuParameters GetMenuParameters(string menuId) {
 			return Game.GetInstance().GameParameters.MenuParameters[menuId];
+		}
+		
+		public static LoaderParameters GetRoomLoaderParameters() {
+			return Game.GetInstance().GameParameters.RoomLoaderParameters;
 		}
 
 		public static RoomParameters GetRoomParameters(string roomId) {
 			return Game.GetInstance().GameParameters.RoomParameters[roomId];
+		}
+		
+		public static LoaderParameters GetSpecialLoaderParameters() {
+			return Game.GetInstance().GameParameters.SpecialLoaderParameters;
+		}
+		
+		public static LoaderParameters GetSplashScreenLoaderParameters() {
+			return Game.GetInstance().GameParameters.SplashScreenLoaderParameters;
 		}
 
 		public static SplashScreenParameters[] GetSplashScreensParameters() {

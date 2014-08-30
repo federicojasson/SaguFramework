@@ -5,14 +5,12 @@ namespace SaguFramework {
 	
 	public class SplashScreenLoader : Loader {
 
-		private SplashScreenParameters splashScreenParameters;
-
 		protected override IEnumerator LoadSceneCoroutine() {
 			// Creates the splash screen
-			splashScreenParameters = CreateSplashScreen();
+			SplashScreenParameters splashScreenParameters = CreateSplashScreen();
 
 			// Fades in
-			yield return StartCoroutine(Fader.GetInstance().FadeInCoroutine(splashScreenParameters.FadingIn));
+			yield return StartCoroutine(Masker.GetInstance().FadeInCoroutine(ParameterManager.GetSplashScreenLoaderParameters().FadingIn));
 
 			// Delays the execution to show the splash screen
 			yield return StartCoroutine(ObjectManager.GetSplashScreen().Delay(splashScreenParameters.MinimumDelayTime));
@@ -23,7 +21,7 @@ namespace SaguFramework {
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
 			// Fades out
-			yield return StartCoroutine(Fader.GetInstance().FadeOutCoroutine(splashScreenParameters.FadingOut));
+			yield return StartCoroutine(Masker.GetInstance().FadeOutCoroutine(ParameterManager.GetSplashScreenLoaderParameters().FadingOut));
 		}
 
 		private SplashScreenParameters CreateSplashScreen() {

@@ -6,19 +6,30 @@ namespace SaguFramework {
 	[Serializable]
 	public class GameParameters {
 
-		public Color CameraBackgroundColor;
-		public CharacterParametersMap CharacterParameters;
-		public Texture2D DefaultFadingTexture;
+		// TODO: order
+
 		public float GameAspectRatio = 1f;
-		public MainMenuParameters GameMainMenuParameters;
-		public SplashScreenParameters GameSplashScreenParameters;
-		public InventoryItemParametersMap InventoryItemParameters;
-		public InventoryParameters InventoryParameters;
-		public ItemParametersMap ItemParameters;
-		public MenuParametersMap MenuParameters;
-		public RoomParametersMap RoomParameters;
-		public SplashScreenParameters[] SplashScreensParameters;
 		public string StateFilesDirectoryPath;
+		
+		public RoomParametersMap RoomParameters;
+		public CharacterParametersMap CharacterParameters;
+		public ItemParametersMap ItemParameters;
+
+		public InventoryParameters InventoryParameters;
+		public InventoryItemParametersMap InventoryItemParameters;
+		
+		public MenuParameters MainMenuParameters;
+		public MenuParametersMap MenuParameters;
+		public SplashScreenParameters GameSplashScreenParameters;
+		public SplashScreenParameters[] SplashScreensParameters;
+		
+		public LoaderParameters MainLoaderParameters;
+		public LoaderParameters MainMenuLoaderParameters;
+		public LoaderParameters RoomLoaderParameters;
+		public LoaderParameters SpecialLoaderParameters;
+		public LoaderParameters SplashScreenLoaderParameters;
+
+		public Color CameraBackgroundColor;
 		
 	}
 	

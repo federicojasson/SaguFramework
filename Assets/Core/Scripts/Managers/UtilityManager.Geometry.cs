@@ -5,6 +5,8 @@ namespace SaguFramework {
 	public static partial class UtilityManager {
 
 		// TODO: comentar
+		// TODO: rectangle conversions
+		// TODO: add GUI space?
 
 		public static float GameToScreenHeight(float heightInGame) {
 			float gameHeightPixels = GetGameHeightPixels();
@@ -115,10 +117,12 @@ namespace SaguFramework {
 		}
 		
 		public static Rect GetGameRectangleInWorld() {
-			float width = GetGameWidthUnits();
-			float height = GetGameHeightUnits();
-			float left = UtilityManager.GameToWorldX(0f);
-			float top = UtilityManager.GameToWorldY(1f);
+			Rect gameRectangleInScreen = GetGameRectangleInScreen();
+
+			float width = ScreenToWorldWidth(gameRectangleInScreen.width);
+			float height = ScreenToWorldWidth(gameRectangleInScreen.height);
+			float left = ScreenToWorldX(gameRectangleInScreen.x);
+			float top = ScreenToWorldY(gameRectangleInScreen.y);
 			
 			return new Rect(left, top, width, height);
 		}
@@ -140,6 +144,16 @@ namespace SaguFramework {
 			float gameWidthUnits = PixelsToUnits(gameWidthPixels);
 			
 			return gameWidthUnits;
+		}
+		
+		public static Rect GetGuiRectangle(Rect rectangle) {
+			// Copies the rectangle
+			Rect guiRectangle = new Rect(rectangle);
+			
+			// GUI space has (0, 0) at top-left
+			guiRectangle.y = GetScreenHeightPixels() - guiRectangle.y;
+			
+			return guiRectangle;
 		}
 		
 		public static float GetPixelsPerUnit() {
@@ -174,10 +188,12 @@ namespace SaguFramework {
 		}
 		
 		public static Rect GetScreenRectangleInWorld() {
-			float width = GetScreenWidthUnits();
-			float height = GetScreenHeightUnits();
-			float left = UtilityManager.ScreenToWorldX(0f);
-			float top = UtilityManager.ScreenToWorldY(height);
+			Rect screenRectangleInScreen = GetScreenRectangleInScreen();
+			
+			float width = ScreenToWorldWidth(screenRectangleInScreen.width);
+			float height = ScreenToWorldWidth(screenRectangleInScreen.height);
+			float left = ScreenToWorldX(screenRectangleInScreen.x);
+			float top = ScreenToWorldY(screenRectangleInScreen.y);
 			
 			return new Rect(left, top, width, height);
 		}
@@ -191,6 +207,65 @@ namespace SaguFramework {
 			float screenWidthUnits = PixelsToUnits(screenWidthPixels);
 			
 			return screenWidthUnits;
+		}
+		
+		public static Rect[] GetWindowboxingRectanglesInScreen() {
+			Rect[] windowboxingRectanglesInScreen = new Rect[2];
+			
+			float gameAspectRatio = GetGameAspectRatio();
+			float screenAspectRatio = GetScreenAspectRatio();
+			
+			if (gameAspectRatio > screenAspectRatio) {
+				// Letterboxing
+
+				float width = GetGameWidthPixels();
+				float height = (GetScreenHeightPixels() - GetGameHeightPixels()) / 2f;
+				float left = UtilityManager.GameToScreenX(0f);
+
+				float bottomRectangleTop = UtilityManager.GameToScreenY(0f);
+				float topRectangleTop = GetScreenHeightPixels();
+				
+				// Bottom rectangle
+				windowboxingRectanglesInScreen[0] = new Rect(left, bottomRectangleTop, width, height);
+				
+				// Top rectangle
+				windowboxingRectanglesInScreen[1] = new Rect(left, topRectangleTop, width, height);
+			} else {
+				// Pillarboxing
+
+				float width = (GetScreenWidthPixels() - GetGameWidthPixels()) / 2f;
+				float height = GetGameHeightPixels();
+				float top = UtilityManager.GameToScreenY(1f);
+
+				float leftRectangleLeft = 0f;
+				float rightRectangleLeft = UtilityManager.GameToScreenX(1f);
+				
+				// Left rectangle
+				windowboxingRectanglesInScreen[0] = new Rect(leftRectangleLeft, top, width, height);
+				
+				// Right rectangle
+				windowboxingRectanglesInScreen[1] = new Rect(rightRectangleLeft, top, width, height);
+			}
+			
+			return windowboxingRectanglesInScreen;
+		}
+		
+		public static Rect[] GetWindowboxingRectanglesInWorld() {
+			Rect[] windowboxingRectanglesInWorld = new Rect[2];
+			Rect[] windowboxingRectanglesInScreen = GetWindowboxingRectanglesInScreen();
+
+			for (int i = 0; i < windowboxingRectanglesInWorld.Length; i++) {
+				Rect windowboxingRectangleInScreen = windowboxingRectanglesInScreen[i];
+
+				float width = ScreenToWorldWidth(windowboxingRectangleInScreen.width);
+				float height = ScreenToWorldWidth(windowboxingRectangleInScreen.height);
+				float left = ScreenToWorldX(windowboxingRectangleInScreen.x);
+				float top = ScreenToWorldY(windowboxingRectangleInScreen.y);
+
+				windowboxingRectanglesInWorld[i] = new Rect(left, top, width, height);
+			}
+
+			return windowboxingRectanglesInWorld;
 		}
 		
 		public static float PixelsToUnits(float pixels) {

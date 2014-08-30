@@ -4,29 +4,25 @@ namespace SaguFramework {
 	
 	public class MainMenuLoader : Loader {
 
-		private MainMenuParameters mainMenuParameters;
-		
 		protected override IEnumerator LoadSceneCoroutine() {
-			// Creates the main menu
-			mainMenuParameters = CreateMainMenu();
+			// Creates the menu
+			CreateMenu();
 			
 			// Fades in
-			yield return StartCoroutine(Fader.GetInstance().FadeInCoroutine(mainMenuParameters.FadingIn));
+			yield return StartCoroutine(Masker.GetInstance().FadeInCoroutine(ParameterManager.GetMainMenuLoaderParameters().FadingIn));
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
 			// Fades out
-			yield return StartCoroutine(Fader.GetInstance().FadeOutCoroutine(mainMenuParameters.FadingOut));
+			yield return StartCoroutine(Masker.GetInstance().FadeOutCoroutine(ParameterManager.GetMainMenuLoaderParameters().FadingOut));
 		}
 		
-		private MainMenuParameters CreateMainMenu() {
-			// Gets the game main menu's parameters
-			MainMenuParameters gameMainMenuParameters = ParameterManager.GetGameMainMenuParameters();
+		private void CreateMenu() {
+			// Gets the main menu's parameters
+			MenuParameters mainMenuParameters = ParameterManager.GetMainMenuParameters();
 			
-			// Creates the main menu
-			CreationManager.CreateMainMenu(gameMainMenuParameters);
-			
-			return gameMainMenuParameters;
+			// Creates the menu
+			CreationManager.CreateMenu(mainMenuParameters);
 		}
 
 	}

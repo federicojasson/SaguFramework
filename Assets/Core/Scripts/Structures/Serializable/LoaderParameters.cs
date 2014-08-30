@@ -3,11 +3,11 @@
 namespace SaguFramework {
 	
 	[Serializable]
-	public class MainMenuParameters : MenuParameters {
-
+	public class LoaderParameters {
+		
 		public FadingParameters FadingIn;
 		public FadingParameters FadingOut;
-
+		
 	}
 	
 }

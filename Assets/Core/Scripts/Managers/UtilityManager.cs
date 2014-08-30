@@ -14,7 +14,7 @@ namespace SaguFramework {
 			return new Color(color.r, color.g, color.b, opacity);
 		}
 
-		public static Vector3 GetPosition(Vector3 position, float z) {
+		public static Vector3 GetPosition(Vector2 position, float z) {
 			// Returns the received position with the corresponding Z value
 			return new Vector3(position.x, position.y, z);
 		}

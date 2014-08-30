@@ -1,4 +1,6 @@
-﻿namespace SaguFramework {
+﻿using UnityEngine;
+
+namespace SaguFramework {
 	
 	public static partial class ParameterManager {
 		
@@ -45,6 +47,10 @@
 		public const string XmlTagValue = "value";
 		public const string XmlTagX = "x";
 		public const string XmlTagY = "y";
+		
+		public static Texture2D GetFadingTexture() {
+			return Framework.GetInstance().FrameworkParameters.FadingTexture;
+		}
 
 		public static string GetLanguageFileResourcePath(string languageId) {
 			// Gets the languages directory resource path
@@ -66,6 +72,10 @@
 
 			// Gets the resulting path and returns it
 			return UtilityManager.GetPath(stateFilesDirectoryPath, stateId, stateFileExtension);
+		}
+		
+		public static Texture2D GetWindowboxingTexture() {
+			return Framework.GetInstance().FrameworkParameters.WindowboxingTexture;
 		}
 		
 	}

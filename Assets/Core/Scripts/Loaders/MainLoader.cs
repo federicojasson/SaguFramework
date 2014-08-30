@@ -3,15 +3,13 @@
 namespace SaguFramework {
 
 	public class MainLoader : Loader {
-
-		private SplashScreenParameters splashScreenParameters;
 		
 		protected override IEnumerator LoadSceneCoroutine() {
 			// Creates the splash screen
-			splashScreenParameters = CreateSplashScreen();
+			SplashScreenParameters splashScreenParameters = CreateSplashScreen();
 
 			// Fades in
-			yield return StartCoroutine(Fader.GetInstance().FadeInCoroutine(splashScreenParameters.FadingIn));
+			yield return StartCoroutine(Masker.GetInstance().FadeInCoroutine(ParameterManager.GetMainLoaderParameters().FadingIn));
 
 			// TODO: load
 			LanguageManager.LoadLanguage("Spanish"); // TODO: get this from options
@@ -25,11 +23,11 @@ namespace SaguFramework {
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
 			// Fades out
-			yield return StartCoroutine(Fader.GetInstance().FadeOutCoroutine(splashScreenParameters.FadingOut));
+			yield return StartCoroutine(Masker.GetInstance().FadeOutCoroutine(ParameterManager.GetMainLoaderParameters().FadingOut));
 		}
 		
 		private SplashScreenParameters CreateSplashScreen() {
-			// Gets the game splash screens' parameters
+			// Gets the game splash screen's parameters
 			SplashScreenParameters gameSplashScreenParameters = ParameterManager.GetGameSplashScreenParameters();
 
 			// Creates the splash screen
