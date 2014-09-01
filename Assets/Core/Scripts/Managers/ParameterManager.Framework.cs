@@ -14,6 +14,11 @@ namespace SaguFramework {
 
 		public const float PixelsPerUnit = 1;
 
+		public const string OptionIdLanguage = "Language";
+		public const string OptionIdMasterVolume = "MasterVolume";
+		public const string OptionIdSongVolume = "SongVolume";
+		public const string OptionIdVoiceVolume = "VoiceVolume";
+
 		public const string SceneMain = "Main";
 		public const string SceneMainMenu = "MainMenu";
 		public const string SceneRoom = "Room";
@@ -21,7 +26,7 @@ namespace SaguFramework {
 		public const string SceneSplashScreen = "SplashScreen";
 
 		public const string SortingLayerCharacterImage = "CharacterImage";
-		public const string SortingLayerInventoryImage = "InventoryImage";
+		public const string SortingLayerInventoryBackgroundImage = "InventoryBackgroundImage";
 		public const string SortingLayerInventoryItemImage = "InventoryItemImage";
 		public const string SortingLayerItemImage = "ItemImage";
 		public const string SortingLayerMenuBackgroundImage = "MenuBackgroundImage";
@@ -42,6 +47,7 @@ namespace SaguFramework {
 		public const string XmlTagId = "id";
 		public const string XmlTagInteger = "integer";
 		public const string XmlTagInventoryItem = "inventory-item";
+		public const string XmlTagInventoryPage = "inventory-page";
 		public const string XmlTagItem = "item";
 		public const string XmlTagLanguage = "language";
 		public const string XmlTagLocation = "location";

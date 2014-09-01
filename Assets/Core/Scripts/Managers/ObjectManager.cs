@@ -7,6 +7,7 @@ namespace SaguFramework {
 		// TODO: usar esta clase para registrar los objetos del mundo
 
 		private static List<Character> characters;
+		private static Inventory inventory;
 		private static List<InventoryItem> inventoryItems;
 		private static List<Item> items;
 		private static Loader loader;
@@ -20,6 +21,10 @@ namespace SaguFramework {
 			items = new List<Item>();
 			inventoryItems = new List<InventoryItem>();
 			menus = new Stack<Menu>();
+		}
+
+		public static Inventory GetInventory() {
+			return inventory;
 		}
 
 		public static Loader GetLoader() {
@@ -40,6 +45,10 @@ namespace SaguFramework {
 
 		public static void RegisterCharacter(Character character) {
 			characters.Add(character);
+		}
+		
+		public static void RegisterInventory(Inventory inventory) {
+			ObjectManager.inventory = inventory;
 		}
 
 		public static void RegisterInventoryItem(InventoryItem inventoryItem) {
@@ -68,6 +77,10 @@ namespace SaguFramework {
 
 		public static void UnregisterCharacter(Character character) {
 			characters.Remove(character);
+		}
+
+		public static void UnregisterInventory() {
+			inventory = null;
 		}
 		
 		public static void UnregisterInventoryItem(InventoryItem inventoryItem) {

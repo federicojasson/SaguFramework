@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <state>
+	<inventory-page>0</inventory-page>
 	<current-room-id>Laboratory</current-room-id>
 	<player-character>
 		<id>Scientist</id>

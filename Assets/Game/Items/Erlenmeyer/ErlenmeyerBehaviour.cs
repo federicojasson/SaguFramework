@@ -2,7 +2,7 @@
 
 namespace EmergenciaQuimica {
 
-	public class ErlenmeyerItemBehaviour : ItemBehaviour {
+	public class ErlenmeyerBehaviour : ItemBehaviour {
 	}
 
 }

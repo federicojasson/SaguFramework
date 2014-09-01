@@ -90,11 +90,22 @@ namespace SaguFramework {
 			
 			// Creates the menu
 			CreationManager.CreateMenu(menuParameters);
+
+			// Shows the menu
+			ObjectManager.GetMenu().Show();
 		}
 
 		public static void SaveGame(string stateId) {
 			// Saves the state
 			StateManager.SaveState(stateId);
+		}
+
+		public static void ShowInventory() {
+			// Shows the inventory
+			ObjectManager.GetInventory().Show();
+
+			// Shows the inventory items
+			// TODO
 		}
 
 	}

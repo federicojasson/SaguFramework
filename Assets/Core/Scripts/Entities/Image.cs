@@ -10,11 +10,12 @@ namespace SaguFramework {
 		private float relativeHeight;
 		private string sortingLayer;
 		private Sprite sprite;
+		private SpriteRenderer spriteRenderer;
 		
 		public void Awake() {
-			gameObject.AddComponent<SpriteRenderer>();
+			spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
 		}
-		
+
 		public float GetHeightPixels() {
 			float heightUnits = GetHeightUnits();
 			float heightPixels = UtilityManager.UnitsToPixels(heightUnits);
@@ -23,7 +24,7 @@ namespace SaguFramework {
 		}
 		
 		public float GetHeightUnits() {
-			return gameObject.GetComponent<SpriteRenderer>().bounds.size.y;
+			return spriteRenderer.bounds.size.y;
 		}
 		
 		public float GetOpacity() {
@@ -41,7 +42,7 @@ namespace SaguFramework {
 		public Sprite GetSprite() {
 			return sprite;
 		}
-		
+
 		public float GetWidthPixels() {
 			float widthUnits = GetWidthUnits();
 			float widthPixels = UtilityManager.UnitsToPixels(widthUnits);
@@ -50,7 +51,7 @@ namespace SaguFramework {
 		}
 		
 		public float GetWidthUnits() {
-			return gameObject.GetComponent<SpriteRenderer>().bounds.size.x;
+			return spriteRenderer.bounds.size.x;
 		}
 		
 		public void SetOpacity(float opacity) {
@@ -94,7 +95,6 @@ namespace SaguFramework {
 		}
 		
 		private void ChangeOpacity() {
-			SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 			spriteRenderer.color = UtilityManager.GetColor(spriteRenderer.color, opacity);
 		}
 		
@@ -107,11 +107,11 @@ namespace SaguFramework {
 		}
 		
 		private void ChangeSortingLayer() {
-			gameObject.GetComponent<SpriteRenderer>().sortingLayerName = sortingLayer;
+			spriteRenderer.sortingLayerName = sortingLayer;
 		}
 		
 		private void ChangeSprite() {
-			gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
+			spriteRenderer.sprite = sprite;
 		}
 
 	}

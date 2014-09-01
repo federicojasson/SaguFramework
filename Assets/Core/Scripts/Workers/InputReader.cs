@@ -12,6 +12,9 @@ namespace SaguFramework {
 
 			if (Input.GetKeyDown(KeyCode.M))
 				GameManager.OpenMainMenu();
+			
+			if (Input.GetKeyDown(KeyCode.I))
+				GameManager.ShowInventory();
 		}
 		
 	}

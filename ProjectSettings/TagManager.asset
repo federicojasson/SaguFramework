@@ -57,7 +57,7 @@ TagManager:
     userID: 4
     uniqueID: 1543189837
     locked: 0
-  - name: InventoryImage
+  - name: InventoryBackgroundImage
     userID: 5
     uniqueID: 1172991397
     locked: 0

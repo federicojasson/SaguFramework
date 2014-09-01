@@ -4,4 +4,16 @@
 		<id>Language</id>
 		<value>Spanish</value>
 	</string>
+	<float>
+		<id>MasterVolume</id>
+		<value>1</value>
+	</float>
+	<float>
+		<id>SongVolume</id>
+		<value>0.5</value>
+	</float>
+	<float>
+		<id>VoiceVolume</id>
+		<value>0.8</value>
+	</float>
 </options>

@@ -15,7 +15,7 @@ namespace SaguFramework {
 			camera.backgroundColor = ParameterManager.GetCameraBackgroundColor();
 
 			// Sets the orthographic size
-			camera.orthographicSize = UtilityManager.GetCameraOrthographicSizeUnits();
+			camera.orthographicSize = UtilityManager.GetScreenHeightUnits() / 2f;
 
 			// Moves the camera to the center of the game rectangle
 			Rect gameRectangle = UtilityManager.GetGameRectangleInWorld();
@@ -23,10 +23,6 @@ namespace SaguFramework {
 			float gameRectangleCenterY = gameRectangle.y - gameRectangle.height / 2f;
 			Vector2 gameRectangleCenter = new Vector2(gameRectangleCenterX, gameRectangleCenterY);
 			transform.position = UtilityManager.GetPosition(gameRectangleCenter, transform.position.z);
-		}
-
-		public Vector2 GetPosition() {
-			return transform.position;
 		}
 
 		public void LateUpdate() {
@@ -46,6 +42,11 @@ namespace SaguFramework {
 				// Sets the camera's position
 				transform.position = new Vector3(x, y, transform.position.z);
 			}
+		}
+
+		public void MoveInFront(Transform target) {
+			// Moves the target in front of the camera
+			target.position = UtilityManager.GetPosition(transform.position, target.position.z);
 		}
 
 		public void SetBoundaries(Rect boundaries) {

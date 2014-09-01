@@ -9,6 +9,9 @@ namespace SaguFramework {
 		public virtual void Awake() {
 			// Registers itself with the ObjectManager
 			ObjectManager.RegisterMenu(this);
+
+			// Hides the menu initially
+			Hide();
 		}
 
 		public virtual void Close() {
@@ -26,9 +29,14 @@ namespace SaguFramework {
 			ObjectManager.UnregisterMenu();
 		}
 
+		public void OnEnable() {
+			// Moves the menu in front of the camera
+			GameCamera.GetInstance().MoveInFront(transform);
+		}
+
 		public void OnGUI() {
 			// Begins an area that covers the game rectangle
-			GUILayout.BeginArea(UtilityManager.GetGuiRectangle(UtilityManager.GetGameRectangleInScreen()));
+			GUILayout.BeginArea(UtilityManager.GetGameRectangleInGui());
 
 			behaviour.OnShowing();
 

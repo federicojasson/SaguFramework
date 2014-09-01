@@ -31,6 +31,18 @@ namespace SaguFramework {
 			PlayAudioClip(voiceAudioSource, voice);
 		}
 
+		public void SetMasterVolume(float volume) {
+			AudioListener.volume = volume;
+		}
+
+		public void SetSongVolume(float volume) {
+			songAudioSource.volume = volume;
+		}
+
+		public void SetVoiceVolume(float volume) {
+			voiceAudioSource.volume = volume;
+		}
+
 		public void StopSongs() {
 			// Stops the play-songs coroutine (if it is executing)
 			StopAllCoroutines();

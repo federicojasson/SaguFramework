@@ -43,7 +43,27 @@ namespace SaguFramework {
 		}
 
 		public static void CreateInventory(InventoryParameters inventoryParameters) {
-			// TODO
+			// Gets the background image's parameters
+			ImageParameters backgroundImageParameters = inventoryParameters.BackgroundImage;
+			
+			// Creates an object for the inventory
+			GameObject inventoryObject = new GameObject();
+			Inventory inventory = inventoryObject.AddComponent<Inventory>();
+			
+			// Creates an object for the background image
+			GameObject backgroundImageObject = new GameObject();
+			Image backgroundImage = backgroundImageObject.AddComponent<Image>();
+			
+			// Sets the background image's parameters
+			backgroundImage.SetParameters(backgroundImageParameters);
+			
+			if (backgroundImageParameters.SortingLayer.Length == 0)
+				// Sets the default sorting layer for the inventory background images
+				backgroundImage.SetSortingLayer(ParameterManager.SortingLayerInventoryBackgroundImage);
+			
+			// Connects the objects
+			backgroundImageObject.transform.parent = inventoryObject.transform;
+			backgroundImageObject.transform.localPosition = Vector3.zero;
 		}
 
 		public static void CreateInventoryItem(InventoryItemParameters inventoryItemParameters) {
@@ -153,10 +173,6 @@ namespace SaguFramework {
 
 			// Gets the game camera
 			GameCamera gameCamera = GameCamera.GetInstance();
-
-			// Moves the menu in front of the camera
-			Vector2 gameCameraPosition = gameCamera.GetPosition();
-			menuObject.transform.position = UtilityManager.GetPosition(gameCameraPosition, menuObject.transform.position.z);
 			
 			// Sets the game rectangle as the game camera's boundaries
 			Rect gameRectangle = UtilityManager.GetGameRectangleInWorld();
@@ -280,8 +296,7 @@ namespace SaguFramework {
 			GameCamera gameCamera = GameCamera.GetInstance();
 
 			// Moves the splash screen in front of the camera
-			Vector2 gameCameraPosition = gameCamera.GetPosition();
-			splashScreenObject.transform.position = UtilityManager.GetPosition(gameCameraPosition, splashScreenObject.transform.position.z);
+			gameCamera.MoveInFront(splashScreenObject.transform);
 			
 			// Sets the game rectangle as the game camera's boundaries
 			Rect gameRectangle = UtilityManager.GetGameRectangleInWorld();

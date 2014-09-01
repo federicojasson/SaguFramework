@@ -90,20 +90,20 @@ namespace SaguFramework {
 			if (fadingTexture != null) {
 				// There is a fading texture to draw
 				
-				// Gets the game rectangle in the screen space
-				Rect gameRectangle = UtilityManager.GetGameRectangleInScreen();
+				// Gets the game rectangle in the GUI space
+				Rect gameRectangle = UtilityManager.GetGameRectangleInGui();
 				
 				// Sets the texture's opacity
 				GUI.color = UtilityManager.GetColor(GUI.color, clampedFadeTextureOpacity);
 				
 				// Draws the texture
-				GUI.DrawTexture(UtilityManager.GetGuiRectangle(gameRectangle), fadingTexture);
+				GUI.DrawTexture(gameRectangle, fadingTexture);
 			}
 		}
 
 		private void Windowbox() {
-			// Gets the windowboxing rectangles in the screen space
-			Rect[] windowboxingRectangles = UtilityManager.GetWindowboxingRectanglesInScreen();
+			// Gets the windowboxing rectangles in the GUI space
+			Rect[] windowboxingRectangles = UtilityManager.GetWindowboxingRectanglesInGui();
 
 			// Sets the texture's opacity
 			GUI.color = UtilityManager.GetColor(GUI.color, 1);
@@ -113,7 +113,7 @@ namespace SaguFramework {
 
 			// Draws the textures
 			foreach (Rect windowboxingRectangle in windowboxingRectangles)
-				GUI.DrawTexture(UtilityManager.GetGuiRectangle(windowboxingRectangle), windowboxingTexture);
+				GUI.DrawTexture(windowboxingRectangle, windowboxingTexture);
 		}
 
 	}

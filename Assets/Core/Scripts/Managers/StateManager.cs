@@ -9,10 +9,14 @@ namespace SaguFramework {
 		private static Dictionary<string, Location> characterLocations;
 		private static string currentRoomId;
 		private static List<string> inventoryItemIds;
+		private static int inventoryPage;
 		private static Dictionary<string, Location> itemLocations;
 		private static string playerCharacterId;
 
 		static StateManager() {
+			// Initializes the inventory page
+			inventoryPage = 0;
+
 			// Initializes the data structures
 			characterLocations = new Dictionary<string, Location>();
 			inventoryItemIds = new List<string>();
@@ -33,6 +37,10 @@ namespace SaguFramework {
 
 		public static List<string> GetInventoryItemIds() {
 			return inventoryItemIds;
+		}
+		
+		public static int GetInventoryPage() {
+			return inventoryPage;
 		}
 
 		public static Location GetItemLocation(string itemId) {
@@ -83,6 +91,10 @@ namespace SaguFramework {
 		
 		public static void SetCharacterLocation(string characterId, Location characterLocation) {
 			characterLocations[characterId] = characterLocation;
+		}
+		
+		public static void SetInventoryPage(int page) {
+			inventoryPage = page;
 		}
 
 		public static void SetCurrentRoomId(string roomId) {

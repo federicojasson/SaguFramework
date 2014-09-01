@@ -91,6 +91,16 @@ namespace SaguFramework {
 				playerCharacterNode.Add(playerCharacterIdNode, playerCharacterLocationNode);
 				stateNode.Add(playerCharacterNode);
 			}
+
+			// Inventory page
+			{
+				// Sets the inventory's page
+				XElement inventoryPageNode = new XElement(ParameterManager.XmlTagInventoryPage);
+				UtilityManager.SetXmlNodeIntegerValue(inventoryPageNode, inventoryPage);
+				
+				// Connects the nodes
+				stateNode.Add(inventoryPageNode);
+			}
 			
 			// Inventory items
 			foreach (string inventoryItemId in inventoryItemIds) {
@@ -147,6 +157,9 @@ namespace SaguFramework {
 			// Nullify the current room and player character's IDs
 			currentRoomId = null;
 			playerCharacterId = null;
+			
+			// Resets the inventory page
+			inventoryPage = 0;
 
 			// Clears the data structures
 			characterLocations.Clear();
@@ -176,6 +189,13 @@ namespace SaguFramework {
 
 				// Sets the player character's location
 				characterLocations[playerCharacterId] = playerCharacterLocation;
+			}
+
+			// Inventory page
+			{
+				// Gets the inventory page
+				XElement inventoryPageNode = stateNode.Element(ParameterManager.XmlTagInventoryPage);
+				inventoryPage = UtilityManager.GetXmlNodeIntegerValue(inventoryPageNode);
 			}
 			
 			// Inventory items

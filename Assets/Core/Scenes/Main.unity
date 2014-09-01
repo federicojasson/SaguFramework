@@ -148,9 +148,21 @@ MonoBehaviour:
         Opacity: 1
         RelativeHeight: 1
         SortingLayer: 
-        Sprite: {fileID: 0}
+        Sprite: {fileID: 21300000, guid: ee87310d3fcf3ca4284014bf920ad143, type: 3}
+      Columns: 0
+      InventoryItemsSize: 0
+      PositionInGame: {x: .5, y: .5}
+      Rows: 0
     InventoryItemParameters:
-      Entries: []
+      Entries:
+      - Key: InventoryErlenmeyer
+        Value:
+          Behaviour: {fileID: 11400000, guid: 0f00978e3451b434fabf07dd3e5abba1, type: 2}
+          Image:
+            Opacity: 1
+            RelativeHeight: 1
+            SortingLayer: 
+            Sprite: {fileID: 21300000, guid: 4d4d6a072eb26d7439bdbbb6a9bffeae, type: 3}
     MainMenuParameters:
       BackgroundImage:
         Opacity: 1
@@ -269,7 +281,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 153c9f63da6dcc74bbfb5e3d888d1ae2, type: 3}
     - {fileID: 8300000, guid: b592ea5a58ba10943b6124484be7a672, type: 3}
     - {fileID: 8300000, guid: 98480b3baa2a2cf499ec29c8b338399e, type: 3}
-    DelayBetweenSongs: 1
+    DelayBetweenSongs: 2
     ShuffleSongs: 1
     CameraBackgroundColor: {r: .970588207, g: .071366787, b: .071366787, a: 0}
 --- !u!4 &226641208
@@ -294,7 +306,6 @@ GameObject:
   - 20: {fileID: 464748634}
   - 92: {fileID: 464748633}
   - 124: {fileID: 464748632}
-  - 81: {fileID: 464748631}
   - 114: {fileID: 464748636}
   m_Layer: 0
   m_Name: GameCamera
@@ -303,13 +314,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &464748631
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 464748630}
-  m_Enabled: 1
 --- !u!124 &464748632
 Behaviour:
   m_ObjectHideFlags: 0
@@ -459,6 +463,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 923574099}
+  - 81: {fileID: 923574103}
   - 82: {fileID: 923574100}
   - 82: {fileID: 923574102}
   - 114: {fileID: 923574101}
@@ -607,6 +612,13 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!81 &923574103
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 923574098}
+  m_Enabled: 1
 --- !u!1 &1296652788
 GameObject:
   m_ObjectHideFlags: 0
