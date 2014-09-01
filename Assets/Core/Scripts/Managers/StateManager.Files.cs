@@ -48,63 +48,77 @@ namespace SaguFramework {
 		}
 
 		public static void SaveState(string stateId) {
+			// Generates the state file
+			XDocument stateFile = GenerateStateFile();
+
+			// Gets the corresponding state file's path
+			string path = ParameterManager.GetStateFilePath(stateId);
+
+			// Writes the state file
+			UtilityManager.WriteXmlFile(path, stateFile);
+		}
+
+		private static XDocument GenerateStateFile() {
 			// State
 			XElement stateNode = new XElement(ParameterManager.XmlTagState);
-
+			
 			// Current room
 			{
 				// Sets the current room's ID
 				XElement currentRoomIdNode = new XElement(ParameterManager.XmlTagCurrentRoomId);
 				UtilityManager.SetXmlNodeStringValue(currentRoomIdNode, currentRoomId);
-
-				// Adds the node as a children
+				
+				// Connects the nodes
 				stateNode.Add(currentRoomIdNode);
 			}
-
+			
 			// Player character
 			{
 				XElement playerCharacterNode = new XElement(ParameterManager.XmlTagPlayerCharacter);
-
+				
 				// Sets the player character's ID
 				XElement playerCharacterIdNode = new XElement(ParameterManager.XmlTagId);
 				UtilityManager.SetXmlNodeStringValue(playerCharacterIdNode, playerCharacterId);
-
+				
 				// Gets the player character's location
 				Location playerCharacterLocation = characterLocations[playerCharacterId];
-
+				
 				// Sets the player character's location
 				XElement playerCharacterLocationNode = new XElement(ParameterManager.XmlTagLocation);
 				UtilityManager.SetXmlNodeLocationValue(playerCharacterLocationNode, playerCharacterLocation);
-
-				// Adds the node as a children
+				
+				// Connects the nodes
+				playerCharacterNode.Add(playerCharacterIdNode, playerCharacterLocationNode);
 				stateNode.Add(playerCharacterNode);
 			}
-
+			
 			// Inventory items
 			foreach (string inventoryItemId in inventoryItemIds) {
 				XElement inventoryItemNode = new XElement(ParameterManager.XmlTagInventoryItem);
-
+				
 				// Sets the inventory item's ID
 				XElement inventoryItemIdNode = new XElement(ParameterManager.XmlTagId);
 				UtilityManager.SetXmlNodeStringValue(inventoryItemIdNode, inventoryItemId);
-
-				// Adds the node as a children
+				
+				// Connects the nodes
+				inventoryItemNode.Add(inventoryItemIdNode);
 				stateNode.Add(inventoryItemNode);
 			}
-
+			
 			// Characters
 			foreach (KeyValuePair<string, Location> entry in characterLocations) {
 				XElement characterNode = new XElement(ParameterManager.XmlTagCharacter);
-
+				
 				// Sets the character's ID
 				XElement characterIdNode = new XElement(ParameterManager.XmlTagId);
 				UtilityManager.SetXmlNodeStringValue(characterIdNode, entry.Key);
-
+				
 				// Sets the character's location
 				XElement characterLocationNode = new XElement(ParameterManager.XmlTagLocation);
 				UtilityManager.SetXmlNodeLocationValue(characterLocationNode, entry.Value);
-
-				// Adds the node as a children
+				
+				// Connects the nodes
+				characterNode.Add(characterIdNode, characterLocationNode);
 				stateNode.Add(characterNode);
 			}
 			
@@ -120,18 +134,13 @@ namespace SaguFramework {
 				XElement itemLocationNode = new XElement(ParameterManager.XmlTagLocation);
 				UtilityManager.SetXmlNodeLocationValue(itemLocationNode, entry.Value);
 				
-				// Adds the node as a children
+				// Connects the nodes
+				itemNode.Add(itemIdNode, itemLocationNode);
 				stateNode.Add(itemNode);
 			}
-
-			// Initializes the state file
-			XDocument stateFile = new XDocument(stateNode);
-
-			// Gets the corresponding state file's path
-			string path = ParameterManager.GetStateFilePath(stateId);
-
-			// Writes the state file
-			UtilityManager.WriteXmlFile(path, stateFile);
+			
+			// Initializes and returns the state file
+			return new XDocument(stateNode);
 		}
 
 		private static void ProcessStateFile(XDocument stateFile) {

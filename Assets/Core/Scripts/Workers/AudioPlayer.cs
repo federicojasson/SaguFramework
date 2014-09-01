@@ -19,16 +19,16 @@ namespace SaguFramework {
 		}
 
 		public void PlaySong(AudioClip song) {
-			if (song != null) {
-				// Plays the song
-				songAudioSource.clip = song;
-				songAudioSource.Play();
-			}
+			PlayAudioClip(songAudioSource, song);
 		}
 
 		public void PlaySongs(AudioClip[] songs) {
 			// Starts a coroutine to play the songs indefinitely
 			StartCoroutine(PlaySongsCoroutine(songs));
+		}
+
+		public void PlayVoice(AudioClip voice) {
+			PlayAudioClip(voiceAudioSource, voice);
 		}
 
 		public void StopSongs() {
@@ -37,6 +37,14 @@ namespace SaguFramework {
 
 			// Stops the currently playing song (if any)
 			songAudioSource.Stop();
+		}
+
+		private void PlayAudioClip(AudioSource audioSource, AudioClip audioClip) {
+			if (audioClip != null) {
+				// Plays the audio clip
+				audioSource.clip = audioClip;
+				audioSource.Play();
+			}
 		}
 
 		private IEnumerator PlaySongsCoroutine(AudioClip[] songs) {

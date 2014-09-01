@@ -27,6 +27,34 @@ namespace SaguFramework {
 			
 			return directoryFiles;
 		}
+		
+		public static string GetDirectoryPath(params string[] directoryPaths) {
+			// Initializes the path
+			string path = "";
+			
+			// Appends the directory paths
+			for (int i = 0; i < directoryPaths.Length - 1; i++) {
+				path += directoryPaths[i];
+				path += Path.DirectorySeparatorChar;
+			}
+			path += directoryPaths[directoryPaths.Length - 1];
+			
+			return path;
+		}
+		
+		public static string GetDirectoryResourcePath(params string[] directoryPaths) {
+			// Initializes the resource path
+			string resourcePath = "";
+			
+			// Appends the directory paths
+			for (int i = 0; i < directoryPaths.Length - 1; i++) {
+				resourcePath += directoryPaths[i];
+				resourcePath += "/"; // All asset names and paths in Unity use forward slashes
+			}
+			resourcePath += directoryPaths[directoryPaths.Length - 1];
+			
+			return resourcePath;
+		}
 
 		public static string GetFileNameWithoutExtension(FileInfo file) {
 			// Gets the file's name
@@ -36,17 +64,37 @@ namespace SaguFramework {
 			return Path.GetFileNameWithoutExtension(fileName);
 		}
 
-		public static string GetPath(string directoryPath, string fileName, string fileExtension) {
+		public static string GetFilePath(string fileName, string fileExtension, params string[] directoryPaths) {
 			// Initializes the path
 			string path = "";
 
-			// Appends the components of the path
-			path += directoryPath;
-			path += Path.DirectorySeparatorChar;
+			// Appends the directory paths
+			foreach (string directoryPath in directoryPaths) {
+				path += directoryPath;
+				path += Path.DirectorySeparatorChar;
+			}
+
+			// Appends the file's name and extension
 			path += fileName;
 			path += fileExtension;
 			
 			return path;
+		}
+
+		public static string GetFileResourcePath(string fileName, params string[] directoryPaths) {
+			// Initializes the resource path
+			string resourcePath = "";
+			
+			// Appends the directory paths
+			foreach (string directoryPath in directoryPaths) {
+				resourcePath += directoryPath;
+				resourcePath += "/"; // All asset names and paths in Unity use forward slashes
+			}
+			
+			// Appends the file's name
+			resourcePath += fileName;
+			
+			return resourcePath;
 		}
 
 		public static bool GetXmlNodeBooleanValue(XElement node) {
@@ -191,7 +239,7 @@ namespace SaguFramework {
 			xmlWriterSettings.Encoding = encoding;
 			xmlWriterSettings.Indent = true;
 			xmlWriterSettings.IndentChars = "\t";
-			xmlWriterSettings.NewLineChars = System.Environment.NewLine;
+			xmlWriterSettings.NewLineChars = Environment.NewLine;
 			xmlWriterSettings.NewLineHandling = NewLineHandling.None;
 
 			// Creates the non-existent path's directories of the path

@@ -22,6 +22,10 @@ namespace SaguFramework {
 			return Game.GetInstance().GameParameters.GameAspectRatio;
 		}
 		
+		public static string GetGameDirectoryPath() {
+			return Game.GetInstance().GameParameters.GameDirectoryPath;
+		}
+		
 		public static SplashScreenParameters GetGameSplashScreenParameters() {
 			return Game.GetInstance().GameParameters.GameSplashScreenParameters;
 		}
@@ -84,10 +88,6 @@ namespace SaguFramework {
 
 		public static SplashScreenParameters[] GetSplashScreensParameters() {
 			return Game.GetInstance().GameParameters.SplashScreensParameters;
-		}
-
-		public static string GetStateFilesDirectoryPath() {
-			return Game.GetInstance().GameParameters.StateFilesDirectoryPath;
 		}
 
 		public static bool ShuffleSongs() {

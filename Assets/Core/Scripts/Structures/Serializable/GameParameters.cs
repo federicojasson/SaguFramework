@@ -9,7 +9,7 @@ namespace SaguFramework {
 		// TODO: order
 
 		public float GameAspectRatio = 1f;
-		public string StateFilesDirectoryPath;
+		public string GameDirectoryPath;
 		
 		public RoomParametersMap RoomParameters;
 		public CharacterParametersMap CharacterParameters;

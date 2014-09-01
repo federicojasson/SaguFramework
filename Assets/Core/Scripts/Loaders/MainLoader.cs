@@ -15,6 +15,7 @@ namespace SaguFramework {
 			yield return StartCoroutine(Masker.GetInstance().FadeInCoroutine(ParameterManager.GetMainLoaderParameters().FadingIn));
 
 			// TODO: load
+			OptionManager.LoadOptions();
 			LanguageManager.LoadLanguage("Spanish"); // TODO: get this from options
 
 			// Delays the execution to show the splash screen

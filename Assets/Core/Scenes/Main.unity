@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameParameters:
     GameAspectRatio: 1.77777779
-    StateFilesDirectoryPath: '%USERPROFILE%\EmergenciaQuimica\StateFiles'
+    GameDirectoryPath: '%USERPROFILE%\EmergenciaQuimica'
     RoomParameters:
       Entries:
       - Key: Laboratory
