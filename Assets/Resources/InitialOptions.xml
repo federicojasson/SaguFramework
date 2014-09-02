@@ -5,6 +5,10 @@
 		<value>Spanish</value>
 	</string>
 	<float>
+		<id>EffectVolume</id>
+		<value>1</value>
+	</float>
+	<float>
 		<id>MasterVolume</id>
 		<value>1</value>
 	</float>

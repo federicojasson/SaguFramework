@@ -5,10 +5,11 @@ namespace SaguFramework {
 	
 	[Serializable]
 	public class FrameworkParameters {
-		
-		// TODO: order
-		
-		public Texture2D FadingTexture;
+
+		public Image Image;
+		public Interactive Interactive;
+		public Item Item;
+		public Room Room;
 		public Texture2D WindowboxingTexture;
 		
 	}

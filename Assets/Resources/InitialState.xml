@@ -5,21 +5,22 @@
 	<player-character>
 		<id>Scientist</id>
 		<location>
-			<position-in-game>
+			<position>
 				<x>0.1</x>
 				<y>0.343525</y>
-			</position-in-game>
+			</position>
 			<room-id>Laboratory</room-id>
 		</location>
 	</player-character>
 	<item>
 		<id>Erlenmeyer</id>
 		<location>
-			<position-in-game>
-				<x>1.483125</x>
+			<position>
+				<x>0.483125</x>
 				<y>0.451221</y>
-			</position-in-game>
+			</position>
 			<room-id>Laboratory</room-id>
 		</location>
 	</item>
+	<hint>prueba</hint>
 </state>
