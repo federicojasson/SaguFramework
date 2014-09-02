@@ -8,8 +8,11 @@ namespace SaguFramework {
 		
 		public ImageParameters BackgroundImage;
 		public int Columns;
-		public float InventoryItemsSize;
-		public Vector2 PositionInGame;
+		public float InventoryItemsHeight;
+		public float InventoryItemsHorizontalGap;
+		public float InventoryItemsVerticalGap;
+		public float InventoryItemsWidth;
+		public Vector2 RelativePosition;
 		public int Rows;
 		
 	}

@@ -66,7 +66,7 @@ namespace SaguFramework {
 			backgroundImageObject.transform.localPosition = Vector3.zero;
 		}
 
-		public static void CreateInventoryItem(InventoryItemParameters inventoryItemParameters) {
+		public static void CreateInventoryItem(InventoryItemParameters inventoryItemParameters, float size) {
 			// Gets the image's parameters
 			ImageParameters imageParameters = inventoryItemParameters.Image;
 			
@@ -87,9 +87,8 @@ namespace SaguFramework {
 			// Sets the image's parameters
 			image.SetParameters(imageParameters);
 
-			// TODO
-			/*// Corrects the image's relative height according to the scale factor
-			image.SetRelativeHeight(scaleFactor * image.GetRelativeHeight());*/
+			// Overrides the image's relative height
+			image.SetRelativeHeight(size);
 			
 			if (imageParameters.SortingLayer.Length == 0)
 				// Sets the default sorting layer for the inventory item images

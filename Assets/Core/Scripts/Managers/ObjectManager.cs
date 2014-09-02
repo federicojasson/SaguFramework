@@ -27,6 +27,10 @@ namespace SaguFramework {
 			return inventory;
 		}
 
+		public static List<InventoryItem> GetInventoryItems() {
+			return inventoryItems;
+		}
+
 		public static Loader GetLoader() {
 			return loader;
 		}

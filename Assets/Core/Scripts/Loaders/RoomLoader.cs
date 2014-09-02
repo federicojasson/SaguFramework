@@ -74,13 +74,11 @@ namespace SaguFramework {
 
 			// Creates the inventory items
 			foreach (string inventoryItemId in inventoryItemIds) {
-				// TODO: use inventoryParameters
-
 				// Gets the inventory item's parameters
 				InventoryItemParameters inventoryItemParameters = ParameterManager.GetInventoryItemParameters(inventoryItemId);
 
 				// Creates the inventory item
-				CreationManager.CreateInventoryItem(inventoryItemParameters);
+				CreationManager.CreateInventoryItem(inventoryItemParameters, inventoryParameters.InventoryItemsHeight);
 			}
 		}
 

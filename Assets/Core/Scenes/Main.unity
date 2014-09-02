@@ -145,17 +145,92 @@ MonoBehaviour:
             Sprite: {fileID: 21300000, guid: f483a91a5eaa9e346a1fd325994a6613, type: 3}
     InventoryParameters:
       BackgroundImage:
-        Opacity: 1
+        Opacity: .899999976
         RelativeHeight: 1
         SortingLayer: 
         Sprite: {fileID: 21300000, guid: ee87310d3fcf3ca4284014bf920ad143, type: 3}
-      Columns: 0
-      InventoryItemsSize: 0
-      PositionInGame: {x: .5, y: .5}
-      Rows: 0
+      Columns: 3
+      InventoryItemsHeight: .150000006
+      InventoryItemsHorizontalGap: .0500000007
+      InventoryItemsVerticalGap: .0799999982
+      InventoryItemsWidth: .0843750015
+      RelativePosition: {x: .5, y: .5}
+      Rows: 3
     InventoryItemParameters:
       Entries:
-      - Key: InventoryErlenmeyer
+      - Key: InventoryErlenmeyer0
+        Value:
+          Behaviour: {fileID: 11400000, guid: 0f00978e3451b434fabf07dd3e5abba1, type: 2}
+          Image:
+            Opacity: 1
+            RelativeHeight: 1
+            SortingLayer: 
+            Sprite: {fileID: 21300000, guid: 4d4d6a072eb26d7439bdbbb6a9bffeae, type: 3}
+      - Key: InventoryErlenmeyer1
+        Value:
+          Behaviour: {fileID: 11400000, guid: 0f00978e3451b434fabf07dd3e5abba1, type: 2}
+          Image:
+            Opacity: 1
+            RelativeHeight: 1
+            SortingLayer: 
+            Sprite: {fileID: 21300000, guid: 4d4d6a072eb26d7439bdbbb6a9bffeae, type: 3}
+      - Key: InventoryErlenmeyer2
+        Value:
+          Behaviour: {fileID: 11400000, guid: 0f00978e3451b434fabf07dd3e5abba1, type: 2}
+          Image:
+            Opacity: 1
+            RelativeHeight: 1
+            SortingLayer: 
+            Sprite: {fileID: 21300000, guid: 4d4d6a072eb26d7439bdbbb6a9bffeae, type: 3}
+      - Key: InventoryErlenmeyer3
+        Value:
+          Behaviour: {fileID: 11400000, guid: 0f00978e3451b434fabf07dd3e5abba1, type: 2}
+          Image:
+            Opacity: 1
+            RelativeHeight: 1
+            SortingLayer: 
+            Sprite: {fileID: 21300000, guid: 4d4d6a072eb26d7439bdbbb6a9bffeae, type: 3}
+      - Key: InventoryErlenmeyer4
+        Value:
+          Behaviour: {fileID: 11400000, guid: 0f00978e3451b434fabf07dd3e5abba1, type: 2}
+          Image:
+            Opacity: 1
+            RelativeHeight: 1
+            SortingLayer: 
+            Sprite: {fileID: 21300000, guid: 4d4d6a072eb26d7439bdbbb6a9bffeae, type: 3}
+      - Key: InventoryErlenmeyer5
+        Value:
+          Behaviour: {fileID: 11400000, guid: 0f00978e3451b434fabf07dd3e5abba1, type: 2}
+          Image:
+            Opacity: 1
+            RelativeHeight: 1
+            SortingLayer: 
+            Sprite: {fileID: 21300000, guid: 4d4d6a072eb26d7439bdbbb6a9bffeae, type: 3}
+      - Key: InventoryErlenmeyer6
+        Value:
+          Behaviour: {fileID: 11400000, guid: 0f00978e3451b434fabf07dd3e5abba1, type: 2}
+          Image:
+            Opacity: 1
+            RelativeHeight: 1
+            SortingLayer: 
+            Sprite: {fileID: 21300000, guid: 4d4d6a072eb26d7439bdbbb6a9bffeae, type: 3}
+      - Key: InventoryErlenmeyer7
+        Value:
+          Behaviour: {fileID: 11400000, guid: 0f00978e3451b434fabf07dd3e5abba1, type: 2}
+          Image:
+            Opacity: 1
+            RelativeHeight: 1
+            SortingLayer: 
+            Sprite: {fileID: 21300000, guid: 4d4d6a072eb26d7439bdbbb6a9bffeae, type: 3}
+      - Key: InventoryErlenmeyer8
+        Value:
+          Behaviour: {fileID: 11400000, guid: 0f00978e3451b434fabf07dd3e5abba1, type: 2}
+          Image:
+            Opacity: 1
+            RelativeHeight: 1
+            SortingLayer: 
+            Sprite: {fileID: 21300000, guid: 4d4d6a072eb26d7439bdbbb6a9bffeae, type: 3}
+      - Key: InventoryErlenmeyer9
         Value:
           Behaviour: {fileID: 11400000, guid: 0f00978e3451b434fabf07dd3e5abba1, type: 2}
           Image:
