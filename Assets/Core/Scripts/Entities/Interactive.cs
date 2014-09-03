@@ -17,7 +17,7 @@ namespace SaguFramework {
 		}
 
 		private InteractiveBehaviour GetInteractiveBehaviour() {
-			return transform.parent.GetComponentInChildren<InteractiveBehaviour>();
+			return GetComponentInChildren<InteractiveBehaviour>();
 		}
 
 	}

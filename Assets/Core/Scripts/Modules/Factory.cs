@@ -3,53 +3,91 @@
 namespace SaguFramework {
 	
 	public static class Factory {
-
-		public static void CreateItem(string id, Vector2 position, float scaleFactor) {
-			ItemParameters itemParameters = Parameters.GetItemParameters(id);
-			ImageParameters imageParameters = itemParameters.Image;
-
-			Image image = CreateImage(imageParameters, Parameters.SortingLayerItem);
-			
-			InteractiveBehaviour interactiveBehaviour = (InteractiveBehaviour) Object.Instantiate(itemParameters.InteractiveBehaviour);
-			Interactive interactive = Instantiate<Interactive>(Parameters.GetInteractive());
-			
-			ItemBehaviour itemBehaviour = (ItemBehaviour) Object.Instantiate(itemParameters.ItemBehaviour);
-			Item item = Instantiate<Item>(Parameters.GetItem());
-			item.SetHeight(scaleFactor * itemParameters.Height);
-			item.SetPosition(position);
-			
-			SetParent(image, item);
-			SetParent(interactiveBehaviour, item);
-			SetParent(interactive, item);
-			SetParent(itemBehaviour, item);
-		}
-
-		public static void CreateRoom(string id) {
-			RoomParameters roomParameters = Parameters.GetRoomParameters(id);
-			ImageParameters backgroundImageParameters = roomParameters.BackgroundImage;
-			ImageParameters foregroundImageParameters = roomParameters.ForegroundImage;
-
-			Image backgroundImage = CreateImage(backgroundImageParameters, Parameters.SortingLayerRoomBackground);
-			Image foregroundImage = CreateImage(foregroundImageParameters, Parameters.SortingLayerRoomForeground);
-
-			Room room = Instantiate<Room>(Parameters.GetRoom());
-			room.SetHeight(roomParameters.Height);
-
-			SetParent(backgroundImage, room);
-			SetParent(foregroundImage, room);
-		}
 		
-		private static Image CreateImage(ImageParameters parameters, string defaultSortingLayer) {
+		public static Image CreateImage(ImageParameters parameters, string defaultSortingLayer) {
 			string sortingLayer = parameters.SortingLayer;
 			if (sortingLayer.Length == 0)
 				sortingLayer = defaultSortingLayer;
 
 			Image image = Instantiate<Image>(Parameters.GetImage());
+
 			image.SetOpacity(parameters.Opacity);
 			image.SetSortingLayer(sortingLayer);
 			image.SetSprite(parameters.Sprite);
 
 			return image;
+		}
+		
+		public static void CreateItem(ItemParameters parameters, Vector2 position, float scaleFactor) {
+			Item item = Instantiate<Item>(Parameters.GetItem());
+			ItemBehaviour itemBehaviour = (ItemBehaviour) Object.Instantiate(parameters.Behaviour);
+			Image image = CreateImage(parameters.Image, Parameters.SortingLayerItem);
+			Interactive interactive = CreateInteractive(parameters.Interactive);
+
+			SetParent(itemBehaviour, item);
+			
+			Vector2 currentSize = image.GetSize();
+			float aspectRatio = currentSize.x / currentSize.y;
+			float sizeY = Geometry.GameToWorldHeight(scaleFactor * parameters.Height);
+			float sizeX = sizeY * aspectRatio;
+			Vector2 size = new Vector2(sizeX, sizeY);
+			
+			image.SetSize(size);
+			SetParent(image, item);
+			interactive.SetSize(size);
+			SetParent(interactive, item);
+
+			item.SetPosition(Geometry.GameToWorldPosition(position));
+		}
+
+		public static Interactive CreateInteractive(InteractiveParameters parameters) {
+			Interactive interactive = Instantiate<Interactive>(Parameters.GetInteractive());
+			InteractiveBehaviour behaviour = (InteractiveBehaviour) Object.Instantiate(parameters.Behaviour);
+
+			SetParent(behaviour, interactive);
+
+			return interactive;
+		}
+		
+		public static void CreateRoom(RoomParameters parameters) {
+			Room room = Instantiate<Room>(Parameters.GetRoom());
+			Image backgroundImage = CreateImage(parameters.BackgroundImage, Parameters.SortingLayerRoomBackground);
+			Image foregroundImage = CreateImage(parameters.ForegroundImage, Parameters.SortingLayerRoomForeground);
+			
+			Vector2 currentSize = backgroundImage.GetSize();
+			float aspectRatio = currentSize.x / currentSize.y;
+			float sizeY = Geometry.GameToWorldHeight(parameters.Height);
+			float sizeX = sizeY * aspectRatio;
+			Vector2 size = new Vector2(sizeX, sizeY);
+			
+			Vector2 gameSizeInUnits = Geometry.GetGameSizeInUnits();
+			float x = 0.5f * size.x / gameSizeInUnits.x;
+			float y = 0.5f * size.y / gameSizeInUnits.y;
+			Vector2 position = new Vector2(x, y);
+
+			backgroundImage.SetSize(size);
+			foregroundImage.SetSize(size);
+			SetParent(backgroundImage, room);
+			SetParent(foregroundImage, room);
+			
+			room.SetPosition(Geometry.GameToWorldPosition(position));
+			
+			foreach (TriggerParameters triggerParameters in parameters.Triggers) {
+				Trigger trigger = CreateTrigger(triggerParameters);
+				SetParent(trigger, room);
+			}
+		}
+
+		public static Trigger CreateTrigger(TriggerParameters parameters) {
+			Trigger trigger = Instantiate<Trigger>(Parameters.GetTrigger());
+			TriggerBehaviour behaviour = (TriggerBehaviour) Object.Instantiate(parameters.Behaviour);
+
+			SetParent(behaviour, trigger);
+
+			trigger.SetPosition(Geometry.GameToWorldPosition(parameters.Position));
+			trigger.SetSize(Geometry.GameToWorldSize(parameters.Size));
+
+			return trigger;
 		}
 
 		private static T Instantiate<T>(T model) where T : Object {

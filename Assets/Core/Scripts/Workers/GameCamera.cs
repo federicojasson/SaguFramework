@@ -16,20 +16,20 @@ namespace SaguFramework {
 		public override void Awake() {
 			base.Awake();
 			instance = this;
+			camera.backgroundColor = Parameters.GetCameraBackgroundColor();
+			camera.orthographicSize = 0.5f * Geometry.GetScreenHeightInUnits();
 		}
 
 		public void LateUpdate() {
-			camera.orthographicSize = Geometry.GetScreenHeightUnits() / 2f;
-
 			if (target != null) {
-				float halfGameWidthUnits = Geometry.GetGameWidthUnits() / 2f;
-				float minimumX = boundaries.x + halfGameWidthUnits;
-				float maximumX = minimumX + boundaries.width - halfGameWidthUnits;
+				float halfGameWidthInUnits = 0.5f * Geometry.GetGameWidthInUnits();
+				float minimumX = boundaries.x + halfGameWidthInUnits;
+				float maximumX = minimumX + boundaries.width - halfGameWidthInUnits;
 				float x = Mathf.Clamp(target.position.x, minimumX, maximumX);
 
-				float halfGameHeightUnits = Geometry.GetGameHeightUnits() / 2f;
-				float minimumY = boundaries.y - boundaries.height + halfGameHeightUnits;
-				float maximumY = minimumY + boundaries.height - halfGameHeightUnits;
+				float halfGameHeightInUnits = 0.5f * Geometry.GetGameHeightInUnits();
+				float minimumY = boundaries.y - boundaries.height + halfGameHeightInUnits;
+				float maximumY = minimumY + boundaries.height - halfGameHeightInUnits;
 				float y = Mathf.Clamp(target.position.y, minimumY, maximumY);
 
 				transform.position = new Vector3(x, y, transform.position.z);

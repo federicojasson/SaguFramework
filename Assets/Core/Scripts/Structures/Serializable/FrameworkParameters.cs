@@ -10,7 +10,9 @@ namespace SaguFramework {
 		public Interactive Interactive;
 		public Item Item;
 		public Room Room;
+		public Trigger Trigger;
 		public Texture2D WindowboxingTexture;
+		public Color CameraBackgroundColor;
 		
 	}
 	

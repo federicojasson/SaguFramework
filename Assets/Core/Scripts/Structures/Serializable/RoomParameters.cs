@@ -8,6 +8,7 @@ namespace SaguFramework {
 		public ImageParameters BackgroundImage;
 		public ImageParameters ForegroundImage;
 		public float Height;
+		public TriggerParameters[] Triggers;
 		
 	}
 	

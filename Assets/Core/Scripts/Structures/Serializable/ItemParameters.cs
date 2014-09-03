@@ -5,8 +5,8 @@ namespace SaguFramework {
 	[Serializable]
 	public class ItemParameters {
 
-		public ItemBehaviour ItemBehaviour;
-		public InteractiveBehaviour InteractiveBehaviour;
+		public ItemBehaviour Behaviour;
+		public InteractiveParameters Interactive;
 		public ImageParameters Image;
 		public float Height;
 

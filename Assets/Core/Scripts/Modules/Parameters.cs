@@ -64,6 +64,10 @@ namespace SaguFramework {
 		public const string XmlTagX = "x";
 		public const string XmlTagY = "y";
 
+		public static Color GetCameraBackgroundColor() {
+			return FrameworkDelegate.GetInstance().FrameworkParameters.CameraBackgroundColor;
+		}
+
 		public static float GetGameAspectRatio() {
 			return GameDelegate.GetInstance().GameParameters.GameAspectRatio;
 		}
@@ -108,6 +112,10 @@ namespace SaguFramework {
 		public static string GetStateFilePath(string id) {
 			string gameDirectoryPath = GetGameDirectoryPath();
 			return Utilities.GetFilePath(id, StateFileExtension, gameDirectoryPath, StateFilesDirectoryPath);
+		}
+
+		public static Trigger GetTrigger() {
+			return FrameworkDelegate.GetInstance().FrameworkParameters.Trigger;
 		}
 
 		public static Texture2D GetWindowboxingTexture() {

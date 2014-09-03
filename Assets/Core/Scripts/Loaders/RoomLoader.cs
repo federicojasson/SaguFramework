@@ -22,14 +22,16 @@ namespace SaguFramework {
 			List<string> itemIds = State.GetRoomItemIds(currentRoomId);
 
 			foreach (string itemId in itemIds) {
+				ItemParameters parameters = Parameters.GetItemParameters(itemId);
 				Vector2 position = State.GetItemState(itemId).GetLocation().GetPosition();
-				Factory.CreateItem(itemId, position, scaleFactor);
+				Factory.CreateItem(parameters, position, scaleFactor);
 			}
 		}
 
 		private void CreateRoom() {
 			string currentRoomId = State.GetCurrentRoomId();
-			Factory.CreateRoom(currentRoomId);
+			RoomParameters parameters = Parameters.GetRoomParameters(currentRoomId);
+			Factory.CreateRoom(parameters);
 		}
 
 	}

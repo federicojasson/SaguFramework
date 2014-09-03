@@ -46,6 +46,10 @@ namespace SaguFramework {
 			
 			return resourcePath;
 		}
+
+		public static Vector3 GetPosition(Vector3 position, float z) {
+			return new Vector3(position.x, position.y, z);
+		}
 		
 		public static bool GetXmlNodeBooleanValue(XElement node) {
 			string value = GetXmlNodeStringValue(node);
