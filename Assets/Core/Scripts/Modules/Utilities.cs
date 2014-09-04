@@ -55,6 +55,24 @@ namespace SaguFramework {
 			string value = GetXmlNodeStringValue(node);
 			return Boolean.Parse(value);
 		}
+
+		public static CharacterState GetXmlNodeCharacterStateValue(XElement node) {
+			XElement directionNode = node.Element(Parameters.XmlTagDirection);
+			Direction direction = GetXmlNodeDirectionValue(directionNode);
+			XElement locationNode = node.Element(Parameters.XmlTagLocation);
+			Location location = GetXmlNodeLocationValue(locationNode);
+			
+			return new CharacterState(direction, location);
+		}
+
+		public static Direction GetXmlNodeDirectionValue(XElement node) {
+			string value = GetXmlNodeStringValue(node);
+
+			if (value == Parameters.DirectionLeft)
+				return Direction.Left;
+			else
+				return Direction.Right;
+		}
 		
 		public static float GetXmlNodeFloatValue(XElement node) {
 			string value = GetXmlNodeStringValue(node);
@@ -64,6 +82,13 @@ namespace SaguFramework {
 		public static int GetXmlNodeIntegerValue(XElement node) {
 			string value = GetXmlNodeStringValue(node);
 			return int.Parse(value, CultureInfo.InvariantCulture);
+		}
+
+		public static ItemState GetXmlNodeItemStateValue(XElement node) {
+			XElement locationNode = node.Element(Parameters.XmlTagLocation);
+			Location location = GetXmlNodeLocationValue(locationNode);
+
+			return new ItemState(location);
 		}
 		
 		public static Location GetXmlNodeLocationValue(XElement node) {
@@ -113,6 +138,26 @@ namespace SaguFramework {
 			SetXmlNodeStringValue(node, stringValue);
 		}
 		
+		public static void SetXmlNodeCharacterStateValue(XElement node, CharacterState value) {
+			XElement directionNode = new XElement(Parameters.XmlTagDirection);
+			SetXmlNodeDirectionValue(directionNode, value.GetDirection());
+			XElement locationNode = new XElement(Parameters.XmlTagLocation);
+			SetXmlNodeLocationValue(locationNode, value.GetLocation());
+
+			node.Add(directionNode, locationNode);
+		}
+		
+		public static void SetXmlNodeDirectionValue(XElement node, Direction value) {
+			string stringValue;
+
+			if (value == Direction.Left)
+				stringValue = Parameters.DirectionLeft;
+			else
+				stringValue = Parameters.DirectionRight;
+
+			SetXmlNodeStringValue(node, stringValue);
+		}
+		
 		public static void SetXmlNodeFloatValue(XElement node, float value) {
 			string stringValue = value.ToString(CultureInfo.InvariantCulture);
 			SetXmlNodeStringValue(node, stringValue);
@@ -121,6 +166,13 @@ namespace SaguFramework {
 		public static void SetXmlNodeIntegerValue(XElement node, int value) {
 			string stringValue = value.ToString(CultureInfo.InvariantCulture);
 			SetXmlNodeStringValue(node, stringValue);
+		}
+		
+		public static void SetXmlNodeItemStateValue(XElement node, ItemState value) {
+			XElement locationNode = new XElement(Parameters.XmlTagLocation);
+			SetXmlNodeLocationValue(locationNode, value.GetLocation());
+			
+			node.Add(locationNode);
 		}
 		
 		public static void SetXmlNodeLocationValue(XElement node, Location value) {

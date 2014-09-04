@@ -72,6 +72,25 @@ namespace SaguFramework {
 
 			return interactive;
 		}
+
+		public static Menu CreateMenu(MenuParameters parameters) {
+			Menu menu = Instantiate<Menu>(Parameters.GetMenu());
+			MenuBehaviour behaviour = (MenuBehaviour) Object.Instantiate(parameters.Behaviour);
+			Image image = CreateImage(parameters.Image, Parameters.SortingLayerMenu);
+
+			SetParent(behaviour, menu);
+			
+			Vector2 currentSize = image.GetSize();
+			float aspectRatio = currentSize.x / currentSize.y;
+			float sizeY = Geometry.GameToWorldHeight(parameters.Height);
+			float sizeX = sizeY * aspectRatio;
+			Vector2 size = new Vector2(sizeX, sizeY);
+			
+			image.SetSize(size);
+			SetParent(image, menu);
+			
+			return menu;
+		}
 		
 		public static Room CreateRoom(RoomParameters parameters) {
 			Room room = Instantiate<Room>(Parameters.GetRoom());
@@ -102,6 +121,22 @@ namespace SaguFramework {
 			}
 
 			return room;
+		}
+
+		public static SplashScreen CreateSplashScreen(SplashScreenParameters parameters) {
+			SplashScreen splashScreen = Instantiate<SplashScreen>(Parameters.GetSplashScreen());
+			Image image = CreateImage(parameters.Image, Parameters.SortingLayerSplashScreen);
+
+			Vector2 currentSize = image.GetSize();
+			float aspectRatio = currentSize.x / currentSize.y;
+			float sizeY = Geometry.GameToWorldHeight(parameters.Height);
+			float sizeX = sizeY * aspectRatio;
+			Vector2 size = new Vector2(sizeX, sizeY);
+			
+			image.SetSize(size);
+			SetParent(image, splashScreen);
+
+			return splashScreen;
 		}
 
 		public static Trigger CreateTrigger(TriggerParameters parameters) {

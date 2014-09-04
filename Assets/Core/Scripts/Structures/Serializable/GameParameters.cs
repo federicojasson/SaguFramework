@@ -10,7 +10,9 @@ namespace SaguFramework {
 		public RoomParametersMap Rooms;
 		public CharacterParametersMap Characters;
 		public ItemParametersMap Items;
-		public SoundParameters Sound;
+		public MenusParameters Menus;
+		public SplashScreensParameters SplashScreens;
+		public SoundsParameters Sounds;
 
 	}
 

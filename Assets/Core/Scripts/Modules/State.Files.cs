@@ -37,25 +37,17 @@ namespace SaguFramework {
 				stateNode.Add(currentRoomIdNode);
 			}
 
-			// TODO: complete
-			/*// Player character
+			// Player character ID
 			{
-				XElement playerCharacterNode = new XElement(Parameters.XmlTagPlayerCharacter);
-
-				XElement playerCharacterIdNode = new XElement(Parameters.XmlTagId);
+				XElement playerCharacterIdNode = new XElement(Parameters.XmlTagPlayerCharacterId);
 				Utilities.SetXmlNodeStringValue(playerCharacterIdNode, playerCharacterId);
 
-				Location playerCharacterLocation = characterLocations[playerCharacterId];
-
-				XElement playerCharacterLocationNode = new XElement(Parameters.XmlTagLocation);
-				Utilities.SetXmlNodeLocationValue(playerCharacterLocationNode, playerCharacterLocation);
-
-				playerCharacterNode.Add(playerCharacterIdNode, playerCharacterLocationNode);
-				stateNode.Add(playerCharacterNode);
+				stateNode.Add (playerCharacterIdNode);
 			}
-			
+
+			// TODO
 			// Inventory page
-			{
+			/*{
 				XElement inventoryPageNode = new XElement(Parameters.XmlTagInventoryPage);
 				Utilities.SetXmlNodeIntegerValue(inventoryPageNode, inventoryPage);
 
@@ -70,6 +62,7 @@ namespace SaguFramework {
 				stateNode.Add(hintNode);
 			}
 			
+			// TODO
 			/*// Inventory items
 			foreach (string inventoryItemId in inventoryItemIds) {
 				XElement inventoryItemNode = new XElement(Parameters.XmlTagInventoryItem);
@@ -79,21 +72,20 @@ namespace SaguFramework {
 
 				inventoryItemNode.Add(inventoryItemIdNode);
 				stateNode.Add(inventoryItemNode);
-			}
+			}*/
 			
 			// Characters
-			foreach (KeyValuePair<string, Location> entry in characterLocations) {
+			foreach (KeyValuePair<string, CharacterState> entry in characterStates) {
 				XElement characterNode = new XElement(Parameters.XmlTagCharacter);
 
-				XElement characterIdNode = new XElement(Parameters.XmlTagId);
-				Utilities.SetXmlNodeStringValue(characterIdNode, entry.Key);
+				XElement idNode = new XElement(Parameters.XmlTagId);
+				Utilities.SetXmlNodeStringValue(idNode, entry.Key);
 
-				XElement characterLocationNode = new XElement(Parameters.XmlTagLocation);
-				Utilities.SetXmlNodeLocationValue(characterLocationNode, entry.Value);
+				XElement characterStateNode = new XElement(Parameters.XmlTagCharacterState);
+				Utilities.SetXmlNodeCharacterStateValue(characterStateNode, entry.Value);
 
-				characterNode.Add(characterIdNode, characterLocationNode);
-				stateNode.Add(characterNode);
-			}*/
+				stateNode.Add(characterStateNode);
+			}
 			
 			// Items
 			foreach (KeyValuePair<string, ItemState> entry in itemStates) {
@@ -102,13 +94,10 @@ namespace SaguFramework {
 				XElement idNode = new XElement(Parameters.XmlTagId);
 				Utilities.SetXmlNodeStringValue(idNode, entry.Key);
 				
-				ItemState state = entry.Value;
+				XElement itemStateNode = new XElement(Parameters.XmlTagItemState);
+				Utilities.SetXmlNodeItemStateValue(itemStateNode, entry.Value);
 
-				XElement locationNode = new XElement(Parameters.XmlTagLocation);
-				Utilities.SetXmlNodeLocationValue(locationNode, state.GetLocation());
-
-				itemNode.Add(idNode, locationNode);
-				stateNode.Add(itemNode);
+				stateNode.Add(itemStateNode);
 			}
 			
 			// Initializes and returns the state file
@@ -117,10 +106,12 @@ namespace SaguFramework {
 		
 		private static void ProcessStateFile(XDocument stateFile) {
 			currentRoomId = null;
-			/*playerCharacterId = null;
-			inventoryPage = 0;
-			characterLocations.Clear();
+			playerCharacterId = null;
+			// TODO
+			/*inventoryPage = 0;
 			inventoryItemIds.Clear();*/
+			hints.Clear();
+			characterStates.Clear();
 			itemStates.Clear();
 			
 			// State
@@ -132,21 +123,15 @@ namespace SaguFramework {
 				currentRoomId = Utilities.GetXmlNodeStringValue(currentRoomIdNode);
 			}
 
-			// TODO: uncomment
-			/*// Player character
+			// Player character ID
 			{
-				XElement playerCharacterNode = stateNode.Element(Parameters.XmlTagPlayerCharacter);
-				XElement playerCharacterIdNode = playerCharacterNode.Element(Parameters.XmlTagId);
+				XElement playerCharacterIdNode = stateNode.Element(Parameters.XmlTagPlayerCharacterId);
 				playerCharacterId = Utilities.GetXmlNodeStringValue(playerCharacterIdNode);
-
-				XElement playerCharacterLocationNode = playerCharacterNode.Element(Parameters.XmlTagLocation);
-				Location playerCharacterLocation = Utilities.GetXmlNodeLocationValue(playerCharacterLocationNode);
-
-				characterLocations[playerCharacterId] = playerCharacterLocation;
 			}
 			
+			// TODO
 			// Inventory page
-			{
+			/*{
 				XElement inventoryPageNode = stateNode.Element(Parameters.XmlTagInventoryPage);
 				inventoryPage = Utilities.GetXmlNodeIntegerValue(inventoryPageNode);
 			}*/
@@ -158,34 +143,33 @@ namespace SaguFramework {
 				hints.Add(hint);
 			}
 			
+			// TODO
 			/*// Inventory items
 			foreach (XElement inventoryItemNode in stateNode.Elements(Parameters.XmlTagInventoryItem)) {
 				XElement inventoryItemIdNode = inventoryItemNode.Element(Parameters.XmlTagId);
 				string inventoryItemId = Utilities.GetXmlNodeStringValue(inventoryItemIdNode);
 
 				inventoryItemIds.Add(inventoryItemId);
-			}
+			}*/
 			
 			// Characters
 			foreach (XElement characterNode in stateNode.Elements(Parameters.XmlTagCharacter)) {
-				XElement characterIdNode = characterNode.Element(Parameters.XmlTagId);
-				string characterId = Utilities.GetXmlNodeStringValue(characterIdNode);
-				XElement characterLocationNode = characterNode.Element(Parameters.XmlTagLocation);
-				Location characterLocation = Utilities.GetXmlNodeLocationValue(characterLocationNode);
+				XElement idNode = characterNode.Element(Parameters.XmlTagId);
+				string id = Utilities.GetXmlNodeStringValue(idNode);
+				XElement characterStateNode = characterNode.Element(Parameters.XmlTagCharacterState);
+				CharacterState characterState = Utilities.GetXmlNodeCharacterStateValue(characterStateNode);
 
-				characterLocations[characterId] = characterLocation;
-			}*/
+				characterStates.Add(id, characterState);
+			}
 			
 			// Items
 			foreach (XElement itemNode in stateNode.Elements(Parameters.XmlTagItem)) {
 				XElement idNode = itemNode.Element(Parameters.XmlTagId);
 				string id = Utilities.GetXmlNodeStringValue(idNode);
-				XElement locationNode = itemNode.Element(Parameters.XmlTagLocation);
-				Location location = Utilities.GetXmlNodeLocationValue(locationNode);
+				XElement itemStateNode = itemNode.Element(Parameters.XmlTagItemState);
+				ItemState itemState = Utilities.GetXmlNodeItemStateValue(itemStateNode);
 
-				ItemState state = new ItemState(location);
-
-				itemStates[id] = state;
+				itemStates.Add(id, itemState);
 			}
 		}
 

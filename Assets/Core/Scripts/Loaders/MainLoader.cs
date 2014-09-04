@@ -8,7 +8,7 @@ namespace SaguFramework {
 			LoadOptions();
 
 			//Game.OpenMainMenu(); TODO: uncomment
-			Game.NewGame(false);
+			Game.NewGame();
 			
 			yield break; // TODO
 		}

@@ -2,25 +2,31 @@
 <state>
 	<inventory-page>0</inventory-page>
 	<current-room-id>Laboratory</current-room-id>
-	<player-character>
+	<player-character-id>Scientist</player-character-id>
+	<character>
 		<id>Scientist</id>
-		<location>
-			<position>
-				<x>0.1</x>
-				<y>0.343525</y>
-			</position>
-			<room-id>Laboratory</room-id>
-		</location>
-	</player-character>
+		<character-state>
+			<direction>Right</direction>
+			<location>
+				<position>
+					<x>0.1</x>
+					<y>0.343525</y>
+				</position>
+				<room-id>Laboratory</room-id>
+			</location>
+		</character-state>
+	</character>
 	<item>
 		<id>Erlenmeyer</id>
-		<location>
-			<position>
-				<x>0.483125</x>
-				<y>0.451221</y>
-			</position>
-			<room-id>Laboratory</room-id>
-		</location>
+		<item-state>
+			<location>
+				<position>
+					<x>0.483125</x>
+					<y>0.451221</y>
+				</position>
+				<room-id>Laboratory</room-id>
+			</location>
+		</item-state>
 	</item>
 	<hint>prueba</hint>
 </state>

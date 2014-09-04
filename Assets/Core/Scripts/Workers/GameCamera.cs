@@ -20,6 +20,10 @@ namespace SaguFramework {
 			camera.orthographicSize = 0.5f * Geometry.GetScreenHeightInUnits();
 		}
 
+		public Vector2 GetPosition() {
+			return transform.position;
+		}
+
 		public void LateUpdate() {
 			if (target != null) {
 				float halfGameWidthInUnits = 0.5f * Geometry.GetGameWidthInUnits();

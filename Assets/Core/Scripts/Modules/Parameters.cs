@@ -6,6 +6,9 @@ namespace SaguFramework {
 
 		public const float PixelsPerUnit = 1;
 
+		public const string DirectionLeft = "Left";
+		public const string DirectionRight = "Right";
+
 		public const string LanguageFileName = "Language";
 		public const string LanguagesDirectoryResourcePath = "Languages";
 		
@@ -40,8 +43,10 @@ namespace SaguFramework {
 
 		// TODO: descomentar por partes
 		public const string XmlTagBoolean = "boolean";
-		/*public const string XmlTagCharacter = "character";*/
+		public const string XmlTagCharacter = "character";
+		public const string XmlTagCharacterState = "character-state";
 		public const string XmlTagCurrentRoomId = "current-room-id";
+		public const string XmlTagDirection = "direction";
 		public const string XmlTagFloat = "float";
 		public const string XmlTagHint = "hint";
 		public const string XmlTagId = "id";
@@ -49,10 +54,11 @@ namespace SaguFramework {
 		/*public const string XmlTagInventoryItem = "inventory-item";
 		public const string XmlTagInventoryPage = "inventory-page";*/
 		public const string XmlTagItem = "item";
+		public const string XmlTagItemState = "item-state";
 		public const string XmlTagLanguage = "language";
 		public const string XmlTagLocation = "location";
 		public const string XmlTagOptions = "options";
-		/*public const string XmlTagPlayerCharacter = "player-character";*/
+		public const string XmlTagPlayerCharacterId = "player-character-id";
 		public const string XmlTagPosition = "position";
 		public const string XmlTagResourcePath = "resource-path";
 		public const string XmlTagRoomId = "room-id";
@@ -103,6 +109,22 @@ namespace SaguFramework {
 		public static string GetLanguageFileResourcePath(string id) {
 			return Utilities.GetFileResourcePath(LanguageFileName, LanguagesDirectoryResourcePath, id);
 		}
+		
+		public static Menu GetMenu() {
+			return FrameworkDelegate.GetInstance().FrameworkParameters.Menu;
+		}
+
+		public static MenuParameters GetMainMenuParameters() {
+			return GameDelegate.GetInstance().GameParameters.Menus.Main;
+		}
+
+		public static SplashScreenParameters GetMainSplashScreenParameters() {
+			return GameDelegate.GetInstance().GameParameters.SplashScreens.Main;
+		}
+
+		public static MenuParameters GetMenuParameters(string id) {
+			return GameDelegate.GetInstance().GameParameters.Menus.Menus[id];
+		}
 
 		public static string GetOptionsFilePath() {
 			string gameDirectoryPath = GetGameDirectoryPath();
@@ -115,6 +137,14 @@ namespace SaguFramework {
 
 		public static RoomParameters GetRoomParameters(string id) {
 			return GameDelegate.GetInstance().GameParameters.Rooms[id];
+		}
+
+		public static SplashScreen GetSplashScreen() {
+			return FrameworkDelegate.GetInstance().FrameworkParameters.SplashScreen;
+		}
+
+		public static SplashScreenParameters[] GetSplashScreenParametersGroup(string id) {
+			return GameDelegate.GetInstance().GameParameters.SplashScreens.Groups[id];
 		}
 		
 		public static string GetStateFilePath(string id) {

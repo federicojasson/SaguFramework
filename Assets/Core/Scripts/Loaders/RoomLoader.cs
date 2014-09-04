@@ -7,15 +7,33 @@ namespace SaguFramework {
 	public class RoomLoader : Loader {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
+			float scaleFactor = GetScaleFactor();
+
 			CreateRoom();
-			CreateCharacters(1); // TODO
-			CreateItems(1); // TODO
+			CreateCharacters(scaleFactor);
+			CreateItems(scaleFactor);
+
+			ConfigureCamera();
 
 			yield break; // TODO
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
 			yield break; // TODO
+		}
+
+		private void ConfigureCamera() {
+			Vector2 size = Objects.GetRoom().GetSize();
+
+			float x = Geometry.GameToWorldX(0f);
+			float y = Geometry.GameToWorldY(0f) + size.y;
+			float width = size.x;
+			float height = size.y;
+			Rect boundaries = new Rect(x, y, width, height);
+
+			GameCamera camera = GameCamera.GetInstance();
+			camera.SetBoundaries(boundaries);
+			camera.SetTarget(Objects.GetPlayerCharacter().transform);
 		}
 
 		private void CreateCharacters(float scaleFactor) {
@@ -25,7 +43,8 @@ namespace SaguFramework {
 			foreach (string characterId in characterIds) {
 				CharacterParameters parameters = Parameters.GetCharacterParameters(characterId);
 				Vector2 position = State.GetCharacterState(characterId).GetLocation().GetPosition();
-				Factory.CreateCharacter(parameters, position, scaleFactor);
+				Character character = Factory.CreateCharacter(parameters, position, scaleFactor);
+				character.SetId(characterId);
 			}
 		}
 
@@ -36,7 +55,8 @@ namespace SaguFramework {
 			foreach (string itemId in itemIds) {
 				ItemParameters parameters = Parameters.GetItemParameters(itemId);
 				Vector2 position = State.GetItemState(itemId).GetLocation().GetPosition();
-				Factory.CreateItem(parameters, position, scaleFactor);
+				Item item = Factory.CreateItem(parameters, position, scaleFactor);
+				item.SetId(itemId);
 			}
 		}
 
@@ -44,6 +64,11 @@ namespace SaguFramework {
 			string currentRoomId = State.GetCurrentRoomId();
 			RoomParameters parameters = Parameters.GetRoomParameters(currentRoomId);
 			Factory.CreateRoom(parameters);
+		}
+
+		private float GetScaleFactor() {
+			string currentRoomId = State.GetCurrentRoomId();
+			return Parameters.GetRoomParameters(currentRoomId).ScaleFactor;
 		}
 
 	}
