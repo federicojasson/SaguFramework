@@ -287,6 +287,8 @@ MonoBehaviour:
               type: 2}
             Position: {x: .5, y: .5}
             Size: {x: .100000001, y: 1}
+    Characters:
+      Entries: []
     Items:
       Entries:
       - Key: Erlenmeyer

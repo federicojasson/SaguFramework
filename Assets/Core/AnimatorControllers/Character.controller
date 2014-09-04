@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Scientist
+  m_Name: Character
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: FacingLeft
@@ -350,7 +350,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: ab12651624f1f5742ba8f3410a04d0ab, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110791173}
   m_Position: {x: 252, y: 96, z: 0}
@@ -366,7 +366,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: c247219ceab6bfb47bc1895ccf1a6602, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110708348}
@@ -383,7 +383,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 13852b77b43085c4fbbce4dec0fd40c1, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110708348}
@@ -400,7 +400,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 8236501c0c9f36442a61645ad96de846, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110791173}
   m_Position: {x: 252, y: -96, z: 0}
@@ -416,7 +416,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 74376ece9c515634b811087a1c6cb9e1, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110791173}
   m_Position: {x: 252, y: 0, z: 0}
@@ -432,7 +432,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: a71532fa13a12164c947f24891acc796, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110708348}

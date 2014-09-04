@@ -8,6 +8,7 @@ namespace SaguFramework {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
 			CreateRoom();
+			CreateCharacters(1); // TODO
 			CreateItems(1); // TODO
 
 			yield break; // TODO
@@ -15,6 +16,17 @@ namespace SaguFramework {
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
 			yield break; // TODO
+		}
+
+		private void CreateCharacters(float scaleFactor) {
+			string currentRoomId = State.GetCurrentRoomId();
+			List<string> characterIds = State.GetRoomCharacterIds(currentRoomId);
+
+			foreach (string characterId in characterIds) {
+				CharacterParameters parameters = Parameters.GetCharacterParameters(characterId);
+				Vector2 position = State.GetCharacterState(characterId).GetLocation().GetPosition();
+				Factory.CreateCharacter(parameters, position, scaleFactor);
+			}
 		}
 
 		private void CreateItems(float scaleFactor) {

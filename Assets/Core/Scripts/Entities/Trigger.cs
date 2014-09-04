@@ -5,7 +5,7 @@ namespace SaguFramework {
 	public class Trigger : MonoBehaviour {
 		
 		public void OnTriggerEnter2D(Collider2D collider) {
-			GetTriggerBehaviour().OnFire();
+			GetBehaviour().OnFire();
 		}
 		
 		public void SetPosition(Vector2 position) {
@@ -16,12 +16,12 @@ namespace SaguFramework {
 			GetCollider().size = size;
 		}
 		
-		private BoxCollider2D GetCollider() {
-			return GetComponent<BoxCollider2D>();
+		private TriggerBehaviour GetBehaviour() {
+			return GetComponentInChildren<TriggerBehaviour>();
 		}
 		
-		private TriggerBehaviour GetTriggerBehaviour() {
-			return GetComponentInChildren<TriggerBehaviour>();
+		private BoxCollider2D GetCollider() {
+			return GetComponent<BoxCollider2D>();
 		}
 		
 	}

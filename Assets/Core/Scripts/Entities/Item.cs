@@ -16,6 +16,10 @@ namespace SaguFramework {
 			transform.position = Utilities.GetPosition(position, transform.position.z);
 		}
 
+		private ItemBehaviour GetBehaviour() {
+			return GetComponentInChildren<ItemBehaviour>();
+		}
+
 	}
 	
 }

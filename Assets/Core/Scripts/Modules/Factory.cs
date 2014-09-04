@@ -3,7 +3,29 @@
 namespace SaguFramework {
 	
 	public static class Factory {
-		
+
+		public static Character CreateCharacter(CharacterParameters parameters, Vector2 position, float scaleFactor) {
+			Character character = Instantiate<Character>(Parameters.GetCharacter());
+			CharacterBehaviour behaviour = (CharacterBehaviour) Object.Instantiate(parameters.Behaviour);
+			Interactive interactive = CreateInteractive(parameters.Interactive);
+
+			SetParent(behaviour, character);
+
+			// TODO
+			/*Vector2 currentSize = image.GetSize();
+			float aspectRatio = currentSize.x / currentSize.y;
+			float sizeY = Geometry.GameToWorldHeight(scaleFactor * parameters.Height);
+			float sizeX = sizeY * aspectRatio;
+			Vector2 size = new Vector2(sizeX, sizeY);
+
+			interactive.SetSize(size);
+			SetParent(interactive, character);*/
+			
+			character.SetPosition(Geometry.GameToWorldPosition(position));
+
+			return character;
+		}
+
 		public static Image CreateImage(ImageParameters parameters, string defaultSortingLayer) {
 			string sortingLayer = parameters.SortingLayer;
 			if (sortingLayer.Length == 0)
@@ -18,13 +40,13 @@ namespace SaguFramework {
 			return image;
 		}
 		
-		public static void CreateItem(ItemParameters parameters, Vector2 position, float scaleFactor) {
+		public static Item CreateItem(ItemParameters parameters, Vector2 position, float scaleFactor) {
 			Item item = Instantiate<Item>(Parameters.GetItem());
-			ItemBehaviour itemBehaviour = (ItemBehaviour) Object.Instantiate(parameters.Behaviour);
+			ItemBehaviour behaviour = (ItemBehaviour) Object.Instantiate(parameters.Behaviour);
 			Image image = CreateImage(parameters.Image, Parameters.SortingLayerItem);
 			Interactive interactive = CreateInteractive(parameters.Interactive);
 
-			SetParent(itemBehaviour, item);
+			SetParent(behaviour, item);
 			
 			Vector2 currentSize = image.GetSize();
 			float aspectRatio = currentSize.x / currentSize.y;
@@ -38,6 +60,8 @@ namespace SaguFramework {
 			SetParent(interactive, item);
 
 			item.SetPosition(Geometry.GameToWorldPosition(position));
+
+			return item;
 		}
 
 		public static Interactive CreateInteractive(InteractiveParameters parameters) {
@@ -49,7 +73,7 @@ namespace SaguFramework {
 			return interactive;
 		}
 		
-		public static void CreateRoom(RoomParameters parameters) {
+		public static Room CreateRoom(RoomParameters parameters) {
 			Room room = Instantiate<Room>(Parameters.GetRoom());
 			Image backgroundImage = CreateImage(parameters.BackgroundImage, Parameters.SortingLayerRoomBackground);
 			Image foregroundImage = CreateImage(parameters.ForegroundImage, Parameters.SortingLayerRoomForeground);
@@ -76,6 +100,8 @@ namespace SaguFramework {
 				Trigger trigger = CreateTrigger(triggerParameters);
 				SetParent(trigger, room);
 			}
+
+			return room;
 		}
 
 		public static Trigger CreateTrigger(TriggerParameters parameters) {

@@ -8,6 +8,7 @@ namespace SaguFramework {
 		public string GameDirectoryPath;
 		public float GameAspectRatio;
 		public RoomParametersMap Rooms;
+		public CharacterParametersMap Characters;
 		public ItemParametersMap Items;
 		public SoundParameters Sound;
 

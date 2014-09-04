@@ -68,6 +68,14 @@ namespace SaguFramework {
 			return FrameworkDelegate.GetInstance().FrameworkParameters.CameraBackgroundColor;
 		}
 
+		public static Character GetCharacter() {
+			return FrameworkDelegate.GetInstance().FrameworkParameters.Character;
+		}
+
+		public static CharacterParameters GetCharacterParameters(string id) {
+			return GameDelegate.GetInstance().GameParameters.Characters[id];
+		}
+
 		public static float GetGameAspectRatio() {
 			return GameDelegate.GetInstance().GameParameters.GameAspectRatio;
 		}

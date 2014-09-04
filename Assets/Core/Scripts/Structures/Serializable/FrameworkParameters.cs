@@ -6,6 +6,7 @@ namespace SaguFramework {
 	[Serializable]
 	public class FrameworkParameters {
 
+		public Character Character;
 		public Image Image;
 		public Interactive Interactive;
 		public Item Item;
