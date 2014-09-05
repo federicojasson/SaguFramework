@@ -53,11 +53,7 @@ namespace SaguFramework {
 		}
 
 		public static bool HintExists(string searchedHint) {
-			foreach (string hint in hints)
-				if (hint == searchedHint)
-					return true;
-
-			return false;
+			return hints.Contains(searchedHint);
 		}
 
 	}

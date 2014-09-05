@@ -21,7 +21,6 @@ namespace SaguFramework {
 		}
 
 		public void OnEnable() {
-			Debug.Log("entre: " + GameCamera.GetInstance().GetPosition());
 			SetPosition(GameCamera.GetInstance().GetPosition());
 		}
 

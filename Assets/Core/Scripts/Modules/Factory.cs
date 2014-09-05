@@ -4,6 +4,8 @@ namespace SaguFramework {
 	
 	public static class Factory {
 
+		// TODO: fix position handling
+
 		public static Character CreateCharacter(CharacterParameters parameters, Vector2 position, float scaleFactor) {
 			Character character = Instantiate<Character>(Parameters.GetCharacter());
 			CharacterBehaviour behaviour = (CharacterBehaviour) Object.Instantiate(parameters.Behaviour);

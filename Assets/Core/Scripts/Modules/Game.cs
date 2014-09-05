@@ -10,7 +10,7 @@
 			// TODO
 		}
 
-		public static void LoadGame() {
+		public static void LoadGame(string stateId) {
 			// TODO
 		}
 
@@ -29,8 +29,8 @@
 			Objects.GetLoader().ChangeScene(Parameters.SceneMainMenu);
 		}
 
-		public static void OpenMenu(string id) {
-			MenuHandler.GetInstance().OpenMenu(id);
+		public static void OpenMenu(string menuId) {
+			MenuHandler.GetInstance().OpenMenu(menuId);
 		}
 
 		public static void PauseGame() {
@@ -41,7 +41,7 @@
 			CloseMenu();
 		}
 
-		public static void SaveGame() {
+		public static void SaveGame(string stateId) {
 			// TODO
 		}
 

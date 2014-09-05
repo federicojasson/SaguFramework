@@ -60,4 +60,20 @@
 		<id>PauseMenuSaveGameButton</id>
 		<value>Guardar partida</value>
 	</text>
+	<text>
+		<id>SaveGameMenuCancelButton</id>
+		<value>Cancelar</value>
+	</text>
+	<text>
+		<id>SaveGameMenuNewStateIdButton</id>
+		<value>Nueva partida</value>
+	</text>
+	<text>
+		<id>SaveGameMenuNewStateIdTextField</id>
+		<value>Nombre de la partida</value>
+	</text>
+	<text>
+		<id>SaveGameMenuSaveGameButton</id>
+		<value>Guardar partida</value>
+	</text>
 </language>
