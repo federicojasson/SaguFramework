@@ -10,6 +10,7 @@ namespace SaguFramework {
 		private static Stack<Menu> menus;
 		private static Character playerCharacter;
 		private static Room room;
+		private static SplashScreen splashScreen;
 
 		static Objects() {
 			characters = new List<Character>();
@@ -45,6 +46,10 @@ namespace SaguFramework {
 			return room;
 		}
 
+		public static SplashScreen GetSplashScreen() {
+			return splashScreen;
+		}
+
 		public static void RegisterCharacter(Character character) {
 			characters.Add(character);
 		}
@@ -65,6 +70,10 @@ namespace SaguFramework {
 			Objects.room = room;
 		}
 
+		public static void RegisterSplashScreen(SplashScreen splashScreen) {
+			Objects.splashScreen = splashScreen;
+		}
+
 		public static void UnregisterCharacter(Character character) {
 			characters.Remove(character);
 		}
@@ -83,6 +92,10 @@ namespace SaguFramework {
 		
 		public static void UnregisterRoom() {
 			room = null;
+		}
+
+		public static void UnregisterSplashScreen() {
+			splashScreen = null;
 		}
 
 	}

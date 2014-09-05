@@ -82,6 +82,14 @@ namespace SaguFramework {
 			return GameDelegate.GetInstance().GameParameters.Characters[id];
 		}
 
+		public static float GetDelayBetweenSongs() {
+			return GameDelegate.GetInstance().GameParameters.Sounds.DelayBetweenSongs;
+		}
+		
+		public static Texture2D GetFadeTexture() {
+			return FrameworkDelegate.GetInstance().FrameworkParameters.FadeTexture;
+		}
+
 		public static float GetGameAspectRatio() {
 			return GameDelegate.GetInstance().GameParameters.GameAspectRatio;
 		}
@@ -98,6 +106,10 @@ namespace SaguFramework {
 			return FrameworkDelegate.GetInstance().FrameworkParameters.Interactive;
 		}
 
+		public static AudioClip GetInventoryEffect() {
+			return GameDelegate.GetInstance().GameParameters.Sounds.InventoryEffect;
+		}
+
 		public static Item GetItem() {
 			return FrameworkDelegate.GetInstance().FrameworkParameters.Item;
 		}
@@ -109,17 +121,33 @@ namespace SaguFramework {
 		public static string GetLanguageFileResourcePath(string id) {
 			return Utilities.GetFileResourcePath(LanguageFileName, LanguagesDirectoryResourcePath, id);
 		}
+
+		public static AudioClip GetMainEffect() {
+			return GameDelegate.GetInstance().GameParameters.Sounds.MainEffect;
+		}
 		
-		public static Menu GetMenu() {
-			return FrameworkDelegate.GetInstance().FrameworkParameters.Menu;
+		public static LoaderParameters GetMainLoaderParameters() {
+			return GameDelegate.GetInstance().GameParameters.Loaders.MainLoader;
+		}
+		
+		public static LoaderParameters GetMainMenuLoaderParameters() {
+			return GameDelegate.GetInstance().GameParameters.Loaders.MainMenuLoader;
 		}
 
 		public static MenuParameters GetMainMenuParameters() {
 			return GameDelegate.GetInstance().GameParameters.Menus.Main;
 		}
 
+		public static AudioClip GetMainMenuSong() {
+			return GameDelegate.GetInstance().GameParameters.Sounds.MainMenuSong;
+		}
+
 		public static SplashScreenParameters GetMainSplashScreenParameters() {
 			return GameDelegate.GetInstance().GameParameters.SplashScreens.Main;
+		}
+		
+		public static Menu GetMenu() {
+			return FrameworkDelegate.GetInstance().FrameworkParameters.Menu;
 		}
 
 		public static MenuParameters GetMenuParameters(string id) {
@@ -131,16 +159,36 @@ namespace SaguFramework {
 			return Utilities.GetFilePath(OptionsFileName, OptionsFileExtension, gameDirectoryPath);
 		}
 
+		public static MenuParameters GetPauseMenuParameters() {
+			return GameDelegate.GetInstance().GameParameters.Menus.Pause;
+		}
+
+		public static AudioClip[] GetPlaylist() {
+			return GameDelegate.GetInstance().GameParameters.Sounds.Playlist;
+		}
+
 		public static Room GetRoom() {
 			return FrameworkDelegate.GetInstance().FrameworkParameters.Room;
+		}
+
+		public static LoaderParameters GetRoomLoaderParameters() {
+			return GameDelegate.GetInstance().GameParameters.Loaders.RoomLoader;
 		}
 
 		public static RoomParameters GetRoomParameters(string id) {
 			return GameDelegate.GetInstance().GameParameters.Rooms[id];
 		}
+		
+		public static LoaderParameters GetSpecialLoaderParameters() {
+			return GameDelegate.GetInstance().GameParameters.Loaders.SpecialLoader;
+		}
 
 		public static SplashScreen GetSplashScreen() {
 			return FrameworkDelegate.GetInstance().FrameworkParameters.SplashScreen;
+		}
+		
+		public static LoaderParameters GetSplashScreenLoaderParameters() {
+			return GameDelegate.GetInstance().GameParameters.Loaders.SplashScreenLoader;
 		}
 
 		public static SplashScreenParameters[] GetSplashScreenParametersGroup(string id) {
@@ -156,8 +204,12 @@ namespace SaguFramework {
 			return FrameworkDelegate.GetInstance().FrameworkParameters.Trigger;
 		}
 
-		public static Texture2D GetWindowboxingTexture() {
-			return FrameworkDelegate.GetInstance().FrameworkParameters.WindowboxingTexture;
+		public static Texture2D GetWindowboxTexture() {
+			return FrameworkDelegate.GetInstance().FrameworkParameters.WindowboxTexture;
+		}
+
+		public static bool ShuffleSongs() {
+			return GameDelegate.GetInstance().GameParameters.Sounds.ShuffleSongs;
 		}
 
 	}

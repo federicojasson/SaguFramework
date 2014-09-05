@@ -42,7 +42,7 @@ namespace SaguFramework {
 			if (new Rect(0, 0, Screen.width, Screen.height / 2f).Contains(Input.mousePosition))
 				Debug.Log("abajo");*/
 
-			transform.position += new Vector3(1, 0, 0);
+			//transform.position += new Vector3(1, 0, 0);
 		}
 
 	}

@@ -32,6 +32,11 @@ namespace SaguFramework {
 			OpenMenu(parameters);
 		}
 
+		public void OpenPauseMenu() {
+			MenuParameters parameters = Parameters.GetPauseMenuParameters();
+			OpenMenu(parameters);
+		}
+
 		private void OpenMenu(MenuParameters parameters) {
 			if (Objects.GetMenuCount() > 0)
 				Objects.GetCurrentMenu().Hide();

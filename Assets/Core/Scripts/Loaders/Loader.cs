@@ -20,6 +20,40 @@ namespace SaguFramework {
 		public void Start() {
 			StartCoroutine(LoadSceneCoroutine());
 		}
+		
+		protected IEnumerator FadeInCoroutine(FadeParameters fadeParameters) {
+			if (fadeParameters.Ignore)
+				yield break;
+
+			Masker masker = Masker.GetInstance();
+			masker.SetFadeTexture(fadeParameters.Texture);
+			masker.SetFadeSpeed(- fadeParameters.Speed);
+			
+			while (masker.GetFadeTextureOpacity() > 0)
+				if (masker.GetFadeSpeed() >= 0)
+					yield break;
+			else
+				yield return null;
+			
+			masker.SetFadeSpeed(0);
+		}
+		
+		protected IEnumerator FadeOutCoroutine(FadeParameters fadeParameters) {
+			if (fadeParameters.Ignore)
+				yield break;
+
+			Masker masker = Masker.GetInstance();
+			masker.SetFadeTexture(fadeParameters.Texture);
+			masker.SetFadeSpeed(fadeParameters.Speed);
+			
+			while (masker.GetFadeTextureOpacity() < 1)
+				if (masker.GetFadeSpeed() <= 0)
+					yield break;
+			else
+				yield return null;
+			
+			masker.SetFadeSpeed(0);
+		}
 
 		protected abstract IEnumerator LoadSceneCoroutine();
 		

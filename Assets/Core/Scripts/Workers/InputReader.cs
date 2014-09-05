@@ -52,6 +52,12 @@ namespace SaguFramework {
 
 		public void Update() {
 			// TODO
+
+			if (Input.GetKeyDown(KeyCode.P))
+				Game.PauseGame();
+
+			if (Input.GetKeyDown(KeyCode.R))
+				Game.ResumeGame();
 		}
 
 	}

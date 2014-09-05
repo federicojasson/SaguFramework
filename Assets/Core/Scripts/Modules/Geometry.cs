@@ -62,10 +62,10 @@ namespace SaguFramework {
 			float screenHeightInPixels = GetScreenHeightInPixels();
 			
 			if (gameAspectRatio > screenAspectRatio)
-				// Letterboxing
+				// Letterbox
 				return screenWidthInPixels / gameAspectRatio;
 			else
-				// Pillarboxing
+				// Pillarbox
 				return screenHeightInPixels;
 		}
 		
@@ -118,10 +118,10 @@ namespace SaguFramework {
 			float screenHeightInPixels = GetScreenHeightInPixels();
 			
 			if (gameAspectRatio > screenAspectRatio)
-				// Letterboxing
+				// Letterbox
 				return screenWidthInPixels;
 			else
-				// Pillarboxing
+				// Pillarbox
 				return screenHeightInPixels * gameAspectRatio;
 		}
 		
@@ -195,23 +195,21 @@ namespace SaguFramework {
 			return screenWidthInUnits;
 		}
 		
-		public static Rect[] GetWindowboxingRectanglesInGui() {
-			Rect[] windowboxingRectanglesInScreen = GetWindowboxingRectanglesInScreen();
-			Rect[] windowboxingRectanglesInGui = new Rect[windowboxingRectanglesInScreen.Length];
+		public static Rect[] GetWindowboxRectanglesInGui() {
+			Rect[] windowboxRectanglesInScreen = GetWindowboxRectanglesInScreen();
+			Rect[] windowboxRectanglesInGui = new Rect[windowboxRectanglesInScreen.Length];
 			
-			for (int i = 0; i < windowboxingRectanglesInScreen.Length; i++)
-				windowboxingRectanglesInGui[i] = ScreenToGuiRectangle(windowboxingRectanglesInScreen[i]);
+			for (int i = 0; i < windowboxRectanglesInScreen.Length; i++)
+				windowboxRectanglesInGui[i] = ScreenToGuiRectangle(windowboxRectanglesInScreen[i]);
 			
-			return windowboxingRectanglesInGui;
+			return windowboxRectanglesInGui;
 		}
 		
-		public static Rect[] GetWindowboxingRectanglesInScreen() {
-			Rect[] windowboxingRectanglesInScreen = new Rect[4];
-			
-			float gameAspectRatio = GetGameAspectRatio();
+		public static Rect[] GetWindowboxRectanglesInScreen() {
+			Rect[] windowboxRectanglesInScreen = new Rect[4];
+
 			float gameWidthInPixels = GetGameWidthInPixels();
 			float gameHeightInPixels = GetGameHeightInPixels();
-			float screenAspectRatio = GetScreenAspectRatio();
 			float screenWidthInPixels = GetScreenWidthInPixels();
 			float screenHeightInPixels = GetScreenHeightInPixels();
 			
@@ -219,18 +217,18 @@ namespace SaguFramework {
 			float height = 0.5f * (screenHeightInPixels - gameHeightInPixels);
 			
 			// Left rectangle
-			windowboxingRectanglesInScreen[0] = new Rect(0f, 0f, width, screenHeightInPixels);
+			windowboxRectanglesInScreen[0] = new Rect(0f, 0f, width, screenHeightInPixels);
 			
 			// Right rectangle
-			windowboxingRectanglesInScreen[1] = new Rect(screenWidthInPixels - width, 0f, width, screenHeightInPixels);
+			windowboxRectanglesInScreen[1] = new Rect(screenWidthInPixels - width, 0f, width, screenHeightInPixels);
 			
 			// Bottom rectangle
-			windowboxingRectanglesInScreen[2] = new Rect(0f, 0f, screenWidthInPixels, height);
+			windowboxRectanglesInScreen[2] = new Rect(0f, 0f, screenWidthInPixels, height);
 			
 			// Top rectangle
-			windowboxingRectanglesInScreen[3] = new Rect(0f, screenHeightInPixels - height, screenWidthInPixels, height);
+			windowboxRectanglesInScreen[3] = new Rect(0f, screenHeightInPixels - height, screenWidthInPixels, height);
 			
-			return windowboxingRectanglesInScreen;
+			return windowboxRectanglesInScreen;
 		}
 
 		public static float GuiToScreenHeight(float heightInGui) {

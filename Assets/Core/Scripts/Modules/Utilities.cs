@@ -47,6 +47,29 @@ namespace SaguFramework {
 			return resourcePath;
 		}
 
+		public static int[] GetIntegerPermutationLinear(int n) {
+			int[] permutation = new int[n];
+			
+			for (int i = 0; i < n; i++)
+				permutation[i] = i;
+			
+			return permutation;
+		}
+		
+		public static int[] GetIntegerPermutationFisherYates(int n) {
+			int[] permutation = GetIntegerPermutationLinear(n);
+			
+			for (int i = n - 1; i > 0; i--) {
+				int j = UnityEngine.Random.Range(0, i + 1);
+
+				int auxiliar = permutation[i];
+				permutation[i] = permutation[j];
+				permutation[j] = auxiliar;
+			}
+			
+			return permutation;
+		}
+
 		public static Vector3 GetPosition(Vector3 position, float z) {
 			return new Vector3(position.x, position.y, z);
 		}

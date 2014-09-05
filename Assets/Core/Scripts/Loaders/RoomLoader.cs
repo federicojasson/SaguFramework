@@ -8,18 +8,16 @@ namespace SaguFramework {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
 			float scaleFactor = GetScaleFactor();
-
 			CreateRoom();
 			CreateCharacters(scaleFactor);
 			CreateItems(scaleFactor);
-
 			ConfigureCamera();
 
-			yield break; // TODO
+			yield return StartCoroutine(FadeInCoroutine(Parameters.GetRoomLoaderParameters().FadeIn));
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			yield break; // TODO
+			yield return StartCoroutine(FadeOutCoroutine(Parameters.GetRoomLoaderParameters().FadeOut));
 		}
 
 		private void ConfigureCamera() {

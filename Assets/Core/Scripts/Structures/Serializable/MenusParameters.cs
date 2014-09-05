@@ -6,6 +6,7 @@ namespace SaguFramework {
 	public class MenusParameters {
 
 		public MenuParameters Main;
+		public MenuParameters Pause;
 		public MenuParametersMap Menus;
 		
 	}

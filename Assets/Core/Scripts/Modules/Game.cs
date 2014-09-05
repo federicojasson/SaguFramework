@@ -34,7 +34,11 @@
 		}
 
 		public static void PauseGame() {
-			// TODO
+			MenuHandler.GetInstance().OpenPauseMenu();
+		}
+
+		public static void ResumeGame() {
+			CloseMenu();
 		}
 
 		public static void SaveGame() {

@@ -148,8 +148,8 @@ MonoBehaviour:
     Room: {fileID: 11400000, guid: 667f94983ab9b584f8005c7efb12add1, type: 2}
     SplashScreen: {fileID: 11400000, guid: b22d54e6b2adaa44d8d5e2d4d44a77b0, type: 2}
     Trigger: {fileID: 11400000, guid: 993c7af6aac59d54a9fb18580a67362c, type: 2}
-    WindowboxingTexture: {fileID: 2800000, guid: 3c69fe5f8a7e5084bbc92e90987347c1,
-      type: 3}
+    FadeTexture: {fileID: 2800000, guid: d61b5fe2cfc413d42bf158c6580f803a, type: 3}
+    WindowboxTexture: {fileID: 2800000, guid: 3c69fe5f8a7e5084bbc92e90987347c1, type: 3}
     CameraBackgroundColor: {r: .698529422, g: .0975886807, b: .0975886807, a: 0}
 --- !u!4 &492055072
 Transform:
@@ -210,7 +210,7 @@ GameObject:
   - 4: {fileID: 603054374}
   - 114: {fileID: 603054373}
   m_Layer: 0
-  m_Name: Mask
+  m_Name: Masker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,6 +363,13 @@ MonoBehaviour:
           Opacity: 1
           SortingLayer: 
         Height: 1
+      Pause:
+        Behaviour: {fileID: 11400000, guid: 02a041c5505114a4e923db3c640ac271, type: 2}
+        Image:
+          Sprite: {fileID: 21300000, guid: 59fd3c3750509154f8741d081b4cf976, type: 3}
+          Opacity: 1
+          SortingLayer: 
+        Height: 1
       Menus:
         Entries:
         - Key: ExitConfirmationMenu
@@ -392,9 +399,18 @@ MonoBehaviour:
               Opacity: 1
               SortingLayer: 
             Height: 1
-        - Key: PauseMenu
+        - Key: GoBackConfirmationMenu
           Value:
-            Behaviour: {fileID: 11400000, guid: 02a041c5505114a4e923db3c640ac271,
+            Behaviour: {fileID: 11400000, guid: 6004525f4fa95b940afe2b4ee709c3b7,
+              type: 2}
+            Image:
+              Sprite: {fileID: 21300000, guid: 59fd3c3750509154f8741d081b4cf976, type: 3}
+              Opacity: 1
+              SortingLayer: 
+            Height: 1
+        - Key: SaveGameMenu
+          Value:
+            Behaviour: {fileID: 11400000, guid: 0fcef6bc921e67242806ff84bb519047,
               type: 2}
             Image:
               Sprite: {fileID: 21300000, guid: 59fd3c3750509154f8741d081b4cf976, type: 3}
@@ -408,6 +424,7 @@ MonoBehaviour:
           Opacity: 1
           SortingLayer: 
         Height: 1
+        MinimumDelayTime: 4.5
       Groups:
         Entries:
         - Key: Information
@@ -417,16 +434,19 @@ MonoBehaviour:
               Opacity: 1
               SortingLayer: 
             Height: 1
+            MinimumDelayTime: 0
           - Image:
               Sprite: {fileID: 21300000, guid: a7bae905c91be9040a42830fb3c92520, type: 3}
               Opacity: 1
               SortingLayer: 
             Height: 1
+            MinimumDelayTime: 0
           - Image:
               Sprite: {fileID: 21300000, guid: 3db5ea6917b85004099ae46e2ec8cf8c, type: 3}
               Opacity: 1
               SortingLayer: 
             Height: 1
+            MinimumDelayTime: 0
         - Key: Molecules
           Value:
           - Image:
@@ -434,23 +454,72 @@ MonoBehaviour:
               Opacity: 1
               SortingLayer: 
             Height: 1
+            MinimumDelayTime: 0
           - Image:
               Sprite: {fileID: 21300000, guid: c29b85482e5f0c340a0f843044148a12, type: 3}
               Opacity: 1
               SortingLayer: 
             Height: 1
+            MinimumDelayTime: 0
           - Image:
               Sprite: {fileID: 21300000, guid: 81cf8d83498057d4eb64f64a108c0424, type: 3}
               Opacity: 1
               SortingLayer: 
             Height: 1
+            MinimumDelayTime: 0
     Sounds:
-      MainEffect: {fileID: 0}
+      MainEffect: {fileID: 8300000, guid: 4da25d4691591144f94d46b21db17eae, type: 3}
       InventoryEffect: {fileID: 0}
-      MainMenuSong: {fileID: 0}
-      Songs: []
-      ShuffleSongs: 0
-      DelayBetweenSongs: 0
+      MainMenuSong: {fileID: 8300000, guid: a0d451f4b5836814f8e5b43aa9d3d388, type: 3}
+      Playlist: []
+      ShuffleSongs: 1
+      DelayBetweenSongs: 2
+    Loaders:
+      MainLoader:
+        FadeIn:
+          Ignore: 0
+          Speed: .400000006
+          Texture: {fileID: 0}
+        FadeOut:
+          Ignore: 0
+          Speed: .400000006
+          Texture: {fileID: 0}
+      MainMenuLoader:
+        FadeIn:
+          Ignore: 0
+          Speed: .400000006
+          Texture: {fileID: 0}
+        FadeOut:
+          Ignore: 0
+          Speed: .400000006
+          Texture: {fileID: 0}
+      RoomLoader:
+        FadeIn:
+          Ignore: 0
+          Speed: .400000006
+          Texture: {fileID: 0}
+        FadeOut:
+          Ignore: 0
+          Speed: .400000006
+          Texture: {fileID: 0}
+      SpecialLoader:
+        FadeIn:
+          Ignore: 0
+          Speed: .400000006
+          Texture: {fileID: 0}
+        FadeOut:
+          Ignore: 0
+          Speed: .400000006
+          Texture: {fileID: 0}
+      SplashScreenLoader:
+        FadeIn:
+          Ignore: 0
+          Speed: .400000006
+          Texture: {fileID: 0}
+        FadeOut:
+          Ignore: 0
+          Speed: .400000006
+          Texture: {fileID: 0}
 --- !u!4 &658528606
 Transform:
   m_ObjectHideFlags: 0

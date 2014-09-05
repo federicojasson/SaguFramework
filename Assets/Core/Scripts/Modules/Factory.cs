@@ -88,7 +88,7 @@ namespace SaguFramework {
 			float sizeY = Geometry.GameToWorldHeight(parameters.Height);
 			float sizeX = sizeY * aspectRatio;
 			Vector2 size = new Vector2(sizeX, sizeY);
-			
+
 			image.SetSize(size);
 			SetParent(image, menu);
 			
@@ -160,6 +160,7 @@ namespace SaguFramework {
 
 		private static void SetParent(Component child, Component parent) {
 			child.transform.parent = parent.transform;
+			child.transform.localPosition = Vector3.zero;
 		}
 
 	}

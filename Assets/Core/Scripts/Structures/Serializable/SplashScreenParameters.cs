@@ -7,6 +7,7 @@ namespace SaguFramework {
 		
 		public ImageParameters Image;
 		public float Height;
+		public float MinimumDelayTime;
 		
 	}
 	

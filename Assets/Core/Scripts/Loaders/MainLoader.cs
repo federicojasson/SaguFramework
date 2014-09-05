@@ -5,25 +5,24 @@ namespace SaguFramework {
 	public class MainLoader : Loader {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
-			SplashScreenHandler.GetInstance().ShowMainSplashScreen();
-
+			Game.NewGame();
 			LoadOptions();
-
+			SoundPlayer.GetInstance().PlayMainEffect();
+			SplashScreenHandler.GetInstance().ShowMainSplashScreen();
+			yield return StartCoroutine(FadeInCoroutine(Parameters.GetMainLoaderParameters().FadeIn));
+			yield return StartCoroutine(Objects.GetSplashScreen().Delay());
 			Game.OpenMainMenu();
-			//Game.NewGame();
-			
-			yield break; // TODO
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			yield break; // TODO
+			yield return StartCoroutine(FadeOutCoroutine(Parameters.GetMainLoaderParameters().FadeOut));
 		}
 
 		private void LoadOptions() {
 			Options.Load();
 			
-			string language = Options.GetString(Parameters.OptionIdLanguage);
-			Language.Load(language);
+			string languageId = Options.GetString(Parameters.OptionIdLanguage);
+			Language.Load(languageId);
 
 			float effectVolume = Options.GetFloat(Parameters.OptionIdEffectVolume);
 			float masterVolume = Options.GetFloat(Parameters.OptionIdMasterVolume);

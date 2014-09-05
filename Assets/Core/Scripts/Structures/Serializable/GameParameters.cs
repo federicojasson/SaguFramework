@@ -13,6 +13,7 @@ namespace SaguFramework {
 		public MenusParameters Menus;
 		public SplashScreensParameters SplashScreens;
 		public SoundsParameters Sounds;
+		public LoadersParameters Loaders;
 
 	}
 

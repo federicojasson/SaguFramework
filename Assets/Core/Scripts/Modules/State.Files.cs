@@ -84,7 +84,9 @@ namespace SaguFramework {
 				XElement characterStateNode = new XElement(Parameters.XmlTagCharacterState);
 				Utilities.SetXmlNodeCharacterStateValue(characterStateNode, entry.Value);
 
-				stateNode.Add(characterStateNode);
+				characterNode.Add(idNode);
+				characterNode.Add(characterStateNode);
+				stateNode.Add(characterNode);
 			}
 			
 			// Items
@@ -97,7 +99,9 @@ namespace SaguFramework {
 				XElement itemStateNode = new XElement(Parameters.XmlTagItemState);
 				Utilities.SetXmlNodeItemStateValue(itemStateNode, entry.Value);
 
-				stateNode.Add(itemStateNode);
+				itemNode.Add(idNode);
+				itemNode.Add(itemStateNode);
+				stateNode.Add(itemNode);
 			}
 			
 			// Initializes and returns the state file

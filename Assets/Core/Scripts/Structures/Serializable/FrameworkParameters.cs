@@ -14,7 +14,8 @@ namespace SaguFramework {
 		public Room Room;
 		public SplashScreen SplashScreen;
 		public Trigger Trigger;
-		public Texture2D WindowboxingTexture;
+		public Texture2D FadeTexture;
+		public Texture2D WindowboxTexture;
 		public Color CameraBackgroundColor;
 		
 	}

@@ -5,11 +5,14 @@ namespace SaguFramework {
 	public class SplashScreenLoader : Loader {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
-			yield break; // TODO
+			SplashScreenHandler.GetInstance().ShowSplashScreenFromCurrentGroup();
+			yield return StartCoroutine(FadeInCoroutine(Parameters.GetSplashScreenLoaderParameters().FadeIn));
+			yield return StartCoroutine(Objects.GetSplashScreen().Delay());
+			ChangeScene(Parameters.SceneRoom);
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			yield break; // TODO
+			yield return StartCoroutine(FadeOutCoroutine(Parameters.GetSplashScreenLoaderParameters().FadeOut));
 		}
 
 	}

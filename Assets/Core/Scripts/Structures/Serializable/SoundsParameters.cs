@@ -9,7 +9,7 @@ namespace SaguFramework {
 		public AudioClip MainEffect;
 		public AudioClip InventoryEffect;
 		public AudioClip MainMenuSong;
-		public AudioClip[] Songs;
+		public AudioClip[] Playlist;
 		public bool ShuffleSongs;
 		public float DelayBetweenSongs;
 		
