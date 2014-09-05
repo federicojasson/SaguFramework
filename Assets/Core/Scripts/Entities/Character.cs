@@ -34,6 +34,17 @@ namespace SaguFramework {
 			return GetComponentInChildren<CharacterBehaviour>();
 		}
 
+		// TODO: temporal
+		public void Update() {
+			/*if (new Rect(0, Screen.height / 2f, Screen.width, Screen.height / 2f).Contains(Input.mousePosition))
+				Debug.Log("arriba");
+
+			if (new Rect(0, 0, Screen.width, Screen.height / 2f).Contains(Input.mousePosition))
+				Debug.Log("abajo");*/
+
+			transform.position += new Vector3(1, 0, 0);
+		}
+
 	}
 	
 }

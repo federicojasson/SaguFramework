@@ -4,7 +4,9 @@ namespace SaguFramework {
 	
 	public abstract class TriggerBehaviour : MonoBehaviour {
 		
-		public abstract void OnFire();
+		public virtual void OnPlayerCharacterEnter() {}
+
+		public virtual void OnPlayerCharacterExit() {}
 		
 	}
 	

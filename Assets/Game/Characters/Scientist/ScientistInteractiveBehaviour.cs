@@ -8,6 +8,11 @@ namespace EmergenciaQuimica {
 			// TODO: Scientist.OnCursorEnter()
 			UnityEngine.Debug.Log("Scientist.OnCursorEnter()");
 		}
+
+		public override void OnCursorExit() {
+			// TODO: Scientist.OnCursorExit()
+			UnityEngine.Debug.Log("Scientist.OnCursorExit()");
+		}
 		
 	}
 	

@@ -5,7 +5,12 @@ namespace SaguFramework {
 	public class Image : MonoBehaviour {
 
 		public Vector2 GetSize() {
-			return GetSpriteRenderer().sprite.bounds.size;
+			SpriteRenderer renderer = GetSpriteRenderer();
+			
+			float width = transform.localScale.x * renderer.sprite.bounds.size.x;
+			float height = transform.localScale.y * renderer.sprite.bounds.size.y;
+
+			return new Vector2(width, height);
 		}
 
 		public void SetOpacity(float opacity) {

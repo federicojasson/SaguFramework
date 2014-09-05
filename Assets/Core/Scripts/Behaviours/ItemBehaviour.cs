@@ -4,7 +4,7 @@ namespace SaguFramework {
 	
 	public abstract class ItemBehaviour : MonoBehaviour {
 
-		public abstract void OnLook();
+		public virtual void OnLook() {}
 
 	}
 	

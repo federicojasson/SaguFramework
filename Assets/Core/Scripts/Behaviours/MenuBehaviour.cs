@@ -4,7 +4,7 @@ namespace SaguFramework {
 	
 	public abstract class MenuBehaviour : MonoBehaviour {
 		
-		public abstract void OnShowing();
+		public virtual void OnShowing() {}
 		
 	}
 	

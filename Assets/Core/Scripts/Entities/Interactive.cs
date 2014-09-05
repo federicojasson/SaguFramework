@@ -5,7 +5,13 @@ namespace SaguFramework {
 	public class Interactive : MonoBehaviour {
 
 		public void OnMouseEnter() {
-			GetBehaviour().OnCursorEnter();
+			if (Geometry.GetGameRectangleInScreen().Contains(Input.mousePosition))
+				InputReader.GetInstance().NotifyOnMouseEnter(GetBehaviour());
+		}
+
+		public void OnMouseExit() {
+			if (Geometry.GetGameRectangleInScreen().Contains(Input.mousePosition))
+				InputReader.GetInstance().NotifyOnMouseExit(GetBehaviour());
 		}
 		
 		public void SetSize(Vector2 size) {

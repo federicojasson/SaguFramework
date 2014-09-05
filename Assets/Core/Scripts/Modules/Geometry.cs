@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace SaguFramework {
 
@@ -16,12 +16,12 @@ namespace SaguFramework {
 			
 			return new Vector2(xInWorld, yInWorld);
 		}
-		
+
 		public static Rect GameToWorldRectangle(Rect rectangleInGame) {
-			float xInWorld = GameToWorldX(rectangleInGame.x);
-			float yInWorld = GameToWorldY(rectangleInGame.y);
 			float widthInWorld = GameToWorldWidth(rectangleInGame.width);
 			float heightInWorld = GameToWorldHeight(rectangleInGame.height);
+			float xInWorld = GameToWorldX(rectangleInGame.x);
+			float yInWorld = GameToWorldY(rectangleInGame.y);
 			
 			return new Rect(xInWorld, yInWorld, widthInWorld, heightInWorld);
 		}
@@ -70,15 +70,13 @@ namespace SaguFramework {
 		}
 		
 		public static float GetGameHeightInUnits() {
-			// Pixels --> Units
 			float gameHeightInPixels = GetGameHeightInPixels();
 			float gameHeightInUnits = PixelsToUnits(gameHeightInPixels);
 			
 			return gameHeightInUnits;
 		}
-		
+
 		public static Rect GetGameRectangleInGui() {
-			// Screen --> GUI
 			Rect gameRectangleInScreen = GetGameRectangleInScreen();
 			Rect gameRectangleInGui = ScreenToGuiRectangle(gameRectangleInScreen);
 			
@@ -90,11 +88,11 @@ namespace SaguFramework {
 			float gameHeightInPixels = GetGameHeightInPixels();
 			float screenWidthInPixels = GetScreenWidthInPixels();
 			float screenHeightInPixels = GetScreenHeightInPixels();
-
-			float xInScreen = 0.5f * (screenWidthInPixels - gameWidthInPixels);
-			float yInScreen = 0.5f * (screenHeightInPixels + gameHeightInPixels);
+			
 			float widthInScreen = gameWidthInPixels;
 			float heightInScreen = gameHeightInPixels;
+			float xInScreen = 0.5f * (screenWidthInPixels - gameWidthInPixels);
+			float yInScreen = 0.5f * (screenHeightInPixels - gameHeightInPixels);
 			
 			return new Rect(xInScreen, yInScreen, widthInScreen, heightInScreen);
 		}
@@ -128,7 +126,6 @@ namespace SaguFramework {
 		}
 		
 		public static float GetGameWidthInUnits() {
-			// Pixels --> Units
 			float gameWidthInPixels = GetGameWidthInPixels();
 			float gameWidthInUnits = PixelsToUnits(gameWidthInPixels);
 			
@@ -151,7 +148,6 @@ namespace SaguFramework {
 		}
 		
 		public static float GetScreenHeightInUnits() {
-			// Pixels --> Units
 			float screenHeightInPixels = GetScreenHeightInPixels();
 			float screenHeightInUnits = PixelsToUnits(screenHeightInPixels);
 			
@@ -159,7 +155,6 @@ namespace SaguFramework {
 		}
 		
 		public static Rect GetScreenRectangleInGui() {
-			// Screen --> GUI
 			Rect screenRectangleInScreen = GetScreenRectangleInScreen();
 			Rect screenRectangleInGui = ScreenToGuiRectangle(screenRectangleInScreen);
 			
@@ -167,12 +162,10 @@ namespace SaguFramework {
 		}
 		
 		public static Rect GetScreenRectangleInScreen() {
-			float screenHeightInPixels = GetScreenHeightInPixels();
-			
-			float xInScreen = 0f;
-			float yInScreen = screenHeightInPixels;
 			float widthInScreen = GetScreenWidthInPixels();
-			float heightInScreen = screenHeightInPixels;
+			float heightInScreen = GetScreenHeightInPixels();
+			float xInScreen = 0f;
+			float yInScreen = 0f;
 			
 			return new Rect(xInScreen, yInScreen, widthInScreen, heightInScreen);
 		}
@@ -196,7 +189,6 @@ namespace SaguFramework {
 		}
 		
 		public static float GetScreenWidthInUnits() {
-			// Pixels --> Units
 			float screenWidthInPixels = GetScreenWidthInPixels();
 			float screenWidthInUnits = PixelsToUnits(screenWidthInPixels);
 			
@@ -204,7 +196,6 @@ namespace SaguFramework {
 		}
 		
 		public static Rect[] GetWindowboxingRectanglesInGui() {
-			// Screen --> GUI
 			Rect[] windowboxingRectanglesInScreen = GetWindowboxingRectanglesInScreen();
 			Rect[] windowboxingRectanglesInGui = new Rect[windowboxingRectanglesInScreen.Length];
 			
@@ -223,25 +214,25 @@ namespace SaguFramework {
 			float screenAspectRatio = GetScreenAspectRatio();
 			float screenWidthInPixels = GetScreenWidthInPixels();
 			float screenHeightInPixels = GetScreenHeightInPixels();
-
+			
 			float width = 0.5f * (screenWidthInPixels - gameWidthInPixels);
 			float height = 0.5f * (screenHeightInPixels - gameHeightInPixels);
-
+			
 			// Left rectangle
-			windowboxingRectanglesInScreen[0] = new Rect(0f, screenHeightInPixels, width, screenHeightInPixels);
-
+			windowboxingRectanglesInScreen[0] = new Rect(0f, 0f, width, screenHeightInPixels);
+			
 			// Right rectangle
-			windowboxingRectanglesInScreen[1] = new Rect(screenWidthInPixels - width, screenHeightInPixels, width, screenHeightInPixels);
-
+			windowboxingRectanglesInScreen[1] = new Rect(screenWidthInPixels - width, 0f, width, screenHeightInPixels);
+			
 			// Bottom rectangle
-			windowboxingRectanglesInScreen[2] = new Rect(0f, height, screenWidthInPixels, height);
-
+			windowboxingRectanglesInScreen[2] = new Rect(0f, 0f, screenWidthInPixels, height);
+			
 			// Top rectangle
-			windowboxingRectanglesInScreen[3] = new Rect(0f, screenHeightInPixels, screenWidthInPixels, height);
+			windowboxingRectanglesInScreen[3] = new Rect(0f, screenHeightInPixels - height, screenWidthInPixels, height);
 			
 			return windowboxingRectanglesInScreen;
 		}
-		
+
 		public static float GuiToScreenHeight(float heightInGui) {
 			return heightInGui;
 		}
@@ -252,12 +243,12 @@ namespace SaguFramework {
 			
 			return new Vector2(xInScreen, yInScreen);
 		}
-		
+
 		public static Rect GuiToScreenRectangle(Rect rectangleInGui) {
-			float xInScreen = GuiToScreenX(rectangleInGui.x);
-			float yInScreen = GuiToScreenY(rectangleInGui.y);
 			float widthInScreen = GuiToScreenWidth(rectangleInGui.width);
 			float heightInScreen = GuiToScreenHeight(rectangleInGui.height);
+			float xInScreen = GuiToScreenX(rectangleInGui.x);
+			float yInScreen = GuiToScreenY(rectangleInGui.y) - heightInScreen;
 			
 			return new Rect(xInScreen, yInScreen, widthInScreen, heightInScreen);
 		}
@@ -279,7 +270,7 @@ namespace SaguFramework {
 		
 		public static float GuiToScreenY(float yInGui) {
 			float screenHeightInPixels = GetScreenHeightInPixels();
-			float yInScreen = screenHeightInPixels + yInGui;
+			float yInScreen = screenHeightInPixels - yInGui;
 			
 			return yInScreen;
 		}
@@ -300,12 +291,12 @@ namespace SaguFramework {
 			
 			return new Vector2(xInGui, yInGui);
 		}
-		
+
 		public static Rect ScreenToGuiRectangle(Rect rectangleInScreen) {
-			float xInGui = ScreenToGuiX(rectangleInScreen.x);
-			float yInGui = ScreenToGuiY(rectangleInScreen.y);
 			float widthInGui = ScreenToGuiWidth(rectangleInScreen.width);
 			float heightInGui = ScreenToGuiHeight(rectangleInScreen.height);
+			float xInGui = ScreenToGuiX(rectangleInScreen.x);
+			float yInGui = ScreenToGuiY(rectangleInScreen.y) - heightInGui;
 			
 			return new Rect(xInGui, yInGui, widthInGui, heightInGui);
 		}
@@ -352,10 +343,10 @@ namespace SaguFramework {
 		}
 		
 		public static Rect WorldToGameRectangle(Rect rectangleInWorld) {
-			float xInGame = WorldToGameX(rectangleInWorld.x);
-			float yInGame = WorldToGameY(rectangleInWorld.y);
 			float widthInGame = WorldToGameWidth(rectangleInWorld.width);
 			float heightInGame = WorldToGameHeight(rectangleInWorld.height);
+			float xInGame = WorldToGameX(rectangleInWorld.x);
+			float yInGame = WorldToGameY(rectangleInWorld.y);
 			
 			return new Rect(xInGame, yInGame, widthInGame, heightInGame);
 		}

@@ -5,10 +5,12 @@ namespace SaguFramework {
 	public class MainLoader : Loader {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
+			SplashScreenHandler.GetInstance().ShowMainSplashScreen();
+
 			LoadOptions();
 
-			//Game.OpenMainMenu(); TODO: uncomment
-			Game.NewGame();
+			Game.OpenMainMenu();
+			//Game.NewGame();
 			
 			yield break; // TODO
 		}

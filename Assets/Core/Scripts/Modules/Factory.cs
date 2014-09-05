@@ -7,19 +7,22 @@ namespace SaguFramework {
 		public static Character CreateCharacter(CharacterParameters parameters, Vector2 position, float scaleFactor) {
 			Character character = Instantiate<Character>(Parameters.GetCharacter());
 			CharacterBehaviour behaviour = (CharacterBehaviour) Object.Instantiate(parameters.Behaviour);
+			Image image = CreateImage(parameters.Image, Parameters.SortingLayerCharacter);
 			Interactive interactive = CreateInteractive(parameters.Interactive);
 
 			SetParent(behaviour, character);
 
-			// TODO
-			/*Vector2 currentSize = image.GetSize();
+			// TODO: temporal
+			Vector2 currentSize = image.GetSize();
 			float aspectRatio = currentSize.x / currentSize.y;
 			float sizeY = Geometry.GameToWorldHeight(scaleFactor * parameters.Height);
 			float sizeX = sizeY * aspectRatio;
 			Vector2 size = new Vector2(sizeX, sizeY);
-
+			
+			image.SetSize(size);
+			SetParent(image, character);
 			interactive.SetSize(size);
-			SetParent(interactive, character);*/
+			SetParent(interactive, character);
 			
 			character.SetPosition(Geometry.GameToWorldPosition(position));
 

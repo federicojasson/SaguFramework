@@ -4,7 +4,9 @@ namespace SaguFramework {
 	
 	public abstract class InteractiveBehaviour : MonoBehaviour {
 
-		public abstract void OnCursorEnter();
+		public virtual void OnCursorEnter() {}
+
+		public virtual void OnCursorExit() {}
 
 	}
 	

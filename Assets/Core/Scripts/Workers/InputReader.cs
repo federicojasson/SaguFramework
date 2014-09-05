@@ -1,8 +1,13 @@
-﻿namespace SaguFramework {
+﻿using UnityEngine;
+
+namespace SaguFramework {
 	
 	public enum InputMode {
-		Deactivated,
-		Playing
+		Disabled,
+		Inventory,
+		Paused,
+		Playing,
+		UsingItem
 	};
 	
 	public class InputReader : Worker {
@@ -18,7 +23,27 @@
 		public override void Awake() {
 			base.Awake();
 			instance = this;
-			mode = InputMode.Deactivated;
+			mode = InputMode.Disabled;
+		}
+
+		public void NotifyOnMouseEnter(InteractiveBehaviour behaviour) {
+			// TODO
+			behaviour.OnCursorEnter();
+		}
+
+		public void NotifyOnMouseExit(InteractiveBehaviour behaviour) {
+			// TODO
+			behaviour.OnCursorExit();
+		}
+
+		public void NotifyOnTriggerEnter2D(TriggerBehaviour behaviour) {
+			// TODO
+			behaviour.OnPlayerCharacterEnter();
+		}
+		
+		public void NotifyOnTriggerExit2D(TriggerBehaviour behaviour) {
+			// TODO
+			behaviour.OnPlayerCharacterExit();
 		}
 
 		public void SetMode(InputMode mode) {

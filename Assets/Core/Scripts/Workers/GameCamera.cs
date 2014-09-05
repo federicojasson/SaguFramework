@@ -28,12 +28,12 @@ namespace SaguFramework {
 			if (target != null) {
 				float halfGameWidthInUnits = 0.5f * Geometry.GetGameWidthInUnits();
 				float minimumX = boundaries.x + halfGameWidthInUnits;
-				float maximumX = minimumX + boundaries.width - halfGameWidthInUnits;
+				float maximumX = boundaries.x + boundaries.width - halfGameWidthInUnits;
 				float x = Mathf.Clamp(target.position.x, minimumX, maximumX);
 
 				float halfGameHeightInUnits = 0.5f * Geometry.GetGameHeightInUnits();
 				float minimumY = boundaries.y - boundaries.height + halfGameHeightInUnits;
-				float maximumY = minimumY + boundaries.height - halfGameHeightInUnits;
+				float maximumY = boundaries.y - halfGameHeightInUnits;
 				float y = Mathf.Clamp(target.position.y, minimumY, maximumY);
 
 				transform.position = new Vector3(x, y, transform.position.z);

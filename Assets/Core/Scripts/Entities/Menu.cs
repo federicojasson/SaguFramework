@@ -25,7 +25,9 @@ namespace SaguFramework {
 		}
 
 		public void OnGUI() {
+			GUILayout.BeginArea(Geometry.GetGameRectangleInGui());
 			GetBehaviour().OnShowing();
+			GUILayout.EndArea();
 		}
 
 		public void Show() {
