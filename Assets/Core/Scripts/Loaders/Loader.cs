@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 namespace SaguFramework {
@@ -25,7 +25,7 @@ namespace SaguFramework {
 			if (fadeParameters.Ignore)
 				yield break;
 
-			Masker masker = Masker.GetInstance();
+			ScreenHandler masker = ScreenHandler.GetInstance();
 			masker.SetFadeTexture(fadeParameters.Texture);
 			masker.SetFadeSpeed(- fadeParameters.Speed);
 			
@@ -42,7 +42,7 @@ namespace SaguFramework {
 			if (fadeParameters.Ignore)
 				yield break;
 
-			Masker masker = Masker.GetInstance();
+			ScreenHandler masker = ScreenHandler.GetInstance();
 			masker.SetFadeTexture(fadeParameters.Texture);
 			masker.SetFadeSpeed(fadeParameters.Speed);
 			

@@ -32,6 +32,8 @@ namespace SaguFramework {
 		public const string SceneSpecial = "Special";
 		public const string SceneSplashScreen = "SplashScreen";
 
+		public const string SkinStyleTooltip = "tooltip";
+
 		public const string SortingLayerCharacter = "Character";
 		public const string SortingLayerInventory = "Inventory";
 		public const string SortingLayerInventoryItem = "InventoryItem";
@@ -89,6 +91,10 @@ namespace SaguFramework {
 		public static float GetDelayBetweenSongs() {
 			return GameDelegate.GetInstance().GameParameters.Sounds.DelayBetweenSongs;
 		}
+
+		public static int GetExecuteOrderMouse() {
+			return GameDelegate.GetInstance().GameParameters.Controls.ExecuteOrderMouse;
+		}
 		
 		public static Texture2D GetFadeTexture() {
 			return FrameworkDelegate.GetInstance().FrameworkParameters.FadeTexture;
@@ -120,6 +126,10 @@ namespace SaguFramework {
 
 		public static InventoryItem GetInventoryItem() {
 			return FrameworkDelegate.GetInstance().FrameworkParameters.InventoryItem;
+		}
+
+		public static InventoryItemParameters GetInventoryItemParameters(string id) {
+			return GameDelegate.GetInstance().GameParameters.InventoryItems[id];
 		}
 
 		public static InventoryParameters GetInventoryParameters() {
@@ -168,6 +178,10 @@ namespace SaguFramework {
 
 		public static MenuParameters GetMenuParameters(string id) {
 			return GameDelegate.GetInstance().GameParameters.Menus.Menus[id];
+		}
+
+		public static int GetNextOrderMouse() {
+			return GameDelegate.GetInstance().GameParameters.Controls.NextOrderMouse;
 		}
 
 		public static string GetOptionsFilePath() {

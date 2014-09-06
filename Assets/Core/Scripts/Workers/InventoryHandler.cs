@@ -14,11 +14,17 @@
 		}
 
 		public void HideInventory() {
+			foreach (InventoryItem inventoryItem in Objects.GetInventoryItems())
+				; // TODO
+
 			Objects.GetInventory().Hide();
 		}
 
 		public void ShowInventory() {
 			Objects.GetInventory().Show();
+
+			foreach (InventoryItem inventoryItem in Objects.GetInventoryItems())
+				; // TODO
 		}
 
 	}

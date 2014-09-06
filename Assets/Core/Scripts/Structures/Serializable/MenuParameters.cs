@@ -7,7 +7,6 @@ namespace SaguFramework {
 		
 		public MenuBehaviour Behaviour;
 		public ImageParameters Image;
-		public float Height;
 		
 	}
 	

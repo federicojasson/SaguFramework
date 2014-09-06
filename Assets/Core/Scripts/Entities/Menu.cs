@@ -27,8 +27,10 @@ namespace SaguFramework {
 
 		public void OnGUI() {
 			GUI.skin = Parameters.GetSkin();
-			GUILayout.BeginArea(Geometry.GetGameRectangleInGui());
-			GetBehaviour().OnShowing();
+
+			GUILayout.BeginArea(Geometry.GetGameRectangleInGui()); {
+				GetBehaviour().OnShowing();
+			}
 			GUILayout.EndArea();
 		}
 

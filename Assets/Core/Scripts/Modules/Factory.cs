@@ -6,7 +6,7 @@ namespace SaguFramework {
 
 		// TODO: fix position handling
 
-		public static Character CreateCharacter(CharacterParameters parameters, Vector2 position, float scaleFactor) {
+		public static Character CreateCharacter(CharacterParameters parameters, Vector2 position, float roomScaleFactor) {
 			Character character = Instantiate<Character>(Parameters.GetCharacter());
 			CharacterBehaviour behaviour = (CharacterBehaviour) Object.Instantiate(parameters.Behaviour);
 			Image image = CreateImage(parameters.Image, Parameters.SortingLayerCharacter);
@@ -15,7 +15,7 @@ namespace SaguFramework {
 			// TODO: temporal
 			Vector2 currentSize = image.GetSize();
 			float aspectRatio = currentSize.x / currentSize.y;
-			float sizeY = Geometry.GameToWorldHeight(scaleFactor * parameters.Height);
+			float sizeY = Geometry.GameToWorldHeight(roomScaleFactor * parameters.Height);
 			float sizeX = sizeY * aspectRatio;
 			Vector2 size = new Vector2(sizeX, sizeY);
 			
@@ -58,7 +58,7 @@ namespace SaguFramework {
 
 			Vector2 currentSize = image.GetSize();
 			float aspectRatio = currentSize.x / currentSize.y;
-			float sizeY = Geometry.GameToWorldHeight(parameters.Height);
+			float sizeY = Geometry.GameToWorldHeight(1f);
 			float sizeX = sizeY * aspectRatio;
 			Vector2 size = new Vector2(sizeX, sizeY);
 			
@@ -68,22 +68,30 @@ namespace SaguFramework {
 			return inventory;
 		}
 
-		public static InventoryItem CreateInventoryItem(InventoryItemParameters parameters) {
+		public static InventoryItem CreateInventoryItem(InventoryItemParameters parameters, Vector2 inventoryItemsSize) {
 			InventoryItem inventoryItem = Instantiate<InventoryItem>(Parameters.GetInventoryItem());
 			InventoryItemBehaviour behaviour = (InventoryItemBehaviour) Object.Instantiate(parameters.Behaviour);
 			Image image = CreateImage(parameters.Image, Parameters.SortingLayerInventoryItem);
 			Interactive interactive = CreateInteractive(parameters.Interactive);
 
-			// TODO
-			/*Vector2 currentSize = image.GetSize();
-			float aspectRatio = currentSize.x / currentSize.y;
-			float sizeY = Geometry.GameToWorldHeight(scaleFactor * parameters.Height);
-			float sizeX = sizeY * aspectRatio;
-			Vector2 size = new Vector2(sizeX, sizeY);*/
-			
-			//image.SetSize(size);
-			//interactive.SetSize(size);
+			Vector2 size = Geometry.GameToWorldSize(inventoryItemsSize);
+			float inventoryItemsAspectRatio = size.x / size.y;
 
+			Vector2 imageCurrentSize = image.GetSize();
+			float imageAspectRatio = imageCurrentSize.x / imageCurrentSize.y;
+			float imageSizeX;
+			float imageSizeY;
+			if (imageAspectRatio > inventoryItemsAspectRatio) {
+				imageSizeX = size.x;
+				imageSizeY = imageSizeX / imageAspectRatio;
+			} else {
+				imageSizeY = size.y;
+				imageSizeX = imageSizeY * imageAspectRatio;
+			}
+			Vector2 imageSize = new Vector2(imageSizeX, imageSizeY);
+
+			image.SetSize(imageSize);
+			interactive.SetSize(size);
 			SetParent(behaviour, inventoryItem);
 			SetParent(image, inventoryItem);
 			SetParent(interactive, inventoryItem);
@@ -91,7 +99,7 @@ namespace SaguFramework {
 			return inventoryItem;
 		}
 		
-		public static Item CreateItem(ItemParameters parameters, Vector2 position, float scaleFactor) {
+		public static Item CreateItem(ItemParameters parameters, Vector2 position, float roomScaleFactor) {
 			Item item = Instantiate<Item>(Parameters.GetItem());
 			ItemBehaviour behaviour = (ItemBehaviour) Object.Instantiate(parameters.Behaviour);
 			Image image = CreateImage(parameters.Image, Parameters.SortingLayerItem);
@@ -99,7 +107,7 @@ namespace SaguFramework {
 			
 			Vector2 currentSize = image.GetSize();
 			float aspectRatio = currentSize.x / currentSize.y;
-			float sizeY = Geometry.GameToWorldHeight(scaleFactor * parameters.Height);
+			float sizeY = Geometry.GameToWorldHeight(roomScaleFactor * parameters.Height);
 			float sizeX = sizeY * aspectRatio;
 			Vector2 size = new Vector2(sizeX, sizeY);
 			
@@ -120,7 +128,7 @@ namespace SaguFramework {
 			
 			Vector2 currentSize = image.GetSize();
 			float aspectRatio = currentSize.x / currentSize.y;
-			float sizeY = Geometry.GameToWorldHeight(parameters.Height);
+			float sizeY = Geometry.GameToWorldHeight(1f);
 			float sizeX = sizeY * aspectRatio;
 			Vector2 size = new Vector2(sizeX, sizeY);
 
@@ -138,7 +146,7 @@ namespace SaguFramework {
 			
 			Vector2 currentSize = backgroundImage.GetSize();
 			float aspectRatio = currentSize.x / currentSize.y;
-			float sizeY = Geometry.GameToWorldHeight(parameters.Height);
+			float sizeY = Geometry.GameToWorldHeight(1f);
 			float sizeX = sizeY * aspectRatio;
 			Vector2 size = new Vector2(sizeX, sizeY);
 			
@@ -168,7 +176,7 @@ namespace SaguFramework {
 
 			Vector2 currentSize = image.GetSize();
 			float aspectRatio = currentSize.x / currentSize.y;
-			float sizeY = Geometry.GameToWorldHeight(parameters.Height);
+			float sizeY = Geometry.GameToWorldHeight(1f);
 			float sizeX = sizeY * aspectRatio;
 			Vector2 size = new Vector2(sizeX, sizeY);
 			

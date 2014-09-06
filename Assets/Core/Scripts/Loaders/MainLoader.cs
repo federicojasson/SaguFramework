@@ -5,7 +5,6 @@ namespace SaguFramework {
 	public class MainLoader : Loader {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
-			Game.NewGame();
 			LoadOptions();
 			SoundPlayer.GetInstance().PlayMainEffect();
 			SplashScreenHandler.GetInstance().ShowMainSplashScreen();

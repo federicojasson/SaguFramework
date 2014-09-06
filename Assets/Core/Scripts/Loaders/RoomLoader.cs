@@ -7,17 +7,20 @@ namespace SaguFramework {
 	public class RoomLoader : Loader {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
-			float scaleFactor = GetScaleFactor();
+			Vector2 inventoryItemsSize = GetInventoryItemsSize();
 			CreateInventory();
+			CreateInventoryItems(inventoryItemsSize);
+			float roomScaleFactor = GetRoomScaleFactor();
 			CreateRoom();
-			CreateCharacters(scaleFactor);
-			CreateItems(scaleFactor);
+			CreateCharacters(roomScaleFactor);
+			CreateItems(roomScaleFactor);
 			ConfigureCamera();
-
+			InputHandler.GetInstance().SetInputMode(InputMode.Playing);
 			yield return StartCoroutine(FadeInCoroutine(Parameters.GetRoomLoaderParameters().FadeIn));
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
+			InputHandler.GetInstance().SetInputMode(InputMode.Disabled);
 			yield return StartCoroutine(FadeOutCoroutine(Parameters.GetRoomLoaderParameters().FadeOut));
 		}
 
@@ -35,14 +38,14 @@ namespace SaguFramework {
 			camera.SetTarget(Objects.GetPlayerCharacter().transform);
 		}
 
-		private void CreateCharacters(float scaleFactor) {
+		private void CreateCharacters(float roomScaleFactor) {
 			string currentRoomId = State.GetCurrentRoomId();
 			List<string> characterIds = State.GetRoomCharacterIds(currentRoomId);
 
 			foreach (string characterId in characterIds) {
 				CharacterParameters parameters = Parameters.GetCharacterParameters(characterId);
 				Vector2 position = State.GetCharacterState(characterId).GetLocation().GetPosition();
-				Character character = Factory.CreateCharacter(parameters, position, scaleFactor);
+				Character character = Factory.CreateCharacter(parameters, position, roomScaleFactor);
 				character.SetId(characterId);
 			}
 		}
@@ -52,14 +55,24 @@ namespace SaguFramework {
 			Factory.CreateInventory(parameters);
 		}
 
-		private void CreateItems(float scaleFactor) {
+		private void CreateInventoryItems(Vector2 inventoryItemsSize) {
+			List<string> inventoryItemIds = State.GetInventoryItemIds();
+
+			foreach (string inventoryItemId in inventoryItemIds) {
+				InventoryItemParameters parameters = Parameters.GetInventoryItemParameters(inventoryItemId);
+				InventoryItem inventoryItem = Factory.CreateInventoryItem(parameters, inventoryItemsSize);
+				inventoryItem.SetId(inventoryItemId);
+			}
+		}
+
+		private void CreateItems(float roomScaleFactor) {
 			string currentRoomId = State.GetCurrentRoomId();
 			List<string> itemIds = State.GetRoomItemIds(currentRoomId);
 
 			foreach (string itemId in itemIds) {
 				ItemParameters parameters = Parameters.GetItemParameters(itemId);
 				Vector2 position = State.GetItemState(itemId).GetLocation().GetPosition();
-				Item item = Factory.CreateItem(parameters, position, scaleFactor);
+				Item item = Factory.CreateItem(parameters, position, roomScaleFactor);
 				item.SetId(itemId);
 			}
 		}
@@ -70,7 +83,11 @@ namespace SaguFramework {
 			Factory.CreateRoom(parameters);
 		}
 
-		private float GetScaleFactor() {
+		private Vector2 GetInventoryItemsSize() {
+			return Parameters.GetInventoryParameters().InventoryItemsSize;
+		}
+
+		private float GetRoomScaleFactor() {
 			string currentRoomId = State.GetCurrentRoomId();
 			return Parameters.GetRoomParameters(currentRoomId).ScaleFactor;
 		}

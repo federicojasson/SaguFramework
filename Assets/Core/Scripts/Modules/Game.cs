@@ -41,10 +41,6 @@
 			MenuHandler.GetInstance().OpenPauseMenu();
 		}
 
-		public static void ResumeGame() {
-			CloseMenu();
-		}
-
 		public static void SaveGame(string stateId) {
 			// TODO
 		}

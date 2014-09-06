@@ -9,6 +9,8 @@ namespace SaguFramework {
 		public static MenuHandler GetInstance() {
 			return instance;
 		}
+
+		private Menu pauseMenu;
 		
 		public override void Awake() {
 			base.Awake();
@@ -16,10 +18,16 @@ namespace SaguFramework {
 		}
 
 		public void CloseMenu() {
-			Objects.GetCurrentMenu().Close();
-
-			if (Objects.GetMenuCount() > 0)
+			if (Objects.GetMenuCount() == 1) {
+				Menu currentMenu = Objects.GetCurrentMenu();
+				if (currentMenu == pauseMenu) {
+					currentMenu.Close();
+					InputHandler.GetInstance().SetBackupInputMode();
+				}
+			} else {
+				Objects.GetCurrentMenu().Close();
 				Objects.GetCurrentMenu().Show();
+			}
 		}
 
 		public void OpenMainMenu() {
@@ -33,16 +41,19 @@ namespace SaguFramework {
 		}
 
 		public void OpenPauseMenu() {
+			InputHandler.GetInstance().SetInputMode(InputMode.PauseMenu);
 			MenuParameters parameters = Parameters.GetPauseMenuParameters();
-			OpenMenu(parameters);
+			pauseMenu = OpenMenu(parameters);
 		}
 
-		private void OpenMenu(MenuParameters parameters) {
+		private Menu OpenMenu(MenuParameters parameters) {
 			if (Objects.GetMenuCount() > 0)
 				Objects.GetCurrentMenu().Hide();
 
 			Menu menu = Factory.CreateMenu(parameters);
 			menu.Show();
+
+			return menu;
 		}
 
 	}

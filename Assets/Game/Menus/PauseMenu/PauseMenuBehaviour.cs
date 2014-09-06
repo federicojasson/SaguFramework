@@ -21,7 +21,7 @@ namespace EmergenciaQuimica {
 		}
 
 		private void OnResumeGame() {
-			Game.ResumeGame();
+			Game.CloseMenu();
 		}
 
 		private void OnSaveGame() {

@@ -152,7 +152,7 @@ MonoBehaviour:
     Trigger: {fileID: 11400000, guid: 993c7af6aac59d54a9fb18580a67362c, type: 2}
     FadeTexture: {fileID: 2800000, guid: d61b5fe2cfc413d42bf158c6580f803a, type: 3}
     WindowboxTexture: {fileID: 2800000, guid: 3c69fe5f8a7e5084bbc92e90987347c1, type: 3}
-    CameraBackgroundColor: {r: .111111112, g: .0111111114, b: .0111111114, a: 0}
+    CameraBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &492055072
 Transform:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ GameObject:
   - 4: {fileID: 603054374}
   - 114: {fileID: 603054373}
   m_Layer: 0
-  m_Name: Masker
+  m_Name: ScreenHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 603054372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30c1046848555d147898e5c7669fd806, type: 3}
+  m_Script: {fileID: 11500000, guid: cb2822aaf0a00ce459d9da210beaf89c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &603054374
@@ -320,17 +320,16 @@ MonoBehaviour:
             Sprite: {fileID: 21300000, guid: 82af699dd8b21864889d8f3c45d6896d, type: 3}
             Opacity: 1
             SortingLayer: 
-          Height: 1
           ScaleFactor: 1
           Triggers:
           - Behaviour: {fileID: 11400000, guid: 0bce879238c86a54ea0588a0a76293a8,
               type: 2}
-            Position: {x: .0111111114, y: .111111112}
-            Size: {x: .111111112, y: 1}
+            Position: {x: .100000001, y: .5}
+            Size: {x: .100000001, y: 1}
           - Behaviour: {fileID: 11400000, guid: 65bfc9f743cea9e4ea45bc66b081a915,
               type: 2}
-            Position: {x: .111111112, y: .111111112}
-            Size: {x: .111111112, y: 1}
+            Position: {x: .5, y: .5}
+            Size: {x: .100000001, y: 1}
     Characters:
       Entries:
       - Key: Scientist
@@ -343,14 +342,19 @@ MonoBehaviour:
           Interactive:
             Behaviour: {fileID: 11400000, guid: 097c11a5b6fb92b4bbaeb8e2d9a28d87,
               type: 2}
-          Height: .111111112
+          Height: .649999976
     Inventory:
       Image:
         Sprite: {fileID: 21300000, guid: 2c09b53dd87eecc49b3a4e59d97c8a88, type: 3}
         Opacity: 1
         SortingLayer: 
-      Height: 1
-      InventoryItemsSize: {x: 0, y: 0}
+      InventoryItemsSize: {x: .125, y: .222222224}
+      InventoryItemsGap: {x: .03125, y: .055555556}
+      CenterPosition: {x: .718437493, y: .499444455}
+      Rows: 3
+      Columns: 3
+    InventoryItems:
+      Entries: []
     Items:
       Entries:
       - Key: Erlenmeyer
@@ -363,7 +367,7 @@ MonoBehaviour:
             Sprite: {fileID: 21300000, guid: f483a91a5eaa9e346a1fd325994a6613, type: 3}
             Opacity: 1
             SortingLayer: 
-          Height: .111111112
+          Height: .100000001
     Menus:
       Main:
         Behaviour: {fileID: 11400000, guid: 611e7800ab4c8c7499a498ec777caeb8, type: 2}
@@ -371,14 +375,12 @@ MonoBehaviour:
           Sprite: {fileID: 21300000, guid: e65e4b1a22c23df4db3fa233ddca6b58, type: 3}
           Opacity: 1
           SortingLayer: 
-        Height: 1
       Pause:
         Behaviour: {fileID: 11400000, guid: 02a041c5505114a4e923db3c640ac271, type: 2}
         Image:
           Sprite: {fileID: 21300000, guid: 59fd3c3750509154f8741d081b4cf976, type: 3}
           Opacity: 1
           SortingLayer: 
-        Height: 1
       Menus:
         Entries:
         - Key: ExitConfirmationMenu
@@ -389,7 +391,6 @@ MonoBehaviour:
               Sprite: {fileID: 21300000, guid: 349029186b9c604458ef183767669ad8, type: 3}
               Opacity: 1
               SortingLayer: 
-            Height: 1
         - Key: LoadGameMenu
           Value:
             Behaviour: {fileID: 11400000, guid: 3284375146780404a95e899bf28eaa00,
@@ -398,7 +399,6 @@ MonoBehaviour:
               Sprite: {fileID: 21300000, guid: de5ce93ed932d364a8092457d5dd9164, type: 3}
               Opacity: 1
               SortingLayer: 
-            Height: 1
         - Key: OptionsMenu
           Value:
             Behaviour: {fileID: 11400000, guid: 6133d214e18dadb4ea0d66c97826cf60,
@@ -407,7 +407,6 @@ MonoBehaviour:
               Sprite: {fileID: 21300000, guid: 3844e717e8778ab41b67aab069429f87, type: 3}
               Opacity: 1
               SortingLayer: 
-            Height: 1
         - Key: GoBackConfirmationMenu
           Value:
             Behaviour: {fileID: 11400000, guid: 6004525f4fa95b940afe2b4ee709c3b7,
@@ -416,7 +415,6 @@ MonoBehaviour:
               Sprite: {fileID: 21300000, guid: 59fd3c3750509154f8741d081b4cf976, type: 3}
               Opacity: 1
               SortingLayer: 
-            Height: 1
         - Key: SaveGameMenu
           Value:
             Behaviour: {fileID: 11400000, guid: 0fcef6bc921e67242806ff84bb519047,
@@ -425,15 +423,13 @@ MonoBehaviour:
               Sprite: {fileID: 21300000, guid: 59fd3c3750509154f8741d081b4cf976, type: 3}
               Opacity: 1
               SortingLayer: 
-            Height: 1
     SplashScreens:
       Main:
         Image:
           Sprite: {fileID: 21300000, guid: 9a43c0be4590dc042adf5be338630e9e, type: 3}
           Opacity: 1
           SortingLayer: 
-        Height: 1
-        MinimumDelayTime: 4.5
+        MinimumDelayTime: 0
       Groups:
         Entries:
         - Key: Information
@@ -442,39 +438,33 @@ MonoBehaviour:
               Sprite: {fileID: 21300000, guid: b61d05b27dc704646af547b14589d16f, type: 3}
               Opacity: 1
               SortingLayer: 
-            Height: 1
-            MinimumDelayTime: 0
+            MinimumDelayTime: 2
           - Image:
               Sprite: {fileID: 21300000, guid: a7bae905c91be9040a42830fb3c92520, type: 3}
               Opacity: 1
               SortingLayer: 
-            Height: 1
-            MinimumDelayTime: 0
+            MinimumDelayTime: 2
           - Image:
               Sprite: {fileID: 21300000, guid: 3db5ea6917b85004099ae46e2ec8cf8c, type: 3}
               Opacity: 1
               SortingLayer: 
-            Height: 1
-            MinimumDelayTime: 0
+            MinimumDelayTime: 2
         - Key: Molecules
           Value:
           - Image:
               Sprite: {fileID: 21300000, guid: 625389f1da61262429c83fde5b788c95, type: 3}
               Opacity: 1
               SortingLayer: 
-            Height: 1
             MinimumDelayTime: 0
           - Image:
               Sprite: {fileID: 21300000, guid: c29b85482e5f0c340a0f843044148a12, type: 3}
               Opacity: 1
               SortingLayer: 
-            Height: 1
             MinimumDelayTime: 0
           - Image:
               Sprite: {fileID: 21300000, guid: 81cf8d83498057d4eb64f64a108c0424, type: 3}
               Opacity: 1
               SortingLayer: 
-            Height: 1
             MinimumDelayTime: 0
     Sounds:
       MainEffect: {fileID: 8300000, guid: 4da25d4691591144f94d46b21db17eae, type: 3}
@@ -487,50 +477,50 @@ MonoBehaviour:
       MainLoader:
         FadeIn:
           Ignore: 0
-          Speed: .111111112
+          Speed: 1
           Texture: {fileID: 0}
         FadeOut:
-          Ignore: 0
-          Speed: .111111112
+          Ignore: 1
+          Speed: .400000006
           Texture: {fileID: 0}
       MainMenuLoader:
         FadeIn:
-          Ignore: 0
-          Speed: .111111112
+          Ignore: 1
+          Speed: .400000006
           Texture: {fileID: 0}
         FadeOut:
-          Ignore: 0
-          Speed: .111111112
+          Ignore: 1
+          Speed: .400000006
           Texture: {fileID: 0}
       RoomLoader:
         FadeIn:
-          Ignore: 0
-          Speed: .111111112
+          Ignore: 1
+          Speed: .400000006
           Texture: {fileID: 0}
         FadeOut:
-          Ignore: 0
-          Speed: .111111112
+          Ignore: 1
+          Speed: .400000006
           Texture: {fileID: 0}
       SpecialLoader:
         FadeIn:
-          Ignore: 0
-          Speed: .111111112
+          Ignore: 1
+          Speed: .400000006
           Texture: {fileID: 0}
         FadeOut:
-          Ignore: 0
-          Speed: .111111112
+          Ignore: 1
+          Speed: .400000006
           Texture: {fileID: 0}
       SplashScreenLoader:
         FadeIn:
-          Ignore: 0
-          Speed: .111111112
+          Ignore: 1
+          Speed: .400000006
           Texture: {fileID: 0}
         FadeOut:
-          Ignore: 0
-          Speed: .111111112
+          Ignore: 1
+          Speed: .400000006
           Texture: {fileID: 0}
     Gui:
-      Skin: {fileID: 11400000, guid: 18e96bc9dc001be4bb5aa9cebbf3467e, type: 2}
+      Skin: {fileID: 11400000, guid: 57518e85f6ddbd243a14d5b5b8d5e528, type: 2}
     Controls:
       PauseGameKey: 27
       ToggleInventoryKey: 105
@@ -590,7 +580,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .111111112, g: .111111112, b: .111111112, a: .00011111112}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -741,44 +731,6 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1880756227}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
---- !u!1 &2016766386
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2016766388}
-  - 114: {fileID: 2016766387}
-  m_Layer: 0
-  m_Name: TextHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2016766387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2016766386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d375f34e772f0f34cae9c33e6424979a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2016766388
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2016766386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

@@ -6,7 +6,6 @@ namespace SaguFramework {
 	public class SplashScreenParameters {
 		
 		public ImageParameters Image;
-		public float Height;
 		public float MinimumDelayTime;
 		
 	}
