@@ -12,8 +12,6 @@ namespace SaguFramework {
 			Image image = CreateImage(parameters.Image, Parameters.SortingLayerCharacter);
 			Interactive interactive = CreateInteractive(parameters.Interactive);
 
-			SetParent(behaviour, character);
-
 			// TODO: temporal
 			Vector2 currentSize = image.GetSize();
 			float aspectRatio = currentSize.x / currentSize.y;
@@ -22,10 +20,10 @@ namespace SaguFramework {
 			Vector2 size = new Vector2(sizeX, sizeY);
 			
 			image.SetSize(size);
-			SetParent(image, character);
 			interactive.SetSize(size);
+			SetParent(behaviour, character);
+			SetParent(image, character);
 			SetParent(interactive, character);
-			
 			character.SetPosition(Geometry.GameToWorldPosition(position));
 
 			return character;
@@ -45,13 +43,59 @@ namespace SaguFramework {
 			return image;
 		}
 		
+		public static Interactive CreateInteractive(InteractiveParameters parameters) {
+			Interactive interactive = Instantiate<Interactive>(Parameters.GetInteractive());
+			InteractiveBehaviour behaviour = (InteractiveBehaviour) Object.Instantiate(parameters.Behaviour);
+			
+			SetParent(behaviour, interactive);
+			
+			return interactive;
+		}
+
+		public static Inventory CreateInventory(InventoryParameters parameters) {
+			Inventory inventory = Instantiate<Inventory>(Parameters.GetInventory());
+			Image image = CreateImage(parameters.Image, Parameters.SortingLayerInventory);
+
+			Vector2 currentSize = image.GetSize();
+			float aspectRatio = currentSize.x / currentSize.y;
+			float sizeY = Geometry.GameToWorldHeight(parameters.Height);
+			float sizeX = sizeY * aspectRatio;
+			Vector2 size = new Vector2(sizeX, sizeY);
+			
+			image.SetSize(size);
+			SetParent(image, inventory);
+
+			return inventory;
+		}
+
+		public static InventoryItem CreateInventoryItem(InventoryItemParameters parameters) {
+			InventoryItem inventoryItem = Instantiate<InventoryItem>(Parameters.GetInventoryItem());
+			InventoryItemBehaviour behaviour = (InventoryItemBehaviour) Object.Instantiate(parameters.Behaviour);
+			Image image = CreateImage(parameters.Image, Parameters.SortingLayerInventoryItem);
+			Interactive interactive = CreateInteractive(parameters.Interactive);
+
+			// TODO
+			/*Vector2 currentSize = image.GetSize();
+			float aspectRatio = currentSize.x / currentSize.y;
+			float sizeY = Geometry.GameToWorldHeight(scaleFactor * parameters.Height);
+			float sizeX = sizeY * aspectRatio;
+			Vector2 size = new Vector2(sizeX, sizeY);*/
+			
+			//image.SetSize(size);
+			//interactive.SetSize(size);
+
+			SetParent(behaviour, inventoryItem);
+			SetParent(image, inventoryItem);
+			SetParent(interactive, inventoryItem);
+
+			return inventoryItem;
+		}
+		
 		public static Item CreateItem(ItemParameters parameters, Vector2 position, float scaleFactor) {
 			Item item = Instantiate<Item>(Parameters.GetItem());
 			ItemBehaviour behaviour = (ItemBehaviour) Object.Instantiate(parameters.Behaviour);
 			Image image = CreateImage(parameters.Image, Parameters.SortingLayerItem);
 			Interactive interactive = CreateInteractive(parameters.Interactive);
-
-			SetParent(behaviour, item);
 			
 			Vector2 currentSize = image.GetSize();
 			float aspectRatio = currentSize.x / currentSize.y;
@@ -60,30 +104,19 @@ namespace SaguFramework {
 			Vector2 size = new Vector2(sizeX, sizeY);
 			
 			image.SetSize(size);
-			SetParent(image, item);
 			interactive.SetSize(size);
+			SetParent(behaviour, item);
+			SetParent(image, item);
 			SetParent(interactive, item);
-
 			item.SetPosition(Geometry.GameToWorldPosition(position));
-
+			
 			return item;
-		}
-
-		public static Interactive CreateInteractive(InteractiveParameters parameters) {
-			Interactive interactive = Instantiate<Interactive>(Parameters.GetInteractive());
-			InteractiveBehaviour behaviour = (InteractiveBehaviour) Object.Instantiate(parameters.Behaviour);
-
-			SetParent(behaviour, interactive);
-
-			return interactive;
 		}
 
 		public static Menu CreateMenu(MenuParameters parameters) {
 			Menu menu = Instantiate<Menu>(Parameters.GetMenu());
 			MenuBehaviour behaviour = (MenuBehaviour) Object.Instantiate(parameters.Behaviour);
 			Image image = CreateImage(parameters.Image, Parameters.SortingLayerMenu);
-
-			SetParent(behaviour, menu);
 			
 			Vector2 currentSize = image.GetSize();
 			float aspectRatio = currentSize.x / currentSize.y;
@@ -92,6 +125,7 @@ namespace SaguFramework {
 			Vector2 size = new Vector2(sizeX, sizeY);
 
 			image.SetSize(size);
+			SetParent(behaviour, menu);
 			SetParent(image, menu);
 			
 			return menu;
@@ -148,10 +182,9 @@ namespace SaguFramework {
 			Trigger trigger = Instantiate<Trigger>(Parameters.GetTrigger());
 			TriggerBehaviour behaviour = (TriggerBehaviour) Object.Instantiate(parameters.Behaviour);
 
-			SetParent(behaviour, trigger);
-
-			trigger.SetPosition(Geometry.GameToWorldPosition(parameters.Position));
 			trigger.SetSize(Geometry.GameToWorldSize(parameters.Size));
+			SetParent(behaviour, trigger);
+			trigger.SetPosition(Geometry.GameToWorldPosition(parameters.Position));
 
 			return trigger;
 		}
@@ -162,7 +195,6 @@ namespace SaguFramework {
 
 		private static void SetParent(Component child, Component parent) {
 			child.transform.parent = parent.transform;
-			child.transform.localPosition = Vector3.zero;
 		}
 
 	}

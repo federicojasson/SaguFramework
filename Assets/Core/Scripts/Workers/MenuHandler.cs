@@ -41,7 +41,8 @@ namespace SaguFramework {
 			if (Objects.GetMenuCount() > 0)
 				Objects.GetCurrentMenu().Hide();
 
-			Factory.CreateMenu(parameters);
+			Menu menu = Factory.CreateMenu(parameters);
+			menu.Show();
 		}
 
 	}

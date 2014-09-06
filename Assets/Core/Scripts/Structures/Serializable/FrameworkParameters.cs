@@ -9,6 +9,8 @@ namespace SaguFramework {
 		public Character Character;
 		public Image Image;
 		public Interactive Interactive;
+		public Inventory Inventory;
+		public InventoryItem InventoryItem;
 		public Item Item;
 		public Menu Menu;
 		public Room Room;

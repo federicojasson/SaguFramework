@@ -31,6 +31,8 @@ namespace SaguFramework {
 		}
 
 		public void OnGUI() {
+			GUI.skin = Parameters.GetSkin();
+
 			if (Event.current.type == EventType.Repaint) {
 				// Exactly one repaint event is sent every frame
 				Fade();

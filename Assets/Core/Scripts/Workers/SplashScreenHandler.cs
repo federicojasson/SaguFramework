@@ -36,6 +36,7 @@ namespace SaguFramework {
 		private void ShowSplashScreen(SplashScreenParameters parameters) {
 			SplashScreen splashScreen = Factory.CreateSplashScreen(parameters);
 			splashScreen.SetMinimumDelayTime(parameters.MinimumDelayTime);
+			splashScreen.Show();
 		}
 		
 	}

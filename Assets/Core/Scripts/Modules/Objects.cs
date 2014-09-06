@@ -5,6 +5,8 @@ namespace SaguFramework {
 	public static class Objects {
 
 		private static List<Character> characters;
+		private static Inventory inventory;
+		private static List<InventoryItem> inventoryItems;
 		private static List<Item> items;
 		private static Loader loader;
 		private static Stack<Menu> menus;
@@ -14,12 +16,17 @@ namespace SaguFramework {
 
 		static Objects() {
 			characters = new List<Character>();
+			inventoryItems = new List<InventoryItem>();
 			items = new List<Item>();
 			menus = new Stack<Menu>();
 		}
 		
 		public static Menu GetCurrentMenu() {
 			return menus.Peek();
+		}
+
+		public static Inventory GetInventory() {
+			return inventory;
 		}
 
 		public static Loader GetLoader() {
@@ -54,6 +61,14 @@ namespace SaguFramework {
 			characters.Add(character);
 		}
 
+		public static void RegisterInventory(Inventory inventory) {
+			Objects.inventory = inventory;
+		}
+
+		public static void RegisterInventoryItem(InventoryItem inventoryItem) {
+			inventoryItems.Add(inventoryItem);
+		}
+
 		public static void RegisterItem(Item item) {
 			items.Add(item);
 		}
@@ -77,7 +92,15 @@ namespace SaguFramework {
 		public static void UnregisterCharacter(Character character) {
 			characters.Remove(character);
 		}
-		
+
+		public static void UnregisterInventory() {
+			inventory = null;
+		}
+
+		public static void UnregisterInventoryItem(InventoryItem inventoryItem) {
+			inventoryItems.Remove(inventoryItem);
+		}
+
 		public static void UnregisterItem(Item item) {
 			items.Remove(item);
 		}

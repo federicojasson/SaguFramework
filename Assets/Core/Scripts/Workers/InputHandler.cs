@@ -10,11 +10,11 @@ namespace SaguFramework {
 		UsingItem
 	};
 	
-	public class InputReader : Worker {
+	public class InputHandler : Worker {
 
-		private static InputReader instance;
+		private static InputHandler instance;
 		
-		public static InputReader GetInstance() {
+		public static InputHandler GetInstance() {
 			return instance;
 		}
 
@@ -58,6 +58,12 @@ namespace SaguFramework {
 
 			if (Input.GetKeyDown(KeyCode.R))
 				Game.ResumeGame();
+
+			if (Input.GetKeyDown(KeyCode.I))
+				Game.ShowInventory();
+			
+			if (Input.GetKeyDown(KeyCode.C))
+				Game.HideInventory();
 		}
 
 	}

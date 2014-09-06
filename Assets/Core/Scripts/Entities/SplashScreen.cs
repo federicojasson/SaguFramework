@@ -10,6 +10,7 @@ namespace SaguFramework {
 		
 		public void Awake() {
 			Objects.RegisterSplashScreen(this);
+			Hide();
 			creationTime = Time.time;
 		}
 
@@ -19,6 +20,10 @@ namespace SaguFramework {
 			
 			if (elapsedTime < minimumDelayTime)
 				yield return new WaitForSeconds(minimumDelayTime - elapsedTime);
+		}
+		
+		public void Hide() {
+			gameObject.SetActive(false);
 		}
 		
 		public void OnDestroy() {
@@ -31,6 +36,10 @@ namespace SaguFramework {
 
 		public void SetMinimumDelayTime(float minimumDelayTime) {
 			this.minimumDelayTime = minimumDelayTime;
+		}
+		
+		public void Show() {
+			gameObject.SetActive(true);
 		}
 
 		private void SetPosition(Vector2 position) {

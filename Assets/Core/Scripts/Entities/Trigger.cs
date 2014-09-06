@@ -5,11 +5,11 @@ namespace SaguFramework {
 	public class Trigger : MonoBehaviour {
 		
 		public void OnTriggerEnter2D(Collider2D collider) {
-			InputReader.GetInstance().NotifyOnTriggerEnter2D(GetBehaviour());
+			InputHandler.GetInstance().NotifyOnTriggerEnter2D(GetBehaviour());
 		}
 
 		public void OnTriggerExit2D(Collider2D collider) {
-			InputReader.GetInstance().NotifyOnTriggerExit2D(GetBehaviour());
+			InputHandler.GetInstance().NotifyOnTriggerExit2D(GetBehaviour());
 		}
 		
 		public void SetPosition(Vector2 position) {

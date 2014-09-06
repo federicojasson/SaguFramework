@@ -10,6 +10,10 @@
 			// TODO
 		}
 
+		public static void HideInventory() {
+			InventoryHandler.GetInstance().HideInventory();
+		}
+
 		public static void LoadGame(string stateId) {
 			// TODO
 		}
@@ -43,6 +47,10 @@
 
 		public static void SaveGame(string stateId) {
 			// TODO
+		}
+
+		public static void ShowInventory() {
+			InventoryHandler.GetInstance().ShowInventory();
 		}
 
 	}

@@ -8,6 +8,7 @@ namespace SaguFramework {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
 			float scaleFactor = GetScaleFactor();
+			CreateInventory();
 			CreateRoom();
 			CreateCharacters(scaleFactor);
 			CreateItems(scaleFactor);
@@ -44,6 +45,11 @@ namespace SaguFramework {
 				Character character = Factory.CreateCharacter(parameters, position, scaleFactor);
 				character.SetId(characterId);
 			}
+		}
+
+		private void CreateInventory() {
+			InventoryParameters parameters = Parameters.GetInventoryParameters();
+			Factory.CreateInventory(parameters);
 		}
 
 		private void CreateItems(float scaleFactor) {

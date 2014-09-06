@@ -30,12 +30,11 @@ namespace EmergenciaQuimica {
 
 		public override void OnShowing() {
 			selectedOption = GUILayout.SelectionGrid(selectedOption, options, 1);
-			// TODO: filter invalid characters
 
 			if (selectedOption != 0)
 				GUI.enabled = false;
 
-			newStateId = GUILayout.TextField(newStateId);
+			newStateId = FilterStateId(GUILayout.TextField(newStateId));
 			GUI.enabled = true;
 
 			if (GUILayout.Button(Language.GetText("SaveGameMenuSaveGameButton")))
@@ -43,6 +42,36 @@ namespace EmergenciaQuimica {
 
 			if (GUILayout.Button(Language.GetText("SaveGameMenuCancelButton")))
 				OnCancel();
+		}
+
+		private string FilterStateId(string stateId) {
+			string temporalStateId = stateId.Trim().ToUpperInvariant();
+			string filteredStateId = "";
+
+			for (int i = 0; i < temporalStateId.Length; i++) {
+				char character = temporalStateId[i];
+
+				if (character >= 'A' && character <= 'Z') {
+					filteredStateId += character;
+					continue;
+				}
+
+				if (character >= '0' && character <= '9') {
+					filteredStateId += character;
+					continue;
+				}
+
+				switch (character) {
+					case ' ' :
+					case '_' :
+					case '-' : {
+						filteredStateId += character;
+						continue;
+					}
+				}
+			}
+
+			return filteredStateId;
 		}
 
 		private void OnCancel() {

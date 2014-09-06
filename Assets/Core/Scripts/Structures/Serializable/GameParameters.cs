@@ -9,11 +9,13 @@ namespace SaguFramework {
 		public float GameAspectRatio;
 		public RoomParametersMap Rooms;
 		public CharacterParametersMap Characters;
+		public InventoryParameters Inventory;
 		public ItemParametersMap Items;
 		public MenusParameters Menus;
 		public SplashScreensParameters SplashScreens;
 		public SoundsParameters Sounds;
 		public LoadersParameters Loaders;
+		public GuiParameters Gui;
 
 	}
 

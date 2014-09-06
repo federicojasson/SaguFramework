@@ -8,19 +8,19 @@ SceneSettings:
   m_PVSPortalsArray: []
   m_OcclusionBakeSettings:
     smallestOccluder: 5
-    smallestHole: .25
+    smallestHole: .111111112
     backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
   m_Fog: 0
-  m_FogColor: {r: .5, g: .5, b: .5, a: 1}
+  m_FogColor: {r: .111111112, g: .111111112, b: .111111112, a: 1}
   m_FogMode: 3
-  m_FogDensity: .00999999978
+  m_FogDensity: .00011111112
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
+  m_AmbientLight: {r: .111111112, g: .111111112, b: .111111112, a: 1}
   m_SkyboxMaterial: {fileID: 0}
-  m_HaloStrength: .5
+  m_HaloStrength: .111111112
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -44,16 +44,16 @@ LightmapSettings:
     m_TextureHeight: 1024
     m_BounceBoost: 1
     m_BounceIntensity: 1
-    m_SkyLightColor: {r: .860000014, g: .930000007, b: 1, a: 1}
+    m_SkyLightColor: {r: .111111112, g: .111111112, b: 1, a: 1}
     m_SkyLightIntensity: 0
     m_Quality: 0
     m_Bounces: 1
     m_FinalGatherRays: 1000
-    m_FinalGatherContrastThreshold: .0500000007
+    m_FinalGatherContrastThreshold: .0111111112
     m_FinalGatherGradientThreshold: 0
     m_FinalGatherInterpolationPoints: 15
     m_AOAmount: 0
-    m_AOMaxDistance: .100000001
+    m_AOMaxDistance: .111111112
     m_AOContrast: 1
     m_LODSurfaceMappingDistance: 1
     m_Padding: 0
@@ -63,15 +63,15 @@ LightmapSettings:
 NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    agentRadius: .5
+    agentRadius: .111111112
     agentHeight: 2
     agentSlope: 45
-    agentClimb: .400000006
+    agentClimb: .111111112
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     accuratePlacement: 0
     minRegionArea: 2
-    widthInaccuracy: 16.666666
+    widthInaccuracy: 11.1111112
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
 --- !u!1 &303628371
@@ -143,6 +143,8 @@ MonoBehaviour:
     Character: {fileID: 11400000, guid: 7aacc45ec9083c34a818a93ae82fb072, type: 2}
     Image: {fileID: 11400000, guid: 16553deb02123a84682fa541ffd43ba4, type: 2}
     Interactive: {fileID: 11400000, guid: 70f12dd629e935447a70bc1d56843b1d, type: 2}
+    Inventory: {fileID: 11400000, guid: f978427df097d7c47ac73273daf110fb, type: 2}
+    InventoryItem: {fileID: 11400000, guid: acf26d0aa1d3c8a4ab2fe1e86423c3f4, type: 2}
     Item: {fileID: 11400000, guid: 0632002f6b877e94bbbd729924cfbab2, type: 2}
     Menu: {fileID: 11400000, guid: fd5c40b4598560e4084f063bb0b76f8a, type: 2}
     Room: {fileID: 11400000, guid: 667f94983ab9b584f8005c7efb12add1, type: 2}
@@ -150,7 +152,7 @@ MonoBehaviour:
     Trigger: {fileID: 11400000, guid: 993c7af6aac59d54a9fb18580a67362c, type: 2}
     FadeTexture: {fileID: 2800000, guid: d61b5fe2cfc413d42bf158c6580f803a, type: 3}
     WindowboxTexture: {fileID: 2800000, guid: 3c69fe5f8a7e5084bbc92e90987347c1, type: 3}
-    CameraBackgroundColor: {r: .698529422, g: .0975886807, b: .0975886807, a: 0}
+    CameraBackgroundColor: {r: .111111112, g: .0111111112, b: .0111111112, a: 0}
 --- !u!4 &492055072
 Transform:
   m_ObjectHideFlags: 0
@@ -172,7 +174,7 @@ GameObject:
   - 4: {fileID: 599908272}
   - 114: {fileID: 599908271}
   m_Layer: 0
-  m_Name: InputReader
+  m_Name: InputHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -323,12 +325,12 @@ MonoBehaviour:
           Triggers:
           - Behaviour: {fileID: 11400000, guid: 0bce879238c86a54ea0588a0a76293a8,
               type: 2}
-            Position: {x: .0500000007, y: .5}
-            Size: {x: .100000001, y: 1}
+            Position: {x: .0111111112, y: .111111112}
+            Size: {x: .111111112, y: 1}
           - Behaviour: {fileID: 11400000, guid: 65bfc9f743cea9e4ea45bc66b081a915,
               type: 2}
-            Position: {x: .5, y: .5}
-            Size: {x: .100000001, y: 1}
+            Position: {x: .111111112, y: .111111112}
+            Size: {x: .111111112, y: 1}
     Characters:
       Entries:
       - Key: Scientist
@@ -341,7 +343,14 @@ MonoBehaviour:
           Interactive:
             Behaviour: {fileID: 11400000, guid: 097c11a5b6fb92b4bbaeb8e2d9a28d87,
               type: 2}
-          Height: .699999988
+          Height: .111111112
+    Inventory:
+      Image:
+        Sprite: {fileID: 21300000, guid: 2c09b53dd87eecc49b3a4e59d97c8a88, type: 3}
+        Opacity: 1
+        SortingLayer: 
+      Height: 1
+      InventoryItemsSize: {x: 0, y: 0}
     Items:
       Entries:
       - Key: Erlenmeyer
@@ -354,7 +363,7 @@ MonoBehaviour:
             Sprite: {fileID: 21300000, guid: f483a91a5eaa9e346a1fd325994a6613, type: 3}
             Opacity: 1
             SortingLayer: 
-          Height: .100000001
+          Height: .111111112
     Menus:
       Main:
         Behaviour: {fileID: 11400000, guid: 611e7800ab4c8c7499a498ec777caeb8, type: 2}
@@ -478,48 +487,50 @@ MonoBehaviour:
       MainLoader:
         FadeIn:
           Ignore: 0
-          Speed: .400000006
+          Speed: .111111112
           Texture: {fileID: 0}
         FadeOut:
           Ignore: 0
-          Speed: .400000006
+          Speed: .111111112
           Texture: {fileID: 0}
       MainMenuLoader:
         FadeIn:
           Ignore: 0
-          Speed: .400000006
+          Speed: .111111112
           Texture: {fileID: 0}
         FadeOut:
           Ignore: 0
-          Speed: .400000006
+          Speed: .111111112
           Texture: {fileID: 0}
       RoomLoader:
         FadeIn:
           Ignore: 0
-          Speed: .400000006
+          Speed: .111111112
           Texture: {fileID: 0}
         FadeOut:
           Ignore: 0
-          Speed: .400000006
+          Speed: .111111112
           Texture: {fileID: 0}
       SpecialLoader:
         FadeIn:
           Ignore: 0
-          Speed: .400000006
+          Speed: .111111112
           Texture: {fileID: 0}
         FadeOut:
           Ignore: 0
-          Speed: .400000006
+          Speed: .111111112
           Texture: {fileID: 0}
       SplashScreenLoader:
         FadeIn:
           Ignore: 0
-          Speed: .400000006
+          Speed: .111111112
           Texture: {fileID: 0}
         FadeOut:
           Ignore: 0
-          Speed: .400000006
+          Speed: .111111112
           Texture: {fileID: 0}
+    Gui:
+      Skin: {fileID: 11400000, guid: 18e96bc9dc001be4bb5aa9cebbf3467e, type: 2}
 --- !u!4 &658528606
 Transform:
   m_ObjectHideFlags: 0
@@ -573,14 +584,14 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: .111111112, g: .111111112, b: .111111112, a: .00011111112}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
-  near clip plane: .300000012
+  near clip plane: .111111112
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -625,7 +636,7 @@ GameObject:
   - 4: {fileID: 1535686368}
   - 114: {fileID: 1535686367}
   m_Layer: 0
-  m_Name: Inventory
+  m_Name: InventoryHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -724,6 +735,44 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1880756227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!1 &2016766386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2016766388}
+  - 114: {fileID: 2016766387}
+  m_Layer: 0
+  m_Name: TextHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2016766387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2016766386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d375f34e772f0f34cae9c33e6424979a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2016766388
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2016766386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

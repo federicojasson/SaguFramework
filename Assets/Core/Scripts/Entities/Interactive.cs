@@ -6,12 +6,12 @@ namespace SaguFramework {
 
 		public void OnMouseEnter() {
 			if (Geometry.GetGameRectangleInScreen().Contains(Input.mousePosition))
-				InputReader.GetInstance().NotifyOnMouseEnter(GetBehaviour());
+				InputHandler.GetInstance().NotifyOnMouseEnter(GetBehaviour());
 		}
 
 		public void OnMouseExit() {
 			if (Geometry.GetGameRectangleInScreen().Contains(Input.mousePosition))
-				InputReader.GetInstance().NotifyOnMouseExit(GetBehaviour());
+				InputHandler.GetInstance().NotifyOnMouseExit(GetBehaviour());
 		}
 		
 		public void SetSize(Vector2 size) {

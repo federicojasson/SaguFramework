@@ -106,8 +106,20 @@ namespace SaguFramework {
 			return FrameworkDelegate.GetInstance().FrameworkParameters.Interactive;
 		}
 
+		public static Inventory GetInventory() {
+			return FrameworkDelegate.GetInstance().FrameworkParameters.Inventory;
+		}
+
 		public static AudioClip GetInventoryEffect() {
 			return GameDelegate.GetInstance().GameParameters.Sounds.InventoryEffect;
+		}
+
+		public static InventoryItem GetInventoryItem() {
+			return FrameworkDelegate.GetInstance().FrameworkParameters.InventoryItem;
+		}
+
+		public static InventoryParameters GetInventoryParameters() {
+			return GameDelegate.GetInstance().GameParameters.Inventory;
 		}
 
 		public static Item GetItem() {
@@ -177,6 +189,10 @@ namespace SaguFramework {
 
 		public static RoomParameters GetRoomParameters(string id) {
 			return GameDelegate.GetInstance().GameParameters.Rooms[id];
+		}
+
+		public static GUISkin GetSkin() {
+			return GameDelegate.GetInstance().GameParameters.Gui.Skin;
 		}
 		
 		public static LoaderParameters GetSpecialLoaderParameters() {
