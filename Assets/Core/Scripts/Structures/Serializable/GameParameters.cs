@@ -16,6 +16,7 @@ namespace SaguFramework {
 		public SoundsParameters Sounds;
 		public LoadersParameters Loaders;
 		public GuiParameters Gui;
+		public ControlsParameters Controls;
 
 	}
 

@@ -82,6 +82,10 @@ namespace SaguFramework {
 			return GameDelegate.GetInstance().GameParameters.Characters[id];
 		}
 
+		public static KeyCode GetCloseMenuKey() {
+			return GameDelegate.GetInstance().GameParameters.Controls.CloseMenuKey;
+		}
+
 		public static float GetDelayBetweenSongs() {
 			return GameDelegate.GetInstance().GameParameters.Sounds.DelayBetweenSongs;
 		}
@@ -171,6 +175,10 @@ namespace SaguFramework {
 			return Utilities.GetFilePath(OptionsFileName, OptionsFileExtension, gameDirectoryPath);
 		}
 
+		public static KeyCode GetPauseGameKey() {
+			return GameDelegate.GetInstance().GameParameters.Controls.PauseGameKey;
+		}
+
 		public static MenuParameters GetPauseMenuParameters() {
 			return GameDelegate.GetInstance().GameParameters.Menus.Pause;
 		}
@@ -214,6 +222,10 @@ namespace SaguFramework {
 		public static string GetStateFilePath(string id) {
 			string gameDirectoryPath = GetGameDirectoryPath();
 			return Utilities.GetFilePath(id, StateFileExtension, gameDirectoryPath, StateFilesDirectoryPath);
+		}
+		
+		public static KeyCode GetToggleInventoryKey() {
+			return GameDelegate.GetInstance().GameParameters.Controls.ToggleInventoryKey;
 		}
 
 		public static Trigger GetTrigger() {
