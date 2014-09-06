@@ -28,5 +28,7 @@
 			</location>
 		</item-state>
 	</item>
-	<hint>prueba</hint>
+	<inventory-item>
+		<id>InventoryErlenmeyer</id>
+	</inventory-item>
 </state>

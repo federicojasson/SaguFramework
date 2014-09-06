@@ -22,7 +22,7 @@ namespace SaguFramework {
 				Menu currentMenu = Objects.GetCurrentMenu();
 				if (currentMenu == pauseMenu) {
 					currentMenu.Close();
-					InputHandler.GetInstance().SetBackupInputMode();
+					InputHandler.GetInstance().SetCurrentInputMode();
 				}
 			} else {
 				Objects.GetCurrentMenu().Close();

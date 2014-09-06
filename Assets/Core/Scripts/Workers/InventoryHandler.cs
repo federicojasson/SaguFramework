@@ -47,9 +47,14 @@ namespace SaguFramework {
 		}
 
 		public void ShowInventory() {
-			Objects.GetInventory().Show();
+			Inventory inventory = Objects.GetInventory();
+			inventory.Show();
 			
 			List<InventoryItem> inventoryItems = Objects.GetInventoryItems();
+
+			if (inventoryItems.Count == 0)
+				return;
+
 			int itemsPerPage = GetItemsPerPage();
 			int index = page * itemsPerPage;
 			int count;
@@ -63,17 +68,17 @@ namespace SaguFramework {
 			InventoryParameters parameters = Parameters.GetInventoryParameters();
 			List<InventoryItem> pageInventoryItems = inventoryItems.GetRange(index, count);
 
+			Vector2 position = (Vector2) inventory.transform.position + Geometry.GameToWorldPosition(parameters.CenterPosition);
+			Vector2 size = Geometry.GameToWorldSize(parameters.InventoryItemsSize);
+			Vector2 gap = parameters.InventoryItemsGap;
+			int rows = parameters.Rows;
+			int columns = parameters.Columns;
 			int row = 0;
 			int column = 0;
 			foreach (InventoryItem inventoryItem in pageInventoryItems) {
-				; // TODO
-
-
-				float x = column * (width + horizontalGap) + positionInWorld.x - (columns / 2f) * (width + horizontalGap) + width / 2f;
-				float y = (rows - 1 - row) * (height + verticalGap) + positionInWorld.y - (rows / 2f) * (height + verticalGap) + height / 2f;
-				inventoryItem.transform.position = UtilityManager.GetPosition(new Vector2(x, y), inventoryItem.transform.position.z);
-
-				inventoryItem.SetPosition(new Vector2());
+				float x = column * (size.x + gap.x) + position.x - (columns / 2f) * (size.x + gap.x) + size.x / 2f;
+				float y = (rows - 1 - row) * (size.y + gap.y) + position.y - (rows / 2f) * (size.y + gap.y) + size.y / 2f;
+				inventoryItem.SetPosition(new Vector2(x, y));
 				inventoryItem.Show();
 				
 				column = (column + 1) % columns;
