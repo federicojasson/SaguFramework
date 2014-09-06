@@ -55,15 +55,34 @@ namespace SaguFramework {
 		public static Inventory CreateInventory(InventoryParameters parameters) {
 			Inventory inventory = Instantiate<Inventory>(Parameters.GetInventory());
 			Image image = CreateImage(parameters.Image, Parameters.SortingLayerInventory);
+			Interactive previousPageInteractive = CreateInteractive(parameters.PreviousPageInteractive);
+			Interactive nextPageInteractive = CreateInteractive(parameters.NextPageInteractive);
+			Interactive closeInteractive = CreateInteractive(parameters.CloseInteractive);
 
 			Vector2 currentSize = image.GetSize();
 			float aspectRatio = currentSize.x / currentSize.y;
 			float sizeY = Geometry.GameToWorldHeight(1f);
 			float sizeX = sizeY * aspectRatio;
 			Vector2 size = new Vector2(sizeX, sizeY);
+
+			Vector2 previousPageSize = new Vector2(parameters.PreviousPageArea.width, parameters.PreviousPageArea.height);
+			Vector2 nextPageSize = new Vector2(parameters.NextPageArea.width, parameters.NextPageArea.height);
+			Vector2 closeSize = new Vector2(parameters.CloseArea.width, parameters.CloseArea.height);
+			Vector2 previousPagePosition = new Vector2(parameters.PreviousPageArea.x - 0.5f, parameters.PreviousPageArea.y - 0.5f);
+			Vector2 nextPagePosition = new Vector2(parameters.NextPageArea.x - 0.5f, parameters.NextPageArea.y - 0.5f);
+			Vector2 closePosition = new Vector2(parameters.CloseArea.x - 0.5f, parameters.CloseArea.y - 0.5f);
 			
 			image.SetSize(size);
+			previousPageInteractive.SetSize(Geometry.GameToWorldSize(previousPageSize));
+			nextPageInteractive.SetSize(Geometry.GameToWorldSize(nextPageSize));
+			closeInteractive.SetSize(Geometry.GameToWorldSize(closeSize));
 			SetParent(image, inventory);
+			previousPageInteractive.SetPosition(Geometry.GameToWorldPosition(previousPagePosition));
+			nextPageInteractive.SetPosition(Geometry.GameToWorldPosition(nextPagePosition));
+			closeInteractive.SetPosition(Geometry.GameToWorldPosition(closePosition));
+			SetParent(previousPageInteractive, inventory);
+			SetParent(nextPageInteractive, inventory);
+			SetParent(closeInteractive, inventory);
 
 			return inventory;
 		}
@@ -190,9 +209,13 @@ namespace SaguFramework {
 			Trigger trigger = Instantiate<Trigger>(Parameters.GetTrigger());
 			TriggerBehaviour behaviour = (TriggerBehaviour) Object.Instantiate(parameters.Behaviour);
 
-			trigger.SetSize(Geometry.GameToWorldSize(parameters.Size));
+			Rect area = parameters.Area;
+			Vector2 size = new Vector2(area.width, area.height);
+			Vector2 position = new Vector2(area.x, area.y);
+
+			trigger.SetSize(Geometry.GameToWorldSize(size));
 			SetParent(behaviour, trigger);
-			trigger.SetPosition(Geometry.GameToWorldPosition(parameters.Position));
+			trigger.SetPosition(Geometry.GameToWorldPosition(position));
 
 			return trigger;
 		}

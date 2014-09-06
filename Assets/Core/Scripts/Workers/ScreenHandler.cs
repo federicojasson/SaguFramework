@@ -21,10 +21,7 @@ namespace SaguFramework {
 			instance = this;
 			fadeSpeed = 0;
 			fadeTextureOpacity = 1;
-
-			// TODO: remove this
-			//tooltip = "esto es una prueba texto muy muy muy largo 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 end";
-			tooltip = "Descripcion";
+			tooltip = "";
 		}
 
 		public void ClearTooltip() {

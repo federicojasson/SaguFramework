@@ -47,6 +47,10 @@ namespace SaguFramework {
 			return resourcePath;
 		}
 
+		public static Component GetGrandparent(Component component) {
+			return component.transform.parent.parent;
+		}
+
 		public static int[] GetIntegerPermutationLinear(int n) {
 			int[] permutation = new int[n];
 			

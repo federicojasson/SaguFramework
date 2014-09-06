@@ -7,6 +7,8 @@
 		public static InventoryHandler GetInstance() {
 			return instance;
 		}
+
+		private InventoryItem selectedItem;
 		
 		public override void Awake() {
 			base.Awake();
@@ -20,11 +22,21 @@
 			Objects.GetInventory().Hide();
 		}
 
+		public void SelectItem(InventoryItem inventoryItem) {
+			selectedItem = inventoryItem;
+			InputHandler.GetInstance().SetInputMode(InputMode.UsingInventoryItem);
+		}
+
 		public void ShowInventory() {
 			Objects.GetInventory().Show();
 
 			foreach (InventoryItem inventoryItem in Objects.GetInventoryItems())
 				; // TODO
+		}
+
+		public void UnselectItem() {
+			selectedItem = null;
+			InputHandler.GetInstance().SetCurrentInputMode();
 		}
 
 	}

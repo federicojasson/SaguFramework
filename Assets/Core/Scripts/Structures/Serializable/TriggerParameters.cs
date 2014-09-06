@@ -7,8 +7,7 @@ namespace SaguFramework {
 	public class TriggerParameters {
 		
 		public TriggerBehaviour Behaviour;
-		public Vector2 Position;
-		public Vector2 Size;
+		public Rect Area;
 		
 	}
 	

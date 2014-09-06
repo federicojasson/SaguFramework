@@ -2,6 +2,10 @@
 	
 	public static class Game {
 
+		public static void ClearTooltip() {
+			ScreenHandler.GetInstance().ClearTooltip();
+		}
+
 		public static void CloseMenu() {
 			MenuHandler.GetInstance().CloseMenu();
 		}
@@ -45,7 +49,13 @@
 			// TODO
 		}
 
+		public static void SetTooltip(string tooltip) {
+			ScreenHandler.GetInstance().SetTooltip(tooltip);
+		}
+
 		public static void ShowInventory() {
+			ClearTooltip();
+			InputHandler.GetInstance().SetInputMode(InputMode.Inventory);
 			InventoryHandler.GetInstance().ShowInventory();
 		}
 

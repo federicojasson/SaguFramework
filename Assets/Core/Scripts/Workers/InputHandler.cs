@@ -19,7 +19,6 @@ namespace SaguFramework {
 			return instance;
 		}
 
-		private InputMode backupInputMode;
 		private InputMode inputMode;
 
 		public override void Awake() {
@@ -29,47 +28,87 @@ namespace SaguFramework {
 		}
 
 		public void NotifyOnMouseEnter(InteractiveBehaviour behaviour) {
-			// TODO
-			//behaviour.OnCursorEnter();
+			switch (inputMode) {
+				case InputMode.Inventory : {
+					NotifyOnMouseEnterInventory(behaviour);
+					break;
+				}
+					
+				case InputMode.Playing : {
+					NotifyOnMouseEnterPlaying(behaviour);
+					break;
+				}
+					
+				case InputMode.UsingInventoryItem : {
+					NotifyOnMouseEnterUsingInventoryItem(behaviour);
+					break;
+				}
+			}
 		}
 
 		public void NotifyOnMouseExit(InteractiveBehaviour behaviour) {
-			// TODO
-			//behaviour.OnCursorExit();
+			switch (inputMode) {
+				case InputMode.Inventory : {
+					NotifyOnMouseExitInventory(behaviour);
+					break;
+				}
+					
+				case InputMode.Playing : {
+					NotifyOnMouseExitPlaying(behaviour);
+					break;
+				}
+					
+				case InputMode.UsingInventoryItem : {
+					NotifyOnMouseExitUsingInventoryItem(behaviour);
+					break;
+				}
+			}
+		}
+
+		public void NotifyOnMouseUpAsButton(InteractiveBehaviour behaviour) {
+			switch (inputMode) {
+				case InputMode.Inventory : {
+					NotifyOnMouseUpAsButtonInventory(behaviour);
+					break;
+				}
+					
+				case InputMode.Playing : {
+					NotifyOnMouseUpAsButtonPlaying(behaviour);
+					break;
+				}
+					
+				case InputMode.UsingInventoryItem : {
+					NotifyOnMouseUpAsButtonUsingInventoryItem(behaviour);
+					break;
+				}
+			}
 		}
 
 		public void NotifyOnTriggerEnter2D(TriggerBehaviour behaviour) {
-			// TODO
-			//behaviour.OnPlayerCharacterEnter();
+			behaviour.OnPlayerCharacterEnter();
 		}
 		
 		public void NotifyOnTriggerExit2D(TriggerBehaviour behaviour) {
-			// TODO
-			//behaviour.OnPlayerCharacterExit();
+			behaviour.OnPlayerCharacterExit();
 		}
 
-		public void SetBackupInputMode() {
-			inputMode = backupInputMode;
+		public void SetCurrentInputMode() {
+			// TODO: detect
 
-			Debug.Log("inputMode: " + inputMode + " - backupInputMode: " + backupInputMode);
+
+			//inputMode = backupInputMode;
+
+			Debug.Log("inputMode: " + inputMode);
 		}
 
 		public void SetInputMode(InputMode inputMode) {
-			if (inputMode == InputMode.PauseMenu)
-				backupInputMode = this.inputMode;
-			
 			this.inputMode = inputMode;
 
-			Debug.Log("inputMode: " + inputMode + " - backupInputMode: " + backupInputMode);
+			Debug.Log("inputMode: " + inputMode);
 		}
 
 		public void Update() {
 			switch (inputMode) {
-				case InputMode.Disabled : {
-					CheckInputDisabled();
-					break;
-				}
-
 				case InputMode.Inventory : {
 					CheckInputInventory();
 					break;
@@ -97,7 +136,10 @@ namespace SaguFramework {
 			}
 		}
 
-		private void CheckInputDisabled() {} // TODO: remove it?
+
+
+
+
 
 		private void CheckInputInventory() {
 			if (Input.GetKeyDown(Parameters.GetPauseGameKey()))
@@ -138,6 +180,89 @@ namespace SaguFramework {
 		}
 		
 		private void CheckInputUsingInventoryItem() {
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		private void NotifyOnMouseEnterInventory(InteractiveBehaviour behaviour) {
+			Component parent = Utilities.GetGrandparent(behaviour);
+
+			if (parent.GetComponent<Inventory>() != null) {
+				behaviour.OnCursorEnter();
+				return;
+			}
+
+			if (parent.GetComponent<InventoryItem>() != null) {
+				behaviour.OnCursorEnter();
+				return;
+			}
+		}
+
+		private void NotifyOnMouseEnterPlaying(InteractiveBehaviour behaviour) {
+			behaviour.OnCursorEnter();
+		}
+
+		private void NotifyOnMouseEnterUsingInventoryItem(InteractiveBehaviour behaviour) {
+			behaviour.OnCursorEnter();
+		}
+
+
+
+
+
+		
+		private void NotifyOnMouseExitInventory(InteractiveBehaviour behaviour) {
+			Component parent = Utilities.GetGrandparent(behaviour);
+			
+			if (parent.GetComponent<Inventory>() != null) {
+				behaviour.OnCursorExit();
+				return;
+			}
+			
+			if (parent.GetComponent<InventoryItem>() != null) {
+				behaviour.OnCursorExit();
+				return;
+			}
+		}
+		
+		private void NotifyOnMouseExitPlaying(InteractiveBehaviour behaviour) {
+			behaviour.OnCursorExit();
+		}
+		
+		private void NotifyOnMouseExitUsingInventoryItem(InteractiveBehaviour behaviour) {
+			behaviour.OnCursorExit();
+		}
+
+
+
+
+		
+		private void NotifyOnMouseUpAsButtonInventory(InteractiveBehaviour behaviour) {
+			// TODO
+		}
+		
+		private void NotifyOnMouseUpAsButtonPlaying(InteractiveBehaviour behaviour) {
+			// TODO: la accion depende de la orden
+		}
+		
+		private void NotifyOnMouseUpAsButtonUsingInventoryItem(InteractiveBehaviour behaviour) {
+			// TODO: la accion depende de la orden
 		}
 
 	}

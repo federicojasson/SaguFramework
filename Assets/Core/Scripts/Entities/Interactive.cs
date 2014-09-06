@@ -13,6 +13,15 @@ namespace SaguFramework {
 			if (Geometry.GetGameRectangleInScreen().Contains(Input.mousePosition))
 				InputHandler.GetInstance().NotifyOnMouseExit(GetBehaviour());
 		}
+
+		public void OnMouseUpAsButton() {
+			if (Geometry.GetGameRectangleInScreen().Contains(Input.mousePosition))
+				InputHandler.GetInstance().NotifyOnMouseUpAsButton(GetBehaviour());
+		}
+
+		public void SetPosition(Vector2 position) {
+			transform.position = Utilities.GetPosition(position, transform.position.z);
+		}
 		
 		public void SetSize(Vector2 size) {
 			GetCollider().size = size;

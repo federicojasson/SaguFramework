@@ -324,12 +324,68 @@ MonoBehaviour:
           Triggers:
           - Behaviour: {fileID: 11400000, guid: 0bce879238c86a54ea0588a0a76293a8,
               type: 2}
-            Position: {x: .100000001, y: .5}
-            Size: {x: .100000001, y: 1}
+            Area:
+              serializedVersion: 2
+              x: .0500000007
+              y: .5
+              width: .100000001
+              height: 1
           - Behaviour: {fileID: 11400000, guid: 65bfc9f743cea9e4ea45bc66b081a915,
               type: 2}
-            Position: {x: .5, y: .5}
-            Size: {x: .100000001, y: 1}
+            Area:
+              serializedVersion: 2
+              x: .5
+              y: .5
+              width: .100000001
+              height: 1
+      - Key: Green
+        Value:
+          BackgroundImage:
+            Sprite: {fileID: 21300000, guid: db49b92a0c5d90f4896d13af03bc0b15, type: 3}
+            Opacity: 1
+            SortingLayer: 
+          ForegroundImage:
+            Sprite: {fileID: 0}
+            Opacity: 1
+            SortingLayer: 
+          ScaleFactor: 1
+          Triggers:
+          - Behaviour: {fileID: 11400000, guid: f6a0f9e546312204ea87ef775d4ae8a8,
+              type: 2}
+            Area:
+              serializedVersion: 2
+              x: .0500000007
+              y: .5
+              width: .100000001
+              height: 1
+          - Behaviour: {fileID: 11400000, guid: ca2223cdbeb0b4d4b9efa0699962e85d,
+              type: 2}
+            Area:
+              serializedVersion: 2
+              x: 1.45000005
+              y: .5
+              width: .100000001
+              height: 1
+      - Key: Blue
+        Value:
+          BackgroundImage:
+            Sprite: {fileID: 21300000, guid: 3f0508fa309f45c4c86e473e1e36d0bc, type: 3}
+            Opacity: 1
+            SortingLayer: 
+          ForegroundImage:
+            Sprite: {fileID: 0}
+            Opacity: 1
+            SortingLayer: 
+          ScaleFactor: 1
+          Triggers:
+          - Behaviour: {fileID: 11400000, guid: ae345deef7a635b4fb4ca7a9817e46ee,
+              type: 2}
+            Area:
+              serializedVersion: 2
+              x: 1.45000005
+              y: .5
+              width: .100000001
+              height: 1
     Characters:
       Entries:
       - Key: Scientist
@@ -345,9 +401,33 @@ MonoBehaviour:
           Height: .649999976
     Inventory:
       Image:
-        Sprite: {fileID: 21300000, guid: 2c09b53dd87eecc49b3a4e59d97c8a88, type: 3}
+        Sprite: {fileID: 21300000, guid: 382cbdca2bff85f4883fc1814c3244cc, type: 3}
         Opacity: 1
         SortingLayer: 
+      PreviousPageArea:
+        serializedVersion: 2
+        x: .457812488
+        y: .499444515
+        width: .0393749997
+        height: .243333295
+      PreviousPageInteractive:
+        Behaviour: {fileID: 11400000, guid: fe5cebb02c84c814197997b6fc73b88f, type: 2}
+      NextPageArea:
+        serializedVersion: 2
+        x: .979062498
+        y: .499444455
+        width: .0393749997
+        height: .24333334
+      NextPageInteractive:
+        Behaviour: {fileID: 11400000, guid: 85335ae6f62d8474c852191906c69480, type: 2}
+      CloseArea:
+        serializedVersion: 2
+        x: .212500006
+        y: .5
+        width: .425000012
+        height: 1
+      CloseInteractive:
+        Behaviour: {fileID: 11400000, guid: 595b8230d3f37db428e91d674766f534, type: 2}
       InventoryItemsSize: {x: .125, y: .222222224}
       InventoryItemsGap: {x: .03125, y: .055555556}
       CenterPosition: {x: .718437493, y: .499444455}
