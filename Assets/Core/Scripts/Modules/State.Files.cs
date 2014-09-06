@@ -44,15 +44,6 @@ namespace SaguFramework {
 
 				stateNode.Add (playerCharacterIdNode);
 			}
-
-			// TODO
-			// Inventory page
-			/*{
-				XElement inventoryPageNode = new XElement(Parameters.XmlTagInventoryPage);
-				Utilities.SetXmlNodeIntegerValue(inventoryPageNode, inventoryPage);
-
-				stateNode.Add(inventoryPageNode);
-			}*/
 			
 			// Hints
 			foreach (string hint in hints) {
@@ -61,18 +52,17 @@ namespace SaguFramework {
 
 				stateNode.Add(hintNode);
 			}
-			
-			// TODO
-			/*// Inventory items
+
+			// Inventory items
 			foreach (string inventoryItemId in inventoryItemIds) {
 				XElement inventoryItemNode = new XElement(Parameters.XmlTagInventoryItem);
 
-				XElement inventoryItemIdNode = new XElement(Parameters.XmlTagId);
-				Utilities.SetXmlNodeStringValue(inventoryItemIdNode, inventoryItemId);
+				XElement idNode = new XElement(Parameters.XmlTagId);
+				Utilities.SetXmlNodeStringValue(idNode, inventoryItemId);
 
-				inventoryItemNode.Add(inventoryItemIdNode);
+				inventoryItemNode.Add(idNode);
 				stateNode.Add(inventoryItemNode);
-			}*/
+			}
 			
 			// Characters
 			foreach (KeyValuePair<string, CharacterState> entry in characterStates) {
@@ -111,10 +101,8 @@ namespace SaguFramework {
 		private static void ProcessStateFile(XDocument stateFile) {
 			currentRoomId = null;
 			playerCharacterId = null;
-			// TODO
-			/*inventoryPage = 0;
-			inventoryItemIds.Clear();*/
 			hints.Clear();
+			inventoryItemIds.Clear();
 			characterStates.Clear();
 			itemStates.Clear();
 			
@@ -133,28 +121,20 @@ namespace SaguFramework {
 				playerCharacterId = Utilities.GetXmlNodeStringValue(playerCharacterIdNode);
 			}
 			
-			// TODO
-			// Inventory page
-			/*{
-				XElement inventoryPageNode = stateNode.Element(Parameters.XmlTagInventoryPage);
-				inventoryPage = Utilities.GetXmlNodeIntegerValue(inventoryPageNode);
-			}*/
-			
 			// Hints
 			foreach (XElement hintNode in stateNode.Elements(Parameters.XmlTagHint)) {
 				string hint = Utilities.GetXmlNodeStringValue(hintNode);
 
 				hints.Add(hint);
 			}
-			
-			// TODO
-			/*// Inventory items
-			foreach (XElement inventoryItemNode in stateNode.Elements(Parameters.XmlTagInventoryItem)) {
-				XElement inventoryItemIdNode = inventoryItemNode.Element(Parameters.XmlTagId);
-				string inventoryItemId = Utilities.GetXmlNodeStringValue(inventoryItemIdNode);
 
-				inventoryItemIds.Add(inventoryItemId);
-			}*/
+			// Inventory items
+			foreach (XElement inventoryItemNode in stateNode.Elements(Parameters.XmlTagInventoryItem)) {
+				XElement idNode = inventoryItemNode.Element(Parameters.XmlTagId);
+				string id = Utilities.GetXmlNodeStringValue(idNode);
+
+				inventoryItemIds.Add(id);
+			}
 			
 			// Characters
 			foreach (XElement characterNode in stateNode.Elements(Parameters.XmlTagCharacter)) {

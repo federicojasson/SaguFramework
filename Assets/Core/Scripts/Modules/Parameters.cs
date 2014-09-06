@@ -43,7 +43,6 @@ namespace SaguFramework {
 		public const string SortingLayerRoomForeground = "RoomForeground";
 		public const string SortingLayerSplashScreen = "SplashScreen";
 
-		// TODO: descomentar por partes
 		public const string XmlTagBoolean = "boolean";
 		public const string XmlTagCharacter = "character";
 		public const string XmlTagCharacterState = "character-state";
@@ -53,8 +52,7 @@ namespace SaguFramework {
 		public const string XmlTagHint = "hint";
 		public const string XmlTagId = "id";
 		public const string XmlTagInteger = "integer";
-		/*public const string XmlTagInventoryItem = "inventory-item";
-		public const string XmlTagInventoryPage = "inventory-page";*/
+		public const string XmlTagInventoryItem = "inventory-item";
 		public const string XmlTagItem = "item";
 		public const string XmlTagItemState = "item-state";
 		public const string XmlTagLanguage = "language";

@@ -8,10 +8,15 @@ namespace SaguFramework {
 		
 		public void Awake() {
 			Objects.RegisterInventoryItem(this);
+			Hide();
 		}
 		
 		public string GetId() {
 			return id;
+		}
+		
+		public void Hide() {
+			gameObject.SetActive(false);
 		}
 		
 		public void OnDestroy() {
@@ -24,6 +29,10 @@ namespace SaguFramework {
 		
 		public void SetPosition(Vector2 position) {
 			transform.position = Utilities.GetPosition(position, transform.position.z);
+		}
+		
+		public void Show() {
+			gameObject.SetActive(true);
 		}
 		
 		private InventoryItemBehaviour GetBehaviour() {
