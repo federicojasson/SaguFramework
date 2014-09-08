@@ -15,12 +15,12 @@ namespace SaguFramework {
 			CreateCharacters(roomScaleFactor);
 			CreateItems(roomScaleFactor);
 			ConfigureCamera();
-			InputHandler.GetInstance().SetInputMode(InputMode.Playing);
+			InputHandler.GetInstance().UpdateInputMode();
 			yield return StartCoroutine(FadeInCoroutine(Parameters.GetRoomLoaderParameters().FadeIn));
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			InputHandler.GetInstance().SetInputMode(InputMode.Disabled);
+			InputHandler.GetInstance().Disable();
 			yield return StartCoroutine(FadeOutCoroutine(Parameters.GetRoomLoaderParameters().FadeOut));
 		}
 

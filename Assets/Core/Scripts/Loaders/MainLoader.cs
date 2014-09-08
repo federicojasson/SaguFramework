@@ -6,6 +6,7 @@ namespace SaguFramework {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
 			LoadOptions();
+			Game.NewGame();// TODO
 			SoundPlayer.GetInstance().PlayMainEffect();
 			SplashScreenHandler.GetInstance().ShowMainSplashScreen();
 			yield return StartCoroutine(FadeInCoroutine(Parameters.GetMainLoaderParameters().FadeIn));

@@ -5,8 +5,7 @@ namespace SaguFramework {
 	public enum InputMode {
 		Disabled,
 		Inventory,
-		MainMenu,
-		PauseMenu,
+		Menu,
 		Playing,
 		UsingInventoryItem
 	};
@@ -14,7 +13,7 @@ namespace SaguFramework {
 	public class InputHandler : Worker {
 
 		private static InputHandler instance;
-		
+
 		public static InputHandler GetInstance() {
 			return instance;
 		}
@@ -24,6 +23,10 @@ namespace SaguFramework {
 		public override void Awake() {
 			base.Awake();
 			instance = this;
+			Disable();
+		}
+		
+		public void Disable() {
 			inputMode = InputMode.Disabled;
 		}
 
@@ -92,20 +95,10 @@ namespace SaguFramework {
 			behaviour.OnPlayerCharacterExit();
 		}
 
-		public void SetCurrentInputMode() {
-			// TODO: detect
-
-
-			//inputMode = backupInputMode;
-
-			Debug.Log("inputMode: " + inputMode);
-		}
-
-		public void SetInputMode(InputMode inputMode) {
+		// TODO
+		/*public void SetInputMode(InputMode inputMode) {
 			this.inputMode = inputMode;
-
-			Debug.Log("inputMode: " + inputMode);
-		}
+		}*/
 
 		public void Update() {
 			switch (inputMode) {
@@ -114,13 +107,8 @@ namespace SaguFramework {
 					break;
 				}
 
-				case InputMode.MainMenu : {
-					CheckInputMainMenu();
-					break;
-				}
-
-				case InputMode.PauseMenu : {
-					CheckInputPauseMenu();
+				case InputMode.Menu : {
+					CheckInputMenu();
 					break;
 				}
 
@@ -136,6 +124,30 @@ namespace SaguFramework {
 			}
 		}
 
+		public void UpdateInputMode() {
+			if (Objects.GetMenuCount() > 0) {
+				inputMode = InputMode.Menu;
+				return;
+			}
+
+			if (InventoryHandler.GetInstance().GetSelectedItem() != null) {
+				inputMode = InputMode.UsingInventoryItem;
+				return;
+			}
+			
+			Inventory inventory = Objects.GetInventory();
+			if (inventory != null && inventory.IsShowing()) {
+				inputMode = InputMode.Inventory;
+				return;
+			}
+			
+			if (Objects.GetRoom() != null) {
+				inputMode = InputMode.Playing;
+				return;
+			}
+			
+			inputMode = InputMode.Disabled;
+		}
 
 
 
@@ -155,12 +167,7 @@ namespace SaguFramework {
 				;//OrderManager.SetNextRotativeOrder(); TODO
 		}
 
-		private void CheckInputMainMenu() {
-			if (Input.GetKeyDown(Parameters.GetCloseMenuKey()))
-				Game.CloseMenu();
-		}
-
-		private void CheckInputPauseMenu() {
+		private void CheckInputMenu() {
 			if (Input.GetKeyDown(Parameters.GetCloseMenuKey()))
 				Game.CloseMenu();
 		}
@@ -254,7 +261,17 @@ namespace SaguFramework {
 
 		
 		private void NotifyOnMouseUpAsButtonInventory(InteractiveBehaviour behaviour) {
-			// TODO
+			Component parent = Utilities.GetGrandparent(behaviour);
+			
+			if (parent.GetComponent<Inventory>() != null) {
+				behaviour.OnCursorClick();
+				return;
+			}
+			
+			if (parent.GetComponent<InventoryItem>() != null) {
+				behaviour.OnCursorClick();
+				return;
+			}
 		}
 		
 		private void NotifyOnMouseUpAsButtonPlaying(InteractiveBehaviour behaviour) {

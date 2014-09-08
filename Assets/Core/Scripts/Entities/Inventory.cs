@@ -12,6 +12,10 @@ namespace SaguFramework {
 		public void Hide() {
 			gameObject.SetActive(false);
 		}
+
+		public bool IsShowing() {
+			return gameObject.activeInHierarchy;
+		}
 		
 		public void OnDestroy() {
 			Objects.UnregisterInventory();

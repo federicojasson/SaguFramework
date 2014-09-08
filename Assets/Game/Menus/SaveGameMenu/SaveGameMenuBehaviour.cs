@@ -86,12 +86,12 @@ namespace EmergenciaQuimica {
 				stateId = newStateId;
 			else
 				stateId = stateIds[selectedOption - 1];
-
+			
+			// TODO
 			if (stateIds.Contains(stateId))
 				Debug.Log("contains");
 			else
 				Debug.Log("! contains");
-			// TODO
 		}
 		
 	}

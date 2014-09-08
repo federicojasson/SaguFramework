@@ -20,6 +20,10 @@ namespace SaguFramework {
 			page = 0;
 		}
 
+		public InventoryItem GetSelectedItem() {
+			return selectedItem;
+		}
+
 		public void HideInventory() {
 			foreach (InventoryItem inventoryItem in Objects.GetInventoryItems())
 				inventoryItem.Hide();
@@ -43,7 +47,6 @@ namespace SaguFramework {
 
 		public void SelectItem(InventoryItem inventoryItem) {
 			selectedItem = inventoryItem;
-			InputHandler.GetInstance().SetInputMode(InputMode.UsingInventoryItem);
 		}
 
 		public void ShowInventory() {
@@ -68,16 +71,16 @@ namespace SaguFramework {
 			InventoryParameters parameters = Parameters.GetInventoryParameters();
 			List<InventoryItem> pageInventoryItems = inventoryItems.GetRange(index, count);
 
-			Vector2 position = (Vector2) inventory.transform.position + Geometry.GameToWorldPosition(parameters.CenterPosition);
+			Vector2 position = (Vector2) inventory.transform.position + Geometry.GameToWorldPosition(parameters.CenterPosition) - 0.5f * new Vector2(Geometry.GetGameWidthInUnits(), Geometry.GetGameHeightInUnits());
 			Vector2 size = Geometry.GameToWorldSize(parameters.InventoryItemsSize);
-			Vector2 gap = parameters.InventoryItemsGap;
+			Vector2 gap = Geometry.GameToWorldSize(parameters.InventoryItemsGap);
 			int rows = parameters.Rows;
 			int columns = parameters.Columns;
 			int row = 0;
 			int column = 0;
 			foreach (InventoryItem inventoryItem in pageInventoryItems) {
-				float x = column * (size.x + gap.x) + position.x - (columns / 2f) * (size.x + gap.x) + size.x / 2f;
-				float y = (rows - 1 - row) * (size.y + gap.y) + position.y - (rows / 2f) * (size.y + gap.y) + size.y / 2f;
+				float x = position.x - 0.5f * (columns * size.x + (columns - 1) * gap.x) + column * (size.x + gap.x) + 0.5f * size.x;
+				float y = position.y + 0.5f * (rows * size.y + (rows - 1) * gap.y) - row * (size.y + gap.y) - 0.5f * size.y;
 				inventoryItem.SetPosition(new Vector2(x, y));
 				inventoryItem.Show();
 				
@@ -89,7 +92,6 @@ namespace SaguFramework {
 
 		public void UnselectItem() {
 			selectedItem = null;
-			InputHandler.GetInstance().SetCurrentInputMode();
 		}
 
 		private int GetItemsPerPage() {

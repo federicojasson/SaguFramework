@@ -8,6 +8,7 @@
 
 		public static void CloseMenu() {
 			MenuHandler.GetInstance().CloseMenu();
+			InputHandler.GetInstance().UpdateInputMode();
 		}
 
 		public static void Exit() {
@@ -15,7 +16,9 @@
 		}
 
 		public static void HideInventory() {
+			ClearTooltip();
 			InventoryHandler.GetInstance().HideInventory();
+			InputHandler.GetInstance().UpdateInputMode();
 		}
 
 		public static void LoadGame(string stateId) {
@@ -34,15 +37,20 @@
 		}
 
 		public static void OpenMainMenu() {
+			ClearTooltip();
 			Objects.GetLoader().ChangeScene(Parameters.SceneMainMenu);
+			InputHandler.GetInstance().UpdateInputMode();
 		}
 
 		public static void OpenMenu(string menuId) {
 			MenuHandler.GetInstance().OpenMenu(menuId);
+			InputHandler.GetInstance().UpdateInputMode();
 		}
 
 		public static void PauseGame() {
+			ClearTooltip();
 			MenuHandler.GetInstance().OpenPauseMenu();
+			InputHandler.GetInstance().UpdateInputMode();
 		}
 
 		public static void SaveGame(string stateId) {
@@ -55,8 +63,8 @@
 
 		public static void ShowInventory() {
 			ClearTooltip();
-			InputHandler.GetInstance().SetInputMode(InputMode.Inventory);
 			InventoryHandler.GetInstance().ShowInventory();
+			InputHandler.GetInstance().UpdateInputMode();
 		}
 
 	}
