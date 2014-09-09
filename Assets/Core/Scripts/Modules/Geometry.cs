@@ -62,10 +62,8 @@ namespace SaguFramework {
 			float screenHeightInPixels = GetScreenHeightInPixels();
 			
 			if (gameAspectRatio > screenAspectRatio)
-				// Letterbox
 				return screenWidthInPixels / gameAspectRatio;
 			else
-				// Pillarbox
 				return screenHeightInPixels;
 		}
 		
@@ -118,10 +116,8 @@ namespace SaguFramework {
 			float screenHeightInPixels = GetScreenHeightInPixels();
 			
 			if (gameAspectRatio > screenAspectRatio)
-				// Letterbox
 				return screenWidthInPixels;
 			else
-				// Pillarbox
 				return screenHeightInPixels * gameAspectRatio;
 		}
 		
@@ -133,7 +129,7 @@ namespace SaguFramework {
 		}
 		
 		public static float GetPixelsPerUnit() {
-			return Parameters.PixelsPerUnit;
+			return Parameters.GetPixelsPerUnit();
 		}
 		
 		public static float GetScreenAspectRatio() {
@@ -215,17 +211,10 @@ namespace SaguFramework {
 			
 			float width = 0.5f * (screenWidthInPixels - gameWidthInPixels);
 			float height = 0.5f * (screenHeightInPixels - gameHeightInPixels);
-			
-			// Left rectangle
+
 			windowboxRectanglesInScreen[0] = new Rect(0f, 0f, width, screenHeightInPixels);
-			
-			// Right rectangle
 			windowboxRectanglesInScreen[1] = new Rect(screenWidthInPixels - width, 0f, width, screenHeightInPixels);
-			
-			// Bottom rectangle
 			windowboxRectanglesInScreen[2] = new Rect(0f, 0f, screenWidthInPixels, height);
-			
-			// Top rectangle
 			windowboxRectanglesInScreen[3] = new Rect(0f, screenHeightInPixels - height, screenWidthInPixels, height);
 			
 			return windowboxRectanglesInScreen;

@@ -1,11 +1,6 @@
-﻿using UnityEngine;
-
-namespace SaguFramework {
+﻿namespace SaguFramework {
 	
-	public abstract class MenuBehaviour : MonoBehaviour {
-		
-		public virtual void OnShowing() {}
-		
+	public abstract class MenuBehaviour : EntityBehaviour {
 	}
 	
 }

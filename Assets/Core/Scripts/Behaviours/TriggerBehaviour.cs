@@ -2,11 +2,21 @@
 
 namespace SaguFramework {
 	
-	public abstract class TriggerBehaviour : MonoBehaviour {
+	public abstract class TriggerBehaviour : EntityBehaviour {
 		
-		public virtual void OnPlayerCharacterEnter() {}
+		public override void OnDefocus() {
+			ScreenHandler.ClearTooltip();
+		}
+		
+		public override void OnFocus() {
+			ScreenHandler.SetTooltip(GetDescription());
+		}
 
-		public virtual void OnPlayerCharacterExit() {}
+		public override void OnWalk(Vector2 position) {
+			// TODO: caminar a la posicion
+		}
+		
+		protected abstract string GetDescription();
 		
 	}
 	

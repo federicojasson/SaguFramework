@@ -1,11 +1,17 @@
-﻿using UnityEngine;
-
-namespace SaguFramework {
+﻿namespace SaguFramework {
 	
-	public abstract class InventoryItemBehaviour : MonoBehaviour {
+	public abstract class InventoryItemBehaviour : EntityBehaviour {
+
+		public override void OnDefocus() {
+			ScreenHandler.ClearTooltip();
+		}
 		
-		public virtual void OnLook() {}
+		public override void OnFocus() {
+			ScreenHandler.SetTooltip(GetDescription());
+		}
 		
+		protected abstract string GetDescription();
+
 	}
 	
 }

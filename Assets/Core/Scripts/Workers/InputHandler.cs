@@ -1,285 +1,134 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace SaguFramework {
 	
-	public enum InputMode {
-		Disabled,
-		Inventory,
-		Menu,
-		Playing,
-		UsingInventoryItem
-	};
-	
 	public class InputHandler : Worker {
-
-		private static InputHandler instance;
-
-		public static InputHandler GetInstance() {
-			return instance;
-		}
-
-		private InputMode inputMode;
-
-		public override void Awake() {
-			base.Awake();
-			instance = this;
-			Disable();
+		
+		public static void NotifyOnGUI(Entity entity) {
+			if (! CanEntityExecute(entity))
+				return;
+			
+			entity.GetBehaviour().OnShowGui();
 		}
 		
-		public void Disable() {
-			inputMode = InputMode.Disabled;
+		public static void NotifyOnMouseEnter(Entity entity) {
+			if (! CanEntityExecute(entity))
+				return;
+			
+			if (! ScreenHandler.IsCursorInGame())
+				return;
+			
+			entity.GetBehaviour().OnFocus();
 		}
-
-		public void NotifyOnMouseEnter(InteractiveBehaviour behaviour) {
-			switch (inputMode) {
-				case InputMode.Inventory : {
-					NotifyOnMouseEnterInventory(behaviour);
+		
+		public static void NotifyOnMouseExit(Entity entity) {
+			if (! CanEntityExecute(entity))
+				return;
+			
+			if (! ScreenHandler.IsCursorInGame())
+				return;
+			
+			entity.GetBehaviour().OnDefocus();
+		}
+		
+		public static void NotifyOnMouseUpAsButton(Entity entity) {
+			if (! CanEntityExecute(entity))
+				return;
+			
+			if (! ScreenHandler.IsCursorInGame())
+				return;
+			
+			switch (OrderHandler.GetOrder()) {
+				case Order.Look : {
+					entity.GetBehaviour().OnLook();
 					break;
 				}
 					
-				case InputMode.Playing : {
-					NotifyOnMouseEnterPlaying(behaviour);
+				case Order.PickUp : {
+					entity.GetBehaviour().OnPickUp();
 					break;
 				}
 					
-				case InputMode.UsingInventoryItem : {
-					NotifyOnMouseEnterUsingInventoryItem(behaviour);
-					break;
-				}
-			}
-		}
-
-		public void NotifyOnMouseExit(InteractiveBehaviour behaviour) {
-			switch (inputMode) {
-				case InputMode.Inventory : {
-					NotifyOnMouseExitInventory(behaviour);
+				case Order.Speak : {
+					entity.GetBehaviour().OnSpeak();
 					break;
 				}
 					
-				case InputMode.Playing : {
-					NotifyOnMouseExitPlaying(behaviour);
+				case Order.UseInventoryItem : {
+					InventoryItem inventoryItem = OrderHandler.GetSelectedInventoryItem();
+					entity.GetBehaviour().OnUseInventoryItem(inventoryItem);
 					break;
 				}
 					
-				case InputMode.UsingInventoryItem : {
-					NotifyOnMouseExitUsingInventoryItem(behaviour);
+				case Order.Walk : {
+					Vector2 position = new Vector2(0, 0); // TODO: calculate
+					entity.GetBehaviour().OnWalk(position);
 					break;
 				}
 			}
 		}
+		
+		public static void NotifyOnTriggerEnter2D(Entity entity, Collider2D collider) {
+			if (! CanEntityExecute(entity))
+				return;
+			
+			if (Utilities.GetComponent<Character>(collider) != Objects.GetPlayerCharacter())
+				return;
+			
+			entity.GetBehaviour().OnPlayerCharacterEnter();
+		}
 
-		public void NotifyOnMouseUpAsButton(InteractiveBehaviour behaviour) {
-			switch (inputMode) {
-				case InputMode.Inventory : {
-					NotifyOnMouseUpAsButtonInventory(behaviour);
-					break;
+		private static bool CanEntityExecute(Entity entity) {
+			Type type = entity.GetType();
+			
+			switch (GameHandler.GetGameMode()) {
+				case GameMode.Inventory : {
+					// TODO: faltan los botones y el close
+					
+					if (type == typeof(InventoryItem))
+						return true;
+					
+					return false;
 				}
 					
-				case InputMode.Playing : {
-					NotifyOnMouseUpAsButtonPlaying(behaviour);
-					break;
+				case GameMode.Menu : {
+					// TODO: ?
+					
+					if (type == typeof(Menu))
+						return true;
+					
+					return false;
 				}
 					
-				case InputMode.UsingInventoryItem : {
-					NotifyOnMouseUpAsButtonUsingInventoryItem(behaviour);
-					break;
+				case GameMode.Playing : {
+					if (type == typeof(Character))
+						return true;
+					
+					if (type == typeof(Item))
+						return true;
+					
+					if (type == typeof(Trigger))
+						return true;
+					
+					return false;
 				}
-			}
-		}
-
-		public void NotifyOnTriggerEnter2D(TriggerBehaviour behaviour) {
-			behaviour.OnPlayerCharacterEnter();
-		}
-		
-		public void NotifyOnTriggerExit2D(TriggerBehaviour behaviour) {
-			behaviour.OnPlayerCharacterExit();
-		}
-
-		// TODO
-		/*public void SetInputMode(InputMode inputMode) {
-			this.inputMode = inputMode;
-		}*/
-
-		public void Update() {
-			switch (inputMode) {
-				case InputMode.Inventory : {
-					CheckInputInventory();
-					break;
+					
+				case GameMode.UsingInventoryItem : {
+					// TODO
+					
+					
+					return false;
 				}
 
-				case InputMode.Menu : {
-					CheckInputMenu();
-					break;
+				case GameMode.Waiting : {
+					return false;
 				}
-
-				case InputMode.Playing : {
-					CheckInputPlaying();
-					break;
-				}
-
-				case InputMode.UsingInventoryItem : {
-					CheckInputUsingInventoryItem();
-					break;
+					
+				default : {
+					return false;
 				}
 			}
-		}
-
-		public void UpdateInputMode() {
-			if (Objects.GetMenuCount() > 0) {
-				inputMode = InputMode.Menu;
-				return;
-			}
-
-			if (InventoryHandler.GetInstance().GetSelectedItem() != null) {
-				inputMode = InputMode.UsingInventoryItem;
-				return;
-			}
-			
-			Inventory inventory = Objects.GetInventory();
-			if (inventory != null && inventory.IsShowing()) {
-				inputMode = InputMode.Inventory;
-				return;
-			}
-			
-			if (Objects.GetRoom() != null) {
-				inputMode = InputMode.Playing;
-				return;
-			}
-			
-			inputMode = InputMode.Disabled;
-		}
-
-
-
-
-
-		private void CheckInputInventory() {
-			if (Input.GetKeyDown(Parameters.GetPauseGameKey()))
-				Game.PauseGame();
-
-			if (Input.GetKeyDown(Parameters.GetToggleInventoryKey()))
-				Game.HideInventory();
-
-			if (Input.GetMouseButtonDown(Parameters.GetExecuteOrderMouse()))
-				;//OrderManager.ExecuteCurrentOrder(); TODO
-			
-			if (Input.GetMouseButtonDown(Parameters.GetNextOrderMouse()))
-				;//OrderManager.SetNextRotativeOrder(); TODO
-		}
-
-		private void CheckInputMenu() {
-			if (Input.GetKeyDown(Parameters.GetCloseMenuKey()))
-				Game.CloseMenu();
-		}
-
-		private void CheckInputPlaying() {
-			if (Input.GetKeyDown(Parameters.GetPauseGameKey()))
-				Game.PauseGame();
-
-			if (Input.GetKeyDown(Parameters.GetToggleInventoryKey()))
-				Game.ShowInventory();
-
-			if (Input.GetMouseButtonDown(Parameters.GetExecuteOrderMouse()))
-				;//OrderManager.ExecuteCurrentOrder(); TODO
-			
-			if (Input.GetMouseButtonDown(Parameters.GetNextOrderMouse()))
-				;//OrderManager.SetNextRotativeOrder(); TODO
-		}
-		
-		private void CheckInputUsingInventoryItem() {
-		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		private void NotifyOnMouseEnterInventory(InteractiveBehaviour behaviour) {
-			Component parent = Utilities.GetGrandparent(behaviour);
-
-			if (parent.GetComponent<Inventory>() != null) {
-				behaviour.OnCursorEnter();
-				return;
-			}
-
-			if (parent.GetComponent<InventoryItem>() != null) {
-				behaviour.OnCursorEnter();
-				return;
-			}
-		}
-
-		private void NotifyOnMouseEnterPlaying(InteractiveBehaviour behaviour) {
-			behaviour.OnCursorEnter();
-		}
-
-		private void NotifyOnMouseEnterUsingInventoryItem(InteractiveBehaviour behaviour) {
-			behaviour.OnCursorEnter();
-		}
-
-
-
-
-
-		
-		private void NotifyOnMouseExitInventory(InteractiveBehaviour behaviour) {
-			Component parent = Utilities.GetGrandparent(behaviour);
-			
-			if (parent.GetComponent<Inventory>() != null) {
-				behaviour.OnCursorExit();
-				return;
-			}
-			
-			if (parent.GetComponent<InventoryItem>() != null) {
-				behaviour.OnCursorExit();
-				return;
-			}
-		}
-		
-		private void NotifyOnMouseExitPlaying(InteractiveBehaviour behaviour) {
-			behaviour.OnCursorExit();
-		}
-		
-		private void NotifyOnMouseExitUsingInventoryItem(InteractiveBehaviour behaviour) {
-			behaviour.OnCursorExit();
-		}
-
-
-
-
-		
-		private void NotifyOnMouseUpAsButtonInventory(InteractiveBehaviour behaviour) {
-			Component parent = Utilities.GetGrandparent(behaviour);
-			
-			if (parent.GetComponent<Inventory>() != null) {
-				behaviour.OnCursorClick();
-				return;
-			}
-			
-			if (parent.GetComponent<InventoryItem>() != null) {
-				behaviour.OnCursorClick();
-				return;
-			}
-		}
-		
-		private void NotifyOnMouseUpAsButtonPlaying(InteractiveBehaviour behaviour) {
-			// TODO: la accion depende de la orden
-		}
-		
-		private void NotifyOnMouseUpAsButtonUsingInventoryItem(InteractiveBehaviour behaviour) {
-			// TODO: la accion depende de la orden
 		}
 
 	}
