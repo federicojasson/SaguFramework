@@ -7,7 +7,6 @@ namespace SaguFramework {
 		public virtual void Awake() {
 			DontDestroyOnLoad(this);
 			Objects.RegisterWorker(this);
-			Debug.Log(GetType());
 		}
 
 		public virtual void OnGameModeChange() {}

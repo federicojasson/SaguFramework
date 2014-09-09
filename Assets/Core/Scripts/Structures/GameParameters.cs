@@ -6,7 +6,7 @@ namespace SaguFramework {
 	public class GameParameters {
 
 		public EntitiesParameters Entities;
-		public GuiParameters Gui;
+		public GraphicsParameters Graphics;
 		public ControlsParameters Controls;
 
 	}

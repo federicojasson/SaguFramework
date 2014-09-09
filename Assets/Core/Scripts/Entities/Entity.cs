@@ -15,13 +15,16 @@ namespace SaguFramework {
 		}
 
 		public Vector2 GetPosition() {
-			// TODO
-			return new Vector2();
+			return transform.position;
 		}
 
 		public Vector2 GetSize() {
 			// TODO
 			return new Vector2();
+		}
+
+		public bool IsShowing() {
+			return gameObject.activeInHierarchy;
 		}
 
 		public void OnDestroy() {

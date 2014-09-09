@@ -21,6 +21,10 @@ namespace SaguFramework {
 			return Array.IndexOf<T>(array, value);
 		}
 
+		public static void SetParent(Component child, Component parent) {
+			child.transform.parent = parent.transform;
+		}
+
 	}
 	
 }

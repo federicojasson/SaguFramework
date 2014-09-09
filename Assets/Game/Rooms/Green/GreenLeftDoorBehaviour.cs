@@ -1,12 +1,12 @@
-﻿using SaguFramework;
+using SaguFramework;
 
 namespace EmergenciaQuimica {
 	
-	public class GreenLeftDoorBehaviour : TriggerBehaviour {
+	public class GreenLeftDoorBehaviour : RoomTriggerBehaviour {
+		
+		public override void OnCharacterEnter(Character character) {}
 		
 		public override void OnLook() {}
-		
-		public override void OnPlayerCharacterEnter() {}
 		
 		protected override string GetDescription() {
 			return "Ir a la habitacion azul"; // TODO

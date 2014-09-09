@@ -8,14 +8,23 @@
 			return gameMode;
 		}
 
-		public static void SetGameMode(GameMode gameMode) {
+		private static void SetGameMode(GameMode gameMode) {
 			GameHandler.gameMode = gameMode;
-			NotifyGameModeChange();
-		}
 
-		private static void NotifyGameModeChange() {
 			foreach (Worker worker in Objects.GetWorkers())
 				worker.OnGameModeChange();
+		}
+		
+		public override void OnOrderChange() {
+			if (OrderHandler.GetOrder() == Order.UseInventoryItem)
+				SetGameMode(GameMode.UsingInventoryItem);
+			else
+				if (gameMode == GameMode.UsingInventoryItem) {
+					if (Objects.GetInventory().IsShowing())
+						SetGameMode(GameMode.Inventory);
+					else
+						SetGameMode(GameMode.Playing);
+				}
 		}
 
 	}

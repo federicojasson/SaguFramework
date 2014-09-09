@@ -16,7 +16,7 @@ namespace SaguFramework {
 			if (! CanEntityExecute(entity))
 				return;
 			
-			if (! ScreenHandler.IsCursorInGame())
+			if (! GraphicHandler.IsCursorInGame())
 				return;
 			
 			entity.GetBehaviour().OnFocus();
@@ -26,7 +26,7 @@ namespace SaguFramework {
 			if (! CanEntityExecute(entity))
 				return;
 			
-			if (! ScreenHandler.IsCursorInGame())
+			if (! GraphicHandler.IsCursorInGame())
 				return;
 			
 			entity.GetBehaviour().OnDefocus();
@@ -36,7 +36,7 @@ namespace SaguFramework {
 			if (! CanEntityExecute(entity))
 				return;
 			
-			if (! ScreenHandler.IsCursorInGame())
+			if (! GraphicHandler.IsCursorInGame())
 				return;
 			
 			switch (OrderHandler.GetOrder()) {
@@ -72,59 +72,71 @@ namespace SaguFramework {
 		public static void NotifyOnTriggerEnter2D(Entity entity, Collider2D collider) {
 			if (! CanEntityExecute(entity))
 				return;
-			
-			if (Utilities.GetComponent<Character>(collider) != Objects.GetPlayerCharacter())
+
+			Character character = Utilities.GetComponent<Character>(collider);
+			if (character == null)
 				return;
 			
-			entity.GetBehaviour().OnPlayerCharacterEnter();
+			entity.GetBehaviour().OnCharacterEnter(character);
 		}
 
 		private static bool CanEntityExecute(Entity entity) {
-			Type type = entity.GetType();
-			
 			switch (GameHandler.GetGameMode()) {
 				case GameMode.Inventory : {
-					// TODO: faltan los botones y el close
-					
-					if (type == typeof(InventoryItem))
+					if (entity is InventoryItem)
+						return true;
+
+					if (entity is InventoryTrigger)
 						return true;
 					
 					return false;
 				}
 					
 				case GameMode.Menu : {
-					// TODO: ?
-					
-					if (type == typeof(Menu))
+					if (entity is Menu)
 						return true;
 					
 					return false;
 				}
 					
 				case GameMode.Playing : {
-					if (type == typeof(Character))
+					if (entity is Character)
 						return true;
 					
-					if (type == typeof(Item))
+					if (entity is Item)
 						return true;
-					
-					if (type == typeof(Trigger))
+
+					if (entity is Room)
+						return true;
+
+					if (entity is RoomTrigger)
 						return true;
 					
 					return false;
 				}
 					
 				case GameMode.UsingInventoryItem : {
-					// TODO
+					if (entity is Character)
+						return true;
 					
+					if (entity is InventoryItem)
+						return true;
+					
+					if (entity is InventoryTrigger)
+						return true;
+					
+					if (entity is Item)
+						return true;
+					
+					if (entity is Room)
+						return true;
+					
+					if (entity is RoomTrigger)
+						return true;
 					
 					return false;
 				}
-
-				case GameMode.Waiting : {
-					return false;
-				}
-					
+				
 				default : {
 					return false;
 				}

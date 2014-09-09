@@ -4,6 +4,9 @@ namespace SaguFramework {
 
 	[Serializable]
 	public class InventoryItemParameters {
+
+		public InventoryItemBehaviour Behaviour;
+
 	}
 	
 }

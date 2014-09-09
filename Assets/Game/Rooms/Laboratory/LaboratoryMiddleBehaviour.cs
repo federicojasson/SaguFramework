@@ -1,12 +1,12 @@
-﻿using SaguFramework;
+using SaguFramework;
 
 namespace EmergenciaQuimica {
 	
-	public class LaboratoryMiddleBehaviour : TriggerBehaviour {
+	public class LaboratoryMiddleBehaviour : RoomTriggerBehaviour {
+		
+		public override void OnCharacterEnter(Character character) {}
 		
 		public override void OnLook() {}
-		
-		public override void OnPlayerCharacterEnter() {}
 
 		protected override string GetDescription() {
 			return "";

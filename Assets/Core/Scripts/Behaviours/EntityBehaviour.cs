@@ -4,6 +4,8 @@ namespace SaguFramework {
 	
 	public abstract class EntityBehaviour : MonoBehaviour {
 		
+		public virtual void OnCharacterEnter(Character character) {}
+		
 		public virtual void OnClick() {}
 
 		public virtual void OnDefocus() {}
@@ -13,8 +15,6 @@ namespace SaguFramework {
 		public virtual void OnLook() {}
 		
 		public virtual void OnPickUp() {}
-
-		public virtual void OnPlayerCharacterEnter() {}
 
 		public virtual void OnShowGui() {}
 

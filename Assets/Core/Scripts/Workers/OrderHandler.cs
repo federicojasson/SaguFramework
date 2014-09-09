@@ -8,8 +8,7 @@
 		private static InventoryItem selectedInventoryItem;
 
 		static OrderHandler() {
-			order = Order.None;
-			NotifyOrderChange();
+			SetOrder(Order.None);
 
 			int gameModeCount = Utilities.GetEnumCount(typeof(GameMode));
 			orderSets = new Order[gameModeCount][];
@@ -35,6 +34,8 @@
 			orderSets[(int) GameMode.Waiting] = new Order[] {
 				Order.None
 			};
+
+			orderIndex = 0;
 		}
 
 		public static Order GetOrder() {
@@ -44,26 +45,37 @@
 		public static InventoryItem GetSelectedInventoryItem() {
 			return selectedInventoryItem;
 		}
+
+		public static void SelectInventoryItem(InventoryItem inventoryItem) {
+			selectedInventoryItem = inventoryItem;
+			SetOrder(Order.UseInventoryItem);
+		}
+
+		public static void UnselectInventoryItem() {
+			selectedInventoryItem = null;
+			SetOrder(Order.None);
+		}
 		
-		private static void NotifyOrderChange() {
+		private static void SetOrder(Order order) {
+			OrderHandler.order = order;
+
 			foreach (Worker worker in Objects.GetWorkers())
 				worker.OnOrderChange();
 		}
 
-		public virtual void OnGameModeChange() {
+		public override void OnGameModeChange() {
 			GameMode gameMode = GameHandler.GetGameMode();
+			Order[] orderSet = orderSets[(int) gameMode];
 
 			if (gameMode == GameMode.UsingInventoryItem)
 				return;
 
-			Order[] orderSet = orderSets[(int) gameMode];
 			int index = Utilities.SearchArray<Order>(orderSet, order);
 			if (index > 0)
 				orderIndex = index;
 			else {
 				orderIndex = 0;
-				order = orderSet[0];
-				NotifyOrderChange();
+				SetOrder(orderSet[orderIndex]);
 			}
 		}
 

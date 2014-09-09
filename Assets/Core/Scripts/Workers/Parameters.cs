@@ -18,6 +18,8 @@
 			return 1;
 		}
 
+		public GameParameters GameParameters;
+
 	}
 	
 }
