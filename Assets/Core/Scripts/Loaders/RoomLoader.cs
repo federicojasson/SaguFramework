@@ -13,10 +13,7 @@ namespace SaguFramework {
 			foreach (string characterId in characterIds) {
 				CharacterState characterState = State.GetCharacterState(characterId);
 				CharacterParameters characterParameters = Parameters.GetCharacterParameters(characterId);
-				Character character = Factory.CreateCharacter(characterParameters, roomParameters);
-				character.SetId(characterId);
-				character.SetPosition(Geometry.GameToWorldPosition(characterState.GetLocation().GetPosition()));
-				// TODO: direction
+				Factory.CreateCharacter(characterId, characterState, characterParameters, roomParameters);
 			}
 		}
 
@@ -30,17 +27,16 @@ namespace SaguFramework {
 
 		private static void CreateInventory() {
 			InventoryParameters inventoryParameters = Parameters.GetInventoryParameters();
-			Inventory inventory = Factory.CreateInventory(inventoryParameters);
-			inventory.Hide();
+			Factory.CreateInventory(inventoryParameters);
 		}
 
 		private static void CreateInventoryItems() {
+			InventoryParameters inventoryParameters = Parameters.GetInventoryParameters();
+
 			List<string> inventoryItemIds = State.GetInventoryItemIds();
 			foreach (string inventoryItemId in inventoryItemIds) {
 				InventoryItemParameters inventoryItemParameters = Parameters.GetInventoryItemParameters(inventoryItemId);
-				InventoryItem inventoryItem = Factory.CreateInventoryItem(inventoryItemParameters);
-				inventoryItem.Hide();
-				inventoryItem.SetId(inventoryItemId);
+				Factory.CreateInventoryItem(inventoryItemId, inventoryItemParameters, inventoryParameters);
 			}
 		}
 
@@ -52,9 +48,7 @@ namespace SaguFramework {
 			foreach (string itemId in itemIds) {
 				ItemState itemState = State.GetItemState(itemId);
 				ItemParameters itemParameters = Parameters.GetItemParameters(itemId);
-				Item item = Factory.CreateItem(itemParameters, roomParameters);
-				item.SetId(itemId);
-				item.SetPosition(Geometry.GameToWorldPosition(itemState.GetLocation().GetPosition()));
+				Factory.CreateItem(itemId, itemState, itemParameters, roomParameters);
 			}
 		}
 

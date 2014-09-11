@@ -129,7 +129,7 @@ namespace SaguFramework {
 		}
 		
 		public static float GetPixelsPerUnit() {
-			return Parameters.GetPixelsPerUnit();
+			return Parameters.PixelsPerUnit;
 		}
 		
 		public static float GetScreenAspectRatio() {

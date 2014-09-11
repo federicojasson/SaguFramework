@@ -4,21 +4,22 @@ namespace SaguFramework {
 	
 	public static class Factory {
 
-		public static Character CreateCharacter(CharacterParameters characterParameters, RoomParameters roomParameters) {
+		public static void CreateCharacter(string characterId, CharacterState characterState, CharacterParameters characterParameters, RoomParameters roomParameters) {
 			Character character = CreateEntity<Character>(characterParameters.Behaviour);
 			Image image = CreateImage(characterParameters.Image, Parameters.SortingLayerCharacter);
 
 			Vector2 size = Utilities.GetSize(image.GetSize(), characterParameters.Height * roomParameters.ScaleFactor);
-
+			
+			character.SetId(characterId);
 			character.SetSize(size);
 			image.SetSize(size);
-
 			Utilities.SetParent(image, character);
+			character.SetPosition(Geometry.GameToWorldPosition(characterState.GetLocation().GetPosition()));
 
-			return character;
+			// TODO: direction
 		}
 
-		public static Inventory CreateInventory(InventoryParameters inventoryParameters) {
+		public static void CreateInventory(InventoryParameters inventoryParameters) {
 			Inventory inventory = CreateEntity<Inventory, InventoryBehaviour>();
 			Image image = CreateImage(inventoryParameters.Image, Parameters.SortingLayerInventory);
 
@@ -26,36 +27,37 @@ namespace SaguFramework {
 
 			inventory.SetSize(size);
 			image.SetSize(size);
-
 			Utilities.SetParent(image, inventory);
+			inventory.Hide();
 
 			// TODO: triggers
-
-			return inventory;
 		}
 
-		public static InventoryItem CreateInventoryItem(InventoryItemParameters inventoryItemParameters) {
+		public static void CreateInventoryItem(string inventoryItemId, InventoryItemParameters inventoryItemParameters, InventoryParameters inventoryParameters) {
 			InventoryItem inventoryItem = CreateEntity<InventoryItem>(inventoryItemParameters.Behaviour);
 			Image image = CreateImage(inventoryItemParameters.Image, Parameters.SortingLayerInventoryItem);
 
-			return inventoryItem;
+			// TODO: size
+
+			inventoryItem.SetId(inventoryItemId);
+			Utilities.SetParent(image, inventoryItem);
+			inventoryItem.Hide();
 		}
 
-		public static Item CreateItem(ItemParameters itemParameters, RoomParameters roomParameters) {
+		public static void CreateItem(string itemId, ItemState itemState, ItemParameters itemParameters, RoomParameters roomParameters) {
 			Item item = CreateEntity<Item>(itemParameters.Behaviour);
 			Image image = CreateImage(itemParameters.Image, Parameters.SortingLayerItem);
 			
 			Vector2 size = Utilities.GetSize(image.GetSize(), itemParameters.Height * roomParameters.ScaleFactor);
-			
+
+			item.SetId(itemId);
 			item.SetSize(size);
 			image.SetSize(size);
-
 			Utilities.SetParent(image, item);
-
-			return item;
+			item.SetPosition(Geometry.GameToWorldPosition(itemState.GetLocation().GetPosition()));
 		}
 		
-		public static Menu CreateMenu(MenuParameters menuParameters) {
+		public static void CreateMenu(MenuParameters menuParameters) {
 			Menu menu = CreateEntity<Menu>(menuParameters.Behaviour);
 			Image image = CreateImage(menuParameters.Image, Parameters.SortingLayerMenu);
 
@@ -63,13 +65,10 @@ namespace SaguFramework {
 			
 			menu.SetSize(size);
 			image.SetSize(size);
-
 			Utilities.SetParent(image, menu);
-
-			return menu;
 		}
 
-		public static Room CreateRoom(RoomParameters roomParameters) {
+		public static void CreateRoom(RoomParameters roomParameters) {
 			Room room = CreateEntity<Room, RoomBehaviour>();
 			Image backgroundImage = CreateImage(roomParameters.BackgroundImage, Parameters.SortingLayerRoomBackground);
 			Image foregroundImage = CreateImage(roomParameters.ForegroundImage, Parameters.SortingLayerRoomForeground);
@@ -79,16 +78,13 @@ namespace SaguFramework {
 			room.SetSize(size);
 			backgroundImage.SetSize(size);
 			foregroundImage.SetSize(size);
-
 			Utilities.SetParent(backgroundImage, room);
 			Utilities.SetParent(foregroundImage, room);
 
 			// TODO: triggers
-
-			return room;
 		}
 
-		public static SplashScreen CreateSplashScreen(SplashScreenParameters splashScreenParameters) {
+		public static void CreateSplashScreen(SplashScreenParameters splashScreenParameters) {
 			SplashScreen splashScreen = CreateEntity<SplashScreen, SplashScreenBehaviour>();
 			Image image = CreateImage(splashScreenParameters.Image, Parameters.SortingLayerSplashScreen);
 
@@ -96,10 +92,7 @@ namespace SaguFramework {
 
 			splashScreen.SetSize(size);
 			image.SetSize(size);
-
 			Utilities.SetParent(image, splashScreen);
-
-			return splashScreen;
 		}
 
 		private static E CreateEntity<E, B>() where E : Entity where B : EntityBehaviour {
@@ -110,7 +103,6 @@ namespace SaguFramework {
 			B entityBehaviour = entityBehaviourGameObject.AddComponent<B>();
 			
 			entity.SetBehaviour(entityBehaviour);
-
 			Utilities.SetParent(entityBehaviour, entity);
 			
 			return entity;
@@ -124,7 +116,6 @@ namespace SaguFramework {
 			EntityBehaviour entityBehaviour = (EntityBehaviour) entityBehaviourGameObject.AddComponent(entityBehaviourModel.GetType());
 
 			entity.SetBehaviour(entityBehaviour);
-
 			Utilities.SetParent(entityBehaviour, entity);
 
 			return entity;

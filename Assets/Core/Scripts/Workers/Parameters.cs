@@ -18,6 +18,8 @@ namespace SaguFramework {
 		public const string LanguageFileName = "Language";
 		public const string LanguagesDirectoryResourcePath = "Languages";
 
+		public const float PixelsPerUnit = 1;
+
 		public const string SceneMain = "Main";
 		public const string SceneMainMenu = "MainMenu";
 		public const string SceneRoom = "Room";
@@ -75,6 +77,10 @@ namespace SaguFramework {
 			return instance.GameParameters.Graphics.DefaultFadeTexture;
 		}
 
+		public static float GetDelayBetweenSongs() {
+			return instance.GameParameters.Sounds.DelayBetweenSongs;
+		}
+
 		public static float GetGameAspectRatio() {
 			return instance.GameParameters.Graphics.GameAspectRatio;
 		}
@@ -99,6 +105,10 @@ namespace SaguFramework {
 			return Utilities.GetFileResourcePath(LanguageFileName, LanguagesDirectoryResourcePath, languageId);
 		}
 
+		public static AudioClip GetMainEffect() {
+			return instance.GameParameters.Sounds.MainEffect;
+		}
+
 		public static LoaderParameters GetMainLoaderParameters() {
 			return instance.GameParameters.Loaders.Main;
 		}
@@ -109,6 +119,10 @@ namespace SaguFramework {
 
 		public static MenuParameters GetMainMenuParameters() {
 			return instance.GameParameters.Entities.Menus.Main;
+		}
+
+		public static AudioClip GetMainMenuSong() {
+			return instance.GameParameters.Sounds.MainMenuSong;
 		}
 
 		public static SplashScreenParameters GetMainSplashScreenParameters() {
@@ -128,9 +142,8 @@ namespace SaguFramework {
 			return instance.GameParameters.Entities.Menus.Pause;
 		}
 
-		public static float GetPixelsPerUnit() {
-			// TODO
-			return 1;
+		public static AudioClip[] GetPlaylist() {
+			return instance.GameParameters.Sounds.Playlist;
 		}
 
 		public static LoaderParameters GetRoomLoaderParameters() {
@@ -164,6 +177,10 @@ namespace SaguFramework {
 
 		public static Texture2D GetWindowboxTexture() {
 			return instance.GameParameters.Graphics.WindowboxTexture;
+		}
+
+		public static bool ShuffleSongs() {
+			return instance.GameParameters.Sounds.ShuffleSongs;
 		}
 
 		public GameParameters GameParameters;

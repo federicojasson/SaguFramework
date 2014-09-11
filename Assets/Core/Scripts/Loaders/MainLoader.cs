@@ -13,7 +13,8 @@ namespace SaguFramework {
 			Game.NewGame();
 
 			LoadOptions();
-			// TODO: play main effect
+			SoundPlayer.StopAllSounds();
+			SoundPlayer.PlayMainEffect();
 			SplashScreenHandler.ShowMainSplashScreen();
 			yield return StartCoroutine(GraphicHandler.FadeIn(Parameters.GetMainLoaderParameters().FadeIn));
 			yield return StartCoroutine(SplashScreenHandler.Delay());

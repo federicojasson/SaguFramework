@@ -13,6 +13,8 @@ namespace SaguFramework {
 
 		public virtual void OnOrderChange() {}
 
+		public virtual void OnSceneChange() {}
+
 	}
 	
 }

@@ -248,6 +248,17 @@ MonoBehaviour:
       WindowboxTexture: {fileID: 2800000, guid: 3c69fe5f8a7e5084bbc92e90987347c1,
         type: 3}
       Skin: {fileID: 11400000, guid: 57518e85f6ddbd243a14d5b5b8d5e528, type: 2}
+    Sounds:
+      MainEffect: {fileID: 8300000, guid: 4da25d4691591144f94d46b21db17eae, type: 3}
+      MainMenuSong: {fileID: 8300000, guid: a0d451f4b5836814f8e5b43aa9d3d388, type: 3}
+      Playlist:
+      - {fileID: 8300000, guid: 42196503c0818b54e8b179dc24e9fa1a, type: 3}
+      - {fileID: 8300000, guid: 0113015397fc604429c4d43a3f44c3ee, type: 3}
+      - {fileID: 8300000, guid: 17610be4fb2cab1419649b9a2ffe9bdc, type: 3}
+      - {fileID: 8300000, guid: 6b27debf0db50464b96d051b9a01c402, type: 3}
+      - {fileID: 8300000, guid: d32afb74bbec2f24baebca233435a238, type: 3}
+      ShuffleSongs: 1
+      DelayBetweenSongs: 2
     Controls:
       CloseMenuKeys: 
       PauseGameKeys: 
