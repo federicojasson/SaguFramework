@@ -11,6 +11,10 @@ namespace SaguFramework {
 			instance.StartCoroutine(instance.ChangeSceneCoroutine(sceneId));
 		}
 
+		public static string GetCurrentSceneId() {
+			return Application.loadedLevelName;
+		}
+
 		public void Awake() {
 			instance = this;
 		}

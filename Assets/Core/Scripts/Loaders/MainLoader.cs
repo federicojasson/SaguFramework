@@ -3,16 +3,25 @@
 namespace SaguFramework {
 	
 	public class MainLoader : Loader {
-		
-		protected override IEnumerator LoadSceneCoroutine() {
-			// TODO
-			Loader.ChangeScene(Parameters.SceneRoom);
 
-			yield break;
+		private static void LoadOptions() {
+			// TODO
+		}
+
+		protected override IEnumerator LoadSceneCoroutine() {
+			// TODO: debug
+			Game.NewGame();
+
+			LoadOptions();
+			// TODO: play main effect
+			SplashScreenHandler.ShowMainSplashScreen();
+			yield return StartCoroutine(GraphicHandler.FadeIn(Parameters.GetMainLoaderParameters().FadeIn));
+			yield return StartCoroutine(SplashScreenHandler.Delay());
+			Game.OpenMainMenu();
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			yield break;
+			yield return StartCoroutine(GraphicHandler.FadeOut(Parameters.GetMainLoaderParameters().FadeOut));
 		}
 
 	}

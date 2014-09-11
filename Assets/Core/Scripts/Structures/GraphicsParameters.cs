@@ -7,7 +7,8 @@ namespace SaguFramework {
 	public class GraphicsParameters {
 
 		public float GameAspectRatio;
-		public Texture2D FadeTexture;
+		public Color CameraBackgroundColor;
+		public Texture2D DefaultFadeTexture;
 		public Texture2D WindowboxTexture;
 		public GUISkin Skin;
 

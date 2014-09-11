@@ -5,11 +5,12 @@ namespace SaguFramework {
 	public class MainMenuLoader : Loader {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
-			yield break;
+			MenuHandler.OpenMainMenu();
+			yield return StartCoroutine(GraphicHandler.FadeIn(Parameters.GetMainMenuLoaderParameters().FadeIn));
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			yield break;
+			yield return StartCoroutine(GraphicHandler.FadeOut(Parameters.GetMainMenuLoaderParameters().FadeOut));
 		}
 
 	}

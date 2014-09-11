@@ -5,11 +5,11 @@ namespace SaguFramework {
 	public class SpecialLoader : Loader {
 
 		protected override IEnumerator LoadSceneCoroutine() {
-			yield break;
+			yield return StartCoroutine(GraphicHandler.FadeIn(Parameters.GetSpecialLoaderParameters().FadeIn));
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			yield break;
+			yield return StartCoroutine(GraphicHandler.FadeOut(Parameters.GetSpecialLoaderParameters().FadeOut));
 		}
 
 	}

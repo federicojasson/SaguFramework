@@ -1,6 +1,5 @@
 ﻿namespace SaguFramework {
 	
-	public abstract class InventoryBehaviour : EntityBehaviour {
-	}
+	public class InventoryBehaviour : EntityBehaviour {}
 	
 }

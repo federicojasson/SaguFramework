@@ -5,8 +5,10 @@ namespace SaguFramework {
 	public abstract class Entity : MonoBehaviour {
 		
 		private EntityBehaviour behaviour;
+		private new BoxCollider2D collider;
 
 		public void Awake() {
+			collider = gameObject.AddComponent<BoxCollider2D>();
 			Objects.RegisterEntity(this);
 		}
 		
@@ -19,8 +21,11 @@ namespace SaguFramework {
 		}
 
 		public Vector2 GetSize() {
-			// TODO
-			return new Vector2();
+			return collider.size;
+		}
+
+		public void Hide() {
+			gameObject.SetActive(false);
 		}
 
 		public bool IsShowing() {
@@ -32,6 +37,7 @@ namespace SaguFramework {
 		}
 
 		public void OnGUI() {
+			GUI.skin = Parameters.GetSkin();
 			InputHandler.NotifyOnGUI(this);
 		}
 		
@@ -56,11 +62,15 @@ namespace SaguFramework {
 		}
 
 		public void SetPosition(Vector2 position) {
-			// TODO
+			transform.position = Utilities.GetPosition(position, transform.position.z);
 		}
 
 		public void SetSize(Vector2 size) {
-			// TODO
+			collider.size = size;
+		}
+
+		public void Show() {
+			gameObject.SetActive(true);
 		}
 
 	}

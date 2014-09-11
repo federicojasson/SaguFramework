@@ -1,6 +1,6 @@
 ﻿namespace SaguFramework {
 	
-	public abstract class SplashScreenBehaviour : EntityBehaviour {
+	public class SplashScreenBehaviour : EntityBehaviour {
 	}
 	
 }

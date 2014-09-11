@@ -6,6 +6,7 @@ namespace SaguFramework {
 	public class InventoryItemParameters {
 
 		public InventoryItemBehaviour Behaviour;
+		public ImageParameters Image;
 
 	}
 	
