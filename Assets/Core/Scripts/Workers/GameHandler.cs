@@ -4,27 +4,52 @@
 		
 		private static GameMode gameMode;
 
+		static GameHandler() {
+			SetGameMode(GameMode.Waiting);
+		}
+
 		public static GameMode GetGameMode() {
 			return gameMode;
 		}
+		
+		public static void UpdateGameMode() {
+			if (Objects.GetMenus().Count > 0) {
+				SetGameMode(GameMode.Menu);
+				return;
+			}
+			
+			if (OrderHandler.GetOrder() == Order.UseInventoryItem) {
+				SetGameMode(GameMode.UsingInventoryItem);
+				return;
+			}
+			
+			Inventory inventory = Objects.GetInventory();
+			if (inventory != null && inventory.IsShowing()) {
+				SetGameMode(GameMode.Inventory);
+				return;
+			}
+			
+			if (Objects.GetRoom() != null) {
+				SetGameMode(GameMode.Playing);
+				return;
+			}
+			
+			SetGameMode(GameMode.Waiting);
+		}
 
 		private static void SetGameMode(GameMode gameMode) {
-			GameHandler.gameMode = gameMode;
+			if (GameHandler.gameMode != gameMode) {
+				GameHandler.gameMode = gameMode;
 
-			foreach (Worker worker in Objects.GetWorkers())
-				worker.OnGameModeChange();
+				UnityEngine.Debug.Log(gameMode);
+
+				foreach (Worker worker in Objects.GetWorkers())
+					worker.OnGameModeChange();
+			}
 		}
 		
 		public override void OnOrderChange() {
-			if (OrderHandler.GetOrder() == Order.UseInventoryItem)
-				SetGameMode(GameMode.UsingInventoryItem);
-			else
-				if (gameMode == GameMode.UsingInventoryItem) {
-					if (Objects.GetInventory().IsShowing())
-						SetGameMode(GameMode.Inventory);
-					else
-						SetGameMode(GameMode.Playing);
-				}
+			UpdateGameMode();
 		}
 
 	}

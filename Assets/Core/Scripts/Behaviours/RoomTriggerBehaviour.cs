@@ -9,14 +9,14 @@ namespace SaguFramework {
 		}
 		
 		public override void OnFocus() {
-			GraphicHandler.SetTooltip(GetDescription());
+			GraphicHandler.SetTooltip(GetTooltip());
 		}
 
 		public override void OnWalk(Vector2 position) {
 			// TODO: caminar a la posicion
 		}
 		
-		protected abstract string GetDescription();
+		protected abstract string GetTooltip();
 		
 	}
 	

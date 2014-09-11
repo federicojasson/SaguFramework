@@ -7,10 +7,10 @@
 		}
 		
 		public override void OnFocus() {
-			GraphicHandler.SetTooltip(GetDescription());
+			GraphicHandler.SetTooltip(GetTooltip());
 		}
 		
-		protected abstract string GetDescription();
+		protected abstract string GetTooltip();
 
 	}
 	

@@ -8,7 +8,7 @@ namespace EmergenciaQuimica {
 		
 		public override void OnLook() {}
 		
-		protected override string GetDescription() {
+		protected override string GetTooltip() {
 			return "Ir a la habitacion azul"; // TODO
 		}
 	

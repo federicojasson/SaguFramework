@@ -43,10 +43,36 @@ MonoBehaviour:
     Entities:
       Inventory:
         Height: 1
+        Rows: 3
+        Columns: 3
+        CellSize: {x: .09375, y: .166666672}
+        CellGap: {x: .0625, y: .111111112}
+        TableCenter: {x: .718437493, y: .499444515}
         Image:
           Opacity: 1
           SortingLayer: 
           Sprite: {fileID: 21300000, guid: 382cbdca2bff85f4883fc1814c3244cc, type: 3}
+        HideTrigger:
+          Area:
+            serializedVersion: 2
+            x: .212500006
+            y: .5
+            width: .425000012
+            height: 1
+        PreviousPageTrigger:
+          Area:
+            serializedVersion: 2
+            x: .457812488
+            y: .499444455
+            width: .0393749997
+            height: .24333334
+        NextPageTrigger:
+          Area:
+            serializedVersion: 2
+            x: .979062498
+            y: .499444455
+            width: .0393749997
+            height: .24333334
       InventoryItems:
         Entries:
         - Key: InventoryErlenmeyer
@@ -71,6 +97,7 @@ MonoBehaviour:
               Opacity: 1
               SortingLayer: 
               Sprite: {fileID: 21300000, guid: 82af699dd8b21864889d8f3c45d6896d, type: 3}
+            Triggers: []
         - Key: Blue
           Value:
             Height: 1
@@ -83,6 +110,7 @@ MonoBehaviour:
               Opacity: 1
               SortingLayer: 
               Sprite: {fileID: 0}
+            Triggers: []
         - Key: Green
           Value:
             Height: 1
@@ -95,6 +123,7 @@ MonoBehaviour:
               Opacity: 1
               SortingLayer: 
               Sprite: {fileID: 21300000, guid: 3c09f7e02d4fe33489c8bd3b138de525, type: 3}
+            Triggers: []
       Characters:
         Entries:
         - Key: Scientist
@@ -110,11 +139,11 @@ MonoBehaviour:
         Entries:
         - Key: Erlenmeyer
           Value:
-            Height: .400000006
+            Height: .119999997
             Behaviour: {fileID: 11400000, guid: 8ea6b1d44218be245a6edb121a9fc9f5,
               type: 2}
             Image:
-              Opacity: 0
+              Opacity: 1
               SortingLayer: 
               Sprite: {fileID: 21300000, guid: f483a91a5eaa9e346a1fd325994a6613, type: 3}
       Menus:

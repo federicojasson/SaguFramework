@@ -36,6 +36,14 @@ namespace SaguFramework {
 				
 				stateNode.Add(currentRoomIdNode);
 			}
+
+			// Player character
+			{
+				XElement playerCharacterIdNode = new XElement(Parameters.XmlTagPlayerCharacterId);
+				Utilities.SetXmlNodeStringValue(playerCharacterIdNode, playerCharacterId);
+
+				stateNode.Add(playerCharacterIdNode);
+			}
 			
 			// Hints
 			foreach (string hint in hints) {
@@ -95,6 +103,7 @@ namespace SaguFramework {
 			hints.Clear();
 			inventoryItemIds.Clear();
 			itemStates.Clear();
+			playerCharacterId = null;
 			
 			// State
 			XElement stateNode = stateFile.Element(Parameters.XmlTagState);
@@ -103,6 +112,12 @@ namespace SaguFramework {
 			{
 				XElement currentRoomIdNode = stateNode.Element(Parameters.XmlTagCurrentRoomId);
 				currentRoomId = Utilities.GetXmlNodeStringValue(currentRoomIdNode);
+			}
+
+			// Player character
+			{
+				XElement playerCharacterIdNode = stateNode.Element(Parameters.XmlTagPlayerCharacterId);
+				playerCharacterId = Utilities.GetXmlNodeStringValue(playerCharacterIdNode);
 			}
 			
 			// Hints

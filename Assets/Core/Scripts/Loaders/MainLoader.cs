@@ -5,7 +5,18 @@ namespace SaguFramework {
 	public class MainLoader : Loader {
 
 		private static void LoadOptions() {
-			// TODO
+			Options.Load();
+			
+			string languageId = Options.GetString(Parameters.OptionIdLanguage);
+			Language.Load(languageId);
+			float effectVolume = Options.GetFloat(Parameters.OptionIdEffectVolume);
+			SoundPlayer.SetEffectVolume(effectVolume);
+			float masterVolume = Options.GetFloat(Parameters.OptionIdMasterVolume);
+			SoundPlayer.SetMasterVolume(masterVolume);
+			float songVolume = Options.GetFloat(Parameters.OptionIdSongVolume);
+			SoundPlayer.SetSongVolume(songVolume);
+			float voiceVolume = Options.GetFloat(Parameters.OptionIdVoiceVolume);
+			SoundPlayer.SetVoiceVolume(voiceVolume);
 		}
 
 		protected override IEnumerator LoadSceneCoroutine() {

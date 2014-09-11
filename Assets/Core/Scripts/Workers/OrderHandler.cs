@@ -57,10 +57,12 @@
 		}
 		
 		private static void SetOrder(Order order) {
-			OrderHandler.order = order;
+			if (OrderHandler.order != order) {
+				OrderHandler.order = order;
 
-			foreach (Worker worker in Objects.GetWorkers())
-				worker.OnOrderChange();
+				foreach (Worker worker in Objects.GetWorkers())
+					worker.OnOrderChange();
+			}
 		}
 
 		public override void OnGameModeChange() {

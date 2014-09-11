@@ -9,6 +9,7 @@ namespace SaguFramework {
 		public float ScaleFactor;
 		public ImageParameters BackgroundImage;
 		public ImageParameters ForegroundImage;
+		public RoomTriggerParameters[] Triggers;
 
 	}
 	

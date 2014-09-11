@@ -15,6 +15,13 @@ namespace SaguFramework {
 			return Application.loadedLevelName;
 		}
 
+		private static void SetScene(string sceneId) {
+			Application.LoadLevel(sceneId);
+			
+			foreach (Worker worker in Objects.GetWorkers())
+				worker.OnSceneChange();
+		}
+
 		public void Awake() {
 			instance = this;
 		}
@@ -29,10 +36,7 @@ namespace SaguFramework {
 
 		private IEnumerator ChangeSceneCoroutine(string sceneId) {
 			yield return StartCoroutine(UnloadSceneCoroutine());
-			Application.LoadLevel(sceneId);
-			
-			foreach (Worker worker in Objects.GetWorkers())
-				worker.OnSceneChange();
+			SetScene(sceneId);
 		}
 
 	}

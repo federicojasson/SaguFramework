@@ -9,7 +9,10 @@ namespace SaguFramework {
 
 		public void Awake() {
 			collider = gameObject.AddComponent<BoxCollider2D>();
-			Objects.RegisterEntity(this);
+		}
+
+		public void Destroy() {
+			DestroyImmediate(gameObject);
 		}
 		
 		public EntityBehaviour GetBehaviour() {
@@ -55,6 +58,10 @@ namespace SaguFramework {
 		
 		public void OnTriggerEnter2D(Collider2D collider) {
 			InputHandler.NotifyOnTriggerEnter2D(this, collider);
+		}
+
+		public void Register() {
+			Objects.RegisterEntity(this);
 		}
 
 		public void SetBehaviour(EntityBehaviour behaviour) {

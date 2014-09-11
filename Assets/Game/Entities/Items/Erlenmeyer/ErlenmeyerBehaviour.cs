@@ -12,10 +12,10 @@ namespace EmergenciaQuimica {
 		
 		public override void OnUseInventoryItem(InventoryItem inventoryItem) {}
 		
-		protected override string GetDescription() {
+		protected override string GetTooltip() {
 			return "Erlenmeyer";
 		}
-	
+		
 	}
 	
 }

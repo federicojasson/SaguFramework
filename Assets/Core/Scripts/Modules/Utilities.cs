@@ -49,11 +49,28 @@ namespace SaguFramework {
 			return new Vector3(position.x, position.y, z);
 		}
 
-		public static Vector2 GetSize(Vector2 currentSize, float height) {
+		public static Vector2 GetSize(Vector2 currentSize, float preferredHeight) {
 			float aspectRatio = currentSize.x / currentSize.y;
 
-			float sizeY = Geometry.GameToWorldHeight(height);
+			float sizeY = preferredHeight;
 			float sizeX = sizeY * aspectRatio;
+
+			return new Vector2(sizeX, sizeY);
+		}
+
+		public static Vector2 GetSize(Vector2 currentSize, Vector2 preferredSize) {
+			float aspectRatio = currentSize.x / currentSize.y;
+			float preferredAspectRatio = preferredSize.x / preferredSize.y;
+
+			float sizeX;
+			float sizeY;
+			if (aspectRatio > preferredAspectRatio) {
+				sizeX = preferredSize.x;
+				sizeY = sizeX / aspectRatio;
+			} else {
+				sizeY = preferredSize.y;
+				sizeX = sizeY * aspectRatio;
+			}
 
 			return new Vector2(sizeX, sizeY);
 		}

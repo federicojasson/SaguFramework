@@ -9,6 +9,7 @@ namespace SaguFramework {
 		private static List<string> hints;
 		private static Dictionary<string, ItemState> itemStates;
 		private static List<string> inventoryItemIds;
+		private static string playerCharacterId;
 
 		static State() {
 			characterStates = new Dictionary<string, CharacterState>();
@@ -49,6 +50,10 @@ namespace SaguFramework {
 			return itemStates[itemId];
 		}
 
+		public static string GetPlayerCharacterId() {
+			return playerCharacterId;
+		}
+
 		public static List<string> GetRoomCharacterIds(string roomId) {
 			List<string> characterIds = new List<string>();
 			
@@ -83,6 +88,10 @@ namespace SaguFramework {
 
 		public static void SetCurrentRoomId(string roomId) {
 			currentRoomId = roomId;
+		}
+
+		public static void SetPlayerCharacterId(string characterId) {
+			playerCharacterId = characterId;
 		}
 		
 	}

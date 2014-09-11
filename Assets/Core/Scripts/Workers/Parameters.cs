@@ -18,6 +18,12 @@ namespace SaguFramework {
 		public const string LanguageFileName = "Language";
 		public const string LanguagesDirectoryResourcePath = "Languages";
 
+		public const string OptionIdLanguage = "Language";
+		public const string OptionIdEffectVolume = "EffectVolume";
+		public const string OptionIdMasterVolume = "MasterVolume";
+		public const string OptionIdSongVolume = "SongVolume";
+		public const string OptionIdVoiceVolume = "VoiceVolume";
+
 		public const float PixelsPerUnit = 1;
 
 		public const string SceneMain = "Main";
@@ -52,6 +58,7 @@ namespace SaguFramework {
 		public const string XmlTagLanguage = "language";
 		public const string XmlTagLocation = "location";
 		public const string XmlTagOptions = "options";
+		public const string XmlTagPlayerCharacterId = "player-character-id";
 		public const string XmlTagPosition = "position";
 		public const string XmlTagResourcePath = "resource-path";
 		public const string XmlTagRoomId = "room-id";

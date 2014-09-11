@@ -4,11 +4,11 @@ namespace SaguFramework {
 	
 	public static class Objects {
 
-		private static List<Character> characters;
+		private static Dictionary<string, Character> characters;
 		private static Inventory inventory;
 		private static List<InventoryItem> inventoryItems;
 		private static List<InventoryTrigger> inventoryTriggers;
-		private static List<Item> items;
+		private static Dictionary<string, Item> items;
 		private static Stack<Menu> menus;
 		private static Room room;
 		private static List<RoomTrigger> roomTriggers;
@@ -16,16 +16,16 @@ namespace SaguFramework {
 		private static List<Worker> workers;
 
 		static Objects() {
-			characters = new List<Character>();
+			characters = new Dictionary<string, Character>();
 			inventoryItems = new List<InventoryItem>();
 			inventoryTriggers = new List<InventoryTrigger>();
-			items = new List<Item>();
+			items = new Dictionary<string, Item>();
 			menus = new Stack<Menu>();
 			roomTriggers = new List<RoomTrigger>();
 			workers = new List<Worker>();
 		}
 
-		public static List<Character> GetCharacters() {
+		public static Dictionary<string, Character> GetCharacters() {
 			return characters;
 		}
 
@@ -41,7 +41,7 @@ namespace SaguFramework {
 			return inventoryTriggers;
 		}
 
-		public static List<Item> GetItems() {
+		public static Dictionary<string, Item> GetItems() {
 			return items;
 		}
 		
@@ -67,7 +67,8 @@ namespace SaguFramework {
 
 		public static void RegisterEntity(Entity entity) {
 			if (entity is Character) {
-				characters.Add((Character) entity);
+				Character character = (Character) entity;
+				characters.Add(character.GetId(), character);
 				return;
 			}
 			
@@ -87,7 +88,8 @@ namespace SaguFramework {
 			}
 			
 			if (entity is Item) {
-				items.Add((Item) entity);
+				Item item = (Item) entity;
+				items.Add(item.GetId(), item);
 				return;
 			}
 			
@@ -118,7 +120,8 @@ namespace SaguFramework {
 
 		public static void UnregisterEntity(Entity entity) {
 			if (entity is Character) {
-				characters.Remove((Character) entity);
+				Character character = (Character) entity;
+				characters.Remove(character.GetId());
 				return;
 			}
 			
@@ -138,7 +141,8 @@ namespace SaguFramework {
 			}
 			
 			if (entity is Item) {
-				items.Remove((Item) entity);
+				Item item = (Item) entity;
+				items.Remove(item.GetId());
 				return;
 			}
 			

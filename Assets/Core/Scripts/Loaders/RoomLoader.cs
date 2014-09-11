@@ -1,9 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace SaguFramework {
 	
 	public class RoomLoader : Loader {
+
+		private static void ConfigureCamera() {
+			Vector2 roomSize = Objects.GetRoom().GetSize();
+			
+			float width = roomSize.x;
+			float height = roomSize.y;
+			float x = Geometry.GameToWorldX(0f);
+			float y = Geometry.GameToWorldY(0f) + height;
+			Rect boundaries = new Rect(x, y, width, height);
+
+			CameraHandler.SetCameraBoundaries(boundaries);
+			CameraHandler.SetCameraTarget(Objects.GetCharacters()[State.GetPlayerCharacterId()]);
+		}
 
 		private static void CreateCharacters() {
 			string currentRoomId = State.GetCurrentRoomId();
@@ -60,7 +74,11 @@ namespace SaguFramework {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
 			CreateEntities();
+			ConfigureCamera();
 			yield return StartCoroutine(GraphicHandler.FadeIn(Parameters.GetRoomLoaderParameters().FadeIn));
+			
+			// TODO: debug
+			InventoryHandler.ShowInventory();
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {

@@ -11,8 +11,12 @@ namespace SaguFramework {
 		}
 
 		public Vector2 GetSize() {
-			float width = transform.localScale.x * renderer.sprite.bounds.size.x;
-			float height = transform.localScale.y * renderer.sprite.bounds.size.y;
+			Sprite sprite = renderer.sprite;
+			if (sprite == null)
+				return new Vector2(1f, 1f);
+
+			float width = transform.localScale.x * sprite.bounds.size.x;
+			float height = transform.localScale.y * sprite.bounds.size.y;
 			
 			return new Vector2(width, height);
 		}
@@ -22,8 +26,12 @@ namespace SaguFramework {
 		}
 
 		public void SetSize(Vector2 size) {
-			float scaleX = size.x / renderer.sprite.bounds.size.x;
-			float scaleY = size.y / renderer.sprite.bounds.size.y;
+			Sprite sprite = renderer.sprite;
+			if (sprite == null)
+				return;
+
+			float scaleX = size.x / sprite.bounds.size.x;
+			float scaleY = size.y / sprite.bounds.size.y;
 			transform.localScale = new Vector3(scaleX, scaleY, transform.localScale.z);
 		}
 

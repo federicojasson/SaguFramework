@@ -3,7 +3,7 @@
 	public class InventoryNextPageBehaviour : InventoryTriggerBehaviour {
 
 		public override void OnClick() {
-
+			InventoryHandler.ShowNextPage();
 		}
 
 		public override void OnDefocus() {
