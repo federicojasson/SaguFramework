@@ -75,10 +75,8 @@ namespace SaguFramework {
 		protected override IEnumerator LoadSceneCoroutine() {
 			CreateEntities();
 			ConfigureCamera();
+			GameHandler.UpdateGameMode();
 			yield return StartCoroutine(GraphicHandler.FadeIn(Parameters.GetRoomLoaderParameters().FadeIn));
-			
-			// TODO: debug
-			InventoryHandler.ToggleInventory();
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {

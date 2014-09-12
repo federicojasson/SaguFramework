@@ -121,7 +121,7 @@ namespace SaguFramework {
 
 			Screen.showCursor = true;
 			Vector2 hotspot = new Vector2(0.5f * texture.width, 0.5f * texture.height);
-			Cursor.SetCursor(texture, hotspot, CursorMode.ForceSoftware); // TODO
+			Cursor.SetCursor(texture, hotspot, CursorMode.ForceSoftware);
 		}
 		
 		private static void Tooltip() {

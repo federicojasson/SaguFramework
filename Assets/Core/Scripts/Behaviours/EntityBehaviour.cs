@@ -3,7 +3,13 @@
 namespace SaguFramework {
 	
 	public abstract class EntityBehaviour : MonoBehaviour {
-		
+
+		private Entity entity;
+
+		public Entity GetEntity() {
+			return entity;
+		}
+
 		public virtual void OnCharacterEnter(Character character) {}
 		
 		public virtual void OnClick() {}
@@ -23,6 +29,10 @@ namespace SaguFramework {
 		public virtual void OnUseInventoryItem(InventoryItem inventoryItem) {}
 
 		public virtual void OnWalk(Vector2 position) {}
+
+		public void SetEntity(Entity entity) {
+			this.entity = entity;
+		}
 
 	}
 	

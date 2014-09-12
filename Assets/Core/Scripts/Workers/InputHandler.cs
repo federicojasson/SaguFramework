@@ -35,11 +35,16 @@ namespace SaguFramework {
 		public static void NotifyOnMouseUpAsButton(Entity entity) {
 			if (! CanEntityExecute(entity))
 				return;
-			
+
 			if (! GraphicHandler.IsCursorInGame())
 				return;
-			
+
 			switch (OrderHandler.GetOrder()) {
+				case Order.Click : {
+					entity.GetBehaviour().OnClick();
+					break;
+				}
+
 				case Order.Look : {
 					entity.GetBehaviour().OnLook();
 					break;

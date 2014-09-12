@@ -2,6 +2,10 @@
 	
 	public abstract class InventoryItemBehaviour : EntityBehaviour {
 
+		public override void OnClick() {
+			OrderHandler.SelectInventoryItem((InventoryItem) GetEntity());
+		}
+
 		public override void OnDefocus() {
 			GraphicHandler.ClearTooltip();
 		}

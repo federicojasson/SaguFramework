@@ -124,6 +124,7 @@ namespace SaguFramework {
 			B entityBehaviour = entityBehaviourGameObject.AddComponent<B>();
 			
 			entity.SetBehaviour(entityBehaviour);
+			entityBehaviour.SetEntity(entity);
 			Utilities.SetParent(entityBehaviour, entity);
 			
 			return entity;
@@ -137,6 +138,7 @@ namespace SaguFramework {
 			EntityBehaviour entityBehaviour = (EntityBehaviour) entityBehaviourGameObject.AddComponent(entityBehaviourModel.GetType());
 
 			entity.SetBehaviour(entityBehaviour);
+			entityBehaviour.SetEntity(entity);
 			Utilities.SetParent(entityBehaviour, entity);
 
 			return entity;
