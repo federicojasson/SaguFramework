@@ -11,6 +11,7 @@ namespace SaguFramework {
 		public Texture2D DefaultFadeTexture;
 		public Texture2D WindowboxTexture;
 		public GUISkin Skin;
+		public CursorsParameters Cursors;
 
 	}
 	

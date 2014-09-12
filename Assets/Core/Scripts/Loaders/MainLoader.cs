@@ -21,7 +21,7 @@ namespace SaguFramework {
 
 		protected override IEnumerator LoadSceneCoroutine() {
 			// TODO: debug
-			Game.NewGame();
+			//Game.NewGame();
 
 			LoadOptions();
 			SoundPlayer.StopAllSounds();
@@ -29,7 +29,7 @@ namespace SaguFramework {
 			SplashScreenHandler.ShowMainSplashScreen();
 			yield return StartCoroutine(GraphicHandler.FadeIn(Parameters.GetMainLoaderParameters().FadeIn));
 			yield return StartCoroutine(SplashScreenHandler.Delay());
-			Game.OpenMainMenu();
+			Loader.ChangeScene(Parameters.SceneMainMenu);
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {

@@ -79,6 +79,14 @@ namespace SaguFramework {
 			
 			entity.GetBehaviour().OnCharacterEnter(character);
 		}
+		
+		private static bool AnyKeyWasPressed(KeyCode[] keys) {
+			foreach (KeyCode key in keys)
+				if (Input.GetKeyDown(key))
+					return true;
+			
+			return false;
+		}
 
 		private static bool CanEntityExecute(Entity entity) {
 			switch (GameHandler.GetGameMode()) {
@@ -139,6 +147,92 @@ namespace SaguFramework {
 				
 				default : {
 					return false;
+				}
+			}
+		}
+
+		private static void CheckInputInventory() {
+			TryPauseGame();
+			TrySetNextOrder();
+			TrySetPreviousOrder();
+			TryToggleInventory();
+		}
+		
+		private static void CheckInputMenu() {
+			TryCloseMenu();
+			TrySetNextOrder();
+			TrySetPreviousOrder();
+		}
+		
+		private static void CheckInputPlaying() {
+			TryPauseGame();
+			TrySetNextOrder();
+			TrySetPreviousOrder();
+			TryToggleInventory();
+		}
+		
+		private static void CheckInputUsingInventoryItem() {
+			TryPauseGame();
+			TryToggleInventory();
+			TryUnselectInventoryItem();
+		}
+
+		private static void TryCloseMenu() {
+			if (AnyKeyWasPressed(Parameters.GetCloseMenuKeys()))
+				MenuHandler.CloseMenu();
+		}
+
+		private static void TryPauseGame() {
+			if (AnyKeyWasPressed(Parameters.GetPauseGameKeys()))
+				MenuHandler.OpenPauseMenu();
+		}
+
+		private static void TrySetNextOrder() {
+			if (AnyKeyWasPressed(Parameters.GetSetNextOrderKeys()))
+				OrderHandler.SetNextOrder();
+
+			if (Parameters.UseMouseWheel() && Input.GetAxis("Mouse ScrollWheel") > 0)
+				OrderHandler.SetNextOrder();
+		}
+
+		private static void TrySetPreviousOrder() {
+			if (AnyKeyWasPressed(Parameters.GetSetPreviousOrderKeys()))
+				OrderHandler.SetPreviousOrder();
+
+			if (Parameters.UseMouseWheel() && Input.GetAxis("Mouse ScrollWheel") < 0)
+				OrderHandler.SetPreviousOrder();
+		}
+		
+		private static void TryToggleInventory() {
+			if (AnyKeyWasPressed(Parameters.GetToggleInventoryKeys()))
+				InventoryHandler.ToggleInventory();
+		}
+
+		private static void TryUnselectInventoryItem() {
+			if (AnyKeyWasPressed(Parameters.GetUnselectInventoryItemKeys()))
+				OrderHandler.UnselectInventoryItem();
+		}
+
+		public void Update() {
+			switch (GameHandler.GetGameMode()) {
+				case GameMode.Inventory : {
+					CheckInputInventory();
+					break;
+				}
+				
+				case GameMode.Menu : {
+					CheckInputMenu();
+					break;
+				}
+				
+				case GameMode.Playing : {
+					CheckInputPlaying();
+					break;
+				}
+					
+				case GameMode.UsingInventoryItem : {
+					CheckInputUsingInventoryItem();
+					break;
 				}
 			}
 		}

@@ -72,6 +72,57 @@ namespace SaguFramework {
 			GUI.color = Utilities.GetColor(GUI.color, clampedFadeTextureOpacity);
 			GUI.DrawTexture(gameRectangle, fadeTexture);
 		}
+
+		private static void SetCursor(Order order) {
+			Texture2D texture;
+
+			switch (order) {
+				case Order.Click : {
+					texture = Parameters.GetClickTexture();
+					break;
+				}
+					
+				case Order.Look : {
+					texture = Parameters.GetLookTexture();
+					break;
+				}
+
+				case Order.None : {
+					Screen.showCursor = false;
+					return;
+				}
+					
+				case Order.PickUp : {
+					texture = Parameters.GetPickUpTexture();
+					break;
+				}
+					
+				case Order.Speak : {
+					texture = Parameters.GetSpeakTexture();
+					break;
+				}
+					
+				case Order.UseInventoryItem : {
+					// TODO: setear el sprite del item del inventario
+					// TODO: ORDENAR
+					texture = ((SpriteRenderer) OrderHandler.GetSelectedInventoryItem().GetComponentInChildren<Image>().renderer).sprite.texture;
+					break;
+				}
+					
+				case Order.Walk : {
+					texture = Parameters.GetWalkTexture();
+					break;
+				}
+				
+				default : {
+					return;
+				}
+			}
+
+			Screen.showCursor = true;
+			Vector2 hotspot = new Vector2(0.5f * texture.width, 0.5f * texture.height);
+			Cursor.SetCursor(texture, hotspot, CursorMode.ForceSoftware); // TODO
+		}
 		
 		private static void Tooltip() {
 			if (tooltip.Length > 0) {
@@ -124,47 +175,7 @@ namespace SaguFramework {
 		}
 
 		public override void OnOrderChange() {
-			// TODO: cambiar cursor de acuerdo a la orden
-
-			Order order = OrderHandler.GetOrder();
-			
-			Screen.showCursor = false;
-
-			// TODO
-			switch (OrderHandler.GetOrder()) {
-				case Order.Click : {
-					break;
-				}
-
-				case Order.Look : {
-					break;
-				}
-
-				case Order.None : {
-					return;
-				}
-
-				case Order.PickUp : {
-					break;
-				}
-
-				case Order.Speak : {
-					break;
-				}
-
-				case Order.UseInventoryItem : {
-					// TODO: setear el sprite del item del inventario
-					break;
-				}
-
-				case Order.Walk : {
-					break;
-				}
-			}
-
-			// TODO: set the sprite
-
-			Screen.showCursor = true;
+			SetCursor(OrderHandler.GetOrder());
 		}
 
 	}

@@ -80,6 +80,14 @@ namespace SaguFramework {
 			return instance.GameParameters.Entities.Characters[characterId];
 		}
 
+		public static Texture2D GetClickTexture() {
+			return instance.GameParameters.Graphics.Cursors.ClickTexture;
+		}
+
+		public static KeyCode[] GetCloseMenuKeys() {
+			return instance.GameParameters.Controls.CloseMenuKeys;
+		}
+
 		public static Texture2D GetDefaultFadeTexture() {
 			return instance.GameParameters.Graphics.DefaultFadeTexture;
 		}
@@ -112,6 +120,10 @@ namespace SaguFramework {
 			return Utilities.GetFileResourcePath(LanguageFileName, LanguagesDirectoryResourcePath, languageId);
 		}
 
+		public static Texture2D GetLookTexture() {
+			return instance.GameParameters.Graphics.Cursors.LookTexture;
+		}
+		
 		public static AudioClip GetMainEffect() {
 			return instance.GameParameters.Sounds.MainEffect;
 		}
@@ -145,8 +157,16 @@ namespace SaguFramework {
 			return Utilities.GetFilePath(OptionsFileName, OptionsFileExtension, gameDirectoryPath);
 		}
 
+		public static KeyCode[] GetPauseGameKeys() {
+			return instance.GameParameters.Controls.PauseGameKeys;
+		}
+
 		public static MenuParameters GetPauseMenuParameters() {
 			return instance.GameParameters.Entities.Menus.Pause;
+		}
+		
+		public static Texture2D GetPickUpTexture() {
+			return instance.GameParameters.Graphics.Cursors.PickUpTexture;
 		}
 
 		public static AudioClip[] GetPlaylist() {
@@ -161,8 +181,20 @@ namespace SaguFramework {
 			return instance.GameParameters.Entities.Rooms[roomId];
 		}
 
+		public static KeyCode[] GetSetNextOrderKeys() {
+			return instance.GameParameters.Controls.SetNextOrderKeys;
+		}
+
+		public static KeyCode[] GetSetPreviousOrderKeys() {
+			return instance.GameParameters.Controls.SetPreviousOrderKeys;
+		}
+
 		public static GUISkin GetSkin() {
 			return instance.GameParameters.Graphics.Skin;
+		}
+		
+		public static Texture2D GetSpeakTexture() {
+			return instance.GameParameters.Graphics.Cursors.SpeakTexture;
 		}
 
 		public static LoaderParameters GetSpecialLoaderParameters() {
@@ -182,12 +214,28 @@ namespace SaguFramework {
 			return Utilities.GetFilePath(stateId, StateFileExtension, gameDirectoryPath, StateFilesDirectoryPath);
 		}
 
+		public static KeyCode[] GetToggleInventoryKeys() {
+			return instance.GameParameters.Controls.ToggleInventoryKeys;
+		}
+
+		public static KeyCode[] GetUnselectInventoryItemKeys() {
+			return instance.GameParameters.Controls.UnselectInventoryItemKeys;
+		}
+		
+		public static Texture2D GetWalkTexture() {
+			return instance.GameParameters.Graphics.Cursors.WalkTexture;
+		}
+
 		public static Texture2D GetWindowboxTexture() {
 			return instance.GameParameters.Graphics.WindowboxTexture;
 		}
 
 		public static bool ShuffleSongs() {
 			return instance.GameParameters.Sounds.ShuffleSongs;
+		}
+
+		public static bool UseMouseWheel() {
+			return instance.GameParameters.Controls.UseMouseWheel;
 		}
 
 		public GameParameters GameParameters;

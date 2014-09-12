@@ -78,7 +78,7 @@ namespace SaguFramework {
 			yield return StartCoroutine(GraphicHandler.FadeIn(Parameters.GetRoomLoaderParameters().FadeIn));
 			
 			// TODO: debug
-			InventoryHandler.ShowInventory();
+			InventoryHandler.ToggleInventory();
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {

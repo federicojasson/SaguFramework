@@ -9,6 +9,7 @@ namespace SaguFramework {
 
 		public void Awake() {
 			collider = gameObject.AddComponent<BoxCollider2D>();
+			Hide();
 		}
 
 		public void Destroy() {

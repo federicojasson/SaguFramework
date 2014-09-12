@@ -277,6 +277,12 @@ MonoBehaviour:
       WindowboxTexture: {fileID: 2800000, guid: 3c69fe5f8a7e5084bbc92e90987347c1,
         type: 3}
       Skin: {fileID: 11400000, guid: 57518e85f6ddbd243a14d5b5b8d5e528, type: 2}
+      Cursors:
+        ClickTexture: {fileID: 2800000, guid: 87831f24246734341ba1cf30a6b470d6, type: 3}
+        LookTexture: {fileID: 2800000, guid: ca43cf465c3d8ab40bf3cc0d984f2c17, type: 3}
+        PickUpTexture: {fileID: 0}
+        SpeakTexture: {fileID: 0}
+        WalkTexture: {fileID: 2800000, guid: b45e44501f272f742876a0d18674d85e, type: 3}
     Sounds:
       MainEffect: {fileID: 8300000, guid: 4da25d4691591144f94d46b21db17eae, type: 3}
       MainMenuSong: {fileID: 8300000, guid: a0d451f4b5836814f8e5b43aa9d3d388, type: 3}
@@ -289,9 +295,13 @@ MonoBehaviour:
       ShuffleSongs: 1
       DelayBetweenSongs: 2
     Controls:
-      CloseMenuKeys: 
-      PauseGameKeys: 
-      ToggleInventoryKeys: 
+      UseMouseWheel: 1
+      CloseMenuKeys: 1b000000
+      PauseGameKeys: 1b0000001300000070000000
+      SetNextOrderKeys: 440100001301000011010000
+      SetPreviousOrderKeys: 450100001401000012010000
+      ToggleInventoryKeys: 69000000
+      UnselectInventoryItemKeys: 440100004501000063000000
     Loaders:
       Main:
         FadeIn:

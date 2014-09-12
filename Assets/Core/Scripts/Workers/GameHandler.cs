@@ -41,11 +41,15 @@
 			if (GameHandler.gameMode != gameMode) {
 				GameHandler.gameMode = gameMode;
 
-				UnityEngine.Debug.Log(gameMode);
+				UnityEngine.Debug.Log("GameMode: " + gameMode);
 
 				foreach (Worker worker in Objects.GetWorkers())
 					worker.OnGameModeChange();
 			}
+		}
+		
+		public void OnLevelWasLoaded(int level) {
+			UpdateGameMode();
 		}
 		
 		public override void OnOrderChange() {

@@ -16,6 +16,7 @@ namespace SaguFramework {
 			Utilities.SetParent(image, character);
 			character.SetPosition(Geometry.GameToWorldPosition(characterState.GetLocation().GetPosition()));
 			character.Register();
+			character.Show();
 
 			// TODO: direction
 		}
@@ -35,7 +36,6 @@ namespace SaguFramework {
 			Utilities.SetParent(hideTrigger, inventory);
 			Utilities.SetParent(previousPageTrigger, inventory);
 			Utilities.SetParent(nextPageTrigger, inventory);
-			inventory.Hide();
 			inventory.Register();
 		}
 
@@ -49,7 +49,6 @@ namespace SaguFramework {
 			inventoryItem.SetSize(size);
 			image.SetSize(size);
 			Utilities.SetParent(image, inventoryItem);
-			inventoryItem.Hide();
 			inventoryItem.Register();
 		}
 
@@ -65,6 +64,7 @@ namespace SaguFramework {
 			Utilities.SetParent(image, item);
 			item.SetPosition(Geometry.GameToWorldPosition(itemState.GetLocation().GetPosition()));
 			item.Register();
+			item.Show();
 		}
 		
 		public static void CreateMenu(MenuParameters menuParameters) {
@@ -77,6 +77,7 @@ namespace SaguFramework {
 			image.SetSize(size);
 			Utilities.SetParent(image, menu);
 			menu.Register();
+			menu.Show();
 		}
 
 		public static void CreateRoom(RoomParameters roomParameters) {
@@ -94,6 +95,7 @@ namespace SaguFramework {
 			Utilities.SetParent(foregroundImage, room);
 			room.SetPosition(position);
 			room.Register();
+			room.Show();
 
 			foreach (RoomTriggerParameters roomTriggerParameters in roomParameters.Triggers) {
 				RoomTrigger trigger = CreateRoomTrigger(roomTriggerParameters);
@@ -111,6 +113,7 @@ namespace SaguFramework {
 			image.SetSize(size);
 			Utilities.SetParent(image, splashScreen);
 			splashScreen.Register();
+			splashScreen.Show();
 		}
 
 		private static E CreateEntity<E, B>() where E : Entity where B : EntityBehaviour {
@@ -164,6 +167,7 @@ namespace SaguFramework {
 			inventoryTrigger.SetSize(Geometry.GameToWorldSize(size));
 			inventoryTrigger.SetPosition(Geometry.GameToWorldPosition(position));
 			inventoryTrigger.Register();
+			inventoryTrigger.Show();
 
 			return inventoryTrigger;
 		}
@@ -178,6 +182,7 @@ namespace SaguFramework {
 			roomTrigger.SetSize(Geometry.GameToWorldSize(size));
 			roomTrigger.SetPosition(Geometry.GameToWorldPosition(position));
 			roomTrigger.Register();
+			roomTrigger.Show();
 
 			return roomTrigger;
 		}

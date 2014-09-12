@@ -11,14 +11,17 @@ namespace SaguFramework {
 			page = 0;
 		}
 
-		public static void HideInventory() {
-			Objects.GetInventory().Show();
-			HideInventoryItems();
-		}
+		public static void ToggleInventory() {
+			Inventory inventory = Objects.GetInventory();
+			if (inventory.IsShowing()) {
+				Objects.GetInventory().Hide();
+				HideInventoryItems();
+			} else {
+				Objects.GetInventory().Show();
+				ShowInventoryItems();
+			}
 
-		public static void ShowInventory() {
-			Objects.GetInventory().Show();
-			ShowInventoryItems();
+			GameHandler.UpdateGameMode();
 		}
 
 		public static void ShowPreviousPage() {
@@ -90,7 +93,7 @@ namespace SaguFramework {
 			float tableWidth = columns * cellAndGapWidth - cellGap.x;
 			float tableHeight = rows * cellAndGapHeight - cellGap.y;
 
-			float offsetX = tableCenterPosition.x - 0.5f * tableWidth + 0.5f * cellSize.x;;
+			float offsetX = tableCenterPosition.x - 0.5f * tableWidth + 0.5f * cellSize.x;
 			float offsetY = tableCenterPosition.y - 0.5f * tableHeight + 0.5f * cellSize.y;
 
 			int row = rows - 1;

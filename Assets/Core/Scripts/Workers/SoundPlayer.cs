@@ -130,7 +130,7 @@ namespace SaguFramework {
 			songPlayer = gameObject.AddComponent<AudioSource>();
 		}
 
-		public override void OnSceneChange() {
+		public void OnLevelWasLoaded(int level) {
 			foreach (AudioSource voicePlayer in voicePlayers.Values)
 				Destroy(voicePlayer);
 
