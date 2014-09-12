@@ -55,9 +55,9 @@ MonoBehaviour:
         HideTrigger:
           Area:
             serializedVersion: 2
-            x: .212500006
+            x: .179374993
             y: .5
-            width: .425000012
+            width: .358749986
             height: 1
         PreviousPageTrigger:
           Area:
