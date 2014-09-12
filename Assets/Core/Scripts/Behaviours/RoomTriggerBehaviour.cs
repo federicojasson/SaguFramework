@@ -13,10 +13,13 @@ namespace SaguFramework {
 		}
 
 		public override void OnWalk(Vector2 position) {
-			// TODO: caminar a la posicion
+			string characterId = State.GetPlayerCharacterId();
+			Game.Walk(characterId, position);
 		}
 		
-		protected abstract string GetTooltip();
+		protected virtual string GetTooltip() {
+			return string.Empty;
+		}
 		
 	}
 	

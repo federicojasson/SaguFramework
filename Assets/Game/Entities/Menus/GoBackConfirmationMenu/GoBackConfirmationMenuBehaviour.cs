@@ -5,13 +5,18 @@ namespace EmergenciaQuimica {
 	
 	public class GoBackConfirmationMenuBehaviour : MenuBehaviour {
 		
-		private bool isLocked;
+		private bool isEnabled;
 		
 		public void Awake() {
-			isLocked = false;
+			isEnabled = true;
 		}
 		
 		public override void OnShowGui() {
+			if (isEnabled)
+				GUI.enabled = true;
+			else
+				GUI.enabled = false;
+
 			if (GUILayout.Button(Language.GetText("GoBackConfirmationMenuCancelButton")))
 				OnCancel();
 			
@@ -20,15 +25,12 @@ namespace EmergenciaQuimica {
 		}
 		
 		private void OnCancel() {
-			if (! isLocked)
-				Game.CloseMenu();
+			Game.CloseMenu();
 		}
 		
 		private void OnGoBack() {
-			if (! isLocked) {
-				isLocked = true;
-				Game.OpenMainMenu();
-			}
+			isEnabled = false;
+			Game.OpenMainMenu();
 		}
 		
 	}

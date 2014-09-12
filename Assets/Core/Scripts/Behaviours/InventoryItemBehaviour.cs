@@ -14,7 +14,9 @@
 			GraphicHandler.SetTooltip(GetTooltip());
 		}
 		
-		protected abstract string GetTooltip();
+		protected virtual string GetTooltip() {
+			return string.Empty;
+		}
 
 	}
 	

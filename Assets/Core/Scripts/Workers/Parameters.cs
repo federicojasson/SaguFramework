@@ -43,7 +43,7 @@ namespace SaguFramework {
 		public const string SceneSpecial = "Special";
 		public const string SceneSplashScreen = "SplashScreen";
 
-		public const string SkinStyleTooltip = "tooltip";
+		public const string SkinStyleTooltip = "Tooltip";
 
 		public const string SortingLayerCharacter = "Character";
 		public const string SortingLayerInventory = "Inventory";
@@ -223,6 +223,11 @@ namespace SaguFramework {
 		public static string GetStateFilePath(string stateId) {
 			string gameDirectoryPath = GetGameDirectoryPath();
 			return Utilities.GetFilePath(stateId, StateFileExtension, gameDirectoryPath, StateFilesDirectoryPath);
+		}
+
+		public static string GetStateFilesDirectoryPath() {
+			string gameDirectoryPath = GetGameDirectoryPath();
+			return Utilities.GetDirectoryPath(gameDirectoryPath, StateFilesDirectoryPath);
 		}
 
 		public static KeyCode[] GetToggleInventoryKeys() {

@@ -1,10 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Xml.Linq;
 
 namespace SaguFramework {
 	
 	public static partial class State {
-		
+
+		public static string[] GetStateIds() {
+			try {
+				FileInfo[] stateFiles = Utilities.GetDirectoryFiles(Parameters.StateFileExtension, Parameters.GetStateFilesDirectoryPath());
+				FileInfo[] orderedStateFiles = Utilities.OrderFilesByLastWriteTimeDescending(stateFiles);
+				
+				string[] stateIds = new string[orderedStateFiles.Length];
+				for (int i = 0; i < orderedStateFiles.Length; i++)
+					stateIds[i] = Utilities.GetFileNameWithoutExtension(orderedStateFiles[i]);
+				
+				return stateIds;
+			} catch (Exception) {
+				// There was a problem reading or processing the state files directory
+				return new string[0];
+			}
+		}
+
 		public static void Load(string stateId) {
 			// TODO: errors, exceptions?
 			

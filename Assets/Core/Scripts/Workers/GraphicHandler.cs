@@ -143,11 +143,8 @@ namespace SaguFramework {
 				area.x = 0.5f * (screenWidthInPixels - area.width);
 				
 				GUILayout.BeginArea(area); {
-					GUILayout.BeginVertical(); {
-						GUILayout.FlexibleSpace();
-						GUILayout.Box(content, style);
-					}
-					GUILayout.EndVertical();
+					GUILayout.FlexibleSpace();
+					GUILayout.Box(content, style);
 				}
 				GUILayout.EndArea();
 			}

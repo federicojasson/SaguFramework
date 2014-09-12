@@ -275,6 +275,16 @@ MonoBehaviour:
                 SortingLayer: 
                 Sprite: {fileID: 21300000, guid: 32fe64495ebfe634685173d51ae5021a,
                   type: 3}
+          - Key: StateIdAlreadyExistsMenu
+            Value:
+              Height: 1
+              Behaviour: {fileID: 11400000, guid: a4a76a1e82e3e5440a2dfaad6154d010,
+                type: 2}
+              Image:
+                Opacity: 1
+                SortingLayer: 
+                Sprite: {fileID: 21300000, guid: 46e2ba5550a58284dacaf5548b58f725,
+                  type: 3}
       SplashScreens:
         Main:
           Height: 1

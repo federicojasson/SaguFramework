@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <language>
-	<voice>
-		<id>Prueba</id>
-		<resource-path>prueba</resource-path>
-	</voice>
 	<text>
 		<id>ExitConfirmationMenuCancelButton</id>
 		<value>Cancelar</value>
@@ -13,6 +9,14 @@
 		<value>Salir</value>
 	</text>
 	<text>
+		<id>ExitConfirmationMenuLabel</id>
+		<value>¿Realmente desea salir?</value>
+	</text>
+	
+	
+	
+	
+	<text>
 		<id>GoBackConfirmationMenuCancelButton</id>
 		<value>Cancelar</value>
 	</text>
@@ -20,10 +24,21 @@
 		<id>GoBackConfirmationMenuGoBackButton</id>
 		<value>Aceptar</value>
 	</text>
+	
+	
+	
 	<text>
 		<id>LoadGameMenuCancelButton</id>
 		<value>Cancelar</value>
 	</text>
+	<text>
+		<id>LoadGameMenuLoadGameButton</id>
+		<value>Cargar partida</value>
+	</text>
+	
+	
+	
+	
 	<text>
 		<id>MainMenuExitButton</id>
 		<value>Salir</value>
@@ -40,6 +55,10 @@
 		<id>MainMenuOptionsButton</id>
 		<value>Opciones</value>
 	</text>
+	
+	
+	
+	
 	<text>
 		<id>OptionsMenuApplyChangesButton</id>
 		<value>Aplicar cambios</value>
@@ -48,6 +67,11 @@
 		<id>OptionsMenuCancelButton</id>
 		<value>Cancelar</value>
 	</text>
+	
+	
+	
+	
+	
 	<text>
 		<id>PauseMenuGoBackButton</id>
 		<value>Volver al menu principal</value>
@@ -60,6 +84,9 @@
 		<id>PauseMenuSaveGameButton</id>
 		<value>Guardar partida</value>
 	</text>
+	
+	
+	
 	<text>
 		<id>SaveGameMenuCancelButton</id>
 		<value>Cancelar</value>
@@ -76,4 +103,71 @@
 		<id>SaveGameMenuSaveGameButton</id>
 		<value>Guardar partida</value>
 	</text>
+	
+	
+	<text>
+		<id>StateIdAlreadyExistsMenuAcceptButton</id>
+		<value>Aceptar</value>
+	</text>
+	
+	
+	
+	
+	
+	
+	
+	<text>
+		<id>LaboratoryLeftDoorTooltip</id>
+		<value>Salir del laboratorio</value>
+	</text>
+	
+	<text>
+		<id>GreenRightDoorTooltip</id>
+		<value>Entrar al laboratorio</value>
+	</text>
+	
+	
+	
+	
+	<text>
+		<id>GreenLeftDoorTooltip</id>
+		<value>Ir a la habitacion azul</value>
+	</text>
+	
+	
+	<text>
+		<id>BlueRightDoorTooltip</id>
+		<value>Ir a la habitacion verde</value>
+	</text>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<text>
+		<id>InventoryErlenmeyerTooltip</id>
+		<value>Erlenmeyer</value>
+	</text>
+	
+	
+	<text>
+		<id>ErlenmeyerTooltip</id>
+		<value>Erlenmeyer</value>
+	</text>
+	
+	
+	
+	
+	
+	
+	
+	
 </language>

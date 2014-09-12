@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
@@ -11,6 +12,33 @@ namespace SaguFramework {
 	public static partial class Utilities {
 
 		private static Encoding encoding;
+
+		public static FileInfo[] GetDirectoryFiles(string fileExtension, string directoryPath) {
+			// TODO: errors, exceptions?
+
+			directoryPath = Environment.ExpandEnvironmentVariables(directoryPath);
+
+			DirectoryInfo directory = new DirectoryInfo(directoryPath);
+			FileInfo[] directoryFiles = directory.GetFiles("*" + fileExtension);
+			
+			return directoryFiles;
+		}
+
+		public static string GetDirectoryPath(params string[] directoryPaths) {
+			string path = "";
+
+			for (int i = 0; i < directoryPaths.Length - 1; i++) {
+				path += directoryPaths[i];
+				path += Path.DirectorySeparatorChar;
+			}
+			path += directoryPaths[directoryPaths.Length - 1];
+			
+			return path;
+		}
+
+		public static string GetFileNameWithoutExtension(FileInfo file) {
+			return Path.GetFileNameWithoutExtension(file.Name);
+		}
 
 		public static string GetFilePath(string fileName, string fileExtension, params string[] directoryPaths) {
 			string path = "";
@@ -99,6 +127,10 @@ namespace SaguFramework {
 			float y = GetXmlNodeFloatValue(yNode);
 			
 			return new Vector2(x, y);
+		}
+
+		public static FileInfo[] OrderFilesByLastWriteTimeDescending(FileInfo[] files) {
+			return files.OrderByDescending(value => value.LastWriteTime).ToArray();
 		}
 		
 		public static XDocument ReadResourceXmlFile(string resourcePath) {

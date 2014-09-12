@@ -4,6 +4,11 @@
 
 		private string id;
 
+		public Direction GetDirection() {
+			// TODO: GetDirection
+			return Direction.Right;
+		}
+
 		public string GetId() {
 			return id;
 		}

@@ -56,10 +56,32 @@ namespace SaguFramework {
 		}
 
 		public static void SaveGame(string stateId) {
+			foreach (Character character in Objects.GetCharacters().Values) {
+				Direction direction = character.GetDirection();
+				Vector2 position = Geometry.WorldToGamePosition(character.GetPosition());
+				string roomId = State.GetCurrentRoomId();
+				Location location = new Location(position, roomId);
+				CharacterState characterState = new CharacterState(direction, location);
 
+				State.SetCharacterState(character.GetId(), characterState);
+			}
 
-			// TODO: actualizar estado de las entidades
+			foreach (Item item in Objects.GetItems().Values) {
+				Vector2 position = Geometry.WorldToGamePosition(item.GetPosition());
+				string roomId = State.GetCurrentRoomId();
+				Location location = new Location(position, roomId);
+				ItemState itemState = new ItemState(location);
+
+				State.SetItemState(item.GetId(), itemState);
+			}
+
 			State.Save(stateId);
+		}
+
+		public static void Walk(string characterId, Vector2 position) {
+			Character character = Objects.GetCharacters()[characterId];
+
+			// TODO: walk
 		}
 
 		private static void LoadSplashScreenOrRoom(string groupId) {

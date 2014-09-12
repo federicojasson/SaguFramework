@@ -15,10 +15,7 @@ namespace EmergenciaQuimica {
 		public void Awake() {
 			newStateId = Language.GetText("SaveGameMenuNewStateIdTextField");
 
-			// TODO: Get StateIds from somewhere else
-			stateIds = new string[3];
-			for (int i = 0; i < 3; i++)
-				stateIds[i] = "" + i;
+			stateIds = State.GetStateIds();
 
 			options = new string[stateIds.Length + 1];
 			options[0] = Language.GetText("SaveGameMenuNewStateIdButton");
@@ -79,19 +76,19 @@ namespace EmergenciaQuimica {
 		}
 
 		private void OnSaveGame() {
-			// TODO: case sensitive
-
 			string stateId;
-			if (selectedOption == 0)
+			if (selectedOption == 0) {
 				stateId = newStateId;
-			else
+
+				if (stateIds.Contains(newStateId)) {
+					Game.OpenMenu("StateIdAlreadyExistsMenu");
+					return;
+				}
+			} else
 				stateId = stateIds[selectedOption - 1];
-			
-			// TODO
-			if (stateIds.Contains(stateId))
-				Debug.Log("contains");
-			else
-				Debug.Log("! contains");
+
+			Game.SaveGame(stateId);
+			Game.CloseMenu();
 		}
 		
 	}

@@ -16,7 +16,10 @@ namespace SaguFramework {
 			Rect boundaries = new Rect(x, y, width, height);
 
 			CameraHandler.SetCameraBoundaries(boundaries);
-			CameraHandler.SetCameraTarget(Objects.GetCharacters()[State.GetPlayerCharacterId()]);
+
+			string characterId = State.GetPlayerCharacterId();
+			Character character = Objects.GetCharacters()[characterId];
+			CameraHandler.SetCameraTarget(character);
 		}
 
 		private static void CreateCharacters() {

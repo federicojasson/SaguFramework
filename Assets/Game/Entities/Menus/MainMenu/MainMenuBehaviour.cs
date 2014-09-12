@@ -5,46 +5,64 @@ namespace EmergenciaQuimica {
 	
 	public class MainMenuBehaviour : MenuBehaviour {
 
-		private bool isLocked;
+		private bool isEnabled;
 
 		public void Awake() {
-			isLocked = false;
+			isEnabled = true;
 		}
 
 		public override void OnShowGui() {
-			if (GUILayout.Button(Language.GetText("MainMenuNewGameButton")))
-				OnNewGame();
+			if (isEnabled)
+				GUI.enabled = true;
+			else
+				GUI.enabled = false;
 			
-			if (GUILayout.Button(Language.GetText("MainMenuLoadGameButton")))
-				OnLoadGame();
-			
-			if (GUILayout.Button(Language.GetText("MainMenuOptionsButton")))
-				OnOptions();
-			
-			if (GUILayout.Button(Language.GetText("MainMenuExitButton")))
-				OnExit();
+			GUIStyle menuButtonStyle = GUI.skin.GetStyle("MenuButton");
+			float gameWidth = Geometry.GetGameWidthInPixels();
+			float gameHeight = Geometry.GetGameHeightInPixels();
+
+			Rect area = new Rect(0.1f * gameWidth, 0.1f * gameHeight, 0.4f * gameWidth, 0.8f * gameHeight);
+			GUILayout.BeginArea(area); {
+				GUILayout.FlexibleSpace();
+
+				if (GUILayout.Button(Language.GetText("MainMenuNewGameButton"), menuButtonStyle))
+					OnNewGame();
+
+				GUILayout.FlexibleSpace();
+
+				if (GUILayout.Button(Language.GetText("MainMenuLoadGameButton"), menuButtonStyle))
+					OnLoadGame();
+
+				GUILayout.FlexibleSpace();
+
+				if (GUILayout.Button(Language.GetText("MainMenuOptionsButton"), menuButtonStyle))
+					OnOptions();
+
+				GUILayout.FlexibleSpace();
+
+				if (GUILayout.Button(Language.GetText("MainMenuExitButton"), menuButtonStyle))
+					OnExit();
+
+				GUILayout.FlexibleSpace();
+			}
+			GUILayout.EndArea();
 		}
 
 		private void OnExit() {
-			if (! isLocked)
-				Game.OpenMenu("ExitConfirmationMenu");
+			Game.OpenMenu("ExitConfirmationMenu");
 		}
 
 		private void OnLoadGame() {
-			if (! isLocked)
-				Game.OpenMenu("LoadGameMenu");
+			Game.OpenMenu("LoadGameMenu");
 		}
 
 		private void OnNewGame() {
-			if (! isLocked) {
-				isLocked = true;
-				Game.NewGame("Information");
-			}
+			isEnabled = false;
+			Game.NewGame("Information");
 		}
 
 		private void OnOptions() {
-			if (! isLocked)
-				Game.OpenMenu("OptionsMenu");
+			Game.OpenMenu("OptionsMenu");
 		}
 		
 	}

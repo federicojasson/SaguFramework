@@ -3,13 +3,14 @@ using SaguFramework;
 namespace EmergenciaQuimica {
 	
 	public class BlueRightDoorBehaviour : RoomTriggerBehaviour {
-		
-		public override void OnCharacterEnter(Character character) {}
-		
-		public override void OnLook() {}
-		
+
+		public override void OnCharacterEnter(Character character) {
+			if (character.GetId() == State.GetPlayerCharacterId())
+				Game.ChangeRoom("Green", "LeftDoor");
+		}
+
 		protected override string GetTooltip() {
-			return "Ir a la habitacion verde"; // TODO
+			return Language.GetText("BlueRightDoorTooltip");
 		}
 	
 	}
