@@ -21,6 +21,10 @@ namespace SaguFramework {
 			return new Vector2(width, height);
 		}
 
+		public Texture2D GetTexture() {
+			return renderer.sprite.texture;
+		}
+
 		public void SetOpacity(float opacity) {
 			renderer.color = Utilities.GetColor(renderer.color, opacity);
 		}

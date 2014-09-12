@@ -53,7 +53,7 @@ namespace SaguFramework {
 		}
 
 		public static bool IsCursorInGame() {
-			return Geometry.GetGameRectangleInScreen().Contains(Input.mousePosition);
+			return Geometry.GetGameRectangleInScreen().Contains(InputHandler.GetMousePositionInScreen());
 		}
 
 		public static void SetTooltip(string tooltip) {
@@ -103,9 +103,8 @@ namespace SaguFramework {
 				}
 					
 				case Order.UseInventoryItem : {
-					// TODO: setear el sprite del item del inventario
-					// TODO: ORDENAR
-					texture = ((SpriteRenderer) OrderHandler.GetSelectedInventoryItem().GetComponentInChildren<Image>().renderer).sprite.texture;
+					InventoryItem inventoryItem = OrderHandler.GetSelectedInventoryItem();
+					texture = inventoryItem.GetImage().GetTexture();
 					break;
 				}
 					

@@ -71,6 +71,10 @@ namespace SaguFramework {
 		public void SetBehaviour(EntityBehaviour behaviour) {
 			this.behaviour = behaviour;
 		}
+		
+		public void SetDepth(float depth) {
+			transform.position = Utilities.GetPosition(transform.position, depth);
+		}
 
 		public void SetPosition(Vector2 position) {
 			transform.position = Utilities.GetPosition(position, transform.position.z);

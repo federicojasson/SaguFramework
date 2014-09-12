@@ -6,7 +6,7 @@ namespace SaguFramework {
 		
 		private static Rect boundaries;
 		private static CameraHandler instance;
-		private static Component target;
+		private static Entity target;
 		
 		public static void SetCameraBoundaries(Rect boundaries) {
 			CameraHandler.boundaries = boundaries;
@@ -16,7 +16,11 @@ namespace SaguFramework {
 			return instance.transform.position;
 		}
 
-		public static void SetCameraTarget(Component target) {
+		public static Vector2 ScreenToWorldPosition(Vector2 position) {
+			return instance.camera.ScreenToWorldPoint(position);
+		}
+
+		public static void SetCameraTarget(Entity target) {
 			CameraHandler.target = target;
 		}
 
@@ -24,14 +28,16 @@ namespace SaguFramework {
 			base.Awake();
 			instance = this;
 			gameObject.AddComponent<Camera>();
+			transform.position = Utilities.GetPosition(transform.position, Parameters.DepthCamera);
 			camera.backgroundColor = Parameters.GetCameraBackgroundColor();
+			camera.farClipPlane = Mathf.Abs(transform.position.z);
 			camera.isOrthoGraphic = true;
 			camera.orthographicSize = 0.5f * Geometry.GetScreenHeightInUnits();
 		}
 
 		public void LateUpdate() {
 			if (target != null) {
-				Vector2 targetPosition = target.transform.position;
+				Vector2 targetPosition = target.GetPosition();
 
 				float gameWidthInUnits = Geometry.GetGameWidthInUnits();
 				float minimumX = boundaries.x + 0.5f * gameWidthInUnits;
@@ -43,7 +49,7 @@ namespace SaguFramework {
 				float maximumY = boundaries.y - 0.5f * gameHeightInUnits;
 				float y = Mathf.Clamp(targetPosition.y, minimumY, maximumY);
 				
-				camera.transform.position = new Vector3(x, y, camera.transform.position.z);
+				transform.position = new Vector3(x, y, transform.position.z);
 			}
 		}
 

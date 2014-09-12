@@ -10,6 +10,7 @@ namespace SaguFramework {
 		public ImageParameters BackgroundImage;
 		public ImageParameters ForegroundImage;
 		public RoomTriggerParameters[] Triggers;
+		public EntryParametersMap Entries;
 
 	}
 	

@@ -97,7 +97,29 @@ MonoBehaviour:
               Opacity: 1
               SortingLayer: 
               Sprite: {fileID: 21300000, guid: 82af699dd8b21864889d8f3c45d6896d, type: 3}
-            Triggers: []
+            Triggers:
+            - Behaviour: {fileID: 11400000, guid: 0bce879238c86a54ea0588a0a76293a8,
+                type: 2}
+              Area:
+                serializedVersion: 2
+                x: .0500000007
+                y: .5
+                width: .100000001
+                height: 1
+            - Behaviour: {fileID: 11400000, guid: 65bfc9f743cea9e4ea45bc66b081a915,
+                type: 2}
+              Area:
+                serializedVersion: 2
+                x: .5
+                y: .5
+                width: .100000001
+                height: 1
+            Entries:
+              Entries:
+              - Key: LeftDoor
+                Value:
+                  Direction: 1
+                  Position: {x: .200000003, y: .373524994}
         - Key: Blue
           Value:
             Height: 1
@@ -110,7 +132,21 @@ MonoBehaviour:
               Opacity: 1
               SortingLayer: 
               Sprite: {fileID: 0}
-            Triggers: []
+            Triggers:
+            - Behaviour: {fileID: 11400000, guid: ae345deef7a635b4fb4ca7a9817e46ee,
+                type: 2}
+              Area:
+                serializedVersion: 2
+                x: 1.45000005
+                y: .5
+                width: .100000001
+                height: 1
+            Entries:
+              Entries:
+              - Key: RightDoor
+                Value:
+                  Direction: 0
+                  Position: {x: 1.29999995, y: .373524994}
         - Key: Green
           Value:
             Height: 1
@@ -123,7 +159,33 @@ MonoBehaviour:
               Opacity: 1
               SortingLayer: 
               Sprite: {fileID: 21300000, guid: 3c09f7e02d4fe33489c8bd3b138de525, type: 3}
-            Triggers: []
+            Triggers:
+            - Behaviour: {fileID: 11400000, guid: f6a0f9e546312204ea87ef775d4ae8a8,
+                type: 2}
+              Area:
+                serializedVersion: 2
+                x: .0500000007
+                y: .5
+                width: .100000001
+                height: 1
+            - Behaviour: {fileID: 11400000, guid: ca2223cdbeb0b4d4b9efa0699962e85d,
+                type: 2}
+              Area:
+                serializedVersion: 2
+                x: 1.45000005
+                y: .5
+                width: .100000001
+                height: 1
+            Entries:
+              Entries:
+              - Key: LeftDoor
+                Value:
+                  Direction: 1
+                  Position: {x: .200000003, y: .373524994}
+              - Key: RightDoor
+                Value:
+                  Direction: 0
+                  Position: {x: 1.29999995, y: .373524994}
       Characters:
         Entries:
         - Key: Scientist
@@ -280,8 +342,8 @@ MonoBehaviour:
       Cursors:
         ClickTexture: {fileID: 2800000, guid: 87831f24246734341ba1cf30a6b470d6, type: 3}
         LookTexture: {fileID: 2800000, guid: ca43cf465c3d8ab40bf3cc0d984f2c17, type: 3}
-        PickUpTexture: {fileID: 0}
-        SpeakTexture: {fileID: 0}
+        PickUpTexture: {fileID: 2800000, guid: 904f0beb1a771244387cb4b40e012af6, type: 3}
+        SpeakTexture: {fileID: 2800000, guid: 522a12b6e8c5aea49bb258063e6e3016, type: 3}
         WalkTexture: {fileID: 2800000, guid: b45e44501f272f742876a0d18674d85e, type: 3}
     Sounds:
       MainEffect: {fileID: 8300000, guid: 4da25d4691591144f94d46b21db17eae, type: 3}

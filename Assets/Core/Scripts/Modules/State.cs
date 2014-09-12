@@ -82,12 +82,24 @@ namespace SaguFramework {
 			hints.Remove(hint);
 		}
 
+		public static void RemoveInventoryItem(string inventoryItemId) {
+			inventoryItemIds.Remove(inventoryItemId);
+		}
+
 		public static void RemoveItem(string itemId) {
 			itemStates.Remove(itemId);
 		}
 
+		public static void SetCharacterState(string characterId, CharacterState characterState) {
+			characterStates[characterId] = characterState;
+		}
+
 		public static void SetCurrentRoomId(string roomId) {
 			currentRoomId = roomId;
+		}
+		
+		public static void SetItemState(string itemId, ItemState itemState) {
+			itemStates[itemId] = itemState;
 		}
 
 		public static void SetPlayerCharacterId(string characterId) {

@@ -14,9 +14,15 @@ namespace SaguFramework {
 		public static void ToggleInventory() {
 			Inventory inventory = Objects.GetInventory();
 			if (inventory.IsShowing()) {
+				foreach (InventoryTrigger inventoryTrigger in Objects.GetInventoryTriggers())
+					inventoryTrigger.Hide();
+
 				Objects.GetInventory().Hide();
 				HideInventoryItems();
 			} else {
+				foreach (InventoryTrigger inventoryTrigger in Objects.GetInventoryTriggers())
+					inventoryTrigger.Show();
+
 				Objects.GetInventory().Show();
 				ShowInventoryItems();
 			}

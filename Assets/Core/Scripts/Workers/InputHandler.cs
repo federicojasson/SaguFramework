@@ -4,7 +4,16 @@ using UnityEngine;
 namespace SaguFramework {
 	
 	public class InputHandler : Worker {
-		
+
+		public static Vector2 GetMousePositionInScreen() {
+			return Input.mousePosition;
+		}
+
+		public static Vector2 GetMousePositionInWorld() {
+			Vector2 position = GetMousePositionInScreen();
+			return CameraHandler.ScreenToWorldPosition(position);
+		}
+
 		public static void NotifyOnGUI(Entity entity) {
 			if (! CanEntityExecute(entity))
 				return;
@@ -67,7 +76,7 @@ namespace SaguFramework {
 				}
 					
 				case Order.Walk : {
-					Vector2 position = new Vector2(0, 0); // TODO: calculate
+					Vector2 position = InputHandler.GetMousePositionInWorld();
 					entity.GetBehaviour().OnWalk(position);
 					break;
 				}

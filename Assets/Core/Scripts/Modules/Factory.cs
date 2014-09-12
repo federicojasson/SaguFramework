@@ -14,6 +14,7 @@ namespace SaguFramework {
 			character.SetSize(size);
 			image.SetSize(size);
 			Utilities.SetParent(image, character);
+			character.SetDepth(Parameters.DepthCharacter);
 			character.SetPosition(Geometry.GameToWorldPosition(characterState.GetLocation().GetPosition()));
 			character.Register();
 			character.Show();
@@ -24,19 +25,18 @@ namespace SaguFramework {
 		public static void CreateInventory(InventoryParameters inventoryParameters) {
 			Inventory inventory = CreateEntity<Inventory, InventoryBehaviour>();
 			Image image = CreateImage(inventoryParameters.Image, Parameters.SortingLayerInventory);
-			InventoryTrigger hideTrigger = CreateInventoryTrigger<InventoryHideBehaviour>(inventoryParameters.HideTrigger);
-			InventoryTrigger previousPageTrigger = CreateInventoryTrigger<InventoryPreviousPageBehaviour>(inventoryParameters.PreviousPageTrigger);
-			InventoryTrigger nextPageTrigger = CreateInventoryTrigger<InventoryNextPageBehaviour>(inventoryParameters.NextPageTrigger);
 
 			Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldHeight(inventoryParameters.Height));
 
 			inventory.SetSize(size);
 			image.SetSize(size);
 			Utilities.SetParent(image, inventory);
-			Utilities.SetParent(hideTrigger, inventory);
-			Utilities.SetParent(previousPageTrigger, inventory);
-			Utilities.SetParent(nextPageTrigger, inventory);
+			inventory.SetDepth(Parameters.DepthInventory);
 			inventory.Register();
+
+			CreateInventoryTrigger<InventoryHideBehaviour>(inventoryParameters.HideTrigger);
+			CreateInventoryTrigger<InventoryPreviousPageBehaviour>(inventoryParameters.PreviousPageTrigger);
+			CreateInventoryTrigger<InventoryNextPageBehaviour>(inventoryParameters.NextPageTrigger);
 		}
 
 		public static void CreateInventoryItem(string inventoryItemId, InventoryItemParameters inventoryItemParameters, InventoryParameters inventoryParameters) {
@@ -46,9 +46,11 @@ namespace SaguFramework {
 			Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldSize(inventoryParameters.CellSize));
 
 			inventoryItem.SetId(inventoryItemId);
+			inventoryItem.SetImage(image);
 			inventoryItem.SetSize(size);
 			image.SetSize(size);
 			Utilities.SetParent(image, inventoryItem);
+			inventoryItem.SetDepth(Parameters.DepthInventoryItem);
 			inventoryItem.Register();
 		}
 
@@ -62,6 +64,7 @@ namespace SaguFramework {
 			item.SetSize(size);
 			image.SetSize(size);
 			Utilities.SetParent(image, item);
+			item.SetDepth(Parameters.DepthItem);
 			item.SetPosition(Geometry.GameToWorldPosition(itemState.GetLocation().GetPosition()));
 			item.Register();
 			item.Show();
@@ -76,6 +79,7 @@ namespace SaguFramework {
 			menu.SetSize(size);
 			image.SetSize(size);
 			Utilities.SetParent(image, menu);
+			menu.SetDepth(Parameters.DepthMenu);
 			menu.Register();
 			menu.Show();
 		}
@@ -93,14 +97,13 @@ namespace SaguFramework {
 			foregroundImage.SetSize(size);
 			Utilities.SetParent(backgroundImage, room);
 			Utilities.SetParent(foregroundImage, room);
+			room.SetDepth(Parameters.DepthRoom);
 			room.SetPosition(position);
 			room.Register();
 			room.Show();
 
-			foreach (RoomTriggerParameters roomTriggerParameters in roomParameters.Triggers) {
-				RoomTrigger trigger = CreateRoomTrigger(roomTriggerParameters);
-				Utilities.SetParent(trigger, room);
-			}
+			foreach (RoomTriggerParameters roomTriggerParameters in roomParameters.Triggers)
+				CreateRoomTrigger(roomTriggerParameters);
 		}
 
 		public static void CreateSplashScreen(SplashScreenParameters splashScreenParameters) {
@@ -112,6 +115,7 @@ namespace SaguFramework {
 			splashScreen.SetSize(size);
 			image.SetSize(size);
 			Utilities.SetParent(image, splashScreen);
+			splashScreen.SetDepth(Parameters.DepthSplashScreen);
 			splashScreen.Register();
 			splashScreen.Show();
 		}
@@ -159,7 +163,7 @@ namespace SaguFramework {
 			return image;
 		}
 
-		private static InventoryTrigger CreateInventoryTrigger<B>(InventoryTriggerParameters inventoryTriggerParameters) where B : InventoryTriggerBehaviour {
+		private static void CreateInventoryTrigger<B>(InventoryTriggerParameters inventoryTriggerParameters) where B : InventoryTriggerBehaviour {
 			InventoryTrigger inventoryTrigger = CreateEntity<InventoryTrigger, B>();
 			
 			Rect area = inventoryTriggerParameters.Area;
@@ -167,14 +171,12 @@ namespace SaguFramework {
 			Vector2 position = new Vector2(area.x - 0.5f, area.y - 0.5f);
 			
 			inventoryTrigger.SetSize(Geometry.GameToWorldSize(size));
+			inventoryTrigger.SetDepth(Parameters.DepthInventoryTrigger);
 			inventoryTrigger.SetPosition(Geometry.GameToWorldPosition(position));
 			inventoryTrigger.Register();
-			inventoryTrigger.Show();
-
-			return inventoryTrigger;
 		}
-
-		private static RoomTrigger CreateRoomTrigger(RoomTriggerParameters roomTriggerParameters) {
+		
+		private static void CreateRoomTrigger(RoomTriggerParameters roomTriggerParameters) {
 			RoomTrigger roomTrigger = CreateEntity<RoomTrigger>(roomTriggerParameters.Behaviour);
 			
 			Rect area = roomTriggerParameters.Area;
@@ -182,11 +184,10 @@ namespace SaguFramework {
 			Vector2 position = new Vector2(area.x, area.y);
 			
 			roomTrigger.SetSize(Geometry.GameToWorldSize(size));
+			roomTrigger.SetDepth(Parameters.DepthRoomTrigger);
 			roomTrigger.SetPosition(Geometry.GameToWorldPosition(position));
 			roomTrigger.Register();
 			roomTrigger.Show();
-
-			return roomTrigger;
 		}
 
 	}
