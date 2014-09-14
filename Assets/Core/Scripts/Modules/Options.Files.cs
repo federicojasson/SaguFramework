@@ -16,7 +16,6 @@ namespace SaguFramework {
 				string resourcePath = Parameters.InitialOptionsFileResourcePath;
 				XDocument file = Utilities.ReadResourceXmlFile(resourcePath);
 				ProcessOptionsFile(file);
-				Save();
 			}
 		}
 		

@@ -232,7 +232,7 @@ MonoBehaviour:
             Image:
               Opacity: 1
               SortingLayer: 
-              Sprite: {fileID: 21300000, guid: be1b56cbe9a322c4497de2b8ef80d19d, type: 3}
+              Sprite: {fileID: 21300000, guid: d9a58c0aae22e0243a636932157ca041, type: 3}
       Menus:
         Main:
           Height: 1
@@ -245,7 +245,7 @@ MonoBehaviour:
           Height: 1
           Behaviour: {fileID: 11400000, guid: 02a041c5505114a4e923db3c640ac271, type: 2}
           Image:
-            Opacity: 1
+            Opacity: .899999976
             SortingLayer: 
             Sprite: {fileID: 21300000, guid: 59fd3c3750509154f8741d081b4cf976, type: 3}
         Others:
@@ -266,11 +266,11 @@ MonoBehaviour:
               Behaviour: {fileID: 11400000, guid: 6004525f4fa95b940afe2b4ee709c3b7,
                 type: 2}
               Image:
-                Opacity: 1
+                Opacity: .899999976
                 SortingLayer: 
                 Sprite: {fileID: 21300000, guid: 21b30fb096b467144bbd29ccc3a0fae3,
                   type: 3}
-          - Key: LoadGameMenu
+          - Key: MainLoadGameMenu
             Value:
               Height: 1
               Behaviour: {fileID: 11400000, guid: 3284375146780404a95e899bf28eaa00,
@@ -280,7 +280,7 @@ MonoBehaviour:
                 SortingLayer: 
                 Sprite: {fileID: 21300000, guid: de5ce93ed932d364a8092457d5dd9164,
                   type: 3}
-          - Key: OptionsMenu
+          - Key: MainOptionsMenu
             Value:
               Height: 1
               Behaviour: {fileID: 11400000, guid: 6133d214e18dadb4ea0d66c97826cf60,
@@ -296,7 +296,7 @@ MonoBehaviour:
               Behaviour: {fileID: 11400000, guid: 0fcef6bc921e67242806ff84bb519047,
                 type: 2}
               Image:
-                Opacity: 1
+                Opacity: .899999976
                 SortingLayer: 
                 Sprite: {fileID: 21300000, guid: 32fe64495ebfe634685173d51ae5021a,
                   type: 3}
@@ -306,9 +306,29 @@ MonoBehaviour:
               Behaviour: {fileID: 11400000, guid: a4a76a1e82e3e5440a2dfaad6154d010,
                 type: 2}
               Image:
-                Opacity: 1
+                Opacity: .899999976
                 SortingLayer: 
                 Sprite: {fileID: 21300000, guid: 46e2ba5550a58284dacaf5548b58f725,
+                  type: 3}
+          - Key: PauseOptionsMenu
+            Value:
+              Height: 1
+              Behaviour: {fileID: 11400000, guid: 6133d214e18dadb4ea0d66c97826cf60,
+                type: 2}
+              Image:
+                Opacity: .899999976
+                SortingLayer: 
+                Sprite: {fileID: 21300000, guid: 32af298a026008842b82e215f3885f49,
+                  type: 3}
+          - Key: PauseLoadGameMenu
+            Value:
+              Height: 1
+              Behaviour: {fileID: 11400000, guid: 3284375146780404a95e899bf28eaa00,
+                type: 2}
+              Image:
+                Opacity: .899999976
+                SortingLayer: 
+                Sprite: {fileID: 21300000, guid: 154b4a85961d2ac4dac345465e09650a,
                   type: 3}
       SplashScreens:
         Main:

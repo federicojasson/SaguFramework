@@ -5,6 +5,20 @@ namespace SaguFramework {
 	
 	public static class Game {
 
+		public static void ApplyOptions() {
+			string languageId = Options.GetString(Parameters.OptionIdLanguage);
+			Language.Load(languageId);
+			float effectVolume = Options.GetFloat(Parameters.OptionIdEffectVolume);
+			SoundPlayer.SetEffectVolume(effectVolume);
+			float masterVolume = Options.GetFloat(Parameters.OptionIdMasterVolume);
+			SoundPlayer.SetMasterVolume(masterVolume);
+			float songVolume = Options.GetFloat(Parameters.OptionIdSongVolume);
+			SoundPlayer.SetSongVolume(songVolume);
+			float voiceVolume = Options.GetFloat(Parameters.OptionIdVoiceVolume);
+			SoundPlayer.SetVoiceVolume(voiceVolume);
+			Options.Save();
+		}
+
 		public static void ChangeRoom(string roomId, string entryId) {
 			ChangeRoom(roomId, entryId, string.Empty);
 		}

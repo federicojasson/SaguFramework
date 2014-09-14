@@ -16,36 +16,37 @@ namespace EmergenciaQuimica {
 				GUI.enabled = true;
 			else
 				GUI.enabled = false;
-			
+
 			GUIStyle menuButtonStyle = GUI.skin.GetStyle("MenuButton");
+			GUIStyle modifiedMenuButtonStyle = Utilities.GetRelativeStyle(menuButtonStyle);
+
 			float gameWidth = Geometry.GetGameWidthInPixels();
 			float gameHeight = Geometry.GetGameHeightInPixels();
 
-			Rect area = new Rect(0.1f * gameWidth, 0.1f * gameHeight, 0.4f * gameWidth, 0.8f * gameHeight);
+			Rect area = new Rect(0.1f * gameWidth, 0.1f * gameHeight, 0.3f * gameWidth, 0.8f * gameHeight);
 			GUILayout.BeginArea(area); {
 				GUILayout.FlexibleSpace();
 
-				if (GUILayout.Button(Language.GetText("MainMenuNewGameButton"), menuButtonStyle))
+				if (GUILayout.Button(Language.GetText("MainMenuNewGameButton"), modifiedMenuButtonStyle))
 					OnNewGame();
 
 				GUILayout.FlexibleSpace();
 
-				if (GUILayout.Button(Language.GetText("MainMenuLoadGameButton"), menuButtonStyle))
+				if (GUILayout.Button(Language.GetText("MainMenuLoadGameButton"), modifiedMenuButtonStyle))
 					OnLoadGame();
 
 				GUILayout.FlexibleSpace();
 
-				if (GUILayout.Button(Language.GetText("MainMenuOptionsButton"), menuButtonStyle))
+				if (GUILayout.Button(Language.GetText("MainMenuOptionsButton"), modifiedMenuButtonStyle))
 					OnOptions();
 
 				GUILayout.FlexibleSpace();
 
-				if (GUILayout.Button(Language.GetText("MainMenuExitButton"), menuButtonStyle))
+				if (GUILayout.Button(Language.GetText("MainMenuExitButton"), modifiedMenuButtonStyle))
 					OnExit();
 
 				GUILayout.FlexibleSpace();
-			}
-			GUILayout.EndArea();
+			} GUILayout.EndArea();
 		}
 
 		private void OnExit() {
@@ -53,7 +54,7 @@ namespace EmergenciaQuimica {
 		}
 
 		private void OnLoadGame() {
-			Game.OpenMenu("LoadGameMenu");
+			Game.OpenMenu("MainLoadGameMenu");
 		}
 
 		private void OnNewGame() {
@@ -62,7 +63,7 @@ namespace EmergenciaQuimica {
 		}
 
 		private void OnOptions() {
-			Game.OpenMenu("OptionsMenu");
+			Game.OpenMenu("MainOptionsMenu");
 		}
 		
 	}

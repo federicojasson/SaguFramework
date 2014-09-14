@@ -14,8 +14,7 @@ namespace SaguFramework {
 
 		public override void OnWalk(Vector2 position) {
 			string characterId = State.GetPlayerCharacterId();
-			Character character = Objects.GetCharacters()[characterId];
-			character.ExecuteActions(new CharacterAction[] {
+			Game.ExecuteActions(characterId, new CharacterAction[] {
 				CharacterAction.Walk(position)
 			});
 		}

@@ -125,10 +125,11 @@ namespace SaguFramework {
 		
 		private static void Tooltip() {
 			if (tooltip.Length > 0) {
+				GUIStyle tooltipStyle = GUI.skin.GetStyle(Parameters.SkinStyleTooltip);
+				GUIStyle modifiedTooltipStyle = Utilities.GetRelativeStyle(tooltipStyle);
 				GUIContent content = new GUIContent(tooltip);
-				GUIStyle style = GUI.skin.GetStyle(Parameters.SkinStyleTooltip);
 				
-				RectOffset margin = style.margin;
+				RectOffset margin = modifiedTooltipStyle.margin;
 				Rect area = Geometry.GetGameRectangleInGui();
 				area.width -= margin.left + margin.right;
 				area.height -= margin.bottom + margin.top;
@@ -137,16 +138,15 @@ namespace SaguFramework {
 				float screenWidthInPixels = Geometry.GetScreenWidthInPixels();
 				float minimumWidth;
 				float maximumWidth;
-				style.CalcMinMaxWidth(content, out minimumWidth, out maximumWidth);
+				modifiedTooltipStyle.CalcMinMaxWidth(content, out minimumWidth, out maximumWidth);
 				
 				area.width = Mathf.Min(area.width, maximumWidth);
 				area.x = 0.5f * (screenWidthInPixels - area.width);
 				
 				GUILayout.BeginArea(area); {
 					GUILayout.FlexibleSpace();
-					GUILayout.Box(content, style);
-				}
-				GUILayout.EndArea();
+					GUILayout.Box(content, modifiedTooltipStyle);
+				} GUILayout.EndArea();
 			}
 		}
 		
@@ -168,6 +168,10 @@ namespace SaguFramework {
 				Fade();
 				Windowbox();
 			}
+		}
+		
+		public override void OnGameModeChange() {
+			ClearTooltip();
 		}
 
 		public override void OnOrderChange() {

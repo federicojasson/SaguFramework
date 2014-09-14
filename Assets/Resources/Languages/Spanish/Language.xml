@@ -2,15 +2,15 @@
 <language>
 	<text>
 		<id>ExitConfirmationMenuCancelButton</id>
-		<value>Cancelar</value>
+		<value>cancelar</value>
 	</text>
 	<text>
 		<id>ExitConfirmationMenuExitButton</id>
-		<value>Salir</value>
+		<value>salir</value>
 	</text>
 	<text>
 		<id>ExitConfirmationMenuLabel</id>
-		<value>¿Realmente desea salir?</value>
+		<value>¿realmente desea salir?</value>
 	</text>
 	
 	
@@ -18,12 +18,18 @@
 	
 	<text>
 		<id>GoBackConfirmationMenuCancelButton</id>
-		<value>Cancelar</value>
+		<value>cancelar</value>
 	</text>
 	<text>
 		<id>GoBackConfirmationMenuGoBackButton</id>
-		<value>Aceptar</value>
+		<value>aceptar</value>
 	</text>
+	<text>
+		<id>GoBackConfirmationMenuLabel</id>
+		<value>¿volver al menu principal?
+se perdera todo progreso no guardado</value>
+	</text>
+	
 	
 	
 	
@@ -41,19 +47,19 @@
 	
 	<text>
 		<id>MainMenuExitButton</id>
-		<value>Salir</value>
+		<value>salir</value>
 	</text>
 	<text>
 		<id>MainMenuLoadGameButton</id>
-		<value>Cargar partida</value>
+		<value>cargar partida</value>
 	</text>
 	<text>
 		<id>MainMenuNewGameButton</id>
-		<value>Nueva partida</value>
+		<value>nueva partida</value>
 	</text>
 	<text>
 		<id>MainMenuOptionsButton</id>
-		<value>Opciones</value>
+		<value>opciones</value>
 	</text>
 	
 	
@@ -61,12 +67,29 @@
 	
 	<text>
 		<id>OptionsMenuApplyChangesButton</id>
-		<value>Aplicar cambios</value>
+		<value>aplicar cambios</value>
 	</text>
 	<text>
 		<id>OptionsMenuCancelButton</id>
-		<value>Cancelar</value>
+		<value>cancelar</value>
 	</text>
+	<text>
+		<id>OptionsMenuEffectVolumeLabel</id>
+		<value>volumen de efectos</value>
+	</text>
+	<text>
+		<id>OptionsMenuMasterVolumeLabel</id>
+		<value>volumen general</value>
+	</text>
+	<text>
+		<id>OptionsMenuSongVolumeLabel</id>
+		<value>volumen de musica</value>
+	</text>
+	<text>
+		<id>OptionsMenuVoiceVolumeLabel</id>
+		<value>volumen de voces</value>
+	</text>
+	
 	
 	
 	
@@ -74,15 +97,23 @@
 	
 	<text>
 		<id>PauseMenuGoBackButton</id>
-		<value>Volver al menu principal</value>
+		<value>volver al menu principal</value>
+	</text>
+	<text>
+		<id>PauseMenuLoadGameButton</id>
+		<value>cargar partida</value>
+	</text>
+	<text>
+		<id>PauseMenuOptionsButton</id>
+		<value>opciones</value>
 	</text>
 	<text>
 		<id>PauseMenuResumeGameButton</id>
-		<value>Reanudar partida</value>
+		<value>reanudar partida</value>
 	</text>
 	<text>
 		<id>PauseMenuSaveGameButton</id>
-		<value>Guardar partida</value>
+		<value>guardar partida</value>
 	</text>
 	
 	

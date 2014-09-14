@@ -44,8 +44,7 @@ namespace SaguFramework {
 			GUI.skin = Parameters.GetSkin();
 			GUILayout.BeginArea(Geometry.GetGameRectangleInGui()); {
 				InputHandler.NotifyOnGUI(this);
-			}
-			GUILayout.EndArea();
+			} GUILayout.EndArea();
 		}
 		
 		public void OnMouseEnter() {

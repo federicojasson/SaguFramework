@@ -52,8 +52,8 @@ namespace SaguFramework {
 		}
 
 		public static float GetGameAspectRatio() {
-			float gamePreferredWidthInPixels = Parameters.GetGamePreferredWidth();
-			float gamePreferredHeightInPixels = Parameters.GetGamePreferredHeight();
+			float gamePreferredWidthInPixels = GetGamePreferredWidthInPixels();
+			float gamePreferredHeightInPixels = GetGamePreferredHeightInPixels();
 			
 			return gamePreferredWidthInPixels / gamePreferredHeightInPixels;
 		}
@@ -75,6 +75,28 @@ namespace SaguFramework {
 			float gameHeightInUnits = PixelsToUnits(gameHeightInPixels);
 			
 			return gameHeightInUnits;
+		}
+
+		public static float GetGamePreferredHeightInPixels() {
+			return Parameters.GetGamePreferredHeight();
+		}
+		
+		public static float GetGamePreferredHeightInUnits() {
+			float gamePreferredHeightInPixels = GetGamePreferredHeightInPixels();
+			float gamePreferredHeightInUnits = PixelsToUnits(gamePreferredHeightInPixels);
+			
+			return gamePreferredHeightInUnits;
+		}
+		
+		public static float GetGamePreferredWidthInPixels() {
+			return Parameters.GetGamePreferredWidth();
+		}
+
+		public static float GetGamePreferredWidthInUnits() {
+			float gamePreferredWidthInPixels = GetGamePreferredWidthInPixels();
+			float gamePreferredWidthInUnits = PixelsToUnits(gamePreferredWidthInPixels);
+
+			return gamePreferredWidthInUnits;
 		}
 
 		public static Rect GetGameRectangleInGui() {
