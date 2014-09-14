@@ -50,9 +50,12 @@ namespace SaguFramework {
 			
 			return yInGame * gameHeightInUnits;
 		}
-		
+
 		public static float GetGameAspectRatio() {
-			return Parameters.GetGameAspectRatio();
+			float gamePreferredWidthInPixels = Parameters.GetGamePreferredWidth();
+			float gamePreferredHeightInPixels = Parameters.GetGamePreferredHeight();
+			
+			return gamePreferredWidthInPixels / gamePreferredHeightInPixels;
 		}
 		
 		public static float GetGameHeightInPixels() {

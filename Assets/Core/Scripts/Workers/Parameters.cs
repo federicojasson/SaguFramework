@@ -3,7 +3,9 @@
 namespace SaguFramework {
 	
 	public class Parameters : Worker {
-		
+
+		public const float DeltaWorld = 5f; // TODO: depends on screen size
+
 		public const float DepthCamera = -1000;
 		public const float DepthCharacter = -300;
 		public const float DepthInventory = -500;
@@ -107,12 +109,16 @@ namespace SaguFramework {
 			return instance.GameParameters.Sounds.DelayBetweenSongs;
 		}
 
-		public static float GetGameAspectRatio() {
-			return instance.GameParameters.Graphics.GameAspectRatio;
-		}
-
 		public static string GetGameDirectoryPath() {
 			return instance.GameParameters.GameDirectoryPath;
+		}
+		
+		public static float GetGamePreferredHeight() {
+			return instance.GameParameters.Graphics.GamePreferredHeight;
+		}
+		
+		public static float GetGamePreferredWidth() {
+			return instance.GameParameters.Graphics.GamePreferredWidth;
 		}
 
 		public static InventoryItemParameters GetInventoryItemParameters(string inventoryItemId) {

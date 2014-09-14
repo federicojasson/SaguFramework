@@ -21,8 +21,8 @@ namespace SaguFramework {
 
 		protected override IEnumerator LoadSceneCoroutine() {
 			// TODO: debug
-			//Game.NewGame();
-			Game.OpenMainMenu();
+			Game.NewGame();
+			//Game.OpenMainMenu();
 
 			LoadOptions();
 			SoundPlayer.StopAllSounds();

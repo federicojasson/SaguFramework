@@ -73,6 +73,10 @@ namespace SaguFramework {
 			
 			return itemIds;
 		}
+
+		public static bool HintExists(string hint) {
+			return hints.Contains(hint);
+		}
 		
 		public static void RemoveCharacter(string characterId) {
 			characterStates.Remove(characterId);

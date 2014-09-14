@@ -163,7 +163,10 @@
 		<value>Erlenmeyer</value>
 	</text>
 	
-	
+	<text>
+		<id>ScientistTooltip</id>
+		<value>Científico</value>
+	</text>
 	
 	
 	

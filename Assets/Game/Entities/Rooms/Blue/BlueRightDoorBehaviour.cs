@@ -5,7 +5,7 @@ namespace EmergenciaQuimica {
 	public class BlueRightDoorBehaviour : RoomTriggerBehaviour {
 
 		public override void OnCharacterEnter(Character character) {
-			if (character.GetId() == State.GetPlayerCharacterId())
+			if (character.GetId() == "Scientist")
 				Game.ChangeRoom("Green", "LeftDoor");
 		}
 

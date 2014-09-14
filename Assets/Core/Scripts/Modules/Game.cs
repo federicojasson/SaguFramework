@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace SaguFramework {
 	
@@ -23,6 +24,15 @@ namespace SaguFramework {
 
 		public static void CloseMenu() {
 			MenuHandler.CloseMenu();
+		}
+
+		public static void ExecuteActions(string characterId, CharacterAction[] actions) {
+			ExecuteActions(characterId, actions, null);
+		}
+
+		public static void ExecuteActions(string characterId, CharacterAction[] actions, Action furtherAction) {
+			Character character = Objects.GetCharacters()[characterId];
+			character.ExecuteActions(actions, furtherAction);
 		}
 
 		public static void Exit() {
@@ -78,10 +88,9 @@ namespace SaguFramework {
 			State.Save(stateId);
 		}
 
-		public static void Walk(string characterId, Vector2 position) {
+		public static void StopActions(string characterId) {
 			Character character = Objects.GetCharacters()[characterId];
-
-			// TODO: walk
+			character.StopActions();
 		}
 
 		private static void LoadSplashScreenOrRoom(string groupId) {

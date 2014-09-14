@@ -6,7 +6,8 @@ namespace SaguFramework {
 	[Serializable]
 	public class GraphicsParameters {
 
-		public float GameAspectRatio;
+		public float GamePreferredWidth;
+		public float GamePreferredHeight;
 		public Color CameraBackgroundColor;
 		public Texture2D DefaultFadeTexture;
 		public Texture2D WindowboxTexture;
