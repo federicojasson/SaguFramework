@@ -247,7 +247,7 @@ MonoBehaviour:
           Image:
             Opacity: .899999976
             SortingLayer: 
-            Sprite: {fileID: 21300000, guid: 59fd3c3750509154f8741d081b4cf976, type: 3}
+            Sprite: {fileID: 21300000, guid: 483337aca6cac0f4891b9f2ca6050414, type: 3}
         Others:
           Entries:
           - Key: ExitConfirmationMenu
@@ -288,7 +288,7 @@ MonoBehaviour:
               Image:
                 Opacity: 1
                 SortingLayer: 
-                Sprite: {fileID: 21300000, guid: 3844e717e8778ab41b67aab069429f87,
+                Sprite: {fileID: 21300000, guid: 76a7821ce1951ff4186e190eadadecc4,
                   type: 3}
           - Key: SaveGameMenu
             Value:
@@ -318,7 +318,7 @@ MonoBehaviour:
               Image:
                 Opacity: .899999976
                 SortingLayer: 
-                Sprite: {fileID: 21300000, guid: 32af298a026008842b82e215f3885f49,
+                Sprite: {fileID: 21300000, guid: 6afca9a4c85cdb4469b7ed1274dc66c1,
                   type: 3}
           - Key: PauseLoadGameMenu
             Value:

@@ -18,86 +18,94 @@ namespace EmergenciaQuimica {
 		}
 
 		public override void OnShowGui() {
+			GUIStyle horizontalSliderStyle = GUI.skin.horizontalSlider;
+			GUIStyle modifiedHorizontalSliderStyle = Utilities.GetRelativeStyle(horizontalSliderStyle);
+
 			GUIStyle menuButtonStyle = GUI.skin.GetStyle("MenuButton");
 			GUIStyle modifiedMenuButtonStyle = Utilities.GetRelativeStyle(menuButtonStyle);
 
-			GUIStyle menuHorizontalSliderStyle = GUI.skin.GetStyle("MenuHorizontalSlider");
-			GUIStyle modifiedMenuHorizontalSliderStyle = Utilities.GetRelativeStyle(menuHorizontalSliderStyle);
-
-			GUIStyle menuHorizontalSliderThumbStyle = GUI.skin.GetStyle("MenuHorizontalSliderThumb");
+			GUIStyle menuHorizontalSliderThumbStyle = GUI.skin.horizontalSliderThumb;
 			GUIStyle modifiedMenuHorizontalSliderThumbStyle = Utilities.GetRelativeStyle(menuHorizontalSliderThumbStyle);
 
 			GUIStyle menuLabelStyle = GUI.skin.GetStyle("MenuLabel");
 			GUIStyle modifiedMenuLabelStyle = Utilities.GetRelativeStyle(menuLabelStyle);
+
+			GUIStyle menuTitleStyle = GUI.skin.GetStyle("MenuTitle");
+			GUIStyle modifiedMenuTitleStyle = Utilities.GetRelativeStyle(menuTitleStyle);
 			
 			float gameWidth = Geometry.GetGameWidthInPixels();
 			float gameHeight = Geometry.GetGameHeightInPixels();
 
-			Rect area0 = new Rect(0.1f * gameWidth, 0.1f * gameHeight, 0.8f * gameWidth, 0.8f * gameHeight);
+			Rect area0 = new Rect(0.05f * gameWidth, 0.05f * gameHeight, 0.9f * gameWidth, 0.1f * gameHeight);
 			GUILayout.BeginArea(area0); {
-				Rect area00 = new Rect(0f, 0f, area0.width, 0.5f * area0.height);
-				GUILayout.BeginArea(area00); {
-					Rect area000 = new Rect(0f, 0f, area00.width, 0.25f * area00.height);
-					GUILayout.BeginArea(area000); {
-						Rect area0000 = new Rect(0f, 0f, 0.49f * area000.width, area000.height);
-						GUILayout.BeginArea(area0000); {
+				GUILayout.Label(Language.GetText("OptionsMenuTitleLabel"), modifiedMenuTitleStyle);
+			} GUILayout.EndArea();
+
+			Rect area1 = new Rect(0.1f * gameWidth, 0.25f * gameHeight, 0.8f * gameWidth, 0.7f * gameHeight);
+			GUILayout.BeginArea(area1); {
+				Rect area10 = new Rect(0f, 0f, area1.width, 0.75f * area1.height);
+				GUILayout.BeginArea(area10); {
+					Rect area100 = new Rect(0f, 0f, area10.width, 0.25f * area10.height);
+					GUILayout.BeginArea(area100); {
+						Rect area1000 = new Rect(0f, 0f, 0.35f * area100.width, area100.height);
+						GUILayout.BeginArea(area1000); {
 							GUILayout.Label(Language.GetText("OptionsMenuMasterVolumeLabel"), modifiedMenuLabelStyle);
 						} GUILayout.EndArea();
 
-						Rect area0001 = new Rect(0.51f * area000.width, 0f, 0.49f * area000.width, area000.height);
-						GUILayout.BeginArea(area0001); {
-							masterVolume = GUILayout.HorizontalSlider(masterVolume, 0f, 1f, modifiedMenuHorizontalSliderStyle, modifiedMenuHorizontalSliderThumbStyle);
+						Rect area1001 = new Rect(0.4f * area100.width, 0.15f * area100.height, 0.6f * area100.width, 0.3f * area100.height);
+						GUILayout.BeginArea(area1001); {
+							masterVolume = GUILayout.HorizontalSlider(masterVolume, 0f, 1f, modifiedHorizontalSliderStyle, modifiedMenuHorizontalSliderThumbStyle, GUILayout.ExpandHeight(true));
 						} GUILayout.EndArea();
 					} GUILayout.EndArea();
 
-					Rect area001 = new Rect(0f, 0.25f * area00.height, area00.width, 0.25f * area00.height);
-					GUILayout.BeginArea(area001); {
-						Rect area0010 = new Rect(0f, 0f, 0.49f * area000.width, area000.height);
-						GUILayout.BeginArea(area0010); {
+					Rect area101 = new Rect(0f, 0.25f * area10.height, area10.width, 0.25f * area10.height);
+					GUILayout.BeginArea(area101); {
+						Rect area1010 = new Rect(0f, 0f, 0.35f * area101.width, area101.height);
+						GUILayout.BeginArea(area1010); {
 							GUILayout.Label(Language.GetText("OptionsMenuEffectVolumeLabel"), modifiedMenuLabelStyle);
 						} GUILayout.EndArea();
 						
-						Rect area0011 = new Rect(0.51f * area000.width, 0f, 0.49f * area000.width, area000.height);
-						GUILayout.BeginArea(area0011); {
-							effectVolume = GUILayout.HorizontalSlider(effectVolume, 0f, 1f, modifiedMenuHorizontalSliderStyle, modifiedMenuHorizontalSliderThumbStyle);
+						Rect area1011 = new Rect(0.4f * area101.width, 0.15f * area101.height, 0.6f * area101.width, 0.3f * area101.height);
+						GUILayout.BeginArea(area1011); {
+							effectVolume = GUILayout.HorizontalSlider(effectVolume, 0f, 1f, modifiedHorizontalSliderStyle, modifiedMenuHorizontalSliderThumbStyle, GUILayout.ExpandHeight(true));
 						} GUILayout.EndArea();
 					} GUILayout.EndArea();
 
-					Rect area002 = new Rect(0f, 0.5f * area00.height, area00.width, 0.25f * area00.height);
-					GUILayout.BeginArea(area002); {
-						Rect area0020 = new Rect(0f, 0f, 0.49f * area000.width, area000.height);
-						GUILayout.BeginArea(area0020); {
+					Rect area102 = new Rect(0f, 0.5f * area10.height, area10.width, 0.25f * area10.height);
+					GUILayout.BeginArea(area102); {
+						Rect area1020 = new Rect(0f, 0f, 0.35f * area102.width, area102.height);
+						GUILayout.BeginArea(area1020); {
 							GUILayout.Label(Language.GetText("OptionsMenuSongVolumeLabel"), modifiedMenuLabelStyle);
 						} GUILayout.EndArea();
 						
-						Rect area0021 = new Rect(0.51f * area000.width, 0f, 0.49f * area000.width, area000.height);
-						GUILayout.BeginArea(area0021); {
-							songVolume = GUILayout.HorizontalSlider(songVolume, 0f, 1f, modifiedMenuHorizontalSliderStyle, modifiedMenuHorizontalSliderThumbStyle);
+						Rect area1021 = new Rect(0.4f * area102.width, 0.15f * area102.height, 0.6f * area102.width, 0.3f * area102.height);
+						GUILayout.BeginArea(area1021); {
+							songVolume = GUILayout.HorizontalSlider(songVolume, 0f, 1f, modifiedHorizontalSliderStyle, modifiedMenuHorizontalSliderThumbStyle, GUILayout.ExpandHeight(true));
 						} GUILayout.EndArea();
 					} GUILayout.EndArea();
 
-					Rect area003 = new Rect(0f, 0.75f * area00.height, area00.width, 0.25f * area00.height);
-					GUILayout.BeginArea(area003); {
-						Rect area0030 = new Rect(0f, 0f, 0.49f * area000.width, area000.height);
-						GUILayout.BeginArea(area0030); {
+					Rect area103 = new Rect(0f, 0.75f * area10.height, area10.width, 0.25f * area10.height);
+					GUILayout.BeginArea(area103); {
+						Rect area1030 = new Rect(0f, 0f, 0.35f * area103.width, area103.height);
+						GUILayout.BeginArea(area1030); {
 							GUILayout.Label(Language.GetText("OptionsMenuVoiceVolumeLabel"), modifiedMenuLabelStyle);
 						} GUILayout.EndArea();
 						
-						Rect area0031 = new Rect(0.51f * area000.width, 0f, 0.49f * area000.width, area000.height);
-						GUILayout.BeginArea(area0031); {
-							voiceVolume = GUILayout.HorizontalSlider(voiceVolume, 0f, 1f, modifiedMenuHorizontalSliderStyle, modifiedMenuHorizontalSliderThumbStyle);
+						Rect area1031 = new Rect(0.4f * area103.width, 0.15f * area103.height, 0.6f * area103.width, 0.3f * area103.height);
+						GUILayout.BeginArea(area1031); {
+							voiceVolume = GUILayout.HorizontalSlider(voiceVolume, 0f, 1f, modifiedHorizontalSliderStyle, modifiedMenuHorizontalSliderThumbStyle, GUILayout.ExpandHeight(true));
 						} GUILayout.EndArea();
 					} GUILayout.EndArea();
 				} GUILayout.EndArea();
 				
-				Rect area01 = new Rect(0f, 0.6f * area0.height, 0.45f * area0.width, 0.4f * area0.height);
-				GUILayout.BeginArea(area01); {
+				Rect area11 = new Rect(0f, 0.8f * area1.height, 0.45f * area1.width, 0.2f * area1.height);
+				GUILayout.BeginArea(area11); {
 					if (GUILayout.Button(Language.GetText("OptionsMenuCancelButton"), modifiedMenuButtonStyle))
 						OnCancel();
 				} GUILayout.EndArea();
 				
-				Rect area02 = new Rect(0.51f * area0.width, 0.6f * area0.height, 0.49f * area0.width, 0.4f * area0.height);
-				GUILayout.BeginArea(area02); {
+				Rect area12 = new Rect(0.51f * area1.width, 0.8f * area1.height, 0.49f * area1.width, 0.2f * area1.height);
+				GUILayout.BeginArea(area12); {
 					if (GUILayout.Button(Language.GetText("OptionsMenuApplyChangesButton"), modifiedMenuButtonStyle))
 						OnApplyChanges();
 				} GUILayout.EndArea();

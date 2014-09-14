@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <language>
 	<text>
+		<id>ExitConfirmationMenuBox</id>
+		<value>¿realmente desea salir?</value>
+	</text>
+	<text>
 		<id>ExitConfirmationMenuCancelButton</id>
 		<value>cancelar</value>
 	</text>
@@ -8,14 +12,15 @@
 		<id>ExitConfirmationMenuExitButton</id>
 		<value>salir</value>
 	</text>
+	
+	
+	
+	
 	<text>
-		<id>ExitConfirmationMenuLabel</id>
-		<value>¿realmente desea salir?</value>
+		<id>GoBackConfirmationMenuBox</id>
+		<value>¿volver al menu principal?
+se perdera todo progreso no guardado.</value>
 	</text>
-	
-	
-	
-	
 	<text>
 		<id>GoBackConfirmationMenuCancelButton</id>
 		<value>cancelar</value>
@@ -24,23 +29,24 @@
 		<id>GoBackConfirmationMenuGoBackButton</id>
 		<value>aceptar</value>
 	</text>
-	<text>
-		<id>GoBackConfirmationMenuLabel</id>
-		<value>¿volver al menu principal?
-se perdera todo progreso no guardado</value>
-	</text>
 	
 	
 	
 	
 	<text>
 		<id>LoadGameMenuCancelButton</id>
-		<value>Cancelar</value>
+		<value>cancelar</value>
 	</text>
 	<text>
 		<id>LoadGameMenuLoadGameButton</id>
-		<value>Cargar partida</value>
+		<value>cargar partida</value>
 	</text>
+	<text>
+		<id>LoadGameMenuTitleLabel</id>
+		<value>cargar partida</value>
+	</text>
+	
+	
 	
 	
 	
@@ -86,6 +92,10 @@ se perdera todo progreso no guardado</value>
 		<value>volumen de musica</value>
 	</text>
 	<text>
+		<id>OptionsMenuTitleLabel</id>
+		<value>opciones</value>
+	</text>
+	<text>
 		<id>OptionsMenuVoiceVolumeLabel</id>
 		<value>volumen de voces</value>
 	</text>
@@ -120,25 +130,32 @@ se perdera todo progreso no guardado</value>
 	
 	<text>
 		<id>SaveGameMenuCancelButton</id>
-		<value>Cancelar</value>
-	</text>
-	<text>
-		<id>SaveGameMenuNewStateIdButton</id>
-		<value>Nueva partida</value>
-	</text>
-	<text>
-		<id>SaveGameMenuNewStateIdTextField</id>
-		<value>Nombre de la partida</value>
+		<value>cancelar</value>
 	</text>
 	<text>
 		<id>SaveGameMenuSaveGameButton</id>
-		<value>Guardar partida</value>
+		<value>guardar partida</value>
 	</text>
+	<text>
+		<id>SaveGameMenuStateIdLabel</id>
+		<value>nombre de la partida</value>
+	</text>
+	<text>
+		<id>SaveGameMenuTitleLabel</id>
+		<value>guardar partida</value>
+	</text>
+	
+	
 	
 	
 	<text>
 		<id>StateIdAlreadyExistsMenuAcceptButton</id>
-		<value>Aceptar</value>
+		<value>aceptar</value>
+	</text>
+	<text>
+		<id>StateIdAlreadyExistsMenuBox</id>
+		<value>ya existe una partida con ese nombre.
+ingrese otro diferente.</value>
 	</text>
 	
 	

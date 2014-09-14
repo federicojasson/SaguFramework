@@ -58,20 +58,15 @@ namespace SaguFramework {
 
 			relativeStyle.fontSize = (int) (style.fontSize * scaleFactor);
 
-			relativeStyle.margin.bottom = (int) (style.margin.bottom * scaleFactor);
 			relativeStyle.margin.left = (int) (style.margin.left * scaleFactor);
           	relativeStyle.margin.right = (int) (style.margin.right * scaleFactor);
 			relativeStyle.margin.top = (int) (style.margin.top * scaleFactor);
+			relativeStyle.margin.bottom = (int) (style.margin.bottom * scaleFactor);
 
-			relativeStyle.overflow.bottom = (int) (style.overflow.bottom * scaleFactor);
-			relativeStyle.overflow.left = (int) (style.overflow.left * scaleFactor);
-			relativeStyle.overflow.right = (int) (style.overflow.right * scaleFactor);
-			relativeStyle.overflow.top = (int) (style.overflow.top * scaleFactor);
-
-			relativeStyle.padding.bottom = (int) (style.padding.bottom * scaleFactor);
 			relativeStyle.padding.left = (int) (style.padding.left * scaleFactor);
 			relativeStyle.padding.right = (int) (style.padding.right * scaleFactor);
 			relativeStyle.padding.top = (int) (style.padding.top * scaleFactor);
+			relativeStyle.padding.bottom = (int) (style.padding.bottom * scaleFactor);
 
 			return relativeStyle;
 		}

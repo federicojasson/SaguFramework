@@ -19,7 +19,7 @@ namespace EmergenciaQuimica {
 			GUILayout.BeginArea(area0); {
 				Rect area00 = new Rect(0f, 0f, area0.width, 0.6f * area0.height);
 				GUILayout.BeginArea(area00); {
-					GUILayout.Box(Language.GetText("ExitConfirmationMenuLabel"), modifiedMenuBoxStyle, GUILayout.ExpandHeight(true));
+					GUILayout.Box(Language.GetText("ExitConfirmationMenuBox"), modifiedMenuBoxStyle, GUILayout.ExpandHeight(true));
 				} GUILayout.EndArea();
 				
 				Rect area01 = new Rect(0f, 0.7f * area0.height, area0.width, 0.3f * area0.height);
