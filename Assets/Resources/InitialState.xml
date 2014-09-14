@@ -2,6 +2,7 @@
 <state>
 	<current-room-id>Laboratory</current-room-id>
 	<player-character-id>Scientist</player-character-id>
+	
 	<character>
 		<id>Scientist</id>
 		<character-state>
@@ -15,6 +16,7 @@
 			</location>
 		</character-state>
 	</character>
+	
 	<item>
 		<id>Erlenmeyer</id>
 		<item-state>
@@ -27,6 +29,22 @@
 			</location>
 		</item-state>
 	</item>
+	
+	
+	<item>
+		<id>ProtectionSuit</id>
+		<item-state>
+			<location>
+				<position>
+					<x>0.28375</x>
+					<y>0.61333</y>
+				</position>
+				<room-id>Blue</room-id>
+			</location>
+		</item-state>
+	</item>
+	
+	
 	<inventory-item>
 		<id>InventoryErlenmeyer</id>
 	</inventory-item>
