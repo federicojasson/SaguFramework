@@ -7,6 +7,13 @@ namespace SaguFramework {
 	
 	public static partial class State {
 
+		public static void Delete(string stateId) {
+			try {
+				string path = Parameters.GetStateFilePath(stateId);
+				Utilities.DeleteFile(path);
+			} catch (Exception) {}
+		}
+
 		public static string[] GetStateIds() {
 			try {
 				FileInfo[] stateFiles = Utilities.GetDirectoryFiles(Parameters.StateFileExtension, Parameters.GetStateFilesDirectoryPath());

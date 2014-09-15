@@ -3,15 +3,24 @@ using UnityEngine;
 
 namespace EmergenciaQuimica {
 	
-	public class LoadGameMenuBehaviour : MenuBehaviour {
-		
+	public abstract class LoadGameMenuBehaviour : MenuBehaviour {
+
 		private Vector2 scrollPosition;
 		private int selectedStateId;
 		private string[] stateIds;
+		private int stateLastCount;
 
 		public void Awake() {
-			selectedStateId = -1;
+			stateLastCount = -1;
+		}
+
+		public void OnEnable() {
+			int auxiliar = stateLastCount;
 			stateIds = State.GetStateIds();
+			stateLastCount = stateIds.Length;
+
+			if (stateLastCount != auxiliar)
+				selectedStateId = -1;
 		}
 
 		public override void OnShowGui() {
@@ -44,14 +53,25 @@ namespace EmergenciaQuimica {
 					} GUILayout.EndScrollView();
 				} GUILayout.EndArea();
 
-				Rect area11 = new Rect(0f, 0.8f * area1.height, 0.45f * area1.width, 0.2f * area1.height);
+				Rect area11 = new Rect(0f, 0.8f * area1.height, 0.32f * area1.width, 0.2f * area1.height);
 				GUILayout.BeginArea(area11); {
 					if (GUILayout.Button(Language.GetText("LoadGameMenuCancelButton"), modifiedMenuButtonStyle))
 						OnCancel();
 				} GUILayout.EndArea();
 				
-				Rect area12 = new Rect(0.51f * area1.width, 0.8f * area1.height, 0.49f * area1.width, 0.2f * area1.height);
+				Rect area12 = new Rect(0.34f * area1.width, 0.8f * area1.height, 0.32f * area1.width, 0.2f * area1.height);
 				GUILayout.BeginArea(area12); {
+					if (selectedStateId < 0)
+						GUI.enabled = false;
+					
+					if (GUILayout.Button(Language.GetText("LoadGameMenuDeleteStateButton"), modifiedMenuButtonStyle))
+						OnDeleteState();
+					
+					GUI.enabled = true;
+				} GUILayout.EndArea();
+				
+				Rect area13 = new Rect(0.68f * area1.width, 0.8f * area1.height, 0.32f * area1.width, 0.2f * area1.height);
+				GUILayout.BeginArea(area13); {
 					if (selectedStateId < 0)
 						GUI.enabled = false;
 
@@ -61,6 +81,13 @@ namespace EmergenciaQuimica {
 					GUI.enabled = true;
 				} GUILayout.EndArea();
 			} GUILayout.EndArea();
+		}
+
+		protected abstract string GetDeleteStateConfirmationMenuId();
+
+		private void OnDeleteState() {
+			string stateId = stateIds[selectedStateId];
+			Game.OpenMenu(GetDeleteStateConfirmationMenuId(), stateId);
 		}
 		
 		private void OnCancel() {

@@ -38,6 +38,10 @@ se perdera todo progreso no guardado.</value>
 		<value>cancelar</value>
 	</text>
 	<text>
+		<id>LoadGameMenuDeleteStateButton</id>
+		<value>eliminar</value>
+	</text>
+	<text>
 		<id>LoadGameMenuLoadGameButton</id>
 		<value>cargar partida</value>
 	</text>
@@ -106,6 +110,10 @@ se perdera todo progreso no guardado.</value>
 	
 	
 	<text>
+		<id>PauseMenuExitButton</id>
+		<value>salir</value>
+	</text>
+	<text>
 		<id>PauseMenuGoBackButton</id>
 		<value>volver al menu principal</value>
 	</text>
@@ -133,6 +141,10 @@ se perdera todo progreso no guardado.</value>
 		<value>cancelar</value>
 	</text>
 	<text>
+		<id>SaveGameMenuDeleteStateButton</id>
+		<value>eliminar</value>
+	</text>
+	<text>
 		<id>SaveGameMenuSaveGameButton</id>
 		<value>guardar partida</value>
 	</text>
@@ -147,20 +159,33 @@ se perdera todo progreso no guardado.</value>
 	
 	
 	
-	
 	<text>
-		<id>StateIdAlreadyExistsMenuAcceptButton</id>
-		<value>aceptar</value>
+		<id>OverwriteStateConfirmationMenuBox</id>
+		<value>¿realmente desea sobrescribir la partida?</value>
 	</text>
 	<text>
-		<id>StateIdAlreadyExistsMenuBox</id>
-		<value>ya existe una partida con ese nombre.
-ingrese otro diferente.</value>
+		<id>OverwriteStateConfirmationMenuCancelButton</id>
+		<value>cancelar</value>
+	</text>
+	<text>
+		<id>OverwriteStateConfirmationMenuOverwriteStateButton</id>
+		<value>sobrescribir</value>
 	</text>
 	
 	
 	
-	
+	<text>
+		<id>DeleteStateConfirmationMenuBox</id>
+		<value>¿realmente desea eliminar la partida?</value>
+	</text>
+	<text>
+		<id>DeleteStateConfirmationMenuCancelButton</id>
+		<value>cancelar</value>
+	</text>
+	<text>
+		<id>DeleteStateConfirmationMenuDeleteStateButton</id>
+		<value>eliminar</value>
+	</text>
 	
 	
 	

@@ -38,9 +38,18 @@ namespace EmergenciaQuimica {
 				
 				if (GUILayout.Button(Language.GetText("PauseMenuGoBackButton"), modifiedMenuButtonStyle))
 					OnGoBack();
+
+				GUILayout.FlexibleSpace();
+
+				if (GUILayout.Button(Language.GetText("PauseMenuExitButton"), modifiedMenuButtonStyle))
+					OnExit();
 				
 				GUILayout.FlexibleSpace();
 			} GUILayout.EndArea();
+		}
+
+		private void OnExit() {
+			Game.OpenMenu("PauseExitConfirmationMenu");
 		}
 
 		private void OnGoBack() {

@@ -50,7 +50,7 @@ namespace EmergenciaQuimica {
 		}
 
 		private void OnExit() {
-			Game.OpenMenu("ExitConfirmationMenu");
+			Game.OpenMenu("MainExitConfirmationMenu");
 		}
 
 		private void OnLoadGame() {

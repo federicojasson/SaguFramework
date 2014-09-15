@@ -80,7 +80,7 @@ namespace SaguFramework {
 			Image image = CreateImage(menuParameters.Image, Parameters.SortingLayerMenu);
 
 			Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldHeight(menuParameters.Height));
-			
+
 			menu.SetSize(size);
 			image.SetSize(size);
 			Utilities.SetParent(image, menu);

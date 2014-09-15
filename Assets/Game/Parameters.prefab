@@ -209,10 +209,8 @@ MonoBehaviour:
             Height: .649999976
             Behaviour: {fileID: 11400000, guid: 61cb502879fa6d642ade5037a63d2d9b,
               type: 2}
-            Image:
-              Opacity: 1
-              SortingLayer: 
-              Sprite: {fileID: 21300002, guid: c6c5cb0d08421d44bb9dacff6773bc0c, type: 3}
+            AnimatorController: {fileID: 9100000, guid: fc2bf0ec3647f7245a38f40dd8f3cbc7,
+              type: 2}
       Items:
         Entries:
         - Key: Erlenmeyer
@@ -250,7 +248,7 @@ MonoBehaviour:
             Sprite: {fileID: 21300000, guid: 483337aca6cac0f4891b9f2ca6050414, type: 3}
         Others:
           Entries:
-          - Key: ExitConfirmationMenu
+          - Key: MainExitConfirmationMenu
             Value:
               Height: 1
               Behaviour: {fileID: 11400000, guid: 919e5466b384b784bb75f26b18cfd444,
@@ -259,6 +257,16 @@ MonoBehaviour:
                 Opacity: 1
                 SortingLayer: 
                 Sprite: {fileID: 21300000, guid: 349029186b9c604458ef183767669ad8,
+                  type: 3}
+          - Key: PauseExitConfirmationMenu
+            Value:
+              Height: 1
+              Behaviour: {fileID: 11400000, guid: 919e5466b384b784bb75f26b18cfd444,
+                type: 2}
+              Image:
+                Opacity: .899999976
+                SortingLayer: 
+                Sprite: {fileID: 21300000, guid: 5d14d7251d7f05c49bbeb3f241263ede,
                   type: 3}
           - Key: GoBackConfirmationMenu
             Value:
@@ -293,17 +301,17 @@ MonoBehaviour:
           - Key: SaveGameMenu
             Value:
               Height: 1
-              Behaviour: {fileID: 11400000, guid: 0fcef6bc921e67242806ff84bb519047,
+              Behaviour: {fileID: 11400000, guid: d73be688951a1fa47aa1e43b57e11b10,
                 type: 2}
               Image:
                 Opacity: .899999976
                 SortingLayer: 
                 Sprite: {fileID: 21300000, guid: 32fe64495ebfe634685173d51ae5021a,
                   type: 3}
-          - Key: StateIdAlreadyExistsMenu
+          - Key: OverwriteStateConfirmationMenu
             Value:
               Height: 1
-              Behaviour: {fileID: 11400000, guid: a4a76a1e82e3e5440a2dfaad6154d010,
+              Behaviour: {fileID: 11400000, guid: 98e643b4cea20c344bc578514764b160,
                 type: 2}
               Image:
                 Opacity: .899999976
@@ -323,12 +331,32 @@ MonoBehaviour:
           - Key: PauseLoadGameMenu
             Value:
               Height: 1
-              Behaviour: {fileID: 11400000, guid: 3284375146780404a95e899bf28eaa00,
+              Behaviour: {fileID: 11400000, guid: 2d7d93e5c273b8b48ac21d7818fda5e3,
                 type: 2}
               Image:
                 Opacity: .899999976
                 SortingLayer: 
                 Sprite: {fileID: 21300000, guid: 154b4a85961d2ac4dac345465e09650a,
+                  type: 3}
+          - Key: PauseDeleteStateConfirmationMenu
+            Value:
+              Height: 1
+              Behaviour: {fileID: 11400000, guid: 5206f1e88e3f6ea4190003cf5a2f3108,
+                type: 2}
+              Image:
+                Opacity: .899999976
+                SortingLayer: 
+                Sprite: {fileID: 21300000, guid: 12a95d98c564b9f43bbd9c2081444226,
+                  type: 3}
+          - Key: MainDeleteStateConfirmationMenu
+            Value:
+              Height: 1
+              Behaviour: {fileID: 11400000, guid: 5206f1e88e3f6ea4190003cf5a2f3108,
+                type: 2}
+              Image:
+                Opacity: 1
+                SortingLayer: 
+                Sprite: {fileID: 21300000, guid: dddc96e9cc139a449bba187027d74f3b,
                   type: 3}
       SplashScreens:
         Main:

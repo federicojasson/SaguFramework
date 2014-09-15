@@ -13,6 +13,11 @@ namespace SaguFramework {
 
 		private static Encoding encoding;
 
+		public static void DeleteFile(string path) {
+			path = Environment.ExpandEnvironmentVariables(path);
+			File.Delete(path);
+		}
+
 		public static FileInfo[] GetDirectoryFiles(string fileExtension, string directoryPath) {
 			// TODO: errors, exceptions?
 

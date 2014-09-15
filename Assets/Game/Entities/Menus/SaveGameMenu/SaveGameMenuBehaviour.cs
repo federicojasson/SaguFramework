@@ -11,13 +11,22 @@ namespace EmergenciaQuimica {
 		private Vector2 scrollPosition;
 		private int selectedStateId;
 		private string[] stateIds;
+		private int stateLastCount;
 		
 		public void Awake() {
 			newStateId = string.Empty;
-			selectedStateId = -1;
-			stateIds = State.GetStateIds();
+			stateLastCount = -1;
 		}
-		
+
+		public void OnEnable() {
+			int auxiliar = stateLastCount;
+			stateIds = State.GetStateIds();
+			stateLastCount = stateIds.Length;
+			
+			if (stateLastCount != auxiliar)
+				selectedStateId = -1;
+		}
+
 		public override void OnShowGui() {
 			GUIStyle menuButtonStyle = GUI.skin.GetStyle("MenuButton");
 			GUIStyle modifiedMenuButtonStyle = Utilities.GetRelativeStyle(menuButtonStyle);
@@ -73,14 +82,25 @@ namespace EmergenciaQuimica {
 						newStateId = string.Empty;
 				} GUILayout.EndArea();
 				
-				Rect area12 = new Rect(0f, 0.8f * area1.height, 0.45f * area1.width, 0.2f * area1.height);
+				Rect area12 = new Rect(0f, 0.8f * area1.height, 0.32f * area1.width, 0.2f * area1.height);
 				GUILayout.BeginArea(area12); {
 					if (GUILayout.Button(Language.GetText("SaveGameMenuCancelButton"), modifiedMenuButtonStyle))
 						OnCancel();
 				} GUILayout.EndArea();
-				
-				Rect area13 = new Rect(0.51f * area1.width, 0.8f * area1.height, 0.49f * area1.width, 0.2f * area1.height);
+
+				Rect area13 = new Rect(0.34f * area1.width, 0.8f * area1.height, 0.32f * area1.width, 0.2f * area1.height);
 				GUILayout.BeginArea(area13); {
+					if (selectedStateId < 0)
+						GUI.enabled = false;
+
+					if (GUILayout.Button(Language.GetText("SaveGameMenuDeleteStateButton"), modifiedMenuButtonStyle))
+						OnDeleteState();
+
+					GUI.enabled = true;
+				} GUILayout.EndArea();
+				
+				Rect area14 = new Rect(0.68f * area1.width, 0.8f * area1.height, 0.32f * area1.width, 0.2f * area1.height);
+				GUILayout.BeginArea(area14); {
 					if (newStateId.Trim().Length == 0 && selectedStateId < 0)
 						GUI.enabled = false;
 
@@ -125,18 +145,22 @@ namespace EmergenciaQuimica {
 		private void OnCancel() {
 			Game.CloseMenu();
 		}
+
+		private void OnDeleteState() {
+			string stateId = stateIds[selectedStateId];
+			Game.OpenMenu("PauseDeleteStateConfirmationMenu", stateId);
+		}
 		
 		private void OnSaveGame() {
 			string stateId;
-			if (selectedStateId > 0)
-				stateId = stateIds[selectedStateId];
-			else {
+			if (selectedStateId < 0)
 				stateId = newStateId.Trim();
+			else
+				stateId = stateIds[selectedStateId];
 
-				if (stateIds.Contains(stateId)) {
-					Game.OpenMenu("StateIdAlreadyExistsMenu");
-					return;
-				}
+			if (stateIds.Contains(stateId)) {
+				Game.OpenMenu("OverwriteStateConfirmationMenu", stateId);
+				return;
 			}
 			
 			Game.SaveGame(stateId);
