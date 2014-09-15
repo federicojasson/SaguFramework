@@ -65,26 +65,23 @@ namespace SaguFramework {
 		}
 
 		public static void StopAllSounds() {
-			StopEffect();
 			StopPlaylist();
-			StopSong();
-			StopVoice();
-		}
 
-		public static void StopEffect() {
 			effectPlayer.Stop();
+			songPlayer.Stop();
+
+			foreach (AudioSource voicePlayer in voicePlayers.Values)
+				voicePlayer.Stop();
 		}
 
 		public static void StopPlaylist() {
 			instance.StopAllCoroutines();
 		}
 		
-		public static void StopSong() {
-			songPlayer.Stop();
-		}
-		
-		public static void StopVoice() {
-			foreach (AudioSource voicePlayer in voicePlayers.Values)
+		public static void StopVoice(string voicePlayerId) {
+			AudioSource voicePlayer;
+
+			if (voicePlayers.TryGetValue(voicePlayerId, out voicePlayer))
 				voicePlayer.Stop();
 		}
 

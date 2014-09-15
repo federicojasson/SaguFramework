@@ -5,15 +5,20 @@ namespace SaguFramework {
 	public static class Factory {
 
 		public static void CreateCharacter(string characterId, CharacterState characterState, CharacterParameters characterParameters, RoomParameters roomParameters) {
-			Character character = CreateEntity<Character>(characterParameters.Behaviour);
-			Image image = CreateImage(characterParameters.Image, Parameters.SortingLayerCharacter);
+			// TODO
 
-			Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldHeight(characterParameters.Height * roomParameters.ScaleFactor));
+			Character character = CreateEntity<Character>(characterParameters.Behaviour);
+			//Image image = CreateImage(characterParameters.Image, Parameters.SortingLayerCharacter);
+			CharacterAnimator characterAnimator = CreateCharacterAnimator(characterParameters.AnimatorController);
+
+			//Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldHeight(characterParameters.Height * roomParameters.ScaleFactor));
 
 			character.SetId(characterId);
-			character.SetSize(size);
-			image.SetSize(size);
-			Utilities.SetParent(image, character);
+			character.SetSize(new Vector2(292.5f, 585)); // TODO
+			characterAnimator.SetSize(new Vector2(292.5f, 585)); // TODO
+			//image.SetSize(size);
+			//Utilities.SetParent(image, character);
+			Utilities.SetParent(characterAnimator, character);
 			character.SetDepth(Parameters.DepthCharacter);
 			character.SetPosition(Geometry.GameToWorldPosition(characterState.GetLocation().GetPosition()));
 			character.Register();
@@ -118,6 +123,15 @@ namespace SaguFramework {
 			splashScreen.SetDepth(Parameters.DepthSplashScreen);
 			splashScreen.Register();
 			splashScreen.Show();
+		}
+
+		private static CharacterAnimator CreateCharacterAnimator(RuntimeAnimatorController animatorController) {
+			GameObject characterAnimatorGameObject = new GameObject();
+			CharacterAnimator characterAnimator = characterAnimatorGameObject.AddComponent<CharacterAnimator>();
+			
+			characterAnimator.SetAnimatorController(animatorController);
+			
+			return characterAnimator;
 		}
 
 		private static E CreateEntity<E, B>() where E : Entity where B : EntityBehaviour {

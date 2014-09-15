@@ -138,7 +138,7 @@ MonoBehaviour:
                   Position: {x: .200000003, y: .373524994}
         - Key: Blue
           Value:
-            Height: 1
+            Height: 2
             ScaleFactor: 1
             BackgroundImage:
               Opacity: 1
@@ -278,7 +278,7 @@ MonoBehaviour:
               Image:
                 Opacity: 1
                 SortingLayer: 
-                Sprite: {fileID: 21300000, guid: de5ce93ed932d364a8092457d5dd9164,
+                Sprite: {fileID: 21300000, guid: 4abe5d9cd77387b48a498e8066597c7d,
                   type: 3}
           - Key: MainOptionsMenu
             Value:

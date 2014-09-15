@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 020d058efef83b74fa693c48a89c14e3
+guid: 03327c518ac309848a381f7da3bad2eb
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -45,76 +45,40 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: ScientistSay_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 320
-        width: 160
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistSay_1
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 320
-        width: 160
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistSay_2
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 320
-        width: 160
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistSay_3
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 320
-        width: 160
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistSay_4
+    - name: ScientistSayRight_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 320
+        width: 256
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistSay_5
+    - name: ScientistSayRight_1
       rect:
         serializedVersion: 2
-        x: 160
+        x: 256
         y: 0
-        width: 160
-        height: 320
+        width: 256
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistSay_6
+    - name: ScientistSayRight_2
       rect:
         serializedVersion: 2
-        x: 320
+        x: 512
         y: 0
-        width: 160
-        height: 320
+        width: 256
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistSay_7
+    - name: ScientistSayRight_3
       rect:
         serializedVersion: 2
-        x: 480
+        x: 768
         y: 0
-        width: 160
-        height: 320
+        width: 256
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 

@@ -4,13 +4,14 @@ using UnityEngine;
 namespace EmergenciaQuimica {
 	
 	public class LoadGameMenuBehaviour : MenuBehaviour {
-
-		private string[] stateIds;
+		
+		private Vector2 scrollPosition;
 		private int selectedStateId;
+		private string[] stateIds;
 
 		public void Awake() {
-			stateIds = State.GetStateIds();
 			selectedStateId = -1;
+			stateIds = State.GetStateIds();
 		}
 
 		public override void OnShowGui() {
@@ -22,6 +23,9 @@ namespace EmergenciaQuimica {
 
 			GUIStyle menuTitleStyle = GUI.skin.GetStyle("MenuTitle");
 			GUIStyle modifiedMenuTitleStyle = Utilities.GetRelativeStyle(menuTitleStyle);
+
+			GUIStyle scrollViewStyle = GUI.skin.scrollView;
+			GUIStyle modifiedScrollViewStyle = Utilities.GetRelativeStyle(scrollViewStyle);
 
 			float gameWidth = Geometry.GetGameWidthInPixels();
 			float gameHeight = Geometry.GetGameHeightInPixels();
@@ -35,7 +39,9 @@ namespace EmergenciaQuimica {
 			GUILayout.BeginArea(area1); {
 				Rect area10 = new Rect(0f, 0f, area1.width, 0.75f * area1.height);
 				GUILayout.BeginArea(area10); {
-					selectedStateId = GUILayout.SelectionGrid(selectedStateId, stateIds, 1, modifiedMenuSelectionGridStyle);
+					scrollPosition = GUILayout.BeginScrollView(scrollPosition, modifiedScrollViewStyle); {
+						selectedStateId = GUILayout.SelectionGrid(selectedStateId, stateIds, 1, modifiedMenuSelectionGridStyle);
+					} GUILayout.EndScrollView();
 				} GUILayout.EndArea();
 
 				Rect area11 = new Rect(0f, 0.8f * area1.height, 0.45f * area1.width, 0.2f * area1.height);

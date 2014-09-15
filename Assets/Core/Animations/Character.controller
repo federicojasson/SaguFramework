@@ -8,7 +8,7 @@ AnimatorController:
   m_Name: Character
   serializedVersion: 2
   m_AnimatorParameters:
-  - m_Name: FacingLeft
+  - m_Name: IsDirectionLeft
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -46,11 +46,11 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110200000}
   m_DstState: {fileID: 110248630}
-  m_TransitionDuration: .100000001
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: FacingLeft
+    m_ConditionEvent: IsDirectionLeft
     m_EventTreshold: 0
     m_ExitTime: .899999976
   m_Atomic: 1
@@ -104,7 +104,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: FacingLeft
+    m_ConditionEvent: IsDirectionLeft
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -122,7 +122,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: FacingLeft
+    m_ConditionEvent: IsDirectionLeft
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -140,7 +140,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: FacingLeft
+    m_ConditionEvent: IsDirectionLeft
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -154,11 +154,11 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110200000}
   m_DstState: {fileID: 110285115}
-  m_TransitionDuration: .100000001
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: FacingLeft
+    m_ConditionEvent: IsDirectionLeft
     m_EventTreshold: 0
     m_ExitTime: .899999976
   m_Atomic: 1
@@ -194,7 +194,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: FacingLeft
+    m_ConditionEvent: IsDirectionLeft
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -212,7 +212,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: FacingLeft
+    m_ConditionEvent: IsDirectionLeft
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -248,7 +248,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: FacingLeft
+    m_ConditionEvent: IsDirectionLeft
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -350,7 +350,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: d14f50df543320c41a01acbaebce74c6, type: 2}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110791173}
   m_Position: {x: 252, y: 96, z: 0}
@@ -366,7 +366,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: 12ef161415e88db4fa770f2a7d85517c, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110708348}
@@ -383,7 +383,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: 7a330a5d39c285642898e31ea549fef5, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110708348}
@@ -400,7 +400,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: da587d13b52f98c43ba4c5b6e3f28e9d, type: 2}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110791173}
   m_Position: {x: 252, y: -96, z: 0}
@@ -416,7 +416,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: efde9b6b2f7cd2043b676273dc728351, type: 2}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110791173}
   m_Position: {x: 252, y: 0, z: 0}
@@ -432,7 +432,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: 141516f7e57a58a4b84a7b0e73a33e7e, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110708348}

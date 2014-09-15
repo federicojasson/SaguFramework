@@ -179,13 +179,13 @@ ingrese otro diferente.</value>
 	
 	<text>
 		<id>GreenLeftDoorTooltip</id>
-		<value>Ir a la habitacion azul</value>
+		<value>Ir a la habitación azul</value>
 	</text>
 	
 	
 	<text>
 		<id>BlueRightDoorTooltip</id>
-		<value>Ir a la habitacion verde</value>
+		<value>Ir a la habitación verde</value>
 	</text>
 	
 	
@@ -218,6 +218,34 @@ ingrese otro diferente.</value>
 	
 	
 	
+	
+	<text>
+		<id>ScientistInitialSpeech0</id>
+		<value>ScientistInitialSpeech0</value>
+	</text>
+	<voice>
+		<id>ScientistInitialSpeech0</id>
+		<resource-path>Languages/Spanish/Voices/ScientistInitialSpeech0</resource-path>
+	</voice>
+	
+	<text>
+		<id>ScientistInitialSpeech1</id>
+		<value>ScientistInitialSpeech1</value>
+	</text>
+	<voice>
+		<id>ScientistInitialSpeech1</id>
+		<resource-path>Languages/Spanish/Voices/ScientistInitialSpeech1</resource-path>
+	</voice>
+	
+	
+	<text>
+		<id>ErlenmeyerOnLook</id>
+		<value>ErlenmeyerOnLook</value>
+	</text>
+	<voice>
+		<id>ErlenmeyerOnLook</id>
+		<resource-path>Languages/Spanish/Voices/ErlenmeyerOnLook</resource-path>
+	</voice>
 	
 	
 	

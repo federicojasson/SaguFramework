@@ -31,6 +31,7 @@ namespace SaguFramework {
 
 		public void StopActions() {
 			StopAllCoroutines();
+			SoundPlayer.StopVoice(id);
 		}
 
 		private IEnumerator ExecuteActionsCoroutine(CharacterAction[] actions, Action furtherAction) {
@@ -82,20 +83,20 @@ namespace SaguFramework {
 		
 		private IEnumerator SayCoroutine(string text, AudioClip voice) {
 			// TODO: animation
-			//Animator animator = GetComponent<Animator>();
-			//animator.SetBool(C.CHARACTER_CONTROLLER_IS_SAYING, true);
+			Animator animator = GetComponentInChildren<Animator>();
+			animator.SetBool("IsSaying", true);
 
-			SoundPlayer.PlayVoice(GetId(), voice);
+			SoundPlayer.PlayVoice(id, voice);
 			yield return new WaitForSeconds(voice.length);
 
 			// TODO: animation
-			//GetComponent<Animator>().SetBool(C.CHARACTER_CONTROLLER_IS_SAYING, false);
+			GetComponentInChildren<Animator>().SetBool("IsSaying", false);
 		}
 
 		private IEnumerator WalkCoroutine(Vector2 position) {
 			// TODO: animation
-			//Animator animator = GetComponent<Animator>();
-			//animator.SetBool(C.CHARACTER_CONTROLLER_IS_WALKING, true);
+			Animator animator = GetComponentInChildren<Animator>();
+			animator.SetBool("IsWalking", true);
 
 			// TODO: Get speed
 			float walkSpeed = Geometry.GameToWorldX(0.2f);
@@ -117,7 +118,7 @@ namespace SaguFramework {
 			}
 
 			// TODO: animation
-			//GetComponent<Animator>().SetBool(C.CHARACTER_CONTROLLER_IS_WALKING, false);
+			GetComponentInChildren<Animator>().SetBool("IsWalking", false);
 		}
 
 

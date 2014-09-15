@@ -7,14 +7,14 @@ namespace SaguFramework {
 		public const float DeltaWorld = 5f; // TODO: depends on screen size
 
 		public const float DepthCamera = -1000;
-		public const float DepthCharacter = -300;
+		public const float DepthCharacter = -400;
 		public const float DepthInventory = -500;
 		public const float DepthInventoryItem = -600;
 		public const float DepthInventoryTrigger = -700;
-		public const float DepthItem = -200;
+		public const float DepthItem = -300;
 		public const float DepthMenu = -800;
 		public const float DepthRoom = -100;
-		public const float DepthRoomTrigger = -400;
+		public const float DepthRoomTrigger = -200;
 		public const float DepthSplashScreen = -900;
 
 		public const string DirectionLeft = "Left";

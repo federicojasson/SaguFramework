@@ -8,6 +8,7 @@ namespace EmergenciaQuimica {
 	public class SaveGameMenuBehaviour : MenuBehaviour {
 
 		private string newStateId;
+		private Vector2 scrollPosition;
 		private int selectedStateId;
 		private string[] stateIds;
 		
@@ -29,7 +30,10 @@ namespace EmergenciaQuimica {
 			
 			GUIStyle menuTitleStyle = GUI.skin.GetStyle("MenuTitle");
 			GUIStyle modifiedMenuTitleStyle = Utilities.GetRelativeStyle(menuTitleStyle);
-			
+
+			GUIStyle scrollViewStyle = GUI.skin.scrollView;
+			GUIStyle modifiedScrollViewStyle = Utilities.GetRelativeStyle(scrollViewStyle);
+
 			GUIStyle textFieldStyle = GUI.skin.textField;
 			GUIStyle modifiedTextFieldStyle = Utilities.GetRelativeStyle(textFieldStyle);
 			
@@ -61,7 +65,9 @@ namespace EmergenciaQuimica {
 				
 				Rect area11 = new Rect(0f, 0.12f * area1.height, area1.width, 0.63f * area1.height);
 				GUILayout.BeginArea(area11); {
-					selectedStateId = GUILayout.SelectionGrid(selectedStateId, stateIds, 1, modifiedMenuSelectionGridStyle);
+					scrollPosition = GUILayout.BeginScrollView(scrollPosition, modifiedScrollViewStyle); {
+						selectedStateId = GUILayout.SelectionGrid(selectedStateId, stateIds, 1, modifiedMenuSelectionGridStyle);
+					} GUILayout.EndScrollView();
 
 					if (selectedStateId >= 0)
 						newStateId = string.Empty;

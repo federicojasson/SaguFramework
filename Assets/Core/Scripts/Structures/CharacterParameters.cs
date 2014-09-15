@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace SaguFramework {
 	
@@ -7,7 +8,7 @@ namespace SaguFramework {
 		
 		public float Height;
 		public CharacterBehaviour Behaviour;
-		public ImageParameters Image;
+		public RuntimeAnimatorController AnimatorController;
 		
 	}
 	
