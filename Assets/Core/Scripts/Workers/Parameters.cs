@@ -4,7 +4,13 @@ namespace SaguFramework {
 	
 	public class Parameters : Worker {
 
-		public const float DeltaWorld = 5f; // TODO: depends on screen size
+		public const string AxisNameScrollWheel = "Mouse ScrollWheel";
+
+		public const string CharacterAnimatorControllerIsDirectionLeft = "IsDirectionLeft";
+		public const string CharacterAnimatorControllerIsSaying = "IsSaying";
+		public const string CharacterAnimatorControllerIsWalking = "IsWalking";
+
+		public const float DeltaDistance = 0.002f;
 
 		public const float DepthCamera = -1000;
 		public const float DepthCharacter = -400;

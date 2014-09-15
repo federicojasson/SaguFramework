@@ -205,7 +205,7 @@ namespace SaguFramework {
 			if (AnyKeyWasPressed(Parameters.GetSetNextOrderKeys()))
 				OrderHandler.SetNextOrder();
 
-			if (Parameters.UseMouseWheel() && Input.GetAxis("Mouse ScrollWheel") > 0)
+			if (Parameters.UseMouseWheel() && Input.GetAxis(Parameters.AxisNameScrollWheel) > 0)
 				OrderHandler.SetNextOrder();
 		}
 
@@ -213,7 +213,7 @@ namespace SaguFramework {
 			if (AnyKeyWasPressed(Parameters.GetSetPreviousOrderKeys()))
 				OrderHandler.SetPreviousOrder();
 
-			if (Parameters.UseMouseWheel() && Input.GetAxis("Mouse ScrollWheel") < 0)
+			if (Parameters.UseMouseWheel() && Input.GetAxis(Parameters.AxisNameScrollWheel) < 0)
 				OrderHandler.SetPreviousOrder();
 		}
 		

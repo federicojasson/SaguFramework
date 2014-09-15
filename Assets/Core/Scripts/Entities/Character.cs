@@ -7,26 +7,38 @@ namespace SaguFramework {
 	public class Character : Entity {
 
 		private string id;
+		private Image image;
 
 		public void ExecuteActions(CharacterAction[] actions) {
 			ExecuteActions(actions, null);
 		}
 		
 		public void ExecuteActions(CharacterAction[] actions, Action furtherAction) {
+			StopActions();
 			StartCoroutine(ExecuteActionsCoroutine(actions, furtherAction));
 		}
 
 		public Direction GetDirection() {
-			// TODO: GetDirection
-			return Direction.Right;
+			if (image.GetAnimator().GetBool(Parameters.CharacterAnimatorControllerIsDirectionLeft))
+				return Direction.Left;
+			else
+				return Direction.Right;
 		}
 
 		public string GetId() {
 			return id;
 		}
 
+		public void SetDirection(Direction direction) {
+			image.GetAnimator().SetBool(Parameters.CharacterAnimatorControllerIsDirectionLeft, direction == Direction.Left);
+		}
+
 		public void SetId(string id) {
 			this.id = id;
+		}
+
+		public void SetImage(Image image) {
+			this.image = image;
 		}
 
 		public void StopActions() {
@@ -35,30 +47,28 @@ namespace SaguFramework {
 		}
 
 		private IEnumerator ExecuteActionsCoroutine(CharacterAction[] actions, Action furtherAction) {
-			StopActions();
-
 			foreach (CharacterAction action in actions) {
 				object[] parameters = action.GetParameters();
 
 				switch (action.GetId()) {
 					case CharacterActionId.Look : {
 						yield return StartCoroutine(LookCoroutine((Vector2) parameters[0]));
-						break;
+						continue;
 					}
 
 					case CharacterActionId.PickUp : {
 						yield return StartCoroutine(PickUpCoroutine());
-						break;
+						continue;
 					}
 						
 					case CharacterActionId.Say : {
 						yield return StartCoroutine(SayCoroutine((string) parameters[0], (AudioClip) parameters[1]));
-						break;
+						continue;
 					}
 						
 					case CharacterActionId.Walk : {
 						yield return StartCoroutine(WalkCoroutine((Vector2) parameters[0]));
-						break;
+						continue;
 					}
 				}
 			}
@@ -68,9 +78,10 @@ namespace SaguFramework {
 		}
 
 		private IEnumerator LookCoroutine(Vector2 position) {
-			// TODO: animation
-			//bool facingLeft = CoordinatesManager.WorldToGamePoint(transform.position).x > gamePoint.x;
-			//GetComponent<Animator>().SetBool(C.CHARACTER_CONTROLLER_FACING_LEFT, facingLeft);
+			if (position.x > GetPosition().x)
+				SetDirection(Direction.Right);
+			else
+				SetDirection(Direction.Left);
 
 			yield break;
 		}
@@ -82,28 +93,26 @@ namespace SaguFramework {
 		}
 		
 		private IEnumerator SayCoroutine(string text, AudioClip voice) {
-			// TODO: animation
-			Animator animator = GetComponentInChildren<Animator>();
-			animator.SetBool("IsSaying", true);
+			Animator animator = image.GetAnimator();
 
+			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, true);
 			SoundPlayer.PlayVoice(id, voice);
 			yield return new WaitForSeconds(voice.length);
-
-			// TODO: animation
-			GetComponentInChildren<Animator>().SetBool("IsSaying", false);
+			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, false);
 		}
 
 		private IEnumerator WalkCoroutine(Vector2 position) {
-			// TODO: animation
-			Animator animator = GetComponentInChildren<Animator>();
-			animator.SetBool("IsWalking", true);
+			Animator animator = image.GetAnimator();
+
+			animator.SetBool(Parameters.CharacterAnimatorControllerIsWalking, true);
 
 			// TODO: Get speed
 			float walkSpeed = Geometry.GameToWorldX(0.2f);
 
+			float deltaDistance = Geometry.GameToWorldWidth(Parameters.DeltaDistance);
 			Vector2 currentPosition = GetPosition();
 
-			while (Mathf.Abs(currentPosition.x - position.x) > Parameters.DeltaWorld) {
+			while (Mathf.Abs(currentPosition.x - position.x) > deltaDistance) {
 				float offset = walkSpeed * Time.fixedDeltaTime * Mathf.Sign(position.x - currentPosition.x);
 				SetPosition(currentPosition + new Vector2(offset, 0f));
 
@@ -112,13 +121,12 @@ namespace SaguFramework {
 				Vector2 previousPosition = currentPosition;
 				currentPosition = GetPosition();
 
-				if (Mathf.Abs(previousPosition.x - currentPosition.x) < Parameters.DeltaWorld)
+				if (Mathf.Abs(previousPosition.x - currentPosition.x) < deltaDistance)
 					// The character stopped walking for some reason
 					break;
 			}
 
-			// TODO: animation
-			GetComponentInChildren<Animator>().SetBool("IsWalking", false);
+			animator.SetBool(Parameters.CharacterAnimatorControllerIsWalking, false);
 		}
 
 

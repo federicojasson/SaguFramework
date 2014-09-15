@@ -30,7 +30,7 @@ namespace SaguFramework {
 		}
 
 		public static string GetDirectoryPath(params string[] directoryPaths) {
-			string path = "";
+			string path = string.Empty;
 
 			for (int i = 0; i < directoryPaths.Length - 1; i++) {
 				path += directoryPaths[i];
@@ -46,7 +46,7 @@ namespace SaguFramework {
 		}
 
 		public static string GetFilePath(string fileName, string fileExtension, params string[] directoryPaths) {
-			string path = "";
+			string path = string.Empty;
 			
 			foreach (string directoryPath in directoryPaths) {
 				path += directoryPath;
@@ -60,7 +60,7 @@ namespace SaguFramework {
 		}
 
 		public static string GetFileResourcePath(string fileName, params string[] directoryPaths) {
-			string resourcePath = "";
+			string resourcePath = string.Empty;
 			
 			foreach (string directoryPath in directoryPaths) {
 				resourcePath += directoryPath;
@@ -82,7 +82,7 @@ namespace SaguFramework {
 			Direction direction = GetXmlNodeDirectionValue(directionNode);
 			XElement locationNode = node.Element(Parameters.XmlTagLocation);
 			Location location = GetXmlNodeLocationValue(locationNode);
-			
+
 			return new CharacterState(direction, location);
 		}
 		

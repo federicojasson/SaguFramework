@@ -13,11 +13,11 @@ namespace SaguFramework {
 		static GraphicHandler() {
 			fadeSpeed = 0;
 			fadeTextureOpacity = 1f;
-			tooltip = "";
+			tooltip = string.Empty;
 		}
 
 		public static void ClearTooltip() {
-			tooltip = "";
+			tooltip = string.Empty;
 		}
 
 		public static IEnumerator FadeIn(FadeParameters fadeParameters) {

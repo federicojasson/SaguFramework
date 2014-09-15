@@ -114,7 +114,7 @@ namespace EmergenciaQuimica {
 		
 		private string FilterStateId(string stateId) {
 			string temporalStateId = stateId.ToUpperInvariant();
-			string filteredStateId = "";
+			string filteredStateId = string.Empty;
 			
 			for (int i = 0; i < temporalStateId.Length; i++) {
 				char character = temporalStateId[i];

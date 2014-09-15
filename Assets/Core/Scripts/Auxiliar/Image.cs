@@ -12,6 +12,10 @@ namespace SaguFramework {
 			renderer = gameObject.AddComponent<SpriteRenderer>();
 		}
 
+		public Animator GetAnimator() {
+			return animator;
+		}
+
 		public Vector2 GetSize() {
 			Sprite sprite = renderer.sprite;
 			if (sprite == null)

@@ -11,6 +11,7 @@ namespace SaguFramework {
 			Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldHeight(characterParameters.Height * roomParameters.ScaleFactor));
 
 			character.SetId(characterId);
+			character.SetImage(image);
 			image.SetSize(size);
 			Utilities.SetParent(image, character);
 			character.SetDepth(Parameters.DepthCharacter);
@@ -18,7 +19,7 @@ namespace SaguFramework {
 			character.Register();
 			character.Show();
 
-			// TODO: direction
+			character.SetDirection(characterState.GetDirection());
 		}
 
 		public static void CreateInventory(InventoryParameters inventoryParameters) {
