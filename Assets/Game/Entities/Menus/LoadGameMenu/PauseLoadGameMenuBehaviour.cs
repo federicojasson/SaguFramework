@@ -4,8 +4,8 @@ namespace EmergenciaQuimica {
 	
 	public class PauseLoadGameMenuBehaviour : LoadGameMenuBehaviour {
 
-		protected override string GetDeleteStateConfirmationMenuId() {
-			return "PauseDeleteStateConfirmationMenu";
+		protected override string GetDeleteGameConfirmationMenuId() {
+			return "PauseDeleteGameConfirmationMenu";
 		}
 
 	}

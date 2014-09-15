@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ScientistSayRight
+  m_Name: ScientistSayingLeft
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -18,13 +18,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 03327c518ac309848a381f7da3bad2eb, type: 3}
+      value: {fileID: 21300000, guid: 46f50402d501d5343bee918b32a18126, type: 3}
     - time: .0166666675
-      value: {fileID: 21300002, guid: 03327c518ac309848a381f7da3bad2eb, type: 3}
+      value: {fileID: 21300002, guid: 46f50402d501d5343bee918b32a18126, type: 3}
     - time: .0333333351
-      value: {fileID: 21300004, guid: 03327c518ac309848a381f7da3bad2eb, type: 3}
+      value: {fileID: 21300004, guid: 46f50402d501d5343bee918b32a18126, type: 3}
     - time: .0500000007
-      value: {fileID: 21300006, guid: 03327c518ac309848a381f7da3bad2eb, type: 3}
+      value: {fileID: 21300006, guid: 46f50402d501d5343bee918b32a18126, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212

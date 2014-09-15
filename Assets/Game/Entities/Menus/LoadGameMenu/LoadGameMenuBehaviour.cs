@@ -64,8 +64,8 @@ namespace EmergenciaQuimica {
 					if (selectedStateId < 0)
 						GUI.enabled = false;
 					
-					if (GUILayout.Button(Language.GetText("LoadGameMenuDeleteStateButton"), modifiedMenuButtonStyle))
-						OnDeleteState();
+					if (GUILayout.Button(Language.GetText("LoadGameMenuDeleteGameButton"), modifiedMenuButtonStyle))
+						OnDeleteGame();
 					
 					GUI.enabled = true;
 				} GUILayout.EndArea();
@@ -83,11 +83,11 @@ namespace EmergenciaQuimica {
 			} GUILayout.EndArea();
 		}
 
-		protected abstract string GetDeleteStateConfirmationMenuId();
+		protected abstract string GetDeleteGameConfirmationMenuId();
 
-		private void OnDeleteState() {
+		private void OnDeleteGame() {
 			string stateId = stateIds[selectedStateId];
-			Game.OpenMenu(GetDeleteStateConfirmationMenuId(), stateId);
+			Game.OpenMenu(GetDeleteGameConfirmationMenuId(), stateId);
 		}
 		
 		private void OnCancel() {

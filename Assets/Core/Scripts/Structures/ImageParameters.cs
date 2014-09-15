@@ -9,6 +9,7 @@ namespace SaguFramework {
 		public float Opacity;
 		public string SortingLayer;
 		public Sprite Sprite;
+		public RuntimeAnimatorController AnimatorController;
 		
 	}
 	

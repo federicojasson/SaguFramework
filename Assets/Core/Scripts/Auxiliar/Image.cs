@@ -4,9 +4,11 @@ namespace SaguFramework {
 	
 	public class Image : MonoBehaviour {
 
+		private Animator animator;
 		private new SpriteRenderer renderer;
 
 		public void Awake() {
+			animator = gameObject.AddComponent<Animator>();
 			renderer = gameObject.AddComponent<SpriteRenderer>();
 		}
 
@@ -23,6 +25,10 @@ namespace SaguFramework {
 
 		public Texture2D GetTexture() {
 			return renderer.sprite.texture;
+		}
+
+		public void SetAnimatorController(RuntimeAnimatorController animatorController) {
+			animator.runtimeAnimatorController = animatorController;
 		}
 
 		public void SetOpacity(float opacity) {

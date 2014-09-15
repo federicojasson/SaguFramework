@@ -308,7 +308,7 @@ MonoBehaviour:
                 SortingLayer: 
                 Sprite: {fileID: 21300000, guid: 32fe64495ebfe634685173d51ae5021a,
                   type: 3}
-          - Key: OverwriteStateConfirmationMenu
+          - Key: OverwriteGameConfirmationMenu
             Value:
               Height: 1
               Behaviour: {fileID: 11400000, guid: 98e643b4cea20c344bc578514764b160,
@@ -338,7 +338,7 @@ MonoBehaviour:
                 SortingLayer: 
                 Sprite: {fileID: 21300000, guid: 154b4a85961d2ac4dac345465e09650a,
                   type: 3}
-          - Key: PauseDeleteStateConfirmationMenu
+          - Key: PauseDeleteGameConfirmationMenu
             Value:
               Height: 1
               Behaviour: {fileID: 11400000, guid: 5206f1e88e3f6ea4190003cf5a2f3108,
@@ -348,7 +348,7 @@ MonoBehaviour:
                 SortingLayer: 
                 Sprite: {fileID: 21300000, guid: 12a95d98c564b9f43bbd9c2081444226,
                   type: 3}
-          - Key: MainDeleteStateConfirmationMenu
+          - Key: MainDeleteGameConfirmationMenu
             Value:
               Height: 1
               Behaviour: {fileID: 11400000, guid: 5206f1e88e3f6ea4190003cf5a2f3108,

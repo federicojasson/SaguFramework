@@ -5,20 +5,14 @@ namespace SaguFramework {
 	public static class Factory {
 
 		public static void CreateCharacter(string characterId, CharacterState characterState, CharacterParameters characterParameters, RoomParameters roomParameters) {
-			// TODO
-
 			Character character = CreateEntity<Character>(characterParameters.Behaviour);
-			//Image image = CreateImage(characterParameters.Image, Parameters.SortingLayerCharacter);
-			CharacterAnimator characterAnimator = CreateCharacterAnimator(characterParameters.AnimatorController);
+			Image image = CreateImage(characterParameters.Image, Parameters.SortingLayerCharacter);
 
-			//Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldHeight(characterParameters.Height * roomParameters.ScaleFactor));
+			Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldHeight(characterParameters.Height * roomParameters.ScaleFactor));
 
 			character.SetId(characterId);
-			character.SetSize(new Vector2(292.5f, 585)); // TODO
-			characterAnimator.SetSize(new Vector2(292.5f, 585)); // TODO
-			//image.SetSize(size);
-			//Utilities.SetParent(image, character);
-			Utilities.SetParent(characterAnimator, character);
+			image.SetSize(size);
+			Utilities.SetParent(image, character);
 			character.SetDepth(Parameters.DepthCharacter);
 			character.SetPosition(Geometry.GameToWorldPosition(characterState.GetLocation().GetPosition()));
 			character.Register();
@@ -125,15 +119,6 @@ namespace SaguFramework {
 			splashScreen.Show();
 		}
 
-		private static CharacterAnimator CreateCharacterAnimator(RuntimeAnimatorController animatorController) {
-			GameObject characterAnimatorGameObject = new GameObject();
-			CharacterAnimator characterAnimator = characterAnimatorGameObject.AddComponent<CharacterAnimator>();
-			
-			characterAnimator.SetAnimatorController(animatorController);
-			
-			return characterAnimator;
-		}
-
 		private static E CreateEntity<E, B>() where E : Entity where B : EntityBehaviour {
 			GameObject entityGameObject = new GameObject();
 			E entity = entityGameObject.AddComponent<E>();
@@ -169,7 +154,8 @@ namespace SaguFramework {
 
 			GameObject imageGameObject = new GameObject();
 			Image image = imageGameObject.AddComponent<Image>();
-			
+
+			image.SetAnimatorController(imageParameters.AnimatorController);
 			image.SetOpacity(imageParameters.Opacity);
 			image.SetSortingLayer(sortingLayer);
 			image.SetSprite(imageParameters.Sprite);

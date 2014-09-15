@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d681111521ab61946a15f12eded352c3
+guid: 03327c518ac309848a381f7da3bad2eb
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -21,7 +21,7 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 1024
+  maxTextureSize: 4096
   textureSettings:
     filterMode: -1
     aniso: 1
@@ -45,7 +45,7 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: ScientistWalkLeft_0
+    - name: ScientistSayingRight_0
       rect:
         serializedVersion: 2
         x: 0
@@ -54,7 +54,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistWalkLeft_1
+    - name: ScientistSayingRight_1
       rect:
         serializedVersion: 2
         x: 256
@@ -63,7 +63,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistWalkLeft_2
+    - name: ScientistSayingRight_2
       rect:
         serializedVersion: 2
         x: 512
@@ -72,64 +72,10 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistWalkLeft_3
+    - name: ScientistSayingRight_3
       rect:
         serializedVersion: 2
         x: 768
-        y: 0
-        width: 256
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistWalkLeft_4
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 256
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistWalkLeft_5
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 256
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistWalkLeft_6
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 256
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistWalkLeft_7
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 0
-        width: 256
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistWalkLeft_8
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 256
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ScientistWalkLeft_9
-      rect:
-        serializedVersion: 2
-        x: 2304
         y: 0
         width: 256
         height: 512

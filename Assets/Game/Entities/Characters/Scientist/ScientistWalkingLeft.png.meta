@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a4fa0d66aa95b1744867e2a2e50938e7
+guid: daf316ae80b1a554491f3a1ad206d40f
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -21,7 +21,7 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 1024
+  maxTextureSize: 4096
   textureSettings:
     filterMode: -1
     aniso: 1
@@ -45,7 +45,7 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: ScientistWalkRight_0
+    - name: ScientistWalkingLeft_0
       rect:
         serializedVersion: 2
         x: 0
@@ -54,7 +54,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistWalkRight_1
+    - name: ScientistWalkingLeft_1
       rect:
         serializedVersion: 2
         x: 256
@@ -63,7 +63,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistWalkRight_2
+    - name: ScientistWalkingLeft_2
       rect:
         serializedVersion: 2
         x: 512
@@ -72,7 +72,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistWalkRight_3
+    - name: ScientistWalkingLeft_3
       rect:
         serializedVersion: 2
         x: 768
@@ -81,7 +81,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistWalkRight_4
+    - name: ScientistWalkingLeft_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -90,7 +90,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistWalkRight_5
+    - name: ScientistWalkingLeft_5
       rect:
         serializedVersion: 2
         x: 1280
@@ -99,7 +99,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistWalkRight_6
+    - name: ScientistWalkingLeft_6
       rect:
         serializedVersion: 2
         x: 1536
@@ -108,7 +108,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistWalkRight_7
+    - name: ScientistWalkingLeft_7
       rect:
         serializedVersion: 2
         x: 1792
@@ -117,7 +117,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistWalkRight_8
+    - name: ScientistWalkingLeft_8
       rect:
         serializedVersion: 2
         x: 2048
@@ -126,7 +126,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistWalkRight_9
+    - name: ScientistWalkingLeft_9
       rect:
         serializedVersion: 2
         x: 2304

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 03327c518ac309848a381f7da3bad2eb
+guid: 46f50402d501d5343bee918b32a18126
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -21,7 +21,7 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 1024
+  maxTextureSize: 4096
   textureSettings:
     filterMode: -1
     aniso: 1
@@ -45,7 +45,7 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: ScientistSayRight_0
+    - name: ScientistSayingLeft_0
       rect:
         serializedVersion: 2
         x: 0
@@ -54,7 +54,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistSayRight_1
+    - name: ScientistSayingLeft_1
       rect:
         serializedVersion: 2
         x: 256
@@ -63,7 +63,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistSayRight_2
+    - name: ScientistSayingLeft_2
       rect:
         serializedVersion: 2
         x: 512
@@ -72,7 +72,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: ScientistSayRight_3
+    - name: ScientistSayingLeft_3
       rect:
         serializedVersion: 2
         x: 768

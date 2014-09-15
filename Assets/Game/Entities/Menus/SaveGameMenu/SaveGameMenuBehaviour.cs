@@ -60,7 +60,7 @@ namespace EmergenciaQuimica {
 				GUILayout.BeginArea(area10); {
 					Rect area100 = new Rect(0f, 0f, 0.35f * area10.width, area10.height);
 					GUILayout.BeginArea(area100); {
-						GUILayout.Label(Language.GetText("SaveGameMenuStateIdLabel"), modifiedMenuLabelStyle);
+						GUILayout.Label(Language.GetText("SaveGameMenuGameLabel"), modifiedMenuLabelStyle);
 					} GUILayout.EndArea();
 
 					Rect area101 = new Rect(0.38f * area10.width, 0f, 0.62f * area10.width, area10.height);
@@ -93,8 +93,8 @@ namespace EmergenciaQuimica {
 					if (selectedStateId < 0)
 						GUI.enabled = false;
 
-					if (GUILayout.Button(Language.GetText("SaveGameMenuDeleteStateButton"), modifiedMenuButtonStyle))
-						OnDeleteState();
+					if (GUILayout.Button(Language.GetText("SaveGameMenuDeleteGameButton"), modifiedMenuButtonStyle))
+						OnDeleteGame();
 
 					GUI.enabled = true;
 				} GUILayout.EndArea();
@@ -146,9 +146,9 @@ namespace EmergenciaQuimica {
 			Game.CloseMenu();
 		}
 
-		private void OnDeleteState() {
+		private void OnDeleteGame() {
 			string stateId = stateIds[selectedStateId];
-			Game.OpenMenu("PauseDeleteStateConfirmationMenu", stateId);
+			Game.OpenMenu("PauseDeleteGameConfirmationMenu", stateId);
 		}
 		
 		private void OnSaveGame() {
@@ -159,7 +159,7 @@ namespace EmergenciaQuimica {
 				stateId = stateIds[selectedStateId];
 
 			if (stateIds.Contains(stateId)) {
-				Game.OpenMenu("OverwriteStateConfirmationMenu", stateId);
+				Game.OpenMenu("OverwriteGameConfirmationMenu", stateId);
 				return;
 			}
 			

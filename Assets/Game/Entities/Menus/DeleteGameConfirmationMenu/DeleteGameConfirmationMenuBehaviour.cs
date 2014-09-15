@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EmergenciaQuimica {
 	
-	public class OverwriteStateConfirmationMenuBehaviour : MenuBehaviour {
+	public class DeleteGameConfirmationMenuBehaviour : MenuBehaviour {
 		
 		public override void OnShowGui() {
 			GUIStyle menuBoxStyle = GUI.skin.GetStyle("MenuBox");
@@ -19,21 +19,21 @@ namespace EmergenciaQuimica {
 			GUILayout.BeginArea(area0); {
 				Rect area00 = new Rect(0f, 0f, area0.width, 0.6f * area0.height);
 				GUILayout.BeginArea(area00); {
-					GUILayout.Box(Language.GetText("OverwriteStateConfirmationMenuBox"), modifiedMenuBoxStyle, GUILayout.ExpandHeight(true));
+					GUILayout.Box(Language.GetText("DeleteGameConfirmationMenuBox"), modifiedMenuBoxStyle, GUILayout.ExpandHeight(true));
 				} GUILayout.EndArea();
 				
 				Rect area01 = new Rect(0f, 0.7f * area0.height, area0.width, 0.3f * area0.height);
 				GUILayout.BeginArea(area01); {
 					Rect area010 = new Rect(0f, 0f, 0.49f * area01.width, area01.height);
 					GUILayout.BeginArea(area010); {
-						if (GUILayout.Button(Language.GetText("OverwriteStateConfirmationMenuCancelButton"), modifiedMenuButtonStyle))
+						if (GUILayout.Button(Language.GetText("DeleteGameConfirmationMenuCancelButton"), modifiedMenuButtonStyle))
 							OnCancel();
 					} GUILayout.EndArea();
 					
 					Rect area011 = new Rect(0.51f * area01.width, 0f, 0.49f * area01.width, area01.height);
 					GUILayout.BeginArea(area011); {
-						if (GUILayout.Button(Language.GetText("OverwriteStateConfirmationMenuOverwriteStateButton"), modifiedMenuButtonStyle))
-							OnOverwriteState();
+						if (GUILayout.Button(Language.GetText("DeleteGameConfirmationMenuDeleteGameButton"), modifiedMenuButtonStyle))
+							OnDeleteGame();
 					} GUILayout.EndArea();
 				} GUILayout.EndArea();
 			} GUILayout.EndArea();
@@ -42,11 +42,10 @@ namespace EmergenciaQuimica {
 		private void OnCancel() {
 			Game.CloseMenu();
 		}
-
-		private void OnOverwriteState() {
+		
+		private void OnDeleteGame() {
 			string stateId = (string) Game.GetMenuParameters()[0];
-			Game.SaveGame(stateId);
-			Game.CloseMenu();
+			Game.DeleteGame(stateId);
 			Game.CloseMenu();
 		}
 		

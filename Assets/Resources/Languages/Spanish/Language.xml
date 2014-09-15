@@ -38,7 +38,7 @@ se perdera todo progreso no guardado.</value>
 		<value>cancelar</value>
 	</text>
 	<text>
-		<id>LoadGameMenuDeleteStateButton</id>
+		<id>LoadGameMenuDeleteGameButton</id>
 		<value>eliminar</value>
 	</text>
 	<text>
@@ -141,7 +141,7 @@ se perdera todo progreso no guardado.</value>
 		<value>cancelar</value>
 	</text>
 	<text>
-		<id>SaveGameMenuDeleteStateButton</id>
+		<id>SaveGameMenuDeleteGameButton</id>
 		<value>eliminar</value>
 	</text>
 	<text>
@@ -149,7 +149,7 @@ se perdera todo progreso no guardado.</value>
 		<value>guardar partida</value>
 	</text>
 	<text>
-		<id>SaveGameMenuStateIdLabel</id>
+		<id>SaveGameMenuGameLabel</id>
 		<value>nombre de la partida</value>
 	</text>
 	<text>
@@ -160,30 +160,30 @@ se perdera todo progreso no guardado.</value>
 	
 	
 	<text>
-		<id>OverwriteStateConfirmationMenuBox</id>
+		<id>OverwriteGameConfirmationMenuBox</id>
 		<value>¿realmente desea sobrescribir la partida?</value>
 	</text>
 	<text>
-		<id>OverwriteStateConfirmationMenuCancelButton</id>
+		<id>OverwriteGameConfirmationMenuCancelButton</id>
 		<value>cancelar</value>
 	</text>
 	<text>
-		<id>OverwriteStateConfirmationMenuOverwriteStateButton</id>
+		<id>OverwriteGameConfirmationMenuOverwriteGameButton</id>
 		<value>sobrescribir</value>
 	</text>
 	
 	
 	
 	<text>
-		<id>DeleteStateConfirmationMenuBox</id>
+		<id>DeleteGameConfirmationMenuBox</id>
 		<value>¿realmente desea eliminar la partida?</value>
 	</text>
 	<text>
-		<id>DeleteStateConfirmationMenuCancelButton</id>
+		<id>DeleteGameConfirmationMenuCancelButton</id>
 		<value>cancelar</value>
 	</text>
 	<text>
-		<id>DeleteStateConfirmationMenuDeleteStateButton</id>
+		<id>DeleteGameConfirmationMenuDeleteGameButton</id>
 		<value>eliminar</value>
 	</text>
 	

@@ -8,7 +8,7 @@ namespace SaguFramework {
 		
 		public float Height;
 		public CharacterBehaviour Behaviour;
-		public RuntimeAnimatorController AnimatorController;
+		public ImageParameters Image;
 		
 	}
 	
