@@ -48,6 +48,11 @@ namespace SaguFramework {
 
 		public void StopActions() {
 			StopAllCoroutines();
+
+			Animator animator = image.GetAnimator();
+			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, false);
+			animator.SetBool(Parameters.CharacterAnimatorControllerIsWalking, false);
+
 			SoundPlayer.StopVoice(id);
 		}
 

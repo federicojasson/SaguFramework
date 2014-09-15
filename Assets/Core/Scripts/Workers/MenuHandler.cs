@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace SaguFramework {
 	
@@ -17,7 +17,7 @@ namespace SaguFramework {
 				}
 			} else {
 				menus.Peek().Destroy();
-				menus.Peek().Show();
+				menus.Peek().Activate();
 			}
 		}
 
@@ -44,7 +44,7 @@ namespace SaguFramework {
 			Stack<Menu> menus = Objects.GetMenus();
 
 			if (menus.Count > 0)
-				menus.Peek().Hide();
+				menus.Peek().Deactivate();
 			
 			Factory.CreateMenu(menuParameters);
 		}

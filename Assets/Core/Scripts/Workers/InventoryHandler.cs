@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SaguFramework {
@@ -13,17 +13,17 @@ namespace SaguFramework {
 
 		public static void ToggleInventory() {
 			Inventory inventory = Objects.GetInventory();
-			if (inventory.IsShowing()) {
+			if (inventory.IsActivated()) {
 				foreach (InventoryTrigger inventoryTrigger in Objects.GetInventoryTriggers())
-					inventoryTrigger.Hide();
+					inventoryTrigger.Deactivate();
 
-				Objects.GetInventory().Hide();
+				Objects.GetInventory().Deactivate();
 				HideInventoryItems();
 			} else {
 				foreach (InventoryTrigger inventoryTrigger in Objects.GetInventoryTriggers())
-					inventoryTrigger.Show();
+					inventoryTrigger.Activate();
 
-				Objects.GetInventory().Show();
+				Objects.GetInventory().Activate();
 				ShowInventoryItems();
 			}
 
@@ -63,7 +63,7 @@ namespace SaguFramework {
 
 		private static void HideInventoryItems() {
 			foreach (InventoryItem inventoryItem in Objects.GetInventoryItems())
-				inventoryItem.Hide();
+				inventoryItem.Deactivate();
 		}
 
 		private static void ShowInventoryItems() {
@@ -108,7 +108,7 @@ namespace SaguFramework {
 				float x = offsetX + column * cellAndGapWidth;
 				float y = offsetY + row * cellAndGapHeight;
 				inventoryItem.SetPosition(new Vector2(x, y));
-				inventoryItem.Show();
+				inventoryItem.Activate();
 
 				column = (column + 1) % columns;
 				if (column == 0)

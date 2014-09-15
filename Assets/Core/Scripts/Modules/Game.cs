@@ -33,6 +33,7 @@ namespace SaguFramework {
 			CharacterState characterState = new CharacterState(direction, location);
 			
 			State.SetCharacterState(characterId, characterState);
+			State.SetCurrentRoomId(roomId);
 			LoadSplashScreenOrRoom(groupId);
 		}
 

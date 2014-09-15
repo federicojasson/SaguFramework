@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace SaguFramework {
 	
@@ -19,7 +19,7 @@ namespace SaguFramework {
 			character.SetDepth(Parameters.DepthCharacter);
 			character.SetPosition(Geometry.GameToWorldPosition(characterState.GetLocation().GetPosition()));
 			character.Register();
-			character.Show();
+			character.Activate();
 
 			character.SetDirection(characterState.GetDirection());
 		}
@@ -69,7 +69,7 @@ namespace SaguFramework {
 			item.SetDepth(Parameters.DepthItem);
 			item.SetPosition(Geometry.GameToWorldPosition(itemState.GetLocation().GetPosition()));
 			item.Register();
-			item.Show();
+			item.Activate();
 		}
 		
 		public static void CreateMenu(MenuParameters menuParameters) {
@@ -83,7 +83,7 @@ namespace SaguFramework {
 			Utilities.SetParent(image, menu);
 			menu.SetDepth(Parameters.DepthMenu);
 			menu.Register();
-			menu.Show();
+			menu.Activate();
 		}
 
 		public static void CreateRoom(RoomParameters roomParameters) {
@@ -102,7 +102,7 @@ namespace SaguFramework {
 			room.SetDepth(Parameters.DepthRoom);
 			room.SetPosition(position);
 			room.Register();
-			room.Show();
+			room.Activate();
 
 			foreach (RoomTriggerParameters roomTriggerParameters in roomParameters.Triggers)
 				CreateRoomTrigger(roomTriggerParameters);
@@ -119,7 +119,7 @@ namespace SaguFramework {
 			Utilities.SetParent(image, splashScreen);
 			splashScreen.SetDepth(Parameters.DepthSplashScreen);
 			splashScreen.Register();
-			splashScreen.Show();
+			splashScreen.Activate();
 		}
 
 		private static E CreateEntity<E, B>() where E : Entity where B : EntityBehaviour {
@@ -190,7 +190,7 @@ namespace SaguFramework {
 			roomTrigger.SetDepth(Parameters.DepthRoomTrigger);
 			roomTrigger.SetPosition(Geometry.GameToWorldPosition(position));
 			roomTrigger.Register();
-			roomTrigger.Show();
+			roomTrigger.Activate();
 		}
 
 	}

@@ -6,9 +6,10 @@ namespace EmergenciaQuimica {
 	public class ErlenmeyerBehaviour : ItemBehaviour {
 
 		public override void OnLook() {
-			string text = Language.GetText("ErlenmeyerOnLook");
-			AudioClip voice = Language.GetVoice("ErlenmeyerOnLook");
+			string text = Language.GetText("ErlenmeyerDescription");
+			AudioClip voice = Language.GetVoice("ErlenmeyerDescription");
 			Game.ExecuteActions("Scientist", new CharacterAction[] {
+				CharacterAction.Look(GetEntity().GetPosition()),
 				CharacterAction.Say(text, voice)
 			});
 		}

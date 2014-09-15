@@ -1,4 +1,4 @@
-﻿namespace SaguFramework {
+namespace SaguFramework {
 	
 	public class GameHandler : Worker {
 		
@@ -24,7 +24,7 @@
 			}
 			
 			Inventory inventory = Objects.GetInventory();
-			if (inventory != null && inventory.IsShowing()) {
+			if (inventory != null && inventory.IsActivated()) {
 				SetGameMode(GameMode.Inventory);
 				return;
 			}

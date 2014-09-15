@@ -6,12 +6,16 @@ namespace SaguFramework {
 
 		public override void Awake() {
 			base.Awake();
-			Rigidbody2D rigidbody = gameObject.AddComponent<Rigidbody2D>();
-			rigidbody.isKinematic = false;
-			rigidbody.gravityScale = 0;
-			rigidbody.fixedAngle = true;
-			BoxCollider2D collider = GetComponent<BoxCollider2D>();
+
+			BoxCollider2D collider = GetCollider();
 			collider.isTrigger = true;
+
+			Rigidbody2D rigidbody = GetRigidbody();
+			rigidbody.angularDrag = 0;
+			rigidbody.drag = 0;
+			rigidbody.fixedAngle = true;
+			rigidbody.gravityScale = 0;
+			rigidbody.isKinematic = false;
 		}
 
 	}

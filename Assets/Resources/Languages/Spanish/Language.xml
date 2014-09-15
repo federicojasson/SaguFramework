@@ -264,12 +264,12 @@ se perdera todo progreso no guardado.</value>
 	
 	
 	<text>
-		<id>ErlenmeyerOnLook</id>
-		<value>ErlenmeyerOnLook</value>
+		<id>ErlenmeyerDescription</id>
+		<value>ErlenmeyerDescription</value>
 	</text>
 	<voice>
-		<id>ErlenmeyerOnLook</id>
-		<resource-path>Languages/Spanish/Voices/ErlenmeyerOnLook</resource-path>
+		<id>ErlenmeyerDescription</id>
+		<resource-path>Languages/Spanish/Voices/ErlenmeyerDescription</resource-path>
 	</voice>
 	
 	

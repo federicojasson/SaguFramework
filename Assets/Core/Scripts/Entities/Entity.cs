@@ -6,12 +6,21 @@ namespace SaguFramework {
 		
 		private EntityBehaviour behaviour;
 		private new BoxCollider2D collider;
+		private new Rigidbody2D rigidbody;
+		
+		public void Activate() {
+			gameObject.SetActive(true);
+		}
 
-		public virtual void Awake() { // TODO: virtual?
+		public virtual void Awake() {
 			collider = gameObject.AddComponent<BoxCollider2D>();
-			/*Rigidbody2D rigidbody = gameObject.AddComponent<Rigidbody2D>();
-			rigidbody.isKinematic = true;*/
-			Hide();
+			rigidbody = gameObject.AddComponent<Rigidbody2D>();
+			rigidbody.isKinematic = true;
+			Deactivate();
+		}
+		
+		public void Deactivate() {
+			gameObject.SetActive(false);
 		}
 
 		public void Destroy() {
@@ -30,11 +39,7 @@ namespace SaguFramework {
 			return collider.size;
 		}
 
-		public void Hide() {
-			gameObject.SetActive(false);
-		}
-
-		public bool IsShowing() {
+		public bool IsActivated() {
 			return gameObject.activeInHierarchy;
 		}
 
@@ -62,8 +67,7 @@ namespace SaguFramework {
 		}
 		
 		public void OnTriggerEnter2D(Collider2D collider) {
-			Debug.Log("TRIGGER ACTIVATED");
-			//InputHandler.NotifyOnTriggerEnter2D(this, collider); TODO
+			InputHandler.NotifyOnTriggerEnter2D(this, collider);
 		}
 
 		public void Register() {
@@ -85,9 +89,13 @@ namespace SaguFramework {
 		public void SetSize(Vector2 size) {
 			collider.size = size;
 		}
+		
+		protected BoxCollider2D GetCollider() {
+			return collider;
+		}
 
-		public void Show() {
-			gameObject.SetActive(true);
+		protected Rigidbody2D GetRigidbody() {
+			return rigidbody;
 		}
 
 	}
