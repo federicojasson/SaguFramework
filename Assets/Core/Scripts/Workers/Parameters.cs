@@ -9,8 +9,9 @@ namespace SaguFramework {
 		public const string CharacterAnimatorControllerIsDirectionLeft = "IsDirectionLeft";
 		public const string CharacterAnimatorControllerIsSaying = "IsSaying";
 		public const string CharacterAnimatorControllerIsWalking = "IsWalking";
-
-		public const float DeltaDistance = 0.002f;
+		
+		public const float DeltaDistance = 0.00125f;
+		public const float StopDistanceFactor = 0.2f;
 
 		public const float DepthCamera = -1000;
 		public const float DepthCharacter = -400;
@@ -105,6 +106,10 @@ namespace SaguFramework {
 
 		public static KeyCode[] GetCloseMenuKeys() {
 			return instance.GameParameters.Controls.CloseMenuKeys;
+		}
+
+		public static Vector2 GetCursorPreferredSize() {
+			return instance.GameParameters.Graphics.Cursors.PreferredSize;
 		}
 
 		public static Texture2D GetDefaultFadeTexture() {

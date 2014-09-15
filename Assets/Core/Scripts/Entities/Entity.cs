@@ -7,8 +7,10 @@ namespace SaguFramework {
 		private EntityBehaviour behaviour;
 		private new BoxCollider2D collider;
 
-		public void Awake() {
+		public virtual void Awake() { // TODO: virtual?
 			collider = gameObject.AddComponent<BoxCollider2D>();
+			/*Rigidbody2D rigidbody = gameObject.AddComponent<Rigidbody2D>();
+			rigidbody.isKinematic = true;*/
 			Hide();
 		}
 
@@ -60,7 +62,8 @@ namespace SaguFramework {
 		}
 		
 		public void OnTriggerEnter2D(Collider2D collider) {
-			InputHandler.NotifyOnTriggerEnter2D(this, collider);
+			Debug.Log("TRIGGER ACTIVATED");
+			//InputHandler.NotifyOnTriggerEnter2D(this, collider); TODO
 		}
 
 		public void Register() {

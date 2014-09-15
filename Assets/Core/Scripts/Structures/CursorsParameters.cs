@@ -6,6 +6,7 @@ namespace SaguFramework {
 	[Serializable]
 	public class CursorsParameters {
 
+		public Vector2 PreferredSize;
 		public Texture2D ClickTexture;
 		public Texture2D LookTexture;
 		public Texture2D PickUpTexture;

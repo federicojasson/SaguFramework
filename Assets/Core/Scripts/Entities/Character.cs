@@ -8,6 +8,7 @@ namespace SaguFramework {
 
 		private string id;
 		private Image image;
+		private float speed;
 
 		public void ExecuteActions(CharacterAction[] actions) {
 			ExecuteActions(actions, null);
@@ -39,6 +40,10 @@ namespace SaguFramework {
 
 		public void SetImage(Image image) {
 			this.image = image;
+		}
+
+		public void SetSpeed(float speed) {
+			this.speed = speed;
 		}
 
 		public void StopActions() {
@@ -106,14 +111,12 @@ namespace SaguFramework {
 
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsWalking, true);
 
-			// TODO: Get speed
-			float walkSpeed = Geometry.GameToWorldX(0.2f);
-
 			float deltaDistance = Geometry.GameToWorldWidth(Parameters.DeltaDistance);
+			float stopDistance = Parameters.StopDistanceFactor * image.GetSize().x;
 			Vector2 currentPosition = GetPosition();
 
-			while (Mathf.Abs(currentPosition.x - position.x) > deltaDistance) {
-				float offset = walkSpeed * Time.fixedDeltaTime * Mathf.Sign(position.x - currentPosition.x);
+			while (Mathf.Abs(currentPosition.x - position.x) > stopDistance) {
+				float offset = speed * Time.fixedDeltaTime * Mathf.Sign(position.x - currentPosition.x);
 				SetPosition(currentPosition + new Vector2(offset, 0f));
 
 				yield return new WaitForFixedUpdate();

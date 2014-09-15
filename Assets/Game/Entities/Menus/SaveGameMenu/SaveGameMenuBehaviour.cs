@@ -148,7 +148,8 @@ namespace EmergenciaQuimica {
 
 		private void OnDeleteGame() {
 			string stateId = stateIds[selectedStateId];
-			Game.OpenMenu("PauseDeleteGameConfirmationMenu", stateId);
+			DeleteGameConfirmationMenuBehaviour.SetStateId(stateId);
+			Game.OpenMenu("PauseDeleteGameConfirmationMenu");
 		}
 		
 		private void OnSaveGame() {
@@ -159,7 +160,8 @@ namespace EmergenciaQuimica {
 				stateId = stateIds[selectedStateId];
 
 			if (stateIds.Contains(stateId)) {
-				Game.OpenMenu("OverwriteGameConfirmationMenu", stateId);
+				OverwriteGameConfirmationMenuBehaviour.SetStateId(stateId);
+				Game.OpenMenu("OverwriteGameConfirmationMenu");
 				return;
 			}
 			

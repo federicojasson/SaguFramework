@@ -12,6 +12,8 @@ namespace SaguFramework {
 
 			character.SetId(characterId);
 			character.SetImage(image);
+			character.SetSize(size);
+			character.SetSpeed(Geometry.GameToWorldWidth(characterParameters.Speed));
 			image.SetSize(size);
 			Utilities.SetParent(image, character);
 			character.SetDepth(Parameters.DepthCharacter);

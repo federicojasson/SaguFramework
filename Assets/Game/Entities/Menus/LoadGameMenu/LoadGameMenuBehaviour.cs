@@ -87,7 +87,8 @@ namespace EmergenciaQuimica {
 
 		private void OnDeleteGame() {
 			string stateId = stateIds[selectedStateId];
-			Game.OpenMenu(GetDeleteGameConfirmationMenuId(), stateId);
+			DeleteGameConfirmationMenuBehaviour.SetStateId(stateId);
+			Game.OpenMenu(GetDeleteGameConfirmationMenuId());
 		}
 		
 		private void OnCancel() {

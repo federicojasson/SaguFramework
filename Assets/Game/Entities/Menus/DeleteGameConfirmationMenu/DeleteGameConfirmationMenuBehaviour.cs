@@ -4,7 +4,13 @@ using UnityEngine;
 namespace EmergenciaQuimica {
 	
 	public class DeleteGameConfirmationMenuBehaviour : MenuBehaviour {
-		
+
+		private static string stateId;
+
+		public static void SetStateId(string stateId) {
+			DeleteGameConfirmationMenuBehaviour.stateId = stateId;
+		}
+
 		public override void OnShowGui() {
 			GUIStyle menuBoxStyle = GUI.skin.GetStyle("MenuBox");
 			GUIStyle modifiedMenuBoxStyle = Utilities.GetRelativeStyle(menuBoxStyle);
@@ -44,7 +50,6 @@ namespace EmergenciaQuimica {
 		}
 		
 		private void OnDeleteGame() {
-			string stateId = (string) Game.GetMenuParameters()[0];
 			Game.DeleteGame(stateId);
 			Game.CloseMenu();
 		}

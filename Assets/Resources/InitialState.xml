@@ -49,6 +49,9 @@
 		<id>InventoryErlenmeyer</id>
 	</inventory-item>
 	<inventory-item>
+		<id>InventoryProtectionSuit</id>
+	</inventory-item>
+	<inventory-item>
 		<id>InventoryErlenmeyer</id>
 	</inventory-item>
 	<inventory-item>

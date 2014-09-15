@@ -5,7 +5,7 @@ namespace SaguFramework {
 	public class MenuHandler : Worker {
 
 		private static bool isMainMenu;
-		private static object[] parameters;
+		private static Menu menu;
 
 		public static void CloseMenu() {
 			Stack<Menu> menus = Objects.GetMenus();
@@ -21,10 +21,6 @@ namespace SaguFramework {
 			}
 		}
 
-		public static object[] GetParameters() {
-			return parameters;
-		}
-
 		public static void OpenMainMenu() {
 			isMainMenu = true;
 			MenuParameters parameters = Parameters.GetMainMenuParameters();
@@ -33,8 +29,8 @@ namespace SaguFramework {
 		}
 		
 		public static void OpenMenu(string menuId) {
-			MenuParameters parameters = Parameters.GetMenuParameters(menuId);
-			OpenMenu(parameters);
+			MenuParameters menuParameters = Parameters.GetMenuParameters(menuId);
+			OpenMenu(menuParameters);
 		}
 		
 		public static void OpenPauseMenu() {
@@ -44,17 +40,13 @@ namespace SaguFramework {
 			GameHandler.UpdateGameMode();
 		}
 
-		public static void SetParameters(object[] parameters) {
-			MenuHandler.parameters = parameters;
-		}
-
-		private static void OpenMenu(MenuParameters parameters) {
+		private static void OpenMenu(MenuParameters menuParameters) {
 			Stack<Menu> menus = Objects.GetMenus();
 
 			if (menus.Count > 0)
 				menus.Peek().Hide();
 			
-			Factory.CreateMenu(parameters);
+			Factory.CreateMenu(menuParameters);
 		}
 
 	}

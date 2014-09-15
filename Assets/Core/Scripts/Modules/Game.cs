@@ -57,10 +57,6 @@ namespace SaguFramework {
 			Application.Quit();
 		}
 
-		public static object[] GetMenuParameters() {
-			return MenuHandler.GetParameters();
-		}
-
 		public static void LoadGame(string stateId) {
 			LoadGame(stateId, string.Empty);
 		}
@@ -78,18 +74,12 @@ namespace SaguFramework {
 			State.LoadInitial();
 			LoadSplashScreenOrRoom(groupId);
 		}
-		
+
 		public static void OpenMainMenu() {
 			Loader.ChangeScene(Parameters.SceneMainMenu);
 		}
 
-		public static void OpenMainMenu(params object[] parameters) {
-			MenuHandler.SetParameters(parameters);
-			Loader.ChangeScene(Parameters.SceneMainMenu);
-		}
-
-		public static void OpenMenu(string menuId, params object[] parameters) {
-			MenuHandler.SetParameters(parameters);
+		public static void OpenMenu(string menuId) {
 			MenuHandler.OpenMenu(menuId);
 		}
 

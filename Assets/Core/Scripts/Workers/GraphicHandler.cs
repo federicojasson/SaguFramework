@@ -5,6 +5,7 @@ namespace SaguFramework {
 	
 	public class GraphicHandler : Worker {
 
+		private static Texture2D cursorTexture;
 		private static float fadeSpeed;
 		private static Texture2D fadeTexture;
 		private static float fadeTextureOpacity;
@@ -59,68 +60,84 @@ namespace SaguFramework {
 		public static void SetTooltip(string tooltip) {
 			GraphicHandler.tooltip = tooltip;
 		}
+
+		private static void Cursor() {
+			Screen.showCursor = false;
+
+			if (cursorTexture != null) {
+				Vector2 textureSize = new Vector2(cursorTexture.width, cursorTexture.height);
+				Vector2 preferredCursorSize = Geometry.GameToWorldSize(Parameters.GetCursorPreferredSize());
+				preferredCursorSize.x = Geometry.UnitsToPixels(preferredCursorSize.x);
+				preferredCursorSize.y = Geometry.UnitsToPixels(preferredCursorSize.y);
+
+				Vector2 cursorSize = Utilities.GetSize(textureSize, preferredCursorSize);
+				Vector2 cursorPosition = Event.current.mousePosition;
+				
+				float width = cursorSize.x;
+				float height = cursorSize.y;
+				float x = cursorPosition.x - 0.5f * width;
+				float y = cursorPosition.y - 0.5f * height;
+				Rect cursorRectangle = new Rect(x, y, width, height);
+
+				GUI.color = Utilities.GetColor(GUI.color, 1f);
+				GUI.DrawTexture(cursorRectangle, cursorTexture);
+			}
+		}
 		
 		private static void Fade() {
-			if (fadeTexture == null)
-				fadeTexture = Parameters.GetDefaultFadeTexture();
-			
-			fadeTextureOpacity += fadeSpeed * Time.deltaTime;
-			float clampedFadeTextureOpacity = Mathf.Clamp01(fadeTextureOpacity);
-			
-			Rect gameRectangle = Geometry.GetGameRectangleInGui();
-			
-			GUI.color = Utilities.GetColor(GUI.color, clampedFadeTextureOpacity);
-			GUI.DrawTexture(gameRectangle, fadeTexture);
+			if (Event.current.type == EventType.Repaint) {
+				// Exactly one repaint event is sent every frame
+				if (fadeTexture == null)
+					fadeTexture = Parameters.GetDefaultFadeTexture();
+				
+				fadeTextureOpacity += fadeSpeed * Time.deltaTime;
+				float clampedFadeTextureOpacity = Mathf.Clamp01(fadeTextureOpacity);
+				
+				Rect gameRectangle = Geometry.GetGameRectangleInGui();
+				
+				GUI.color = Utilities.GetColor(GUI.color, clampedFadeTextureOpacity);
+				GUI.DrawTexture(gameRectangle, fadeTexture);
+			}
 		}
 
 		private static void SetCursor(Order order) {
-			Texture2D texture;
-
 			switch (order) {
 				case Order.Click : {
-					texture = Parameters.GetClickTexture();
-					break;
+					cursorTexture = Parameters.GetClickTexture();
+					return;
 				}
 					
 				case Order.Look : {
-					texture = Parameters.GetLookTexture();
-					break;
+					cursorTexture = Parameters.GetLookTexture();
+					return;
 				}
 
 				case Order.None : {
-					Screen.showCursor = false;
+					cursorTexture = null;
 					return;
 				}
 					
 				case Order.PickUp : {
-					texture = Parameters.GetPickUpTexture();
-					break;
+					cursorTexture = Parameters.GetPickUpTexture();
+					return;
 				}
 					
 				case Order.Speak : {
-					texture = Parameters.GetSpeakTexture();
-					break;
+					cursorTexture = Parameters.GetSpeakTexture();
+					return;
 				}
 					
 				case Order.UseInventoryItem : {
 					InventoryItem inventoryItem = OrderHandler.GetSelectedInventoryItem();
-					texture = inventoryItem.GetImage().GetTexture();
-					break;
+					cursorTexture = inventoryItem.GetImage().GetTexture();
+					return;
 				}
 					
 				case Order.Walk : {
-					texture = Parameters.GetWalkTexture();
-					break;
-				}
-				
-				default : {
+					cursorTexture = Parameters.GetWalkTexture();
 					return;
 				}
 			}
-
-			Screen.showCursor = true;
-			Vector2 hotspot = new Vector2(0.5f * texture.width, 0.5f * texture.height);
-			Cursor.SetCursor(texture, hotspot, CursorMode.ForceSoftware);
 		}
 		
 		private static void Tooltip() {
@@ -162,12 +179,10 @@ namespace SaguFramework {
 		public void OnGUI() {
 			GUI.skin = Parameters.GetSkin();
 			
+			Cursor();
 			Tooltip();
-			if (Event.current.type == EventType.Repaint) {
-				// Exactly one repaint event is sent every frame
-				Fade();
-				Windowbox();
-			}
+			Fade();
+			Windowbox();
 		}
 		
 		public override void OnGameModeChange() {

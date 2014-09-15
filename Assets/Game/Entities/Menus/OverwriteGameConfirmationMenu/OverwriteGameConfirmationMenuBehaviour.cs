@@ -4,7 +4,13 @@ using UnityEngine;
 namespace EmergenciaQuimica {
 	
 	public class OverwriteGameConfirmationMenuBehaviour : MenuBehaviour {
-		
+
+		private static string stateId;
+
+		public static void SetStateId(string stateId) {
+			OverwriteGameConfirmationMenuBehaviour.stateId = stateId;
+		}
+
 		public override void OnShowGui() {
 			GUIStyle menuBoxStyle = GUI.skin.GetStyle("MenuBox");
 			GUIStyle modifiedMenuBoxStyle = Utilities.GetRelativeStyle(menuBoxStyle);
@@ -44,7 +50,6 @@ namespace EmergenciaQuimica {
 		}
 
 		private void OnOverwriteGame() {
-			string stateId = (string) Game.GetMenuParameters()[0];
 			Game.SaveGame(stateId);
 			Game.CloseMenu();
 			Game.CloseMenu();
