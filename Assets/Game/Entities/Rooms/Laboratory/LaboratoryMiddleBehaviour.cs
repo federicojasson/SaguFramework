@@ -30,8 +30,8 @@ namespace EmergenciaQuimica {
 							CharacterAction.Walk(supervisorPosition.x)
 						});
 
-						string scientistText = Language.GetText("NeedProtectionSuit");
-						AudioClip scientistVoice = Language.GetVoice("NeedProtectionSuit");
+						string scientistText = Language.GetText("NeedProtectionSuitResponse");
+						AudioClip scientistVoice = Language.GetVoice("NeedProtectionSuitResponse");
 						Game.ExecuteActions("Scientist", new CharacterAction[] {
 							CharacterAction.Look(Geometry.GameToWorldX(0.2f)),
 							CharacterAction.Walk(Geometry.GameToWorldX(0.2f)),

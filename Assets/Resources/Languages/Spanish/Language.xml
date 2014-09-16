@@ -229,7 +229,7 @@ se perdera todo progreso no guardado.</value>
 	<!-- ErlenmeyerDescription -->
 	<text>
 		<id>ErlenmeyerDescription</id>
-		<value>ErlenmeyerDescription</value> <!-- TODO -->
+		<value>Es un Erlenmeyer.</value>
 	</text>
 	<voice>
 		<id>ErlenmeyerDescription</id>
@@ -259,7 +259,7 @@ se perdera todo progreso no guardado.</value>
 	<!-- NeedProtectionSuit -->
 	<text>
 		<id>NeedProtectionSuit</id>
-		<value>NeedProtectionSuit</value> <!-- TODO -->
+		<value>Antes de entrar al laboratorio, tienes que ponerte el traje de protección.</value>
 	</text>
 	<voice>
 		<id>NeedProtectionSuit</id>
@@ -269,7 +269,7 @@ se perdera todo progreso no guardado.</value>
 	<!-- NeedProtectionSuitResponse -->
 	<text>
 		<id>NeedProtectionSuitResponse</id>
-		<value>NeedProtectionSuitResponse</value> <!-- TODO -->
+		<value>Tendré que ir a buscar el traje de protección antes de entrar</value>
 	</text>
 	<voice>
 		<id>NeedProtectionSuitResponse</id>
@@ -279,7 +279,7 @@ se perdera todo progreso no guardado.</value>
 	<!-- NegationSpeech0 -->
 	<text>
 		<id>NegationSpeech0</id>
-		<value>NegationSpeech0</value> <!-- TODO -->
+		<value>Mmm... no.</value>
 	</text>
 	<voice>
 		<id>NegationSpeech0</id>
@@ -289,7 +289,7 @@ se perdera todo progreso no guardado.</value>
 	<!-- NegationSpeech1 -->
 	<text>
 		<id>NegationSpeech1</id>
-		<value>NegationSpeech1</value> <!-- TODO -->
+		<value>No puedo hacer eso.</value>
 	</text>
 	<voice>
 		<id>NegationSpeech1</id>
@@ -299,7 +299,7 @@ se perdera todo progreso no guardado.</value>
 	<!-- NegationSpeech2 -->
 	<text>
 		<id>NegationSpeech2</id>
-		<value>NegationSpeech2</value> <!-- TODO -->
+		<value>Eso no tiene sentido.</value>
 	</text>
 	<voice>
 		<id>NegationSpeech2</id>
@@ -309,7 +309,7 @@ se perdera todo progreso no guardado.</value>
 	<!-- OnUseProtectionSuit -->
 	<text>
 		<id>OnUseProtectionSuit</id>
-		<value>OnUseProtectionSuit</value> <!-- TODO -->
+		<value>Bien... ya estoy listo para trabajar.</value>
 	</text>
 	<voice>
 		<id>OnUseProtectionSuit</id>
@@ -319,7 +319,7 @@ se perdera todo progreso no guardado.</value>
 	<!-- ProtectionSuitDescription -->
 	<text>
 		<id>ProtectionSuitDescription</id>
-		<value>ProtectionSuitDescription</value> <!-- TODO -->
+		<value>Es el traje de protección.</value>
 	</text>
 	<voice>
 		<id>ProtectionSuitDescription</id>
