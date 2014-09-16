@@ -16,6 +16,15 @@ namespace SaguFramework {
 			voicePlayers = new Dictionary<string, AudioSource>();
 		}
 
+		public static void PlayInventoryEffect() {
+			AudioClip inventoryEffect = Parameters.GetInventoryEffect();
+			PlayEffect(inventoryEffect);
+		}
+		public static void PlayInventoryPageEffect() {
+			AudioClip inventoryPageEffect = Parameters.GetInventoryPageEffect();
+			PlayEffect(inventoryPageEffect);
+		}
+
 		public static void PlayMainEffect() {
 			AudioClip mainEffect = Parameters.GetMainEffect();
 			PlayEffect(mainEffect);
@@ -25,6 +34,11 @@ namespace SaguFramework {
 			StopPlaylist();
 			AudioClip mainMenuSong = Parameters.GetMainMenuSong();
 			PlaySong(mainMenuSong);
+		}
+		
+		public static void PlayMenuEffect() {
+			AudioClip menuEffect = Parameters.GetMenuEffect();
+			PlayEffect(menuEffect);
 		}
 
 		public static void PlayPlaylist() {

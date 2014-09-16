@@ -5,8 +5,9 @@ namespace EmergenciaQuimica {
 	public class ScientistBehaviour : CharacterBehaviour {
 		
 		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
-			if (inventoryItem.GetId() == "ProtectionSuit") {
-				// TODO: al usar protection suit
+			if (inventoryItem.GetId() == "InventoryProtectionSuit") {
+				State.AddHint("ScientistHasProtectionSuit");
+				Game.RemoveFromInventory("InventoryProtectionSuit");
 			}
 		}
 		

@@ -5,6 +5,40 @@ namespace SaguFramework {
 	
 	public static class Game {
 
+		public static void AddToInventory(string inventoryItemId) {
+			// TODO: what if it is showing?
+
+			State.AddInventoryItem(inventoryItemId);
+
+			InventoryItemParameters inventoryItemParameters = Parameters.GetInventoryItemParameters(inventoryItemId);
+			InventoryParameters inventoryParameters = Parameters.GetInventoryParameters();
+			Factory.CreateInventoryItem(inventoryItemId, inventoryItemParameters, inventoryParameters);
+		}
+
+		public static void RemoveFromInventory(string inventoryItemId) {
+			// TODO: what if it is showing?
+
+			State.RemoveInventoryItem(inventoryItemId);
+
+			InventoryItem inventoryItem;
+			if (Objects.GetInventoryItems().TryGetValue(inventoryItemId, out inventoryItem))
+				inventoryItem.Destroy();
+		}
+
+		public static void RemoveItem(string itemId) {
+			State.RemoveItem(itemId);
+
+			Item item;
+			if (Objects.GetItems().TryGetValue(itemId, out item))
+				item.Destroy();
+		}
+
+
+
+
+
+
+
 		public static void ApplyOptions() {
 			string languageId = Options.GetString(Parameters.OptionIdLanguage);
 			Language.Load(languageId);

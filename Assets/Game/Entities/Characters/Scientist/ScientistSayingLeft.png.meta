@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 46f50402d501d5343bee918b32a18126
+guid: 57f5b481e7c732d409afdb2d86edcb01
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -50,35 +50,35 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 512
+        width: 184
+        height: 432
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistSayingLeft_1
       rect:
         serializedVersion: 2
-        x: 256
+        x: 184
         y: 0
-        width: 256
-        height: 512
+        width: 184
+        height: 432
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistSayingLeft_2
       rect:
         serializedVersion: 2
-        x: 512
+        x: 368
         y: 0
-        width: 256
-        height: 512
+        width: 184
+        height: 432
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: ScientistSayingLeft_3
       rect:
         serializedVersion: 2
-        x: 768
+        x: 552
         y: 0
-        width: 256
-        height: 512
+        width: 184
+        height: 432
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 

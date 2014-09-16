@@ -226,20 +226,47 @@ se perdera todo progreso no guardado.</value>
 	
 	
 	<text>
-		<id>InventoryErlenmeyerTooltip</id>
-		<value>Erlenmeyer</value>
-	</text>
-	
-	
-	<text>
-		<id>ErlenmeyerTooltip</id>
-		<value>Erlenmeyer</value>
-	</text>
-	
-	<text>
 		<id>ScientistTooltip</id>
 		<value>Científico</value>
 	</text>
+	
+	<text>
+		<id>SupervisorTooltip</id>
+		<value>Supervisor</value>
+	</text>
+	
+
+	<text>
+		<id>ProtectionSuitSpeech</id>
+		<value>ProtectionSuitSpeech</value>
+	</text>
+	<voice>
+		<id>ProtectionSuitSpeech</id>
+		<resource-path>Languages/Spanish/Voices/ProtectionSuitSpeech</resource-path>
+	</voice>
+	
+	<text>
+		<id>ProtectionSuitResponseSpeech</id>
+		<value>ProtectionSuitResponseSpeech</value>
+	</text>
+	<voice>
+		<id>ProtectionSuitResponseSpeech</id>
+		<resource-path>Languages/Spanish/Voices/ProtectionSuitResponseSpeech</resource-path>
+	</voice>
+	
+	
+	<text>
+		<id>ProtectionSuitTooltip</id>
+		<value>Traje de protección</value>
+	</text>
+	<text>
+		<id>ProtectionSuitDescription</id>
+		<value>ProtectionSuitDescription</value>
+	</text>
+	<voice>
+		<id>ProtectionSuitDescription</id>
+		<resource-path>Languages/Spanish/Voices/ProtectionSuitDescription</resource-path>
+	</voice>
 	
 	
 	
@@ -263,6 +290,10 @@ se perdera todo progreso no guardado.</value>
 	</voice>
 	
 	
+	<text>
+		<id>ErlenmeyerTooltip</id>
+		<value>Erlenmeyer</value>
+	</text>
 	<text>
 		<id>ErlenmeyerDescription</id>
 		<value>ErlenmeyerDescription</value>

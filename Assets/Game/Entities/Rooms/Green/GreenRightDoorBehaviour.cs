@@ -6,7 +6,7 @@ namespace EmergenciaQuimica {
 
 		public override void OnCharacterEnter(Character character) {
 			if (character.GetId() == "Scientist")
-				Game.ChangeRoom("Laboratory", "LeftDoor");
+				Game.ChangeRoom("Laboratory", "LeftDoor", "Molecules");
 		}
 
 		protected override string GetTooltip() {

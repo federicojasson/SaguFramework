@@ -24,10 +24,10 @@
 			};
 
 			orderSets[(int) GameMode.Playing] = new Order[] {
+				Order.Walk,
 				Order.Look,
 				Order.PickUp,
-				Order.Speak,
-				Order.Walk
+				Order.Speak
 			};
 
 			orderSets[(int) GameMode.UsingInventoryItem] = new Order[] {};

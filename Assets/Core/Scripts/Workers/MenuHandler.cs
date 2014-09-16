@@ -10,15 +10,16 @@ namespace SaguFramework {
 		public static void CloseMenu() {
 			Stack<Menu> menus = Objects.GetMenus();
 
-			if (menus.Count == 1) {
-				if (! isMainMenu) {
-					menus.Peek().Destroy();
-					GameHandler.UpdateGameMode();
-				}
-			} else {
-				menus.Peek().Destroy();
+			if (menus.Count == 1 && isMainMenu)
+				return;
+
+			SoundPlayer.PlayMenuEffect();
+			menus.Peek().Destroy();
+
+			if (menus.Count > 0)
 				menus.Peek().Activate();
-			}
+			else
+				GameHandler.UpdateGameMode();
 		}
 
 		public static void OpenMainMenu() {
@@ -42,10 +43,13 @@ namespace SaguFramework {
 
 		private static void OpenMenu(MenuParameters menuParameters) {
 			Stack<Menu> menus = Objects.GetMenus();
+			
+			if (! isMainMenu)
+				SoundPlayer.PlayMenuEffect();
 
 			if (menus.Count > 0)
 				menus.Peek().Deactivate();
-			
+
 			Factory.CreateMenu(menuParameters);
 		}
 

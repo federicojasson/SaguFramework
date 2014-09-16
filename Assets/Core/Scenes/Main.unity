@@ -112,46 +112,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!1001 &329610620
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-  m_RootGameObject: {fileID: 1695975936}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &397599638
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +382,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-  m_PrefabInternal: {fileID: 329610620}
+  m_PrefabInternal: {fileID: 2043690048}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1695975938}
@@ -439,7 +399,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: b3b32f977f66e7f48b20befc765744d0,
     type: 2}
-  m_PrefabInternal: {fileID: 329610620}
+  m_PrefabInternal: {fileID: 2043690048}
   m_GameObject: {fileID: 1695975936}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -523,9 +483,9 @@ MonoBehaviour:
                 type: 2}
               Area:
                 serializedVersion: 2
-                x: .0500000007
+                x: .0125000002
                 y: .5
-                width: .100000001
+                width: .0250000004
                 height: 1
             - Behaviour: {fileID: 11400000, guid: 65bfc9f743cea9e4ea45bc66b081a915,
                 type: 2}
@@ -533,7 +493,7 @@ MonoBehaviour:
                 serializedVersion: 2
                 x: .5
                 y: .5
-                width: .100000001
+                width: .0250000004
                 height: 1
             - Behaviour: {fileID: 11400000, guid: d4c3c096deb4f414ab4258ba3a6faaba,
                 type: 2}
@@ -541,14 +501,14 @@ MonoBehaviour:
                 serializedVersion: 2
                 x: .200000003
                 y: .5
-                width: .100000001
+                width: .0250000004
                 height: 1
             Entries:
               Entries:
               - Key: LeftDoor
                 Value:
                   Direction: 1
-                  Position: {x: .200000003, y: .373524994}
+                  Position: {x: .150000006, y: .349999994}
         - Key: Blue
           Value:
             Height: 2
@@ -568,16 +528,16 @@ MonoBehaviour:
                 type: 2}
               Area:
                 serializedVersion: 2
-                x: 1.45000005
+                x: 1.48749995
                 y: .5
-                width: .100000001
+                width: .0250000004
                 height: 1
             Entries:
               Entries:
               - Key: RightDoor
                 Value:
                   Direction: 0
-                  Position: {x: 1.29999995, y: .373524994}
+                  Position: {x: 1.35000002, y: .349999994}
         - Key: Green
           Value:
             Height: 1
@@ -597,28 +557,28 @@ MonoBehaviour:
                 type: 2}
               Area:
                 serializedVersion: 2
-                x: .0500000007
+                x: .0125000002
                 y: .5
-                width: .100000001
+                width: .0250000004
                 height: 1
             - Behaviour: {fileID: 11400000, guid: ca2223cdbeb0b4d4b9efa0699962e85d,
                 type: 2}
               Area:
                 serializedVersion: 2
-                x: 1.45000005
+                x: 1.48749995
                 y: .5
-                width: .100000001
+                width: .0250000004
                 height: 1
             Entries:
               Entries:
               - Key: LeftDoor
                 Value:
                   Direction: 1
-                  Position: {x: .200000003, y: .373524994}
+                  Position: {x: .150000006, y: .349999994}
               - Key: RightDoor
                 Value:
                   Direction: 0
-                  Position: {x: 1.29999995, y: .373524994}
+                  Position: {x: 1.35000002, y: .349999994}
       Characters:
         Entries:
         - Key: Scientist
@@ -630,8 +590,20 @@ MonoBehaviour:
             Image:
               Opacity: 1
               SortingLayer: 
-              Sprite: {fileID: 21300000, guid: de57cd96dafd2524688c522792acb86c, type: 3}
+              Sprite: {fileID: 21300000, guid: e9974384339ce7e4ea4db1276af59e8d, type: 3}
               AnimatorController: {fileID: 22100000, guid: f6a5b561f73efbe48ae18b1cd574a039,
+                type: 2}
+        - Key: Supervisor
+          Value:
+            Height: .649999976
+            Speed: .200000003
+            Behaviour: {fileID: 11400000, guid: 447a7cd4362b5e045a24cdeb68b13184,
+              type: 2}
+            Image:
+              Opacity: 1
+              SortingLayer: 
+              Sprite: {fileID: 21300000, guid: aefe6a92c94476748aaf240fcec4ff42, type: 3}
+              AnimatorController: {fileID: 22100000, guid: b263e67ace536bc4da40184a1851b40c,
                 type: 2}
       Items:
         Entries:
@@ -868,7 +840,7 @@ MonoBehaviour:
         type: 3}
       Skin: {fileID: 11400000, guid: 57518e85f6ddbd243a14d5b5b8d5e528, type: 2}
       Cursors:
-        PreferredSize: {x: .0299999993, y: .0533333011}
+        PreferredSize: {x: .0399999991, y: .0711110979}
         ClickTexture: {fileID: 2800000, guid: 87831f24246734341ba1cf30a6b470d6, type: 3}
         LookTexture: {fileID: 2800000, guid: ca43cf465c3d8ab40bf3cc0d984f2c17, type: 3}
         PickUpTexture: {fileID: 2800000, guid: 904f0beb1a771244387cb4b40e012af6, type: 3}
@@ -876,6 +848,10 @@ MonoBehaviour:
         WalkTexture: {fileID: 2800000, guid: b45e44501f272f742876a0d18674d85e, type: 3}
     Sounds:
       MainEffect: {fileID: 8300000, guid: 4da25d4691591144f94d46b21db17eae, type: 3}
+      MenuEffect: {fileID: 8300000, guid: bbeb33cd54837924da179f03e168fadd, type: 3}
+      InventoryEffect: {fileID: 8300000, guid: 4424c5ecd81eae343aa34e33ba3eca49, type: 3}
+      InventoryPageEffect: {fileID: 8300000, guid: bd1926f7a363c7447b8c87e90c56b6f2,
+        type: 3}
       MainMenuSong: {fileID: 8300000, guid: a0d451f4b5836814f8e5b43aa9d3d388, type: 3}
       Playlist:
       - {fileID: 8300000, guid: 42196503c0818b54e8b179dc24e9fa1a, type: 3}
@@ -915,11 +891,11 @@ MonoBehaviour:
       Room:
         FadeIn:
           Ignore: 0
-          Speed: .400000006
+          Speed: 1
           Texture: {fileID: 0}
         FadeOut:
           Ignore: 0
-          Speed: .400000006
+          Speed: 1
           Texture: {fileID: 0}
       Special:
         FadeIn:
@@ -933,17 +909,17 @@ MonoBehaviour:
       SplashScreen:
         FadeIn:
           Ignore: 0
-          Speed: .400000006
+          Speed: 1
           Texture: {fileID: 0}
         FadeOut:
           Ignore: 0
-          Speed: .400000006
+          Speed: 1
           Texture: {fileID: 0}
 --- !u!4 &1695975938
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-  m_PrefabInternal: {fileID: 329610620}
+  m_PrefabInternal: {fileID: 2043690048}
   m_GameObject: {fileID: 1695975936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -1026,3 +1002,43 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!1001 &2043690048
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
+  m_RootGameObject: {fileID: 1695975936}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1

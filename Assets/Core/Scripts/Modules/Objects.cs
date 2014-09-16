@@ -6,7 +6,7 @@ namespace SaguFramework {
 
 		private static Dictionary<string, Character> characters;
 		private static Inventory inventory;
-		private static List<InventoryItem> inventoryItems;
+		private static Dictionary<string, InventoryItem> inventoryItems;
 		private static List<InventoryTrigger> inventoryTriggers;
 		private static Dictionary<string, Item> items;
 		private static Stack<Menu> menus;
@@ -17,7 +17,7 @@ namespace SaguFramework {
 
 		static Objects() {
 			characters = new Dictionary<string, Character>();
-			inventoryItems = new List<InventoryItem>();
+			inventoryItems = new Dictionary<string, InventoryItem>();
 			inventoryTriggers = new List<InventoryTrigger>();
 			items = new Dictionary<string, Item>();
 			menus = new Stack<Menu>();
@@ -33,7 +33,7 @@ namespace SaguFramework {
 			return inventory;
 		}
 
-		public static List<InventoryItem> GetInventoryItems() {
+		public static Dictionary<string, InventoryItem> GetInventoryItems() {
 			return inventoryItems;
 		}
 
@@ -78,7 +78,8 @@ namespace SaguFramework {
 			}
 			
 			if (entity is InventoryItem) {
-				inventoryItems.Add((InventoryItem) entity);
+				InventoryItem inventoryItem = (InventoryItem) entity;
+				inventoryItems.Add(inventoryItem.GetId(), inventoryItem);
 				return;
 			}
 			
@@ -131,7 +132,8 @@ namespace SaguFramework {
 			}
 			
 			if (entity is InventoryItem) {
-				inventoryItems.Remove((InventoryItem) entity);
+				InventoryItem inventoryItem = (InventoryItem) entity;
+				inventoryItems.Remove(inventoryItem.GetId());
 				return;
 			}
 			

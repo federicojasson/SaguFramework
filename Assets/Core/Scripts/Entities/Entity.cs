@@ -19,7 +19,7 @@ namespace SaguFramework {
 			Deactivate();
 		}
 		
-		public void Deactivate() {
+		public virtual void Deactivate() {
 			gameObject.SetActive(false);
 		}
 

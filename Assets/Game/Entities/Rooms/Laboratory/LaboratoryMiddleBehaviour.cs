@@ -13,17 +13,23 @@ namespace EmergenciaQuimica {
 
 					// TODO: supervisor says something
 					Game.StopActions("Scientist");
-
-					Vector2 characterPosition = character.GetPosition();
-					string text = Language.GetText(""); // TODO: Antes de comenzar a trabajar debes ponerte el traje de proteccion
-					AudioClip voice = Language.GetVoice(""); // TODO
+					
+					Vector2 scientistPosition = Objects.GetCharacters()["Scientist"].GetPosition();
+					Vector2 supervisorPosition = Objects.GetCharacters()["Supervisor"].GetPosition();
+					string text = Language.GetText("ProtectionSuitSpeech");
+					AudioClip voice = Language.GetVoice("ProtectionSuitSpeech");
 					Game.ExecuteActions("Supervisor", new CharacterAction[] {
-						CharacterAction.Look(characterPosition),
-						CharacterAction.Say(text, voice)
+						CharacterAction.Look(scientistPosition),
+						CharacterAction.Walk(new Vector2(Geometry.GameToWorldX(0.6f), supervisorPosition.y)),
+						CharacterAction.Say(text, voice),
+						CharacterAction.Look(supervisorPosition),
+						CharacterAction.Walk(supervisorPosition)
 					}, () => {
-						string scientistText = Language.GetText(""); // TODO: Tendre que encontrar el traje de proteccion
-						AudioClip scientistVoice = Language.GetVoice(""); // TODO
+						string scientistText = Language.GetText("ProtectionSuitResponseSpeech");
+						AudioClip scientistVoice = Language.GetVoice("ProtectionSuitResponseSpeech");
 						Game.ExecuteActions("Scientist", new CharacterAction[] {
+							CharacterAction.Look(new Vector2(Geometry.GameToWorldX(0.2f), scientistPosition.y)),
+							CharacterAction.Walk(new Vector2(Geometry.GameToWorldX(0.2f), scientistPosition.y)),
 							CharacterAction.Say(scientistText, scientistVoice)
 						});
 					});

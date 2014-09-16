@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace SaguFramework {
@@ -27,23 +28,26 @@ namespace SaguFramework {
 				ShowInventoryItems();
 			}
 
+			SoundPlayer.PlayInventoryEffect();
 			GameHandler.UpdateGameMode();
-		}
-
-		public static void ShowPreviousPage() {
-			int previousPage = Mathf.Max(0, page - 1);
-
-			if (page != previousPage) {
-				page = previousPage;
-				ShowInventoryItems();
-			}
 		}
 
 		public static void ShowNextPage() {
 			int nextPage = Mathf.Min(GetPageCount() - 1, page + 1);
 
-			if (page != nextPage) {
+			if (page < nextPage) {
+				SoundPlayer.PlayInventoryPageEffect();
 				page = nextPage;
+				ShowInventoryItems();
+			}
+		}
+		
+		public static void ShowPreviousPage() {
+			int previousPage = Mathf.Max(0, page - 1);
+			
+			if (page > previousPage) {
+				SoundPlayer.PlayInventoryPageEffect();
+				page = previousPage;
 				ShowInventoryItems();
 			}
 		}
@@ -62,12 +66,12 @@ namespace SaguFramework {
 		}
 
 		private static void HideInventoryItems() {
-			foreach (InventoryItem inventoryItem in Objects.GetInventoryItems())
+			foreach (InventoryItem inventoryItem in Objects.GetInventoryItems().Values)
 				inventoryItem.Deactivate();
 		}
 
 		private static void ShowInventoryItems() {
-			List<InventoryItem> inventoryItems = Objects.GetInventoryItems();
+			List<InventoryItem> inventoryItems = Objects.GetInventoryItems().Values.ToList();
 			int inventoryItemCount = inventoryItems.Count;
 
 			if (inventoryItemCount == 0)

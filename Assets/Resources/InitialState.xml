@@ -17,6 +17,20 @@
 		</character-state>
 	</character>
 	
+	<character>
+		<id>Supervisor</id>
+		<character-state>
+			<direction>Left</direction>
+			<location>
+				<position>
+					<x>1.2</x>
+					<y>0.35</y>
+				</position>
+				<room-id>Laboratory</room-id>
+			</location>
+		</character-state>
+	</character>
+	
 	<item>
 		<id>Erlenmeyer</id>
 		<item-state>
@@ -43,39 +57,4 @@
 			</location>
 		</item-state>
 	</item>
-	
-	
-	<inventory-item>
-		<id>InventoryErlenmeyer</id>
-	</inventory-item>
-	<inventory-item>
-		<id>InventoryProtectionSuit</id>
-	</inventory-item>
-	<inventory-item>
-		<id>InventoryErlenmeyer</id>
-	</inventory-item>
-	<inventory-item>
-		<id>InventoryErlenmeyer</id>
-	</inventory-item>
-	<inventory-item>
-		<id>InventoryErlenmeyer</id>
-	</inventory-item>
-	<inventory-item>
-		<id>InventoryErlenmeyer</id>
-	</inventory-item>
-	<inventory-item>
-		<id>InventoryErlenmeyer</id>
-	</inventory-item>
-	<inventory-item>
-		<id>InventoryErlenmeyer</id>
-	</inventory-item>
-	<inventory-item>
-		<id>InventoryErlenmeyer</id>
-	</inventory-item>
-	<inventory-item>
-		<id>InventoryErlenmeyer</id>
-	</inventory-item>
-	<inventory-item>
-		<id>InventoryErlenmeyer</id>
-	</inventory-item>
 </state>

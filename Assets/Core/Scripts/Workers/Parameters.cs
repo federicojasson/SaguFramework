@@ -132,8 +132,16 @@ namespace SaguFramework {
 			return instance.GameParameters.Graphics.GamePreferredWidth;
 		}
 
+		public static AudioClip GetInventoryEffect() {
+			return instance.GameParameters.Sounds.InventoryEffect;
+		}
+
 		public static InventoryItemParameters GetInventoryItemParameters(string inventoryItemId) {
 			return instance.GameParameters.Entities.InventoryItems[inventoryItemId];
+		}
+
+		public static AudioClip GetInventoryPageEffect() {
+			return instance.GameParameters.Sounds.InventoryPageEffect;
 		}
 
 		public static InventoryParameters GetInventoryParameters() {
@@ -174,6 +182,10 @@ namespace SaguFramework {
 
 		public static SplashScreenParameters GetMainSplashScreenParameters() {
 			return instance.GameParameters.Entities.SplashScreens.Main;
+		}
+
+		public static AudioClip GetMenuEffect() {
+			return instance.GameParameters.Sounds.MenuEffect;
 		}
 
 		public static MenuParameters GetMenuParameters(string menuId) {

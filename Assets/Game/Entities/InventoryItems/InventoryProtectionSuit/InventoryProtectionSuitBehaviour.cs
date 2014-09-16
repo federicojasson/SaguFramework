@@ -2,6 +2,12 @@
 
 namespace EmergenciaQuimica {
 	
-	public class InventoryProtectionSuitBehaviour : InventoryItemBehaviour {}
+	public class InventoryProtectionSuitBehaviour : InventoryItemBehaviour {
+
+		protected override string GetTooltip() {
+			return Language.GetText("ProtectionSuitTooltip");
+		}
+
+	}
 	
 }
