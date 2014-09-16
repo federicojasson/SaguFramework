@@ -33,6 +33,21 @@ namespace SaguFramework {
 				item.Destroy();
 		}
 
+		public static void LockGame() {
+			GameHandler.LockGame();
+		}
+
+		public static void UnlockGame() {
+			GameHandler.UnlockGame();
+		}
+
+
+
+
+
+
+
+
 
 
 

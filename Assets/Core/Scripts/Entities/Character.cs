@@ -62,7 +62,7 @@ namespace SaguFramework {
 
 				switch (action.GetId()) {
 					case CharacterActionId.Look : {
-						yield return StartCoroutine(LookCoroutine((Vector2) parameters[0]));
+						yield return StartCoroutine(LookCoroutine((float) parameters[0]));
 						continue;
 					}
 
@@ -77,7 +77,7 @@ namespace SaguFramework {
 					}
 						
 					case CharacterActionId.Walk : {
-						yield return StartCoroutine(WalkCoroutine((Vector2) parameters[0]));
+						yield return StartCoroutine(WalkCoroutine((float) parameters[0]));
 						continue;
 					}
 				}
@@ -87,8 +87,8 @@ namespace SaguFramework {
 				furtherAction.Invoke();
 		}
 
-		private IEnumerator LookCoroutine(Vector2 position) {
-			if (position.x > GetPosition().x)
+		private IEnumerator LookCoroutine(float x) {
+			if (x > GetPosition().x)
 				SetDirection(Direction.Right);
 			else
 				SetDirection(Direction.Left);
@@ -97,21 +97,32 @@ namespace SaguFramework {
 		}
 
 		private IEnumerator PickUpCoroutine() {
-			// TODO: animation
+			Animator animator = image.GetAnimator();
 
+			animator.SetTrigger("PickUp");
 			yield break;
+			/*animator.SetBool(Parameters.CharacterAnimatorControllerIsPickingUp, true);
+
+			while (animator.GetBool(Parameters.CharacterAnimatorControllerIsPickingUp))
+				yield return new WaitForFixedUpdate();
+
+			animator.SetBool(Parameters.CharacterAnimatorControllerIsPickingUp, false);*/
 		}
 		
 		private IEnumerator SayCoroutine(string text, AudioClip voice) {
 			Animator animator = image.GetAnimator();
 
+			GraphicHandler.SetSpeechText(text);
+
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, true);
 			SoundPlayer.PlayVoice(id, voice);
 			yield return new WaitForSeconds(voice.length);
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, false);
+
+			GraphicHandler.ClearSpeechText();
 		}
 
-		private IEnumerator WalkCoroutine(Vector2 position) {
+		private IEnumerator WalkCoroutine(float x) {
 			Animator animator = image.GetAnimator();
 
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsWalking, true);
@@ -120,8 +131,8 @@ namespace SaguFramework {
 			float stopDistance = Parameters.StopDistanceFactor * image.GetSize().x;
 			Vector2 currentPosition = GetPosition();
 
-			while (Mathf.Abs(currentPosition.x - position.x) > stopDistance) {
-				float offset = speed * Time.fixedDeltaTime * Mathf.Sign(position.x - currentPosition.x);
+			while (Mathf.Abs(currentPosition.x - x) > stopDistance) {
+				float offset = speed * Time.fixedDeltaTime * Mathf.Sign(x - currentPosition.x);
 				SetPosition(currentPosition + new Vector2(offset, 0f));
 
 				yield return new WaitForFixedUpdate();

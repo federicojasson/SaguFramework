@@ -4,8 +4,8 @@ namespace SaguFramework {
 	
 	public class CharacterAction {
 
-		public static CharacterAction Look(Vector2 position) {
-			return new CharacterAction(CharacterActionId.Look, position);
+		public static CharacterAction Look(float x) {
+			return new CharacterAction(CharacterActionId.Look, x);
 		}
 
 		public static CharacterAction PickUp() {
@@ -16,8 +16,8 @@ namespace SaguFramework {
 			return new CharacterAction(CharacterActionId.Say, text, voice);
 		}
 
-		public static CharacterAction Walk(Vector2 position) {
-			return new CharacterAction(CharacterActionId.Walk, position);
+		public static CharacterAction Walk(float x) {
+			return new CharacterAction(CharacterActionId.Walk, x);
 		}
 		
 		private CharacterActionId id;

@@ -76,8 +76,8 @@ namespace SaguFramework {
 				}
 					
 				case Order.Walk : {
-					Vector2 position = InputHandler.GetMousePositionInWorld();
-					entity.GetBehaviour().OnWalk(position);
+					float x = InputHandler.GetMousePositionInWorld().x;
+					entity.GetBehaviour().OnWalk(x);
 					break;
 				}
 			}

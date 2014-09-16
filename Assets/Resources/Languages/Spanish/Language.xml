@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <language>
+	
+	<!-- Menus -->
+
+	<!-- DeleteGameConfirmationMenu -->
+	<text>
+		<id>DeleteGameConfirmationMenuBox</id>
+		<value>¿realmente desea eliminar la partida?</value>
+	</text>
+	<text>
+		<id>DeleteGameConfirmationMenuCancelButton</id>
+		<value>cancelar</value>
+	</text>
+	<text>
+		<id>DeleteGameConfirmationMenuDeleteGameButton</id>
+		<value>eliminar</value>
+	</text>
+	
+	<!-- ExitConfirmationMenu -->
 	<text>
 		<id>ExitConfirmationMenuBox</id>
 		<value>¿realmente desea salir?</value>
@@ -13,9 +31,7 @@
 		<value>salir</value>
 	</text>
 	
-	
-	
-	
+	<!-- GoBackConfirmationMenu -->
 	<text>
 		<id>GoBackConfirmationMenuBox</id>
 		<value>¿volver al menu principal?
@@ -30,9 +46,7 @@ se perdera todo progreso no guardado.</value>
 		<value>aceptar</value>
 	</text>
 	
-	
-	
-	
+	<!-- LoadGameMenu -->
 	<text>
 		<id>LoadGameMenuCancelButton</id>
 		<value>cancelar</value>
@@ -50,11 +64,7 @@ se perdera todo progreso no guardado.</value>
 		<value>cargar partida</value>
 	</text>
 	
-	
-	
-	
-	
-	
+	<!-- MainMenu -->
 	<text>
 		<id>MainMenuExitButton</id>
 		<value>salir</value>
@@ -72,9 +82,7 @@ se perdera todo progreso no guardado.</value>
 		<value>opciones</value>
 	</text>
 	
-	
-	
-	
+	<!-- OptionsMenu -->
 	<text>
 		<id>OptionsMenuApplyChangesButton</id>
 		<value>aplicar cambios</value>
@@ -104,11 +112,21 @@ se perdera todo progreso no guardado.</value>
 		<value>volumen de voces</value>
 	</text>
 	
+	<!-- OverwriteGameConfirmationMenu -->
+	<text>
+		<id>OverwriteGameConfirmationMenuBox</id>
+		<value>¿realmente desea sobrescribir la partida?</value>
+	</text>
+	<text>
+		<id>OverwriteGameConfirmationMenuCancelButton</id>
+		<value>cancelar</value>
+	</text>
+	<text>
+		<id>OverwriteGameConfirmationMenuOverwriteGameButton</id>
+		<value>sobrescribir</value>
+	</text>
 	
-	
-	
-	
-	
+	<!-- PauseMenu -->
 	<text>
 		<id>PauseMenuExitButton</id>
 		<value>salir</value>
@@ -134,8 +152,7 @@ se perdera todo progreso no guardado.</value>
 		<value>guardar partida</value>
 	</text>
 	
-	
-	
+	<!-- SaveGameMenu -->
 	<text>
 		<id>SaveGameMenuCancelButton</id>
 		<value>cancelar</value>
@@ -145,12 +162,12 @@ se perdera todo progreso no guardado.</value>
 		<value>eliminar</value>
 	</text>
 	<text>
-		<id>SaveGameMenuSaveGameButton</id>
-		<value>guardar partida</value>
-	</text>
-	<text>
 		<id>SaveGameMenuGameLabel</id>
 		<value>nombre de la partida</value>
+	</text>
+	<text>
+		<id>SaveGameMenuSaveGameButton</id>
+		<value>guardar partida</value>
 	</text>
 	<text>
 		<id>SaveGameMenuTitleLabel</id>
@@ -158,151 +175,155 @@ se perdera todo progreso no guardado.</value>
 	</text>
 	
 	
+	<!-- Tooltips -->
 	
-	<text>
-		<id>OverwriteGameConfirmationMenuBox</id>
-		<value>¿realmente desea sobrescribir la partida?</value>
-	</text>
-	<text>
-		<id>OverwriteGameConfirmationMenuCancelButton</id>
-		<value>cancelar</value>
-	</text>
-	<text>
-		<id>OverwriteGameConfirmationMenuOverwriteGameButton</id>
-		<value>sobrescribir</value>
-	</text>
-	
-	
-	
-	<text>
-		<id>DeleteGameConfirmationMenuBox</id>
-		<value>¿realmente desea eliminar la partida?</value>
-	</text>
-	<text>
-		<id>DeleteGameConfirmationMenuCancelButton</id>
-		<value>cancelar</value>
-	</text>
-	<text>
-		<id>DeleteGameConfirmationMenuDeleteGameButton</id>
-		<value>eliminar</value>
-	</text>
-	
-	
-	
-	<text>
-		<id>LaboratoryLeftDoorTooltip</id>
-		<value>Salir del laboratorio</value>
-	</text>
-	
-	<text>
-		<id>GreenRightDoorTooltip</id>
-		<value>Entrar al laboratorio</value>
-	</text>
-	
-	
-	
-	
-	<text>
-		<id>GreenLeftDoorTooltip</id>
-		<value>Ir a la habitación azul</value>
-	</text>
-	
-	
+	<!-- Blue -->
 	<text>
 		<id>BlueRightDoorTooltip</id>
 		<value>Ir a la habitación verde</value>
 	</text>
 	
+	<!-- Erlenmeyer -->
+	<text>
+		<id>ErlenmeyerTooltip</id>
+		<value>Erlenmeyer</value>
+	</text>
 	
+	<!-- Green -->
+	<text>
+		<id>GreenLeftDoorTooltip</id>
+		<value>Ir a la habitación azul</value>
+	</text>
+	<text>
+		<id>GreenRightDoorTooltip</id>
+		<value>Entrar al laboratorio</value>
+	</text>
 	
+	<!-- Laboratory -->
+	<text>
+		<id>LaboratoryLeftDoorTooltip</id>
+		<value>Salir del laboratorio</value>
+	</text>
 	
+	<!-- ProtectionSuit -->
+	<text>
+		<id>ProtectionSuitTooltip</id>
+		<value>Traje de protección</value>
+	</text>
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	<!-- Scientist -->
 	<text>
 		<id>ScientistTooltip</id>
 		<value>Científico</value>
 	</text>
 	
+	<!-- Supervisor -->
 	<text>
 		<id>SupervisorTooltip</id>
 		<value>Supervisor</value>
 	</text>
 	
-
-	<text>
-		<id>ProtectionSuitSpeech</id>
-		<value>ProtectionSuitSpeech</value>
-	</text>
-	<voice>
-		<id>ProtectionSuitSpeech</id>
-		<resource-path>Languages/Spanish/Voices/ProtectionSuitSpeech</resource-path>
-	</voice>
 	
-	<text>
-		<id>ProtectionSuitResponseSpeech</id>
-		<value>ProtectionSuitResponseSpeech</value>
-	</text>
-	<voice>
-		<id>ProtectionSuitResponseSpeech</id>
-		<resource-path>Languages/Spanish/Voices/ProtectionSuitResponseSpeech</resource-path>
-	</voice>
+	<!-- Speeches -->
 	
-	
-	<text>
-		<id>ProtectionSuitTooltip</id>
-		<value>Traje de protección</value>
-	</text>
-	<text>
-		<id>ProtectionSuitDescription</id>
-		<value>ProtectionSuitDescription</value>
-	</text>
-	<voice>
-		<id>ProtectionSuitDescription</id>
-		<resource-path>Languages/Spanish/Voices/ProtectionSuitDescription</resource-path>
-	</voice>
-	
-	
-	
-	
-	<text>
-		<id>ScientistInitialSpeech0</id>
-		<value>ScientistInitialSpeech0</value>
-	</text>
-	<voice>
-		<id>ScientistInitialSpeech0</id>
-		<resource-path>Languages/Spanish/Voices/ScientistInitialSpeech0</resource-path>
-	</voice>
-	
-	<text>
-		<id>ScientistInitialSpeech1</id>
-		<value>ScientistInitialSpeech1</value>
-	</text>
-	<voice>
-		<id>ScientistInitialSpeech1</id>
-		<resource-path>Languages/Spanish/Voices/ScientistInitialSpeech1</resource-path>
-	</voice>
-	
-	
-	<text>
-		<id>ErlenmeyerTooltip</id>
-		<value>Erlenmeyer</value>
-	</text>
+	<!-- ErlenmeyerDescription -->
 	<text>
 		<id>ErlenmeyerDescription</id>
-		<value>ErlenmeyerDescription</value>
+		<value>ErlenmeyerDescription</value> <!-- TODO -->
 	</text>
 	<voice>
 		<id>ErlenmeyerDescription</id>
 		<resource-path>Languages/Spanish/Voices/ErlenmeyerDescription</resource-path>
 	</voice>
 	
+	<!-- InitialSpeech0 -->
+	<text>
+		<id>InitialSpeech0</id>
+		<value>InitialSpeech0</value> <!-- TODO -->
+	</text>
+	<voice>
+		<id>InitialSpeech0</id>
+		<resource-path>Languages/Spanish/Voices/InitialSpeech0</resource-path>
+	</voice>
 	
+	<!-- InitialSpeech1 -->
+	<text>
+		<id>InitialSpeech1</id>
+		<value>InitialSpeech1</value> <!-- TODO -->
+	</text>
+	<voice>
+		<id>InitialSpeech1</id>
+		<resource-path>Languages/Spanish/Voices/InitialSpeech1</resource-path>
+	</voice>
+	
+	<!-- NeedProtectionSuit -->
+	<text>
+		<id>NeedProtectionSuit</id>
+		<value>NeedProtectionSuit</value> <!-- TODO -->
+	</text>
+	<voice>
+		<id>NeedProtectionSuit</id>
+		<resource-path>Languages/Spanish/Voices/NeedProtectionSuit</resource-path>
+	</voice>
+	
+	<!-- NeedProtectionSuitResponse -->
+	<text>
+		<id>NeedProtectionSuitResponse</id>
+		<value>NeedProtectionSuitResponse</value> <!-- TODO -->
+	</text>
+	<voice>
+		<id>NeedProtectionSuitResponse</id>
+		<resource-path>Languages/Spanish/Voices/NeedProtectionSuitResponse</resource-path>
+	</voice>
+	
+	<!-- NegationSpeech0 -->
+	<text>
+		<id>NegationSpeech0</id>
+		<value>NegationSpeech0</value> <!-- TODO -->
+	</text>
+	<voice>
+		<id>NegationSpeech0</id>
+		<resource-path>Languages/Spanish/Voices/NegationSpeech0</resource-path>
+	</voice>
+	
+	<!-- NegationSpeech1 -->
+	<text>
+		<id>NegationSpeech1</id>
+		<value>NegationSpeech1</value> <!-- TODO -->
+	</text>
+	<voice>
+		<id>NegationSpeech1</id>
+		<resource-path>Languages/Spanish/Voices/NegationSpeech1</resource-path>
+	</voice>
+	
+	<!-- NegationSpeech2 -->
+	<text>
+		<id>NegationSpeech2</id>
+		<value>NegationSpeech2</value> <!-- TODO -->
+	</text>
+	<voice>
+		<id>NegationSpeech2</id>
+		<resource-path>Languages/Spanish/Voices/NegationSpeech2</resource-path>
+	</voice>
+	
+	<!-- OnUseProtectionSuit -->
+	<text>
+		<id>OnUseProtectionSuit</id>
+		<value>OnUseProtectionSuit</value> <!-- TODO -->
+	</text>
+	<voice>
+		<id>OnUseProtectionSuit</id>
+		<resource-path>Languages/Spanish/Voices/OnUseProtectionSuit</resource-path>
+	</voice>
+	
+	<!-- ProtectionSuitDescription -->
+	<text>
+		<id>ProtectionSuitDescription</id>
+		<value>ProtectionSuitDescription</value> <!-- TODO -->
+	</text>
+	<voice>
+		<id>ProtectionSuitDescription</id>
+		<resource-path>Languages/Spanish/Voices/ProtectionSuitDescription</resource-path>
+	</voice>
 	
 </language>

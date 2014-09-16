@@ -9,12 +9,18 @@ namespace SaguFramework {
 		private static float fadeSpeed;
 		private static Texture2D fadeTexture;
 		private static float fadeTextureOpacity;
+		private static string speechText;
 		private static string tooltip;
 
 		static GraphicHandler() {
 			fadeSpeed = 0;
 			fadeTextureOpacity = 1f;
+			speechText = string.Empty;
 			tooltip = string.Empty;
+		}
+		
+		public static void ClearSpeechText() {
+			speechText = string.Empty;
 		}
 
 		public static void ClearTooltip() {
@@ -55,6 +61,10 @@ namespace SaguFramework {
 
 		public static bool IsCursorInGame() {
 			return Geometry.GetGameRectangleInScreen().Contains(InputHandler.GetMousePositionInScreen());
+		}
+
+		public static void SetSpeechText(string speechText) {
+			GraphicHandler.speechText = speechText;
 		}
 
 		public static void SetTooltip(string tooltip) {
@@ -139,6 +149,33 @@ namespace SaguFramework {
 				}
 			}
 		}
+
+		private static void SpeechText() {
+			if (speechText.Length > 0) {
+				GUIStyle speechTextStyle = GUI.skin.GetStyle(Parameters.SkinStyleSpeechText);
+				GUIStyle modifiedSpeechTextStyle = Utilities.GetRelativeStyle(speechTextStyle);
+				GUIContent content = new GUIContent(speechText);
+				
+				RectOffset margin = modifiedSpeechTextStyle.margin;
+				Rect area = Geometry.GetGameRectangleInGui();
+				area.width -= margin.left + margin.right;
+				area.height -= margin.bottom + margin.top;
+				area.y += margin.top;
+				
+				float screenWidthInPixels = Geometry.GetScreenWidthInPixels();
+				float minimumWidth;
+				float maximumWidth;
+				modifiedSpeechTextStyle.CalcMinMaxWidth(content, out minimumWidth, out maximumWidth);
+				
+				area.width = Mathf.Min(area.width, maximumWidth);
+				area.x = 0.5f * (screenWidthInPixels - area.width);
+				
+				GUILayout.BeginArea(area); {
+					GUILayout.Box(content, modifiedSpeechTextStyle);
+					GUILayout.FlexibleSpace();
+				} GUILayout.EndArea();
+			}
+		}
 		
 		private static void Tooltip() {
 			if (tooltip.Length > 0) {
@@ -180,12 +217,14 @@ namespace SaguFramework {
 			GUI.skin = Parameters.GetSkin();
 			
 			Cursor();
+			SpeechText();
 			Tooltip();
 			Fade();
 			Windowbox();
 		}
 		
 		public override void OnGameModeChange() {
+			ClearSpeechText();
 			ClearTooltip();
 		}
 

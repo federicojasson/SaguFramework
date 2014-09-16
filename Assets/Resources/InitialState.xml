@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <state>
-	<current-room-id>Laboratory</current-room-id>
+	<current-room-id>Blue</current-room-id>
 	<player-character-id>Scientist</player-character-id>
 	
 	<character>
@@ -12,7 +12,7 @@
 					<x>0.2</x>
 					<y>0.35</y>
 				</position>
-				<room-id>Laboratory</room-id>
+				<room-id>Blue</room-id>
 			</location>
 		</character-state>
 	</character>

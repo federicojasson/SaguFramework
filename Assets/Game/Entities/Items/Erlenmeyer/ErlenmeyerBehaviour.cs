@@ -9,7 +9,7 @@ namespace EmergenciaQuimica {
 			string text = Language.GetText("ErlenmeyerDescription");
 			AudioClip voice = Language.GetVoice("ErlenmeyerDescription");
 			Game.ExecuteActions("Scientist", new CharacterAction[] {
-				CharacterAction.Look(GetEntity().GetPosition()),
+				CharacterAction.Look(GetEntity().GetPosition().x),
 				CharacterAction.Say(text, voice)
 			});
 		}

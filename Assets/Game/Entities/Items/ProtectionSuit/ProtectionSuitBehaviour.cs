@@ -9,7 +9,7 @@ namespace EmergenciaQuimica {
 			string text = Language.GetText("ProtectionSuitDescription");
 			AudioClip voice = Language.GetVoice("ProtectionSuitDescription");
 			Game.ExecuteActions("Scientist", new CharacterAction[] {
-				CharacterAction.Look(GetEntity().GetPosition()),
+				CharacterAction.Look(GetEntity().GetPosition().x),
 				CharacterAction.Say(text, voice)
 			});
 		}
@@ -27,8 +27,8 @@ namespace EmergenciaQuimica {
 				pickUpPosition = new Vector2(protectionSuitPosition.x - 0.5f * scientistSize.x, scientistPosition.y);
 
 			Game.ExecuteActions("Scientist", new CharacterAction[] {
-				CharacterAction.Look(protectionSuitPosition),
-				CharacterAction.Walk(pickUpPosition),
+				CharacterAction.Look(protectionSuitPosition.x),
+				CharacterAction.Walk(pickUpPosition.x),
 				CharacterAction.PickUp()
 			}, () => {
 				Game.RemoveItem("ProtectionSuit");

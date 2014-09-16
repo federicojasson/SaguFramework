@@ -7,6 +7,7 @@ namespace SaguFramework {
 		public const string AxisNameScrollWheel = "Mouse ScrollWheel";
 
 		public const string CharacterAnimatorControllerIsDirectionLeft = "IsDirectionLeft";
+		public const string CharacterAnimatorControllerIsPickingUp = "IsPickingUp";
 		public const string CharacterAnimatorControllerIsSaying = "IsSaying";
 		public const string CharacterAnimatorControllerIsWalking = "IsWalking";
 		
@@ -52,6 +53,7 @@ namespace SaguFramework {
 		public const string SceneSpecial = "Special";
 		public const string SceneSplashScreen = "SplashScreen";
 
+		public const string SkinStyleSpeechText = "SpeechText";
 		public const string SkinStyleTooltip = "Tooltip";
 
 		public const string SortingLayerCharacter = "Character";

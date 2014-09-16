@@ -28,7 +28,7 @@ namespace SaguFramework {
 		
 		public virtual void OnUseInventoryItem(InventoryItem inventoryItem) {}
 
-		public virtual void OnWalk(Vector2 position) {}
+		public virtual void OnWalk(float x) {}
 
 		public void SetEntity(Entity entity) {
 			this.entity = entity;

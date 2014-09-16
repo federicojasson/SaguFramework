@@ -1,18 +1,35 @@
 namespace SaguFramework {
 	
 	public class GameHandler : Worker {
-		
+
+		private static bool gameLocked;
 		private static GameMode gameMode;
 
 		static GameHandler() {
+			gameLocked = false;
 			SetGameMode(GameMode.Waiting);
 		}
 
 		public static GameMode GetGameMode() {
 			return gameMode;
 		}
+
+		public static void LockGame() {
+			gameLocked = true;
+			UpdateGameMode();
+		}
+		
+		public static void UnlockGame() {
+			gameLocked = false;
+			UpdateGameMode();
+		}
 		
 		public static void UpdateGameMode() {
+			if (gameLocked) {
+				SetGameMode(GameMode.Waiting);
+				return;
+			}
+
 			if (Objects.GetMenus().Count > 0) {
 				SetGameMode(GameMode.Menu);
 				return;

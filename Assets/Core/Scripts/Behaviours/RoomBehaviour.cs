@@ -4,11 +4,11 @@ namespace SaguFramework {
 	
 	public class RoomBehaviour : EntityBehaviour {
 		
-		public override void OnWalk(Vector2 position) {
+		public override void OnWalk(float x) {
 			string characterId = State.GetPlayerCharacterId();
 			Game.ExecuteActions(characterId, new CharacterAction[] {
-				CharacterAction.Look(position),
-				CharacterAction.Walk(position)
+				CharacterAction.Look(x),
+				CharacterAction.Walk(x)
 			});
 		}
 		

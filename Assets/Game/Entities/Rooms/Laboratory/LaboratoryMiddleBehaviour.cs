@@ -9,6 +9,8 @@ namespace EmergenciaQuimica {
 		public override void OnCharacterEnter(Character character) {
 			if (character.GetId() == "Scientist") {
 				if (! State.HintExists("ScientistHasProtectionSuit")) {
+					Game.LockGame();
+
 					// TODO: order
 
 					// TODO: supervisor says something
@@ -16,21 +18,26 @@ namespace EmergenciaQuimica {
 					
 					Vector2 scientistPosition = Objects.GetCharacters()["Scientist"].GetPosition();
 					Vector2 supervisorPosition = Objects.GetCharacters()["Supervisor"].GetPosition();
-					string text = Language.GetText("ProtectionSuitSpeech");
-					AudioClip voice = Language.GetVoice("ProtectionSuitSpeech");
+					string text = Language.GetText("NeedProtectionSuit");
+					AudioClip voice = Language.GetVoice("NeedProtectionSuit");
 					Game.ExecuteActions("Supervisor", new CharacterAction[] {
-						CharacterAction.Look(scientistPosition),
-						CharacterAction.Walk(new Vector2(Geometry.GameToWorldX(0.6f), supervisorPosition.y)),
-						CharacterAction.Say(text, voice),
-						CharacterAction.Look(supervisorPosition),
-						CharacterAction.Walk(supervisorPosition)
+						CharacterAction.Look(scientistPosition.x),
+						CharacterAction.Walk(Geometry.GameToWorldX(0.6f)),
+						CharacterAction.Say(text, voice)
 					}, () => {
-						string scientistText = Language.GetText("ProtectionSuitResponseSpeech");
-						AudioClip scientistVoice = Language.GetVoice("ProtectionSuitResponseSpeech");
+						Game.ExecuteActions("Supervisor", new CharacterAction[] {
+							CharacterAction.Look(supervisorPosition.x),
+							CharacterAction.Walk(supervisorPosition.x)
+						});
+
+						string scientistText = Language.GetText("NeedProtectionSuit");
+						AudioClip scientistVoice = Language.GetVoice("NeedProtectionSuit");
 						Game.ExecuteActions("Scientist", new CharacterAction[] {
-							CharacterAction.Look(new Vector2(Geometry.GameToWorldX(0.2f), scientistPosition.y)),
-							CharacterAction.Walk(new Vector2(Geometry.GameToWorldX(0.2f), scientistPosition.y)),
+							CharacterAction.Look(Geometry.GameToWorldX(0.2f)),
+							CharacterAction.Walk(Geometry.GameToWorldX(0.2f)),
 							CharacterAction.Say(scientistText, scientistVoice)
+						}, () => {
+							Game.UnlockGame();
 						});
 					});
 				}
