@@ -6,7 +6,8 @@
 			string characterId = State.GetPlayerCharacter();
 			Character character = Objects.GetCharacters()[characterId];
 			character.ExecuteActions(new CharacterAction[] {
-				CharacterAction.LookAndWalk(x)
+				CharacterAction.Look(x),
+				CharacterAction.Walk(x)
 			});
 		}
 

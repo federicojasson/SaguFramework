@@ -3,6 +3,6 @@
 namespace SaguFramework {
 	
 	[Serializable]
-	public class CharacterParametersMap : Map<string, CharacterParameters, CharacterParametersMapEntry> {}
+	public sealed class CharacterParametersMap : Map<string, CharacterParameters, CharacterParametersMapEntry> {}
 	
 }

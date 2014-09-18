@@ -3,7 +3,7 @@
 namespace SaguFramework {
 	
 	[Serializable]
-	public class MenuParameters {
+	public sealed class MenuParameters {
 		
 		public float Height;
 		public MenuBehaviour Behaviour;

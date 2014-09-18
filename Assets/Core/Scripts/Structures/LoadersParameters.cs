@@ -3,7 +3,7 @@
 namespace SaguFramework {
 	
 	[Serializable]
-	public class LoadersParameters {
+	public sealed class LoadersParameters {
 		
 		public LoaderParameters Main;
 		public LoaderParameters MainMenu;

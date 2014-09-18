@@ -1,8 +1,8 @@
 ﻿namespace SaguFramework {
 	
-	public class Menu : Entity {
+	public sealed class Menu : Entity {
 
-		public void OnEnable() {
+		public void Update() {
 			SetPosition(CameraHandler.GetCameraPosition());
 		}
 

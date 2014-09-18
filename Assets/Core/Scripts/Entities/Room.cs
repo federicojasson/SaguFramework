@@ -1,6 +1,5 @@
 ﻿namespace SaguFramework {
 	
-	public class Room : Entity {
-	}
+	public sealed class Room : Entity {}
 	
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace SaguFramework {
 	
 	[Serializable]
-	public class EntryParameters {
+	public sealed class EntryParameters {
 
 		public Direction Direction;
 		public Vector2 Position;

@@ -3,6 +3,6 @@
 namespace SaguFramework {
 	
 	[Serializable]
-	public class RoomParametersMapEntry : MapEntry<string, RoomParameters> {}
+	public sealed class RoomParametersMapEntry : MapEntry<string, RoomParameters> {}
 	
 }

@@ -3,6 +3,6 @@
 namespace SaguFramework {
 	
 	[Serializable]
-	public class InventoryItemParametersMapEntry : MapEntry<string, InventoryItemParameters> {}
+	public sealed class InventoryItemParametersMapEntry : MapEntry<string, InventoryItemParameters> {}
 	
 }

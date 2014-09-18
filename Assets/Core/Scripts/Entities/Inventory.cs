@@ -1,8 +1,8 @@
 ﻿namespace SaguFramework {
 	
-	public class Inventory : Entity {
+	public sealed class Inventory : Entity {
 
-		public void OnEnable() {
+		public void Update() {
 			SetPosition(CameraHandler.GetCameraPosition());
 		}
 

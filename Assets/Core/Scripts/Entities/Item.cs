@@ -1,6 +1,6 @@
 ﻿namespace SaguFramework {
 	
-	public class Item : Entity {
+	public sealed class Item : Entity {
 
 		private string id;
 

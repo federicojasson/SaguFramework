@@ -4,7 +4,7 @@ using UnityEngine;
 namespace SaguFramework {
 
 	[Serializable]
-	public class ControlsParameters {
+	public sealed class ControlsParameters {
 
 		public bool UseMouseWheel;
 		public KeyCode[] CloseMenuKeys;

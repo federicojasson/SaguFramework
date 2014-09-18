@@ -4,10 +4,10 @@ using UnityEngine;
 namespace SaguFramework {
 	
 	[Serializable]
-	public class ImageParameters {
+	public sealed class ImageParameters {
 
 		public float Opacity;
-		public string SortingLayer;
+		public int SortingOrder;
 		public Sprite Sprite;
 		public RuntimeAnimatorController AnimatorController;
 		

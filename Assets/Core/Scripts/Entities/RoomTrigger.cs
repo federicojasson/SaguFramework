@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 namespace SaguFramework {
-	
-	public class RoomTrigger : Entity {
+
+	public sealed class RoomTrigger : Entity {
 
 		public override void Awake() {
 			base.Awake();

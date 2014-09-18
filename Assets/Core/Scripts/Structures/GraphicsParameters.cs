@@ -4,7 +4,7 @@ using UnityEngine;
 namespace SaguFramework {
 
 	[Serializable]
-	public class GraphicsParameters {
+	public sealed class GraphicsParameters {
 
 		public float GamePreferredWidth;
 		public float GamePreferredHeight;

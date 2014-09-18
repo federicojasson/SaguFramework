@@ -4,7 +4,7 @@ using UnityEngine;
 namespace SaguFramework {
 
 	[Serializable]
-	public class InventoryParameters {
+	public sealed class InventoryParameters {
 		
 		public float Height;
 		public int Rows;

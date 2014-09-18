@@ -54,6 +54,10 @@ namespace SaguFramework {
 			renderer.sortingLayerName = sortingLayer;
 		}
 
+		public void SetSortingOrder(int sortingOrder) {
+			renderer.sortingOrder = sortingOrder;
+		}
+
 		public void SetSprite(Sprite sprite) {
 			renderer.sprite = sprite;
 		}

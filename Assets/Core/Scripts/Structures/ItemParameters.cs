@@ -3,7 +3,7 @@
 namespace SaguFramework {
 
 	[Serializable]
-	public class ItemParameters {
+	public sealed class ItemParameters {
 		
 		public float Height;
 		public ItemBehaviour Behaviour;

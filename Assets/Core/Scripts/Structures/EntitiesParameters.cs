@@ -3,7 +3,7 @@
 namespace SaguFramework {
 
 	[Serializable]
-	public class EntitiesParameters {
+	public sealed class EntitiesParameters {
 		
 		public RoomParametersMap Rooms;
 		public InventoryParameters Inventory;

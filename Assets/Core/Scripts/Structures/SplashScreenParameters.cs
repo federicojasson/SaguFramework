@@ -3,7 +3,7 @@
 namespace SaguFramework {
 	
 	[Serializable]
-	public class SplashScreenParameters {
+	public sealed class SplashScreenParameters {
 		
 		public float Height;
 		public float MinimumDelayTime;

@@ -19,7 +19,7 @@ namespace SaguFramework {
 			Deactivate();
 		}
 		
-		public virtual void Deactivate() {
+		public void Deactivate() {
 			gameObject.SetActive(false);
 		}
 
@@ -48,10 +48,7 @@ namespace SaguFramework {
 		}
 
 		public void OnGUI() {
-			GUI.skin = Parameters.GetSkin();
-			GUILayout.BeginArea(Geometry.GetGameRectangleInGui()); {
-				InputHandler.NotifyOnGUI(this);
-			} GUILayout.EndArea();
+			InputHandler.NotifyOnGUI(this);
 		}
 		
 		public void OnMouseEnter() {

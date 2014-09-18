@@ -3,7 +3,7 @@
 namespace SaguFramework {
 
 	[Serializable]
-	public class InventoryItemParameters {
+	public sealed class InventoryItemParameters {
 
 		public InventoryItemBehaviour Behaviour;
 		public ImageParameters Image;

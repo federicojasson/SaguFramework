@@ -3,7 +3,7 @@
 namespace SaguFramework {
 	
 	[Serializable]
-	public class MenusParameters {
+	public sealed class MenusParameters {
 
 		public MenuParameters Main;
 		public MenuParameters Pause;

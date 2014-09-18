@@ -3,6 +3,6 @@
 namespace SaguFramework {
 	
 	[Serializable]
-	public class SplashScreenParametersArrayMap : Map<string, SplashScreenParameters[], SplashScreenParametersArrayMapEntry> {}
+	public sealed class SplashScreenParametersArrayMap : Map<string, SplashScreenParameters[], SplashScreenParametersArrayMapEntry> {}
 	
 }

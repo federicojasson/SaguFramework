@@ -88,32 +88,34 @@ namespace SaguFramework {
 				count = 1 + (inventoryItemCount - 1 + cellsPerPage) % cellsPerPage;
 
 			List<InventoryItem> pageInventoryItems = inventoryItems.GetRange(index, count);
-			
+
 			InventoryParameters inventoryParameters = Parameters.GetInventoryParameters();
 			int rows = inventoryParameters.Rows;
 			int columns = inventoryParameters.Columns;
+			Vector2 tableCenter = inventoryParameters.TableCenter;
+
 			Vector2 cellSize = Geometry.GameToWorldSize(inventoryParameters.CellSize);
 			Vector2 cellGap = Geometry.GameToWorldSize(inventoryParameters.CellGap);
-			Vector2 tableCenter = Geometry.GameToWorldPosition(inventoryParameters.TableCenter);
-			Vector2 inventoryPosition = Objects.GetInventory().GetPosition();
-			Vector2 tableCenterPosition = tableCenter + inventoryPosition - 0.5f * Geometry.GetGameSizeInUnits();
 
+			float tableCenterOffsetX = Geometry.GameToWorldX(tableCenter.x - 0.5f);
+			float tableCenterOffsetY = Geometry.GameToWorldY(tableCenter.y - 0.5f);
+			
 			float cellAndGapWidth = cellSize.x + cellGap.x;
 			float cellAndGapHeight = cellSize.y + cellGap.y;
 			float tableWidth = columns * cellAndGapWidth - cellGap.x;
 			float tableHeight = rows * cellAndGapHeight - cellGap.y;
-
-			float offsetX = tableCenterPosition.x - 0.5f * tableWidth + 0.5f * cellSize.x;
-			float offsetY = tableCenterPosition.y - 0.5f * tableHeight + 0.5f * cellSize.y;
-
+			
+			float widthOffset = tableCenterOffsetX - 0.5f * tableWidth + 0.5f * cellSize.x;
+			float heightOffset = tableCenterOffsetY - 0.5f * tableHeight + 0.5f * cellSize.y;
+			
 			int row = rows - 1;
 			int column = 0;
 			foreach (InventoryItem inventoryItem in pageInventoryItems) {
-				float x = offsetX + column * cellAndGapWidth;
-				float y = offsetY + row * cellAndGapHeight;
-				inventoryItem.SetPosition(new Vector2(x, y));
+				float offsetX = widthOffset + column * cellAndGapWidth;
+				float offsetY = heightOffset + row * cellAndGapHeight;
+				inventoryItem.SetOffset(new Vector2(offsetX, offsetY));
 				inventoryItem.Activate();
-
+				
 				column = (column + 1) % columns;
 				if (column == 0)
 					row = (rows + row - 1) % rows;

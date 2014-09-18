@@ -3,7 +3,7 @@
 namespace SaguFramework {
 
 	[Serializable]
-	public class RoomParameters {
+	public sealed class RoomParameters {
 		
 		public float Height;
 		public float ScaleFactor;

@@ -3,7 +3,7 @@
 namespace SaguFramework {
 	
 	[Serializable]
-	public class CharacterParameters {
+	public sealed class CharacterParameters {
 		
 		public float Height;
 		public float Speed;

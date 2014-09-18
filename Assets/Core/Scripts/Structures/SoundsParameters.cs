@@ -4,7 +4,7 @@ using UnityEngine;
 namespace SaguFramework {
 	
 	[Serializable]
-	public class SoundsParameters {
+	public sealed class SoundsParameters {
 		
 		public AudioClip MainEffect;
 		public AudioClip MenuEffect;

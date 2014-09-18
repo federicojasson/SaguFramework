@@ -6,18 +6,20 @@ namespace SaguFramework {
 
 		public static void CreateCharacter(string characterId, CharacterState characterState, CharacterParameters characterParameters, RoomParameters roomParameters) {
 			Character character = CreateEntity<Character>(characterParameters.Behaviour);
-			Image image = CreateImage(characterParameters.Image, Parameters.SortingLayerCharacter);
+			Image image = CreateImage(Parameters.SortingLayerCharacter, characterParameters.Image);
 
 			Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldHeight(characterParameters.Height * roomParameters.ScaleFactor));
+			float speed = Geometry.GameToWorldWidth(characterParameters.Speed);
+			Vector2 position = Geometry.GameToWorldPosition(characterState.GetLocation().GetPosition());
 
 			character.SetId(characterId);
 			character.SetImage(image);
 			character.SetSize(size);
-			character.SetSpeed(Geometry.GameToWorldWidth(characterParameters.Speed));
+			character.SetSpeed(speed);
 			image.SetSize(size);
 			Utilities.SetParent(image, character);
+			character.SetPosition(position);
 			character.SetDepth(Parameters.DepthCharacter);
-			character.SetPosition(Geometry.GameToWorldPosition(characterState.GetLocation().GetPosition()));
 			character.Register();
 			character.Activate();
 
@@ -26,7 +28,7 @@ namespace SaguFramework {
 
 		public static void CreateInventory(InventoryParameters inventoryParameters) {
 			Inventory inventory = CreateEntity<Inventory, InventoryBehaviour>();
-			Image image = CreateImage(inventoryParameters.Image, Parameters.SortingLayerInventory);
+			Image image = CreateImage(Parameters.SortingLayerInventory, inventoryParameters.Image);
 
 			Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldHeight(inventoryParameters.Height));
 
@@ -43,7 +45,7 @@ namespace SaguFramework {
 
 		public static void CreateInventoryItem(string inventoryItemId, InventoryItemParameters inventoryItemParameters, InventoryParameters inventoryParameters) {
 			InventoryItem inventoryItem = CreateEntity<InventoryItem>(inventoryItemParameters.Behaviour);
-			Image image = CreateImage(inventoryItemParameters.Image, Parameters.SortingLayerInventoryItem);
+			Image image = CreateImage(Parameters.SortingLayerInventoryItem, inventoryItemParameters.Image);
 
 			Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldSize(inventoryParameters.CellSize));
 
@@ -58,23 +60,24 @@ namespace SaguFramework {
 
 		public static void CreateItem(string itemId, ItemState itemState, ItemParameters itemParameters, RoomParameters roomParameters) {
 			Item item = CreateEntity<Item>(itemParameters.Behaviour);
-			Image image = CreateImage(itemParameters.Image, Parameters.SortingLayerItem);
+			Image image = CreateImage(Parameters.SortingLayerItem, itemParameters.Image);
 			
 			Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldHeight(itemParameters.Height * roomParameters.ScaleFactor));
+			Vector2 position = Geometry.GameToWorldPosition(itemState.GetLocation().GetPosition());
 
 			item.SetId(itemId);
 			item.SetSize(size);
 			image.SetSize(size);
 			Utilities.SetParent(image, item);
+			item.SetPosition(position);
 			item.SetDepth(Parameters.DepthItem);
-			item.SetPosition(Geometry.GameToWorldPosition(itemState.GetLocation().GetPosition()));
 			item.Register();
 			item.Activate();
 		}
 		
 		public static void CreateMenu(MenuParameters menuParameters) {
 			Menu menu = CreateEntity<Menu>(menuParameters.Behaviour);
-			Image image = CreateImage(menuParameters.Image, Parameters.SortingLayerMenu);
+			Image image = CreateImage(Parameters.SortingLayerMenu, menuParameters.Image);
 
 			Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldHeight(menuParameters.Height));
 
@@ -88,8 +91,8 @@ namespace SaguFramework {
 
 		public static void CreateRoom(RoomParameters roomParameters) {
 			Room room = CreateEntity<Room, RoomBehaviour>();
-			Image backgroundImage = CreateImage(roomParameters.BackgroundImage, Parameters.SortingLayerRoomBackground);
-			Image foregroundImage = CreateImage(roomParameters.ForegroundImage, Parameters.SortingLayerRoomForeground);
+			Image backgroundImage = CreateImage(Parameters.SortingLayerRoomBackground, roomParameters.BackgroundImage);
+			Image foregroundImage = CreateImage(Parameters.SortingLayerRoomForeground, roomParameters.ForegroundImage);
 
 			Vector2 size = Utilities.GetSize(backgroundImage.GetSize(), Geometry.GameToWorldHeight(roomParameters.Height));
 			Vector2 position = 0.5f * size;
@@ -99,8 +102,8 @@ namespace SaguFramework {
 			foregroundImage.SetSize(size);
 			Utilities.SetParent(backgroundImage, room);
 			Utilities.SetParent(foregroundImage, room);
-			room.SetDepth(Parameters.DepthRoom);
 			room.SetPosition(position);
+			room.SetDepth(Parameters.DepthRoom);
 			room.Register();
 			room.Activate();
 
@@ -110,7 +113,7 @@ namespace SaguFramework {
 
 		public static void CreateSplashScreen(SplashScreenParameters splashScreenParameters) {
 			SplashScreen splashScreen = CreateEntity<SplashScreen, SplashScreenBehaviour>();
-			Image image = CreateImage(splashScreenParameters.Image, Parameters.SortingLayerSplashScreen);
+			Image image = CreateImage(Parameters.SortingLayerSplashScreen, splashScreenParameters.Image);
 
 			Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldHeight(splashScreenParameters.Height));
 
@@ -150,17 +153,14 @@ namespace SaguFramework {
 			return entity;
 		}
 
-		private static Image CreateImage(ImageParameters imageParameters, string defaultSortingLayer) {
-			string sortingLayer = imageParameters.SortingLayer;
-			if (sortingLayer.Length == 0)
-				sortingLayer = defaultSortingLayer;
-
+		private static Image CreateImage(string sortingLayer, ImageParameters imageParameters) {
 			GameObject imageGameObject = new GameObject();
 			Image image = imageGameObject.AddComponent<Image>();
 
 			image.SetAnimatorController(imageParameters.AnimatorController);
 			image.SetOpacity(imageParameters.Opacity);
 			image.SetSortingLayer(sortingLayer);
+			image.SetSortingOrder(imageParameters.SortingOrder);
 			image.SetSprite(imageParameters.Sprite);
 			
 			return image;
@@ -170,12 +170,12 @@ namespace SaguFramework {
 			InventoryTrigger inventoryTrigger = CreateEntity<InventoryTrigger, B>();
 			
 			Rect area = inventoryTriggerParameters.Area;
-			Vector2 size = new Vector2(area.width, area.height);
-			Vector2 position = new Vector2(area.x - 0.5f, area.y - 0.5f);
+			Vector2 size = Geometry.GameToWorldSize(new Vector2(area.width, area.height));
+			Vector2 offset = Geometry.GameToWorldPosition(new Vector2(area.x - 0.5f, area.y - 0.5f));
 			
-			inventoryTrigger.SetSize(Geometry.GameToWorldSize(size));
+			inventoryTrigger.SetSize(size);
+			inventoryTrigger.SetOffset(offset);
 			inventoryTrigger.SetDepth(Parameters.DepthInventoryTrigger);
-			inventoryTrigger.SetPosition(Geometry.GameToWorldPosition(position));
 			inventoryTrigger.Register();
 		}
 		
@@ -183,12 +183,12 @@ namespace SaguFramework {
 			RoomTrigger roomTrigger = CreateEntity<RoomTrigger>(roomTriggerParameters.Behaviour);
 			
 			Rect area = roomTriggerParameters.Area;
-			Vector2 size = new Vector2(area.width, area.height);
-			Vector2 position = new Vector2(area.x, area.y);
-			
-			roomTrigger.SetSize(Geometry.GameToWorldSize(size));
+			Vector2 size = Geometry.GameToWorldSize(new Vector2(area.width, area.height));
+			Vector2 position = Geometry.GameToWorldPosition(new Vector2(area.x, area.y));
+
+			roomTrigger.SetSize(size);
+			roomTrigger.SetPosition(position);
 			roomTrigger.SetDepth(Parameters.DepthRoomTrigger);
-			roomTrigger.SetPosition(Geometry.GameToWorldPosition(position));
 			roomTrigger.Register();
 			roomTrigger.Activate();
 		}

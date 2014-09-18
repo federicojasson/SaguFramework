@@ -3,7 +3,7 @@
 namespace SaguFramework {
 
 	[Serializable]
-	public class GameParameters {
+	public sealed class GameParameters {
 
 		public string GameDirectoryPath;
 		public EntitiesParameters Entities;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SaguFramework {
 	
-	public class Character : Entity {
+	public sealed class Character : Entity {
 
 		private string id;
 		private Image image;
@@ -20,7 +20,9 @@ namespace SaguFramework {
 		}
 
 		public Direction GetDirection() {
-			if (image.GetAnimator().GetBool(Parameters.CharacterAnimatorControllerIsDirectionLeft))
+			Animator animator = image.GetAnimator();
+
+			if (animator.GetBool(Parameters.CharacterAnimatorControllerIsDirectionLeft))
 				return Direction.Left;
 			else
 				return Direction.Right;
@@ -31,7 +33,8 @@ namespace SaguFramework {
 		}
 
 		public void SetDirection(Direction direction) {
-			image.GetAnimator().SetBool(Parameters.CharacterAnimatorControllerIsDirectionLeft, direction == Direction.Left);
+			Animator animator = image.GetAnimator();
+			animator.SetBool(Parameters.CharacterAnimatorControllerIsDirectionLeft, direction == Direction.Left);
 		}
 
 		public void SetId(string id) {
@@ -52,7 +55,8 @@ namespace SaguFramework {
 			Animator animator = image.GetAnimator();
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, false);
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsWalking, false);
-
+			
+			GraphicHandler.ClearSpeechText();
 			SoundPlayer.StopVoice(id);
 		}
 
@@ -64,28 +68,6 @@ namespace SaguFramework {
 					case CharacterActionId.Look : {
 						float x = (float) parameters[0];
 						yield return StartCoroutine(LookCoroutine(x));
-						break;
-					}
-					
-					case CharacterActionId.LookAndPickUp : {
-						float x = (float) parameters[0];
-						yield return StartCoroutine(LookCoroutine(x));
-						yield return StartCoroutine(PickUpCoroutine());
-						break;
-					}
-						
-					case CharacterActionId.LookAndSay : {
-						float x = (float) parameters[0];
-						Speech speech = (Speech) parameters[1];
-						yield return StartCoroutine(LookCoroutine(x));
-						yield return StartCoroutine(SayCoroutine(speech));
-						break;
-					}
-						
-					case CharacterActionId.LookAndWalk : {
-						float x = (float) parameters[0];
-						yield return StartCoroutine(LookCoroutine(x));
-						yield return StartCoroutine(WalkCoroutine(x));
 						break;
 					}
 
@@ -122,7 +104,8 @@ namespace SaguFramework {
 		}
 
 		private IEnumerator PickUpCoroutine() {
-			image.GetAnimator().SetTrigger(Parameters.CharacterAnimatorControllerPickUp);
+			Animator animator = image.GetAnimator();
+			animator.SetTrigger(Parameters.CharacterAnimatorControllerPickUp);
 			yield break;
 		}
 		
@@ -134,10 +117,12 @@ namespace SaguFramework {
 
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, true);
 			GraphicHandler.SetSpeechText(text);
+
 			SoundPlayer.PlayVoice(id, voice);
 			yield return new WaitForSeconds(voice.length);
-			GraphicHandler.ClearSpeechText();
+
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, false);
+			GraphicHandler.ClearSpeechText();
 		}
 
 		private IEnumerator WalkCoroutine(float x) {
@@ -155,10 +140,10 @@ namespace SaguFramework {
 
 				yield return new WaitForFixedUpdate();
 
-				Vector2 previousPosition = currentPosition;
+				float previousX = currentPosition.x;
 				currentPosition = GetPosition();
 
-				if (Mathf.Abs(previousPosition.x - currentPosition.x) < deltaDistance)
+				if (Mathf.Abs(previousX - currentPosition.x) < deltaDistance)
 					// The character stopped walking for some reason
 					break;
 			}

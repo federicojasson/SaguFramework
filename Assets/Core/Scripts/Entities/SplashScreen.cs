@@ -1,8 +1,8 @@
 ﻿namespace SaguFramework {
 	
-	public class SplashScreen : Entity {
+	public sealed class SplashScreen : Entity {
 
-		public void OnEnable() {
+		public void Update() {
 			SetPosition(CameraHandler.GetCameraPosition());
 		}
 

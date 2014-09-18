@@ -4,7 +4,7 @@ using UnityEngine;
 namespace SaguFramework {
 	
 	[Serializable]
-	public class InventoryTriggerParameters {
+	public sealed class InventoryTriggerParameters {
 
 		public Rect Area;
 

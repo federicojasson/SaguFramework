@@ -17,8 +17,12 @@ namespace SaguFramework {
 		public static void NotifyOnGUI(Entity entity) {
 			if (! CanEntityExecute(entity))
 				return;
-			
-			entity.GetBehaviour().OnShowGui();
+
+			// TODO: on GraphicHandler?
+			GUI.skin = Parameters.GetSkin();
+			GUILayout.BeginArea(Geometry.GetGameRectangleInGui()); {
+				entity.GetBehaviour().OnShowGui();
+			} GUILayout.EndArea();
 		}
 		
 		public static void NotifyOnMouseEnter(Entity entity) {

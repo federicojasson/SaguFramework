@@ -3,7 +3,7 @@
 namespace SaguFramework {
 	
 	[Serializable]
-	public class LoaderParameters {
+	public sealed class LoaderParameters {
 		
 		public FadeParameters FadeIn;
 		public FadeParameters FadeOut;

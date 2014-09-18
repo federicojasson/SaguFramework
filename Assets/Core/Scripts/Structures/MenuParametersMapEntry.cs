@@ -3,6 +3,6 @@
 namespace SaguFramework {
 	
 	[Serializable]
-	public class MenuParametersMapEntry : MapEntry<string, MenuParameters> {}
+	public sealed class MenuParametersMapEntry : MapEntry<string, MenuParameters> {}
 	
 }

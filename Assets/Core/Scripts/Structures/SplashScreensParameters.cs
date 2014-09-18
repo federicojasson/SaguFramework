@@ -1,9 +1,9 @@
 ﻿using System;
 
 namespace SaguFramework {
-	
+
 	[Serializable]
-	public class SplashScreensParameters {
+	public sealed class SplashScreensParameters {
 
 		public SplashScreenParameters Main;
 		public SplashScreenParametersArrayMap Groups;

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace SaguFramework {
 	
 	[Serializable]
-	public class CursorsParameters {
+	public sealed class CursorsParameters {
 
 		public Vector2 PreferredSize;
 		public Texture2D ClickTexture;

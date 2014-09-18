@@ -4,7 +4,7 @@ using UnityEngine;
 namespace SaguFramework {
 	
 	[Serializable]
-	public class FadeParameters {
+	public sealed class FadeParameters {
 
 		public bool Ignore;
 		public float Speed;
