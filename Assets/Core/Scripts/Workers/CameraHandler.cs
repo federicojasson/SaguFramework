@@ -36,6 +36,8 @@ namespace SaguFramework {
 		}
 
 		public void LateUpdate() {
+			// TODO: use boundaries with rect in bottom left
+
 			if (target != null) {
 				Vector2 targetPosition = target.GetPosition();
 

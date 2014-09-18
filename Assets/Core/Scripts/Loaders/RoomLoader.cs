@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SaguFramework {
 	
-	public class RoomLoader : Loader {
+	public sealed class RoomLoader : Loader {
 
 		private static void ConfigureCamera() {
 			Vector2 roomSize = Objects.GetRoom().GetSize();
@@ -12,12 +12,12 @@ namespace SaguFramework {
 			float width = roomSize.x;
 			float height = roomSize.y;
 			float x = Geometry.GameToWorldX(0f);
-			float y = Geometry.GameToWorldY(0f) + height;
+			float y = Geometry.GameToWorldY(0f);
 			Rect boundaries = new Rect(x, y, width, height);
 
 			CameraHandler.SetCameraBoundaries(boundaries);
 
-			string characterId = State.GetPlayerCharacter();
+			string characterId = State.GetPlayerCharacter(); // TODO: CAREFUL
 			Character character = Objects.GetCharacters()[characterId];
 			CameraHandler.SetCameraTarget(character);
 		}

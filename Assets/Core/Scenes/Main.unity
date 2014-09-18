@@ -449,59 +449,6 @@ MonoBehaviour:
   GameParameters:
     GameDirectoryPath: '%USERPROFILE%\EmergenciaQuimica'
     Entities:
-      Inventory:
-        Height: 1
-        Rows: 3
-        Columns: 3
-        CellSize: {x: .09375, y: .166666672}
-        CellGap: {x: .0625, y: .111111112}
-        TableCenter: {x: .718437493, y: .499444515}
-        Image:
-          Opacity: 1
-          SortingLayer: 
-          Sprite: {fileID: 21300000, guid: 382cbdca2bff85f4883fc1814c3244cc, type: 3}
-          AnimatorController: {fileID: 0}
-        HideTrigger:
-          Area:
-            serializedVersion: 2
-            x: .179374993
-            y: .5
-            width: .358749986
-            height: 1
-        PreviousPageTrigger:
-          Area:
-            serializedVersion: 2
-            x: .457812488
-            y: .499444455
-            width: .0393749997
-            height: .24333334
-        NextPageTrigger:
-          Area:
-            serializedVersion: 2
-            x: .979062498
-            y: .499444455
-            width: .0393749997
-            height: .24333334
-      InventoryItems:
-        Entries:
-        - Key: InventoryErlenmeyer
-          Value:
-            Behaviour: {fileID: 11400000, guid: 31720cce6f72bc9428f084230428eb9b,
-              type: 2}
-            Image:
-              Opacity: 1
-              SortingLayer: 
-              Sprite: {fileID: 21300000, guid: 0a1908d4c11ac034c8c5504ec2555e34, type: 3}
-              AnimatorController: {fileID: 0}
-        - Key: InventoryProtectionSuit
-          Value:
-            Behaviour: {fileID: 11400000, guid: c4e11dc4ce0482b4db6563cc971a2981,
-              type: 2}
-            Image:
-              Opacity: 1
-              SortingLayer: 
-              Sprite: {fileID: 21300000, guid: c3843395c323c104c8a8d47c949976de, type: 3}
-              AnimatorController: {fileID: 0}
       Rooms:
         Entries:
         - Key: Laboratory
@@ -510,12 +457,12 @@ MonoBehaviour:
             ScaleFactor: 1
             BackgroundImage:
               Opacity: 1
-              SortingLayer: 
+              SortingOrder: 0
               Sprite: {fileID: 21300000, guid: 4f1e026585c14fa4fb441cd2fb7f29d4, type: 3}
               AnimatorController: {fileID: 0}
             ForegroundImage:
               Opacity: 1
-              SortingLayer: 
+              SortingOrder: 0
               Sprite: {fileID: 21300000, guid: 82af699dd8b21864889d8f3c45d6896d, type: 3}
               AnimatorController: {fileID: 0}
             Triggers:
@@ -555,12 +502,12 @@ MonoBehaviour:
             ScaleFactor: 1
             BackgroundImage:
               Opacity: 1
-              SortingLayer: 
+              SortingOrder: 0
               Sprite: {fileID: 21300000, guid: c62248d8a1529554ea0fa3a8f829519b, type: 3}
               AnimatorController: {fileID: 0}
             ForegroundImage:
               Opacity: 1
-              SortingLayer: 
+              SortingOrder: 0
               Sprite: {fileID: 0}
               AnimatorController: {fileID: 0}
             Triggers:
@@ -584,12 +531,12 @@ MonoBehaviour:
             ScaleFactor: 1
             BackgroundImage:
               Opacity: 1
-              SortingLayer: 
+              SortingOrder: 0
               Sprite: {fileID: 21300000, guid: 95d374ea31cb60c49817ea9b3f320314, type: 3}
               AnimatorController: {fileID: 0}
             ForegroundImage:
               Opacity: 1
-              SortingLayer: 
+              SortingOrder: 0
               Sprite: {fileID: 21300000, guid: 3c09f7e02d4fe33489c8bd3b138de525, type: 3}
               AnimatorController: {fileID: 0}
             Triggers:
@@ -619,6 +566,59 @@ MonoBehaviour:
                 Value:
                   Direction: 0
                   Position: {x: 1.35000002, y: .349999994}
+      Inventory:
+        Height: 1
+        Rows: 3
+        Columns: 3
+        CellSize: {x: .09375, y: .166666672}
+        CellGap: {x: .0625, y: .111111112}
+        TableCenter: {x: .718437493, y: .499444515}
+        Image:
+          Opacity: 1
+          SortingOrder: 0
+          Sprite: {fileID: 21300000, guid: 382cbdca2bff85f4883fc1814c3244cc, type: 3}
+          AnimatorController: {fileID: 0}
+        HideTrigger:
+          Area:
+            serializedVersion: 2
+            x: .179374993
+            y: .5
+            width: .358749986
+            height: 1
+        PreviousPageTrigger:
+          Area:
+            serializedVersion: 2
+            x: .457812488
+            y: .499444455
+            width: .0393749997
+            height: .24333334
+        NextPageTrigger:
+          Area:
+            serializedVersion: 2
+            x: .979062498
+            y: .499444455
+            width: .0393749997
+            height: .24333334
+      InventoryItems:
+        Entries:
+        - Key: InventoryErlenmeyer
+          Value:
+            Behaviour: {fileID: 11400000, guid: 31720cce6f72bc9428f084230428eb9b,
+              type: 2}
+            Image:
+              Opacity: 1
+              SortingOrder: 0
+              Sprite: {fileID: 21300000, guid: 0a1908d4c11ac034c8c5504ec2555e34, type: 3}
+              AnimatorController: {fileID: 0}
+        - Key: InventoryProtectionSuit
+          Value:
+            Behaviour: {fileID: 11400000, guid: c4e11dc4ce0482b4db6563cc971a2981,
+              type: 2}
+            Image:
+              Opacity: 1
+              SortingOrder: 0
+              Sprite: {fileID: 21300000, guid: c3843395c323c104c8a8d47c949976de, type: 3}
+              AnimatorController: {fileID: 0}
       Characters:
         Entries:
         - Key: Scientist
@@ -629,7 +629,7 @@ MonoBehaviour:
               type: 2}
             Image:
               Opacity: 1
-              SortingLayer: 
+              SortingOrder: 0
               Sprite: {fileID: 21300000, guid: e9974384339ce7e4ea4db1276af59e8d, type: 3}
               AnimatorController: {fileID: 22100000, guid: f6a5b561f73efbe48ae18b1cd574a039,
                 type: 2}
@@ -641,7 +641,7 @@ MonoBehaviour:
               type: 2}
             Image:
               Opacity: 1
-              SortingLayer: 
+              SortingOrder: 0
               Sprite: {fileID: 21300000, guid: aefe6a92c94476748aaf240fcec4ff42, type: 3}
               AnimatorController: {fileID: 22100000, guid: b263e67ace536bc4da40184a1851b40c,
                 type: 2}
@@ -654,7 +654,7 @@ MonoBehaviour:
               type: 2}
             Image:
               Opacity: 1
-              SortingLayer: 
+              SortingOrder: 0
               Sprite: {fileID: 21300000, guid: f483a91a5eaa9e346a1fd325994a6613, type: 3}
               AnimatorController: {fileID: 0}
         - Key: ProtectionSuit
@@ -664,7 +664,7 @@ MonoBehaviour:
               type: 2}
             Image:
               Opacity: 1
-              SortingLayer: 
+              SortingOrder: 0
               Sprite: {fileID: 21300000, guid: d9a58c0aae22e0243a636932157ca041, type: 3}
               AnimatorController: {fileID: 0}
       Menus:
@@ -673,7 +673,7 @@ MonoBehaviour:
           Behaviour: {fileID: 11400000, guid: 611e7800ab4c8c7499a498ec777caeb8, type: 2}
           Image:
             Opacity: 1
-            SortingLayer: 
+            SortingOrder: 0
             Sprite: {fileID: 21300000, guid: e65e4b1a22c23df4db3fa233ddca6b58, type: 3}
             AnimatorController: {fileID: 0}
         Pause:
@@ -681,7 +681,7 @@ MonoBehaviour:
           Behaviour: {fileID: 11400000, guid: 02a041c5505114a4e923db3c640ac271, type: 2}
           Image:
             Opacity: .899999976
-            SortingLayer: 
+            SortingOrder: 0
             Sprite: {fileID: 21300000, guid: 483337aca6cac0f4891b9f2ca6050414, type: 3}
             AnimatorController: {fileID: 0}
         Others:
@@ -693,7 +693,7 @@ MonoBehaviour:
                 type: 2}
               Image:
                 Opacity: 1
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: 349029186b9c604458ef183767669ad8,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -704,7 +704,7 @@ MonoBehaviour:
                 type: 2}
               Image:
                 Opacity: .899999976
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: 5d14d7251d7f05c49bbeb3f241263ede,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -715,7 +715,7 @@ MonoBehaviour:
                 type: 2}
               Image:
                 Opacity: .899999976
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: 21b30fb096b467144bbd29ccc3a0fae3,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -726,7 +726,7 @@ MonoBehaviour:
                 type: 2}
               Image:
                 Opacity: 1
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: 4abe5d9cd77387b48a498e8066597c7d,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -737,7 +737,7 @@ MonoBehaviour:
                 type: 2}
               Image:
                 Opacity: 1
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: 76a7821ce1951ff4186e190eadadecc4,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -748,7 +748,7 @@ MonoBehaviour:
                 type: 2}
               Image:
                 Opacity: .899999976
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: 32fe64495ebfe634685173d51ae5021a,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -759,7 +759,7 @@ MonoBehaviour:
                 type: 2}
               Image:
                 Opacity: .899999976
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: 46e2ba5550a58284dacaf5548b58f725,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -770,7 +770,7 @@ MonoBehaviour:
                 type: 2}
               Image:
                 Opacity: .899999976
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: 6afca9a4c85cdb4469b7ed1274dc66c1,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -781,7 +781,7 @@ MonoBehaviour:
                 type: 2}
               Image:
                 Opacity: .899999976
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: 154b4a85961d2ac4dac345465e09650a,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -792,7 +792,7 @@ MonoBehaviour:
                 type: 2}
               Image:
                 Opacity: .899999976
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: 12a95d98c564b9f43bbd9c2081444226,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -803,7 +803,7 @@ MonoBehaviour:
                 type: 2}
               Image:
                 Opacity: 1
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: dddc96e9cc139a449bba187027d74f3b,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -813,7 +813,7 @@ MonoBehaviour:
           MinimumDelayTime: 0
           Image:
             Opacity: 1
-            SortingLayer: 
+            SortingOrder: 0
             Sprite: {fileID: 21300000, guid: 9a43c0be4590dc042adf5be338630e9e, type: 3}
             AnimatorController: {fileID: 0}
         Groups:
@@ -824,7 +824,7 @@ MonoBehaviour:
               MinimumDelayTime: 1
               Image:
                 Opacity: 1
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: b61d05b27dc704646af547b14589d16f,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -832,7 +832,7 @@ MonoBehaviour:
               MinimumDelayTime: 1
               Image:
                 Opacity: 1
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: a7bae905c91be9040a42830fb3c92520,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -840,7 +840,7 @@ MonoBehaviour:
               MinimumDelayTime: 1
               Image:
                 Opacity: 1
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: 3db5ea6917b85004099ae46e2ec8cf8c,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -850,7 +850,7 @@ MonoBehaviour:
               MinimumDelayTime: 0
               Image:
                 Opacity: 1
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: 625389f1da61262429c83fde5b788c95,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -858,7 +858,7 @@ MonoBehaviour:
               MinimumDelayTime: 0
               Image:
                 Opacity: 1
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: c29b85482e5f0c340a0f843044148a12,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -866,7 +866,7 @@ MonoBehaviour:
               MinimumDelayTime: 0
               Image:
                 Opacity: 1
-                SortingLayer: 
+                SortingOrder: 0
                 Sprite: {fileID: 21300000, guid: 81cf8d83498057d4eb64f64a108c0424,
                   type: 3}
                 AnimatorController: {fileID: 0}
@@ -893,14 +893,14 @@ MonoBehaviour:
       InventoryPageEffect: {fileID: 8300000, guid: bd1926f7a363c7447b8c87e90c56b6f2,
         type: 3}
       MainMenuSong: {fileID: 8300000, guid: a0d451f4b5836814f8e5b43aa9d3d388, type: 3}
+      ShuffleSongs: 1
+      DelayBetweenSongs: 2
       Playlist:
       - {fileID: 8300000, guid: 42196503c0818b54e8b179dc24e9fa1a, type: 3}
       - {fileID: 8300000, guid: 0113015397fc604429c4d43a3f44c3ee, type: 3}
       - {fileID: 8300000, guid: 17610be4fb2cab1419649b9a2ffe9bdc, type: 3}
       - {fileID: 8300000, guid: 6b27debf0db50464b96d051b9a01c402, type: 3}
       - {fileID: 8300000, guid: d32afb74bbec2f24baebca233435a238, type: 3}
-      ShuffleSongs: 1
-      DelayBetweenSongs: 2
     Controls:
       UseMouseWheel: 1
       CloseMenuKeys: 1b000000

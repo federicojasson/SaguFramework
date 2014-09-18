@@ -2,9 +2,9 @@
 
 namespace SaguFramework {
 	
-	public class MainLoader : Loader {
+	public sealed class MainLoader : Loader {
 
-		private static void LoadOptions() {
+		private static void LoadAndApplyOptions() {
 			Options.Load();
 			//Game.ApplyOptions(); TODO
 		}
@@ -14,7 +14,7 @@ namespace SaguFramework {
 			//Game.NewGame();
 			//Game.OpenMainMenu();
 
-			LoadOptions();
+			LoadAndApplyOptions();
 			SoundPlayer.StopAllSounds();
 			SoundPlayer.PlayMainEffect();
 			SplashScreenHandler.ShowMainSplashScreen();

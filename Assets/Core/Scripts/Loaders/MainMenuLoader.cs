@@ -2,7 +2,7 @@
 
 namespace SaguFramework {
 	
-	public class MainMenuLoader : Loader {
+	public sealed class MainMenuLoader : Loader {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
 			SoundPlayer.StopAllSounds();

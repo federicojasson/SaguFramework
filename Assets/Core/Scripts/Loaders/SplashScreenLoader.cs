@@ -2,7 +2,7 @@
 
 namespace SaguFramework {
 	
-	public class SplashScreenLoader : Loader {
+	public sealed class SplashScreenLoader : Loader {
 		
 		protected override IEnumerator LoadSceneCoroutine() {
 			SplashScreenHandler.ShowSplashScreenFromCurrentGroup();

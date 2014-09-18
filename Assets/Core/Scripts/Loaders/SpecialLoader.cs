@@ -2,7 +2,9 @@
 
 namespace SaguFramework {
 	
-	public class SpecialLoader : Loader {
+	public sealed class SpecialLoader : Loader {
+
+		// TODO
 
 		protected override IEnumerator LoadSceneCoroutine() {
 			yield return StartCoroutine(GraphicHandler.FadeIn(Parameters.GetSpecialLoaderParameters().FadeIn));

@@ -84,7 +84,7 @@ namespace SaguFramework {
 			RoomParameters roomParameters = Parameters.GetRoomParameters(roomId);
 			EntryParameters entryParameters = roomParameters.Entries[entryId];
 			
-			string characterId = State.GetPlayerCharacterId();
+			string characterId = State.GetPlayerCharacterId(); // TODO: CAREFUL
 			Direction direction = entryParameters.Direction;
 			Location location = new Location(entryParameters.Position, roomId);
 			CharacterState characterState = new CharacterState(direction, location);
