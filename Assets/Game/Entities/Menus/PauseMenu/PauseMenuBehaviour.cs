@@ -5,7 +5,7 @@ namespace EmergenciaQuimica {
 	
 	public class PauseMenuBehaviour : MenuBehaviour {
 		
-		public override void OnShowGui() {
+		/*public override void OnShowGui() {
 			GUIStyle menuButtonStyle = GUI.skin.GetStyle("MenuButton");
 			GUIStyle modifiedMenuButtonStyle = Utilities.GetRelativeStyle(menuButtonStyle);
 			
@@ -70,7 +70,7 @@ namespace EmergenciaQuimica {
 
 		private void OnSaveGame() {
 			Game.OpenMenu("SaveGameMenu");
-		}
+		}*/
 		
 	}
 	

@@ -7,7 +7,7 @@ namespace EmergenciaQuimica {
 	
 	public class SaveGameMenuBehaviour : MenuBehaviour {
 
-		private string newStateId;
+		/*private string newStateId;
 		private Vector2 scrollPosition;
 		private int selectedStateId;
 		private string[] stateIds;
@@ -167,7 +167,7 @@ namespace EmergenciaQuimica {
 			
 			Game.SaveGame(stateId);
 			Game.CloseMenu();
-		}
+		}*/
 
 	}
 	

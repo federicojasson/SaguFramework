@@ -72,12 +72,76 @@ namespace SaguFramework {
 			return resourcePath;
 		}
 
-		public static bool GetXmlNodeBooleanValue(XElement node) {
-			string value = GetXmlNodeStringValue(node);
-			return Boolean.Parse(value);
+
+
+
+		// TODO: order
+		public static string BooleanToString(bool value) {
+			return value.ToString(CultureInfo.InvariantCulture);
+		}
+
+		public static string FloatToString(float value) {
+			return value.ToString(CultureInfo.InvariantCulture);
 		}
 		
-		public static CharacterState GetXmlNodeCharacterStateValue(XElement node) {
+		public static string IntegerToString(int value) {
+			return value.ToString(CultureInfo.InvariantCulture);
+		}
+
+		public static bool StringToBoolean(string value) {
+			return Boolean.Parse(value);
+		}
+
+		public static float StringToFloat(string value) {
+			return float.Parse(value, CultureInfo.InvariantCulture);
+		}
+
+		public static int StringToInteger(string value) {
+			return int.Parse(value, CultureInfo.InvariantCulture);
+		}
+
+
+
+		public static bool GetXmlAttributeBooleanValue(XAttribute attribute) {
+			string value = GetXmlAttributeStringValue(attribute);
+			return StringToBoolean(value);
+		}
+
+		public static float GetXmlAttributeFloatValue(XAttribute attribute) {
+			string value = GetXmlAttributeStringValue(attribute);
+			return StringToFloat(value);
+		}
+		
+		public static int GetXmlAttributeIntegerValue(XAttribute attribute) {
+			string value = GetXmlAttributeStringValue(attribute);
+			return StringToInteger(value);
+		}
+
+		public static string GetXmlAttributeStringValue(XAttribute attribute) {
+			return attribute.Value.Trim();
+		}
+
+		public static bool GetXmlNodeBooleanValue(XElement node) {
+			string value = GetXmlNodeStringValue(node);
+			return StringToBoolean(value);
+		}
+		
+		public static float GetXmlNodeFloatValue(XElement node) {
+			string value = GetXmlNodeStringValue(node);
+			return StringToFloat(value);
+		}
+		
+		public static int GetXmlNodeIntegerValue(XElement node) {
+			string value = GetXmlNodeStringValue(node);
+			return StringToInteger(value);
+		}
+		
+		public static string GetXmlNodeStringValue(XElement node) {
+			return node.Value.Trim();
+		}
+
+		// TODO
+		/*public static CharacterState GetXmlNodeCharacterStateValue(XElement node) {
 			XElement directionNode = node.Element(Parameters.XmlTagDirection);
 			Direction direction = GetXmlNodeDirectionValue(directionNode);
 			XElement locationNode = node.Element(Parameters.XmlTagLocation);
@@ -93,19 +157,10 @@ namespace SaguFramework {
 				return Direction.Left;
 			else
 				return Direction.Right;
-		}
-		
-		public static float GetXmlNodeFloatValue(XElement node) {
-			string value = GetXmlNodeStringValue(node);
-			return float.Parse(value, CultureInfo.InvariantCulture);
-		}
-		
-		public static int GetXmlNodeIntegerValue(XElement node) {
-			string value = GetXmlNodeStringValue(node);
-			return int.Parse(value, CultureInfo.InvariantCulture);
-		}
-		
-		public static ItemState GetXmlNodeItemStateValue(XElement node) {
+		}*/
+
+		// TODO
+		/*public static ItemState GetXmlNodeItemStateValue(XElement node) {
 			XElement locationNode = node.Element(Parameters.XmlTagLocation);
 			Location location = GetXmlNodeLocationValue(locationNode);
 			
@@ -119,20 +174,17 @@ namespace SaguFramework {
 			string roomId = GetXmlNodeStringValue(roomIdNode);
 			
 			return new Location(position, roomId);
-		}
-		
-		public static string GetXmlNodeStringValue(XElement node) {
-			return node.Value.Trim();
-		}
-		
-		public static Vector2 GetXmlNodeVector2Value(XElement node) {
+		}*/
+
+		// TODO
+		/*public static Vector2 GetXmlNodeVector2Value(XElement node) {
 			XElement xNode = node.Element(Parameters.XmlTagX);
 			float x = GetXmlNodeFloatValue(xNode);
 			XElement yNode = node.Element(Parameters.XmlTagY);
 			float y = GetXmlNodeFloatValue(yNode);
 			
 			return new Vector2(x, y);
-		}
+		}*/
 
 		public static FileInfo[] OrderFilesByLastWriteTimeDescending(FileInfo[] files) {
 			return files.OrderByDescending(value => value.LastWriteTime).ToArray();
@@ -157,13 +209,9 @@ namespace SaguFramework {
 			
 			return xmlFile;
 		}
-		
-		public static void SetXmlNodeBooleanValue(XElement node, bool value) {
-			string stringValue = value.ToString();
-			SetXmlNodeStringValue(node, stringValue);
-		}
-		
-		public static void SetXmlNodeCharacterStateValue(XElement node, CharacterState value) {
+
+		// TODO
+		/*public static void SetXmlNodeCharacterStateValue(XElement node, CharacterState value) {
 			XElement directionNode = new XElement(Parameters.XmlTagDirection);
 			SetXmlNodeDirectionValue(directionNode, value.GetDirection());
 			XElement locationNode = new XElement(Parameters.XmlTagLocation);
@@ -181,19 +229,45 @@ namespace SaguFramework {
 				stringValue = Parameters.DirectionRight;
 			
 			SetXmlNodeStringValue(node, stringValue);
+		}*/
+
+
+
+
+		public static void SetXmlAttributeBooleanValue(XAttribute attribute, bool value) {
+			SetXmlAttributeStringValue(attribute, BooleanToString(value));
+		}
+		
+		public static void SetXmlAttributeFloatValue(XAttribute attribute, float value) {
+			SetXmlAttributeStringValue(attribute, FloatToString(value));
+		}
+		
+		public static void SetXmlAttributeIntegerValue(XAttribute attribute, int value) {
+			SetXmlAttributeStringValue(attribute, IntegerToString(value));
+		}
+		
+		public static void SetXmlAttributeStringValue(XAttribute attribute, string value) {
+			attribute.Value = value.Trim();
+		}
+
+		public static void SetXmlNodeBooleanValue(XElement node, bool value) {
+			SetXmlNodeStringValue(node, BooleanToString(value));
 		}
 		
 		public static void SetXmlNodeFloatValue(XElement node, float value) {
-			string stringValue = value.ToString(CultureInfo.InvariantCulture);
-			SetXmlNodeStringValue(node, stringValue);
+			SetXmlNodeStringValue(node, FloatToString(value));
 		}
 		
 		public static void SetXmlNodeIntegerValue(XElement node, int value) {
-			string stringValue = value.ToString(CultureInfo.InvariantCulture);
-			SetXmlNodeStringValue(node, stringValue);
+			SetXmlNodeStringValue(node, IntegerToString(value));
 		}
 		
-		public static void SetXmlNodeItemStateValue(XElement node, ItemState value) {
+		public static void SetXmlNodeStringValue(XElement node, string value) {
+			node.Value = value.Trim();
+		}
+
+		// TODO
+		/*public static void SetXmlNodeItemStateValue(XElement node, ItemState value) {
 			XElement locationNode = new XElement(Parameters.XmlTagLocation);
 			SetXmlNodeLocationValue(locationNode, value.GetLocation());
 			
@@ -207,20 +281,17 @@ namespace SaguFramework {
 			SetXmlNodeStringValue(roomIdNode, value.GetRoomId());
 			
 			node.Add(positionNode, roomIdNode);
-		}
-		
-		public static void SetXmlNodeStringValue(XElement node, string value) {
-			node.Value = value.Trim();
-		}
-		
-		public static void SetXmlNodeVector2Value(XElement node, Vector2 value) {
+		}*/
+
+		// TODO
+		/*public static void SetXmlNodeVector2Value(XElement node, Vector2 value) {
 			XElement xNode = new XElement(Parameters.XmlTagX);
 			SetXmlNodeFloatValue(xNode, value.x);
 			XElement yNode = new XElement(Parameters.XmlTagY);
 			SetXmlNodeFloatValue(yNode, value.y);
 			
 			node.Add(xNode, yNode);
-		}
+		}*/
 		
 		public static void WriteXmlFile(string path, XDocument xmlFile) {
 			// TODO: errors, exceptions?

@@ -5,7 +5,7 @@ namespace EmergenciaQuimica {
 	
 	public class DeleteGameConfirmationMenuBehaviour : MenuBehaviour {
 
-		private static string stateId;
+		/*private static string stateId;
 
 		public static void SetStateId(string stateId) {
 			DeleteGameConfirmationMenuBehaviour.stateId = stateId;
@@ -52,7 +52,7 @@ namespace EmergenciaQuimica {
 		private void OnDeleteGame() {
 			Game.DeleteGame(stateId);
 			Game.CloseMenu();
-		}
+		}*/
 		
 	}
 	

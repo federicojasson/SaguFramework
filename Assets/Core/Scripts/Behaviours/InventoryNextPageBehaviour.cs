@@ -1,6 +1,6 @@
 ﻿namespace SaguFramework {
 	
-	public class InventoryNextPageBehaviour : InventoryTriggerBehaviour {
+	public sealed class InventoryNextPageBehaviour : InventoryTriggerBehaviour {
 
 		public override void OnClick() {
 			InventoryHandler.ShowNextPage();

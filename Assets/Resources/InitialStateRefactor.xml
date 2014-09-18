@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<state>
+	
+	<!-- Current room -->
+	<current-room></current-room>
+
+	<!-- Player character -->
+	<player-character></player-character>
+	
+	<!-- Hints -->
+	<hint></hint>
+	
+	<!-- Inventory items -->
+	<inventory-item></inventory-item>
+	
+	<!-- Characters -->
+	<character id="">
+		<direction></direction>
+		<location>
+			<room></room>
+			<position>
+				<x></x>
+				<y></y>
+			</position>
+		</location>
+	</character>
+	
+	<!-- Items -->
+	<item id="">
+		<location>
+			<room></room>
+			<position>
+				<x></x>
+				<y></y>
+			</position>
+		</location>
+	</item>
+	
+</state>

@@ -5,7 +5,7 @@ namespace EmergenciaQuimica {
 	
 	public class MainMenuBehaviour : MenuBehaviour {
 
-		private bool isEnabled;
+		/*private bool isEnabled;
 
 		public void Awake() {
 			isEnabled = true;
@@ -64,7 +64,7 @@ namespace EmergenciaQuimica {
 
 		private void OnOptions() {
 			Game.OpenMenu("MainOptionsMenu");
-		}
+		}*/
 		
 	}
 	

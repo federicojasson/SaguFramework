@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Linq;
+using UnityEngine;
 
 namespace SaguFramework {
 	
@@ -52,70 +53,105 @@ namespace SaguFramework {
 		
 		private static XDocument GenerateStateFile() {
 			// State
-			XElement stateNode = new XElement(Parameters.XmlTagState);
+			XElement stateNode = new XElement(Parameters.XmlNodeState);
 			
 			// Current room
 			{
-				XElement currentRoomIdNode = new XElement(Parameters.XmlTagCurrentRoomId);
-				Utilities.SetXmlNodeStringValue(currentRoomIdNode, currentRoomId);
+				XElement currentRoomNode = new XElement(Parameters.XmlNodeCurrentRoom);
+				Utilities.SetXmlNodeStringValue(currentRoomNode, currentRoom);
 				
-				stateNode.Add(currentRoomIdNode);
+				stateNode.Add(currentRoomNode);
 			}
 
 			// Player character
 			{
-				XElement playerCharacterIdNode = new XElement(Parameters.XmlTagPlayerCharacterId);
-				Utilities.SetXmlNodeStringValue(playerCharacterIdNode, playerCharacterId);
+				XElement playerCharacterNode = new XElement(Parameters.XmlNodePlayerCharacter);
+				Utilities.SetXmlNodeStringValue(playerCharacterNode, playerCharacter);
 
-				stateNode.Add(playerCharacterIdNode);
+				stateNode.Add(playerCharacterNode);
 			}
 			
 			// Hints
 			foreach (string hint in hints) {
-				XElement hintNode = new XElement(Parameters.XmlTagHint);
+				XElement hintNode = new XElement(Parameters.XmlNodeHint);
 				Utilities.SetXmlNodeStringValue(hintNode, hint);
 				
 				stateNode.Add(hintNode);
 			}
 			
 			// Inventory items
-			foreach (string inventoryItemId in inventoryItemIds) {
-				XElement inventoryItemNode = new XElement(Parameters.XmlTagInventoryItem);
-				
-				XElement idNode = new XElement(Parameters.XmlTagId);
-				Utilities.SetXmlNodeStringValue(idNode, inventoryItemId);
-				
-				inventoryItemNode.Add(idNode);
+			foreach (string inventoryItem in inventoryItems) {
+				XElement inventoryItemNode = new XElement(Parameters.XmlNodeInventoryItem);
+				Utilities.SetXmlNodeStringValue(inventoryItemNode, inventoryItem);
+
 				stateNode.Add(inventoryItemNode);
 			}
 			
 			// Characters
-			foreach (KeyValuePair<string, CharacterState> entry in characterStates) {
-				XElement characterNode = new XElement(Parameters.XmlTagCharacter);
+			foreach (KeyValuePair<string, CharacterState> entry in characters) {
+				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, null);
+				XElement directionNode = new XElement(Parameters.XmlNodeDirection);
+				XElement roomNode = new XElement(Parameters.XmlNodeRoom);
+				XElement xNode = new XElement(Parameters.XmlNodeX);
+				XElement yNode = new XElement(Parameters.XmlNodeY);
+				XElement positionNode = new XElement(Parameters.XmlNodePosition);
+				XElement locationNode = new XElement(Parameters.XmlNodeLocation);
+				XElement characterNode = new XElement(Parameters.XmlNodeCharacter);
 				
-				XElement idNode = new XElement(Parameters.XmlTagId);
-				Utilities.SetXmlNodeStringValue(idNode, entry.Key);
+				string id = entry.Key;
+				CharacterState characterState = entry.Value;
+				string direction = characterState.GetDirection().ToString();
+				Location location = characterState.GetLocation();
+				string room = location.GetRoom();
+				Vector2 position = location.GetPosition();
+				float x = position.x;
+				float y = position.y;
 				
-				XElement characterStateNode = new XElement(Parameters.XmlTagCharacterState);
-				Utilities.SetXmlNodeCharacterStateValue(characterStateNode, entry.Value);
+				Utilities.SetXmlAttributeStringValue(idAttribute, id);
+				Utilities.SetXmlNodeStringValue(directionNode, direction);
+				Utilities.SetXmlNodeStringValue(roomNode, room);
+				Utilities.SetXmlNodeFloatValue(xNode, x);
+				Utilities.SetXmlNodeFloatValue(yNode, y);
 				
-				characterNode.Add(idNode);
-				characterNode.Add(characterStateNode);
+				positionNode.Add(xNode);
+				positionNode.Add(yNode);
+				locationNode.Add(roomNode);
+				locationNode.Add(positionNode);
+				characterNode.Add(idAttribute);
+				characterNode.Add(directionNode);
+				characterNode.Add(locationNode);
 				stateNode.Add(characterNode);
 			}
 			
 			// Items
-			foreach (KeyValuePair<string, ItemState> entry in itemStates) {
-				XElement itemNode = new XElement(Parameters.XmlTagItem);
-				
-				XElement idNode = new XElement(Parameters.XmlTagId);
-				Utilities.SetXmlNodeStringValue(idNode, entry.Key);
-				
-				XElement itemStateNode = new XElement(Parameters.XmlTagItemState);
-				Utilities.SetXmlNodeItemStateValue(itemStateNode, entry.Value);
-				
-				itemNode.Add(idNode);
-				itemNode.Add(itemStateNode);
+			foreach (KeyValuePair<string, ItemState> entry in items) {
+				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, null);
+				XElement roomNode = new XElement(Parameters.XmlNodeRoom);
+				XElement xNode = new XElement(Parameters.XmlNodeX);
+				XElement yNode = new XElement(Parameters.XmlNodeY);
+				XElement positionNode = new XElement(Parameters.XmlNodePosition);
+				XElement locationNode = new XElement(Parameters.XmlNodeLocation);
+				XElement itemNode = new XElement(Parameters.XmlNodeItem);
+
+				string id = entry.Key;
+				ItemState itemState = entry.Value;
+				Location location = itemState.GetLocation();
+				string room = location.GetRoom();
+				Vector2 position = location.GetPosition();
+				float x = position.x;
+				float y = position.y;
+
+				Utilities.SetXmlAttributeStringValue(idAttribute, id);
+				Utilities.SetXmlNodeStringValue(roomNode, room);
+				Utilities.SetXmlNodeFloatValue(xNode, x);
+				Utilities.SetXmlNodeFloatValue(yNode, y);
+
+				positionNode.Add(xNode);
+				positionNode.Add(yNode);
+				locationNode.Add(roomNode);
+				locationNode.Add(positionNode);
+				itemNode.Add(idAttribute);
+				itemNode.Add(locationNode);
 				stateNode.Add(itemNode);
 			}
 
@@ -123,61 +159,80 @@ namespace SaguFramework {
 		}
 		
 		private static void ProcessStateFile(XDocument stateFile) {
-			characterStates.Clear();
-			currentRoomId = null;
+			characters.Clear();
+			currentRoom = null;
 			hints.Clear();
-			inventoryItemIds.Clear();
-			itemStates.Clear();
-			playerCharacterId = null;
+			inventoryItems.Clear();
+			items.Clear();
+			playerCharacter = null;
 			
 			// State
-			XElement stateNode = stateFile.Element(Parameters.XmlTagState);
+			XElement stateNode = stateFile.Element(Parameters.XmlNodeState);
 			
 			// Current room
 			{
-				XElement currentRoomIdNode = stateNode.Element(Parameters.XmlTagCurrentRoomId);
-				currentRoomId = Utilities.GetXmlNodeStringValue(currentRoomIdNode);
+				XElement currentRoomNode = stateNode.Element(Parameters.XmlNodeCurrentRoom);
+				currentRoom = Utilities.GetXmlNodeStringValue(currentRoomNode);
 			}
 
 			// Player character
 			{
-				XElement playerCharacterIdNode = stateNode.Element(Parameters.XmlTagPlayerCharacterId);
-				playerCharacterId = Utilities.GetXmlNodeStringValue(playerCharacterIdNode);
+				XElement playerCharacterNode = stateNode.Element(Parameters.XmlNodePlayerCharacter);
+				playerCharacter = Utilities.GetXmlNodeStringValue(playerCharacterNode);
 			}
 			
 			// Hints
-			foreach (XElement hintNode in stateNode.Elements(Parameters.XmlTagHint)) {
+			foreach (XElement hintNode in stateNode.Elements(Parameters.XmlNodeHint)) {
 				string hint = Utilities.GetXmlNodeStringValue(hintNode);
-				
 				hints.Add(hint);
 			}
 			
 			// Inventory items
-			foreach (XElement inventoryItemNode in stateNode.Elements(Parameters.XmlTagInventoryItem)) {
-				XElement idNode = inventoryItemNode.Element(Parameters.XmlTagId);
-				string id = Utilities.GetXmlNodeStringValue(idNode);
-				
-				inventoryItemIds.Add(id);
+			foreach (XElement inventoryItemNode in stateNode.Elements(Parameters.XmlNodeInventoryItem)) {
+				string inventoryItem = Utilities.GetXmlNodeStringValue(inventoryItemNode);
+				inventoryItems.Add(inventoryItem);
 			}
 			
 			// Characters
-			foreach (XElement characterNode in stateNode.Elements(Parameters.XmlTagCharacter)) {
-				XElement idNode = characterNode.Element(Parameters.XmlTagId);
-				string id = Utilities.GetXmlNodeStringValue(idNode);
-				XElement characterStateNode = characterNode.Element(Parameters.XmlTagCharacterState);
-				CharacterState characterState = Utilities.GetXmlNodeCharacterStateValue(characterStateNode);
-				
-				characterStates.Add(id, characterState);
+			foreach (XElement characterNode in stateNode.Elements(Parameters.XmlNodeCharacter)) {
+				XAttribute idAttribute = characterNode.Attribute(Parameters.XmlAttributeId);
+				XElement directionNode = characterNode.Element(Parameters.XmlNodeDirection);
+				XElement locationNode = characterNode.Element(Parameters.XmlNodeLocation);
+				XElement roomNode = locationNode.Element(Parameters.XmlNodeRoom);
+				XElement positionNode = locationNode.Element(Parameters.XmlNodePosition);
+				XElement xNode = positionNode.Element(Parameters.XmlNodeX);
+				XElement yNode = positionNode.Element(Parameters.XmlNodeY);
+
+				string id = Utilities.GetXmlAttributeStringValue(idAttribute);
+				Direction direction = (Utilities.GetXmlNodeStringValue(directionNode) == Parameters.DirectionLeft) ? Direction.Left : Direction.Right;
+				float x = Utilities.GetXmlNodeFloatValue(xNode);
+				float y = Utilities.GetXmlNodeFloatValue(yNode);
+				Vector2 position = new Vector2(x, y);
+				string room = Utilities.GetXmlNodeStringValue(roomNode);
+				Location location = new Location(position, room);
+				CharacterState characterState = new CharacterState(direction, location);
+
+				characters.Add(id, characterState);
 			}
 			
 			// Items
-			foreach (XElement itemNode in stateNode.Elements(Parameters.XmlTagItem)) {
-				XElement idNode = itemNode.Element(Parameters.XmlTagId);
-				string id = Utilities.GetXmlNodeStringValue(idNode);
-				XElement itemStateNode = itemNode.Element(Parameters.XmlTagItemState);
-				ItemState itemState = Utilities.GetXmlNodeItemStateValue(itemStateNode);
+			foreach (XElement itemNode in stateNode.Elements(Parameters.XmlNodeItem)) {
+				XAttribute idAttribute = itemNode.Attribute(Parameters.XmlAttributeId);
+				XElement locationNode = itemNode.Element(Parameters.XmlNodeLocation);
+				XElement roomNode = locationNode.Element(Parameters.XmlNodeRoom);
+				XElement positionNode = locationNode.Element(Parameters.XmlNodePosition);
+				XElement xNode = positionNode.Element(Parameters.XmlNodeX);
+				XElement yNode = positionNode.Element(Parameters.XmlNodeY);
 				
-				itemStates.Add(id, itemState);
+				string id = Utilities.GetXmlAttributeStringValue(idAttribute);
+				float x = Utilities.GetXmlNodeFloatValue(xNode);
+				float y = Utilities.GetXmlNodeFloatValue(yNode);
+				Vector2 position = new Vector2(x, y);
+				string room = Utilities.GetXmlNodeStringValue(roomNode);
+				Location location = new Location(position, room);
+				ItemState itemState = new ItemState(location);
+				
+				items.Add(id, itemState);
 			}
 		}
 

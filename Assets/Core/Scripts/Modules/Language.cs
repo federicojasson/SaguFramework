@@ -1,24 +1,23 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 
 namespace SaguFramework {
 	
 	public static partial class Language {
-
+		
+		private static Dictionary<string, Speech> speeches;
 		private static Dictionary<string, string> texts;
-		private static Dictionary<string, AudioClip> voices;
 		
 		static Language() {
+			speeches = new Dictionary<string, Speech>();
 			texts = new Dictionary<string, string>();
-			voices = new Dictionary<string, AudioClip>();
 		}
 		
-		public static string GetText(string id) {
-			return texts[id];
+		public static Speech GetSpeech(string speechId) {
+			return speeches[speechId];
 		}
 		
-		public static AudioClip GetVoice(string id) {
-			return voices[id];
+		public static string GetText(string textId) {
+			return texts[textId];
 		}
 
 	}

@@ -2,7 +2,7 @@
 
 namespace SaguFramework {
 	
-	public class Image : MonoBehaviour {
+	public sealed class Image : MonoBehaviour {
 
 		private Animator animator;
 		private new SpriteRenderer renderer;
@@ -19,7 +19,7 @@ namespace SaguFramework {
 		public Vector2 GetSize() {
 			Sprite sprite = renderer.sprite;
 			if (sprite == null)
-				return new Vector2(1f, 1f);
+				return Vector2.zero;
 
 			float width = transform.localScale.x * sprite.bounds.size.x;
 			float height = transform.localScale.y * sprite.bounds.size.y;
@@ -46,6 +46,7 @@ namespace SaguFramework {
 
 			float scaleX = size.x / sprite.bounds.size.x;
 			float scaleY = size.y / sprite.bounds.size.y;
+
 			transform.localScale = new Vector3(scaleX, scaleY, transform.localScale.z);
 		}
 

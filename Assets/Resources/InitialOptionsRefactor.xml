@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+	
+	<!-- Booleans -->
+	<boolean id="">
+	</boolean>
+	
+	<!-- Floats -->
+	<float id="">
+	</float>
+	
+	<!-- Integers -->
+	<integer id="">
+	</integer>
+	
+	<!-- Strings -->
+	<string id="">
+	</string>
+	
+</options>

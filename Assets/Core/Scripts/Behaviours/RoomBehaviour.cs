@@ -1,17 +1,15 @@
-﻿using UnityEngine;
-
-namespace SaguFramework {
+﻿namespace SaguFramework {
 	
-	public class RoomBehaviour : EntityBehaviour {
-		
+	public sealed class RoomBehaviour : EntityBehaviour {
+
 		public override void OnWalk(float x) {
-			string characterId = State.GetPlayerCharacterId();
-			Game.ExecuteActions(characterId, new CharacterAction[] {
-				CharacterAction.Look(x),
-				CharacterAction.Walk(x)
+			string characterId = State.GetPlayerCharacter();
+			Character character = Objects.GetCharacters()[characterId];
+			character.ExecuteActions(new CharacterAction[] {
+				CharacterAction.LookAndWalk(x)
 			});
 		}
-		
+
 	}
 	
 }

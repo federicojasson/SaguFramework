@@ -7,9 +7,9 @@ namespace SaguFramework {
 		public const string AxisNameScrollWheel = "Mouse ScrollWheel";
 
 		public const string CharacterAnimatorControllerIsDirectionLeft = "IsDirectionLeft";
-		public const string CharacterAnimatorControllerIsPickingUp = "IsPickingUp";
 		public const string CharacterAnimatorControllerIsSaying = "IsSaying";
 		public const string CharacterAnimatorControllerIsWalking = "IsWalking";
+		public const string CharacterAnimatorControllerPickUp = "PickUp";
 		
 		public const float DeltaDistance = 0.00125f;
 		public const float StopDistanceFactor = 0.2f;
@@ -65,32 +65,29 @@ namespace SaguFramework {
 		public const string SortingLayerRoomForeground = "RoomForeground";
 		public const string SortingLayerSplashScreen = "SplashScreen";
 
-		public const string XmlTagBoolean = "boolean";
-		public const string XmlTagCharacter = "character";
-		public const string XmlTagCharacterState = "character-state";
-		public const string XmlTagCurrentRoomId = "current-room-id";
-		public const string XmlTagDirection = "direction";
-		public const string XmlTagFloat = "float";
-		public const string XmlTagHint = "hint";
-		public const string XmlTagId = "id";
-		public const string XmlTagInteger = "integer";
-		public const string XmlTagInventoryItem = "inventory-item";
-		public const string XmlTagItem = "item";
-		public const string XmlTagItemState = "item-state";
-		public const string XmlTagLanguage = "language";
-		public const string XmlTagLocation = "location";
-		public const string XmlTagOptions = "options";
-		public const string XmlTagPlayerCharacterId = "player-character-id";
-		public const string XmlTagPosition = "position";
-		public const string XmlTagResourcePath = "resource-path";
-		public const string XmlTagRoomId = "room-id";
-		public const string XmlTagState = "state";
-		public const string XmlTagString = "string";
-		public const string XmlTagText = "text";
-		public const string XmlTagValue = "value";
-		public const string XmlTagVoice = "voice";
-		public const string XmlTagX = "x";
-		public const string XmlTagY = "y";
+		public const string XmlAttributeId = "id";
+		public const string XmlNodeBoolean = "boolean";
+		public const string XmlNodeCharacter = "character";
+		public const string XmlNodeCurrentRoom = "current-room";
+		public const string XmlNodeDirection = "direction";
+		public const string XmlNodeFloat = "float";
+		public const string XmlNodeHint = "hint";
+		public const string XmlNodeInteger = "integer";
+		public const string XmlNodeInventoryItem = "inventory-item";
+		public const string XmlNodeItem = "item";
+		public const string XmlNodeLanguage = "language";
+		public const string XmlNodeLocation = "location";
+		public const string XmlNodeOptions = "options";
+		public const string XmlNodePlayerCharacter = "player-character";
+		public const string XmlNodePosition = "position";
+		public const string XmlNodeRoom = "room";
+		public const string XmlNodeSpeech = "speech";
+		public const string XmlNodeState = "state";
+		public const string XmlNodeString = "string";
+		public const string XmlNodeText = "text";
+		public const string XmlNodeVoice = "voice";
+		public const string XmlNodeX = "x";
+		public const string XmlNodeY = "y";
 
 		private static Parameters instance;
 

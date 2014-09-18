@@ -2,7 +2,7 @@
 
 namespace SaguFramework {
 	
-	public class Map<K, V, E> where E : MapEntry<K, V> {
+	public abstract class Map<K, V, E> where E : MapEntry<K, V> {
 		
 		public E[] Entries;
 		

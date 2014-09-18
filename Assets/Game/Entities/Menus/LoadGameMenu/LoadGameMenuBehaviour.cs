@@ -5,7 +5,7 @@ namespace EmergenciaQuimica {
 	
 	public abstract class LoadGameMenuBehaviour : MenuBehaviour {
 
-		private Vector2 scrollPosition;
+		/*private Vector2 scrollPosition;
 		private int selectedStateId;
 		private string[] stateIds;
 		private int stateLastCount;
@@ -98,7 +98,7 @@ namespace EmergenciaQuimica {
 		private void OnLoadGame() {
 			string stateId = stateIds[selectedStateId];
 			Game.LoadGame(stateId, "Information");
-		}
+		}*/
 		
 	}
 	

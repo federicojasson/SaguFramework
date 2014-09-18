@@ -1,12 +1,24 @@
 ﻿using SaguFramework;
-using UnityEngine;
 
 namespace EmergenciaQuimica {
 	
 	public class ScientistBehaviour : CharacterBehaviour {
 		
+		public override void OnLook() {
+			// TODO
+		}
+		
+		public override void OnPickUp() {
+			// TODO
+		}
+		
+		public override void OnSpeak() {
+			// TODO
+		}
+		
 		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
-			string inventoryItemId = inventoryItem.GetId();
+			// TODO: refactor
+			/*string inventoryItemId = inventoryItem.GetId();
 
 			if (inventoryItemId == "InventoryProtectionSuit") {
 				// TODO: dejar de usar objeto
@@ -23,7 +35,7 @@ namespace EmergenciaQuimica {
 				}, () => {
 					Game.UnlockGame();
 				});
-			}
+			}*/
 		}
 
 	}

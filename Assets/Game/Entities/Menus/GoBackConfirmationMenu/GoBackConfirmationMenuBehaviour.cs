@@ -5,7 +5,7 @@ namespace EmergenciaQuimica {
 	
 	public class GoBackConfirmationMenuBehaviour : MenuBehaviour {
 		
-		private bool isEnabled;
+		/*private bool isEnabled;
 		
 		public void Awake() {
 			isEnabled = true;
@@ -58,7 +58,7 @@ namespace EmergenciaQuimica {
 		private void OnGoBack() {
 			isEnabled = false;
 			Game.OpenMainMenu();
-		}
+		}*/
 		
 	}
 	

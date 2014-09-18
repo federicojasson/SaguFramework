@@ -2,22 +2,22 @@
 
 namespace SaguFramework {
 	
-	public class Location {
+	public sealed class Location {
 		
 		private Vector2 position;
-		private string roomId;
+		private string room;
 		
-		public Location(Vector2 position, string roomId) {
+		public Location(Vector2 position, string room) {
 			this.position = position;
-			this.roomId = roomId;
+			this.room = room;
 		}
 		
 		public Vector2 GetPosition() {
 			return position;
 		}
 		
-		public string GetRoomId() {
-			return roomId;
+		public string GetRoom() {
+			return room;
 		}
 		
 	}

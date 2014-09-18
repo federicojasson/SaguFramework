@@ -1,13 +1,27 @@
 ﻿namespace SaguFramework {
 	
 	public abstract class CharacterBehaviour : EntityBehaviour {
+		
+		public override sealed void OnCharacterEnter(Character character) {}
+		
+		public override sealed void OnClick() {}
 
-		public override void OnDefocus() {
+		public override sealed void OnDefocus() {
 			GraphicHandler.ClearTooltip();
 		}
 		
-		public override void OnFocus() {
+		public override sealed void OnFocus() {
 			GraphicHandler.SetTooltip(GetTooltip());
+		}
+		
+		public override sealed void OnShowGui() {}
+		
+		public override sealed void OnWalk(float x) {
+			string characterId = State.GetPlayerCharacter();
+			Character character = Objects.GetCharacters()[characterId];
+			character.ExecuteActions(new CharacterAction[] {
+				CharacterAction.LookAndWalk(x)
+			});
 		}
 		
 		protected virtual string GetTooltip() {

@@ -5,7 +5,7 @@ namespace EmergenciaQuimica {
 	
 	public class OverwriteGameConfirmationMenuBehaviour : MenuBehaviour {
 
-		private static string stateId;
+		/*private static string stateId;
 
 		public static void SetStateId(string stateId) {
 			OverwriteGameConfirmationMenuBehaviour.stateId = stateId;
@@ -53,7 +53,7 @@ namespace EmergenciaQuimica {
 			Game.SaveGame(stateId);
 			Game.CloseMenu();
 			Game.CloseMenu();
-		}
+		}*/
 		
 	}
 	

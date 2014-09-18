@@ -5,7 +5,7 @@ namespace EmergenciaQuimica {
 	
 	public class OptionsMenuBehaviour : MenuBehaviour {
 
-		private float effectVolume;
+		/*private float effectVolume;
 		private float masterVolume;
 		private float songVolume;
 		private float voiceVolume;
@@ -123,7 +123,7 @@ namespace EmergenciaQuimica {
 		
 		private void OnCancel() {
 			Game.CloseMenu();
-		}
+		}*/
 		
 	}
 	

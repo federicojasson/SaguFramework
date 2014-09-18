@@ -1,22 +1,24 @@
-﻿using UnityEngine;
-
-namespace SaguFramework {
+﻿namespace SaguFramework {
 	
 	public abstract class RoomTriggerBehaviour : EntityBehaviour {
 		
-		public override void OnDefocus() {
+		public override sealed void OnClick() {}
+		
+		public override sealed void OnDefocus() {
 			GraphicHandler.ClearTooltip();
 		}
 		
-		public override void OnFocus() {
+		public override sealed void OnFocus() {
 			GraphicHandler.SetTooltip(GetTooltip());
 		}
-
-		public override void OnWalk(float x) {
-			string characterId = State.GetPlayerCharacterId();
-			Game.ExecuteActions(characterId, new CharacterAction[] {
-				CharacterAction.Look(x),
-				CharacterAction.Walk(x)
+		
+		public override sealed void OnShowGui() {}
+		
+		public override sealed void OnWalk(float x) {
+			string characterId = State.GetPlayerCharacter();
+			Character character = Objects.GetCharacters()[characterId];
+			character.ExecuteActions(new CharacterAction[] {
+				CharacterAction.LookAndWalk(x)
 			});
 		}
 		

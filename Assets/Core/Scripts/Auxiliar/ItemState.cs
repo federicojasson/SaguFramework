@@ -1,6 +1,6 @@
 ﻿namespace SaguFramework {
 	
-	public class ItemState {
+	public sealed class ItemState {
 		
 		private Location location;
 		

@@ -11,9 +11,9 @@ namespace SaguFramework {
 		public AudioClip InventoryEffect;
 		public AudioClip InventoryPageEffect;
 		public AudioClip MainMenuSong;
-		public AudioClip[] Playlist;
 		public bool ShuffleSongs;
 		public float DelayBetweenSongs;
+		public AudioClip[] Playlist;
 		
 	}
 	

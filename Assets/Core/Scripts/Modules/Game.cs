@@ -5,7 +5,16 @@ namespace SaguFramework {
 	
 	public static class Game {
 
-		public static void AddToInventory(string inventoryItemId) {
+		public static void ExecuteActions(string characterId, CharacterAction[] actions) {
+			ExecuteActions(characterId, actions, null);
+		}
+		
+		public static void ExecuteActions(string characterId, CharacterAction[] actions, Action furtherAction) {
+			Character character = Objects.GetCharacters()[characterId];
+			character.ExecuteActions(actions, furtherAction);
+		}
+
+		/*public static void AddToInventory(string inventoryItemId) {
 			// TODO: what if it is showing?
 
 			State.AddInventoryItem(inventoryItemId);
@@ -168,7 +177,7 @@ namespace SaguFramework {
 				SplashScreenHandler.SetCurrentGroupId(groupId);
 				Loader.ChangeScene(Parameters.SceneSplashScreen);
 			}
-		}
+		}*/
 		
 	}
 	

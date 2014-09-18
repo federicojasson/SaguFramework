@@ -1,4 +1,4 @@
-﻿using System.Xml.Linq;
+using System.Xml.Linq;
 using UnityEngine;
 
 namespace SaguFramework {
@@ -12,32 +12,35 @@ namespace SaguFramework {
 		}
 		
 		private static void ProcessLanguageFile(XDocument file) {
+			speeches.Clear();
 			texts.Clear();
-			voices.Clear();
 			
 			// Language
-			XElement languageNode = file.Element(Parameters.XmlTagLanguage);
+			XElement languageNode = file.Element(Parameters.XmlNodeLanguage);
 			
 			// Texts
-			foreach (XElement textNode in languageNode.Elements(Parameters.XmlTagText)) {
-				XElement idNode = textNode.Element(Parameters.XmlTagId);
-				string id = Utilities.GetXmlNodeStringValue(idNode);
-				XElement valueNode = textNode.Element(Parameters.XmlTagValue);
-				string value = Utilities.GetXmlNodeStringValue(valueNode);
+			foreach (XElement textNode in languageNode.Elements(Parameters.XmlNodeText)) {
+				XAttribute idAttribute = textNode.Attribute(Parameters.XmlAttributeId);
+
+				string id = Utilities.GetXmlAttributeStringValue(idAttribute);
+				string text = Utilities.GetXmlNodeStringValue(textNode);
 				
-				texts.Add(id, value);
+				texts.Add(id, text);
 			}
 			
-			// Voices
-			foreach (XElement voiceNode in languageNode.Elements(Parameters.XmlTagVoice)) {
-				XElement voiceIdNode = voiceNode.Element(Parameters.XmlTagId);
-				string id = Utilities.GetXmlNodeStringValue(voiceIdNode);
-				XElement voiceResourcePathNode = voiceNode.Element(Parameters.XmlTagResourcePath);
-				string resourcePath = Utilities.GetXmlNodeStringValue(voiceResourcePathNode);
-				
-				AudioClip voice = Resources.Load<AudioClip>(resourcePath);
-				
-				voices.Add(id, voice);
+			// Speeches
+			foreach (XElement speechNode in languageNode.Elements(Parameters.XmlNodeSpeech)) {
+				XAttribute idAttribute = speechNode.Attribute(Parameters.XmlAttributeId);
+				XElement textNode = speechNode.Element(Parameters.XmlNodeText);
+				XElement voiceNode = speechNode.Element(Parameters.XmlNodeVoice);
+
+				string id = Utilities.GetXmlAttributeStringValue(idAttribute);
+				string text = Utilities.GetXmlNodeStringValue(textNode);
+				string voiceResourcePath = Utilities.GetXmlNodeStringValue(voiceNode);
+				AudioClip voice = Resources.Load<AudioClip>(voiceResourcePath);
+				Speech speech = new Speech(text, voice);
+
+				speeches.Add(id, speech);
 			}
 		}
 

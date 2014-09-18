@@ -1,6 +1,6 @@
 ﻿namespace SaguFramework {
 	
-	public class CharacterState {
+	public sealed class CharacterState {
 		
 		private Direction direction;
 		private Location location;

@@ -17,16 +17,16 @@ namespace SaguFramework {
 
 			CameraHandler.SetCameraBoundaries(boundaries);
 
-			string characterId = State.GetPlayerCharacterId();
+			string characterId = State.GetPlayerCharacter();
 			Character character = Objects.GetCharacters()[characterId];
 			CameraHandler.SetCameraTarget(character);
 		}
 
 		private static void CreateCharacters() {
-			string currentRoomId = State.GetCurrentRoomId();
-			RoomParameters roomParameters = Parameters.GetRoomParameters(currentRoomId);
+			string roomId = State.GetCurrentRoom();
+			RoomParameters roomParameters = Parameters.GetRoomParameters(roomId);
 
-			List<string> characterIds = State.GetRoomCharacterIds(currentRoomId);
+			List<string> characterIds = State.GetRoomCharacters(roomId);
 			foreach (string characterId in characterIds) {
 				CharacterState characterState = State.GetCharacterState(characterId);
 				CharacterParameters characterParameters = Parameters.GetCharacterParameters(characterId);
@@ -50,7 +50,7 @@ namespace SaguFramework {
 		private static void CreateInventoryItems() {
 			InventoryParameters inventoryParameters = Parameters.GetInventoryParameters();
 
-			List<string> inventoryItemIds = State.GetInventoryItemIds();
+			List<string> inventoryItemIds = State.GetInventoryItems();
 			foreach (string inventoryItemId in inventoryItemIds) {
 				InventoryItemParameters inventoryItemParameters = Parameters.GetInventoryItemParameters(inventoryItemId);
 				Factory.CreateInventoryItem(inventoryItemId, inventoryItemParameters, inventoryParameters);
@@ -58,10 +58,10 @@ namespace SaguFramework {
 		}
 
 		private static void CreateItems() {
-			string currentRoomId = State.GetCurrentRoomId();
-			RoomParameters roomParameters = Parameters.GetRoomParameters(currentRoomId);
+			string roomId = State.GetCurrentRoom();
+			RoomParameters roomParameters = Parameters.GetRoomParameters(roomId);
 			
-			List<string> itemIds = State.GetRoomItemIds(currentRoomId);
+			List<string> itemIds = State.GetRoomItems(roomId);
 			foreach (string itemId in itemIds) {
 				ItemState itemState = State.GetItemState(itemId);
 				ItemParameters itemParameters = Parameters.GetItemParameters(itemId);
@@ -70,8 +70,8 @@ namespace SaguFramework {
 		}
 
 		private static void CreateRoom() {
-			string currentRoomId = State.GetCurrentRoomId();
-			RoomParameters roomParameters = Parameters.GetRoomParameters(currentRoomId);
+			string roomId = State.GetCurrentRoom();
+			RoomParameters roomParameters = Parameters.GetRoomParameters(roomId);
 			Factory.CreateRoom(roomParameters);
 		}
 		

@@ -62,23 +62,48 @@ namespace SaguFramework {
 
 				switch (action.GetId()) {
 					case CharacterActionId.Look : {
-						yield return StartCoroutine(LookCoroutine((float) parameters[0]));
-						continue;
+						float x = (float) parameters[0];
+						yield return StartCoroutine(LookCoroutine(x));
+						break;
+					}
+					
+					case CharacterActionId.LookAndPickUp : {
+						float x = (float) parameters[0];
+						yield return StartCoroutine(LookCoroutine(x));
+						yield return StartCoroutine(PickUpCoroutine());
+						break;
+					}
+						
+					case CharacterActionId.LookAndSay : {
+						float x = (float) parameters[0];
+						Speech speech = (Speech) parameters[1];
+						yield return StartCoroutine(LookCoroutine(x));
+						yield return StartCoroutine(SayCoroutine(speech));
+						break;
+					}
+						
+					case CharacterActionId.LookAndWalk : {
+						float x = (float) parameters[0];
+						yield return StartCoroutine(LookCoroutine(x));
+						yield return StartCoroutine(WalkCoroutine(x));
+						break;
 					}
 
 					case CharacterActionId.PickUp : {
 						yield return StartCoroutine(PickUpCoroutine());
-						continue;
+						break;
 					}
 						
 					case CharacterActionId.Say : {
-						yield return StartCoroutine(SayCoroutine((string) parameters[0], (AudioClip) parameters[1]));
-						continue;
+						Speech speech = (Speech) parameters[0];
+						yield return StartCoroutine(SayCoroutine(speech));
+						break;
 					}
 						
 					case CharacterActionId.Walk : {
-						yield return StartCoroutine(WalkCoroutine((float) parameters[0]));
-						continue;
+						float x = (float) parameters[0];
+						yield return StartCoroutine(WalkCoroutine(x));
+						break;
 					}
 				}
 			}
@@ -97,29 +122,22 @@ namespace SaguFramework {
 		}
 
 		private IEnumerator PickUpCoroutine() {
-			Animator animator = image.GetAnimator();
-
-			animator.SetTrigger("PickUp");
+			image.GetAnimator().SetTrigger(Parameters.CharacterAnimatorControllerPickUp);
 			yield break;
-			/*animator.SetBool(Parameters.CharacterAnimatorControllerIsPickingUp, true);
-
-			while (animator.GetBool(Parameters.CharacterAnimatorControllerIsPickingUp))
-				yield return new WaitForFixedUpdate();
-
-			animator.SetBool(Parameters.CharacterAnimatorControllerIsPickingUp, false);*/
 		}
 		
-		private IEnumerator SayCoroutine(string text, AudioClip voice) {
+		private IEnumerator SayCoroutine(Speech speech) {
 			Animator animator = image.GetAnimator();
 
-			GraphicHandler.SetSpeechText(text);
+			string text = speech.GetText();
+			AudioClip voice = speech.GetVoice();
 
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, true);
+			GraphicHandler.SetSpeechText(text);
 			SoundPlayer.PlayVoice(id, voice);
 			yield return new WaitForSeconds(voice.length);
-			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, false);
-
 			GraphicHandler.ClearSpeechText();
+			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, false);
 		}
 
 		private IEnumerator WalkCoroutine(float x) {

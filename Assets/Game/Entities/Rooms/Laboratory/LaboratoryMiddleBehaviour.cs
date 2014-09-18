@@ -1,13 +1,12 @@
 using SaguFramework;
-using System;
-using UnityEngine;
 
 namespace EmergenciaQuimica {
 	
 	public class LaboratoryMiddleBehaviour : RoomTriggerBehaviour {
 
 		public override void OnCharacterEnter(Character character) {
-			if (character.GetId() == "Scientist") {
+			// TODO: refactor
+			/*if (character.GetId() == "Scientist") {
 				if (! State.HintExists("ScientistHasProtectionSuit")) {
 					Game.LockGame();
 
@@ -41,7 +40,23 @@ namespace EmergenciaQuimica {
 						});
 					});
 				}
-			}
+			}*/
+		}
+		
+		public override void OnLook() {
+			// TODO
+		}
+		
+		public override void OnPickUp() {
+			// TODO
+		}
+		
+		public override void OnSpeak() {
+			// TODO
+		}
+		
+		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
+			// TODO
 		}
 
 	}

@@ -5,7 +5,7 @@ namespace EmergenciaQuimica {
 	
 	public class ExitConfirmationMenuBehaviour : MenuBehaviour {
 		
-		public override void OnShowGui() {
+		/*public override void OnShowGui() {
 			GUIStyle menuBoxStyle = GUI.skin.GetStyle("MenuBox");
 			GUIStyle modifiedMenuBoxStyle = Utilities.GetRelativeStyle(menuBoxStyle);
 
@@ -45,7 +45,7 @@ namespace EmergenciaQuimica {
 		
 		private void OnExit() {
 			Game.Exit();
-		}
+		}*/
 
 	}
 	

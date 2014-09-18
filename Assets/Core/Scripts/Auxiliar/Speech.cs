@@ -2,7 +2,7 @@
 
 namespace SaguFramework {
 	
-	public class Speech {
+	public sealed class Speech {
 
 		private string text;
 		private AudioClip voice;
