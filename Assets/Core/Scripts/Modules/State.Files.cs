@@ -89,7 +89,7 @@ namespace SaguFramework {
 			
 			// Characters
 			foreach (KeyValuePair<string, CharacterState> entry in characters) {
-				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, null);
+				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, string.Empty);
 				XElement directionNode = new XElement(Parameters.XmlNodeDirection);
 				XElement roomNode = new XElement(Parameters.XmlNodeRoom);
 				XElement xNode = new XElement(Parameters.XmlNodeX);
@@ -125,7 +125,7 @@ namespace SaguFramework {
 			
 			// Items
 			foreach (KeyValuePair<string, ItemState> entry in items) {
-				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, null);
+				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, string.Empty);
 				XElement roomNode = new XElement(Parameters.XmlNodeRoom);
 				XElement xNode = new XElement(Parameters.XmlNodeX);
 				XElement yNode = new XElement(Parameters.XmlNodeY);

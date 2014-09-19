@@ -31,7 +31,7 @@ namespace SaguFramework {
 			
 			// Booleans
 			foreach (KeyValuePair<string, bool> entry in booleans) {
-				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, null);
+				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, string.Empty);
 				XElement booleanNode = new XElement(Parameters.XmlNodeBoolean);
 
 				string id = entry.Key;
@@ -46,7 +46,7 @@ namespace SaguFramework {
 			
 			// Floats
 			foreach (KeyValuePair<string, float> entry in floats) {
-				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, null);
+				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, string.Empty);
 				XElement floatNode = new XElement(Parameters.XmlNodeFloat);
 				
 				string id = entry.Key;
@@ -61,7 +61,7 @@ namespace SaguFramework {
 			
 			// Integers
 			foreach (KeyValuePair<string, int> entry in integers) {
-				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, null);
+				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, string.Empty);
 				XElement integerNode = new XElement(Parameters.XmlNodeInteger);
 				
 				string id = entry.Key;
@@ -76,7 +76,7 @@ namespace SaguFramework {
 			
 			// Strings
 			foreach (KeyValuePair<string, string> entry in strings) {
-				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, null);
+				XAttribute idAttribute = new XAttribute(Parameters.XmlAttributeId, string.Empty);
 				XElement stringNode = new XElement(Parameters.XmlNodeString);
 				
 				string id = entry.Key;

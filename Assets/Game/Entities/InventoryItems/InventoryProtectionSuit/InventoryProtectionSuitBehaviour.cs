@@ -2,19 +2,18 @@
 
 namespace EmergenciaQuimica {
 	
-	public class InventoryProtectionSuitBehaviour : InventoryItemBehaviour {
+	public sealed class InventoryProtectionSuitBehaviour : InventoryItemBehaviour {
 		
 		public override void OnLook() {
-			// TODO
+			Game.Describe("ProtectionSuitDescription");
 		}
 		
 		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
-			// TODO
+			Game.Negate();
 		}
 
 		protected override string GetTooltip() {
-			//return Language.GetText("ProtectionSuitTooltip");
-			return string.Empty;
+			return Framework.GetText("ProtectionSuitTooltip");
 		}
 
 	}

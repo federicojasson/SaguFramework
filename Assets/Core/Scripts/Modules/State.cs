@@ -18,6 +18,10 @@ namespace SaguFramework {
 			items = new Dictionary<string, ItemState>();
 		}
 		
+		public static void AddHint(string hint) {
+			hints.Add(hint);
+		}
+		
 		public static CharacterState GetCharacterState(string characterId) {
 			return characters[characterId];
 		}
@@ -57,13 +61,21 @@ namespace SaguFramework {
 			
 			return itemIds;
 		}
+		
+		public static bool HintExists(string hint) {
+			return hints.Contains(hint);
+		}
+		
+		public static void SetCharacterState(string characterId, CharacterState characterState) {
+			characters[characterId] = characterState;
+		}
+		
+		public static void SetCurrentRoom(string roomId) {
+			currentRoom = roomId;
+		}
 
 		/*public static void AddCharacter(string characterId, CharacterState characterState) {
 			characterStates.Add(characterId, characterState);
-		}
-
-		public static void AddHint(string hint) {
-			hints.Add(hint);
 		}
 
 		public static void AddInventoryItem(string inventoryItemId) {
@@ -113,10 +125,6 @@ namespace SaguFramework {
 			
 			return itemIds;
 		}
-
-		public static bool HintExists(string hint) {
-			return hints.Contains(hint);
-		}
 		
 		public static void RemoveCharacter(string characterId) {
 			characterStates.Remove(characterId);
@@ -132,10 +140,6 @@ namespace SaguFramework {
 
 		public static void RemoveItem(string itemId) {
 			itemStates.Remove(itemId);
-		}
-
-		public static void SetCharacterState(string characterId, CharacterState characterState) {
-			characterStates[characterId] = characterState;
 		}
 
 		public static void SetCurrentRoomId(string roomId) {

@@ -2,33 +2,30 @@ using SaguFramework;
 
 namespace EmergenciaQuimica {
 	
-	public class GreenLeftDoorBehaviour : RoomTriggerBehaviour {
+	public sealed class GreenLeftDoorBehaviour : RoomTriggerBehaviour {
 
 		public override void OnCharacterEnter(Character character) {
-			// TODO: refactor
-			/*if (character.GetId() == "Scientist")
-				Game.ChangeRoom("Blue", "RightDoor", "Molecules");*/
+			Game.TryChangeRoom(character, "Blue", "RightDoor");
 		}
 		
 		public override void OnLook() {
-			// TODO
+			Game.LookAndDescribe(GetEntity(), "GreenLeftDoorDescription");
 		}
 		
 		public override void OnPickUp() {
-			// TODO
+			Game.LookAndNegate(GetEntity());
 		}
 		
 		public override void OnSpeak() {
-			// TODO
+			Game.LookAndNegate(GetEntity());
 		}
 		
 		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
-			// TODO
+			Game.LookAndNegate(GetEntity());
 		}
 
 		protected override string GetTooltip() {
-			//return Language.GetText("GreenLeftDoorTooltip");
-			return string.Empty;
+			return Framework.GetText("GreenLeftDoorTooltip");
 		}
 	
 	}

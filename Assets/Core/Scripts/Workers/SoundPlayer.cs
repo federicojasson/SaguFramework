@@ -48,13 +48,13 @@ namespace SaguFramework {
 			instance.StartCoroutine(PlayPlaylistCoroutine(playlist));
 		}
 
-		public static void PlayVoice(string channel, AudioClip voice) {
+		public static void PlayVoice(string channelId, AudioClip voice) {
 			AudioSource voicePlayer;
 			
-			if (! voicePlayers.TryGetValue(channel, out voicePlayer)) {
+			if (! voicePlayers.TryGetValue(channelId, out voicePlayer)) {
 				voicePlayer = instance.gameObject.AddComponent<AudioSource>();
 				voicePlayer.volume = voiceVolume;
-				voicePlayers.Add(channel, voicePlayer);
+				voicePlayers.Add(channelId, voicePlayer);
 			}
 			
 			PlaySound(voicePlayer, voice);
@@ -89,10 +89,10 @@ namespace SaguFramework {
 				voicePlayer.Stop();
 		}
 
-		public static void StopVoice(string channel) {
+		public static void StopVoice(string channelId) {
 			AudioSource voicePlayer;
 			
-			if (voicePlayers.TryGetValue(channel, out voicePlayer))
+			if (voicePlayers.TryGetValue(channelId, out voicePlayer))
 				voicePlayer.Stop();
 		}
 		

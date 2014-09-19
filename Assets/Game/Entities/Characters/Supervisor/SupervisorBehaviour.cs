@@ -2,18 +2,30 @@
 
 namespace EmergenciaQuimica {
 	
-	public class SupervisorBehaviour : CharacterBehaviour {
+	public sealed class SupervisorBehaviour : CharacterBehaviour {
 		
 		public override void OnLook() {
-			// TODO: description
+			Game.LookAndDescribe(GetEntity(), "SupervisorDescription");
 		}
 		
 		public override void OnPickUp() {
-			// TODO: negation
+			Game.LookAndNegate(GetEntity());
 		}
 		
 		public override void OnSpeak() {
+			string characterId = Framework.GetPlayerCharacter();
+			Character character = Framework.GetCharacter(characterId);
+			
+			Game.ApproachToSpeak(GetEntity());
+			
 			// TODO
+			float x = character.GetPosition().x;
+			Speech speech = ;
+			
+			Framework.ExecuteActions("Supervisor", new CharacterAction[] {
+				CharacterAction.Look(x),
+				CharacterAction.Say(speech)
+			});
 		}
 		
 		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
@@ -21,8 +33,7 @@ namespace EmergenciaQuimica {
 		}
 
 		protected override string GetTooltip() {
-			//return Language.GetText("SupervisorTooltip");
-			return string.Empty;
+			return Framework.GetText("SupervisorTooltip");
 		}
 
 	}

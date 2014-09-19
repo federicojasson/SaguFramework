@@ -15,7 +15,7 @@
 		public override sealed void OnShowGui() {}
 		
 		public override sealed void OnWalk(float x) {
-			string characterId = State.GetPlayerCharacter(); // TODO: CAREFUL
+			string characterId = State.GetPlayerCharacter();
 			Character character = Objects.GetCharacters()[characterId];
 			character.ExecuteActions(new CharacterAction[] {
 				CharacterAction.Look(x),

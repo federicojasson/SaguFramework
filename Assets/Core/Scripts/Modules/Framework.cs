@@ -6,6 +6,33 @@ namespace SaguFramework {
 
 	public static class Framework {
 
+		public static void AddHint(string hint) {
+			State.AddHint(hint);
+		}
+
+		public static void AddInventoryItem(string inventoryItemId) {
+			// TODO
+		}
+		
+		public static void ChangeRoom(string characterId, string roomId, string entryId) {
+			ChangeRoom(characterId, roomId, entryId, string.Empty);
+		}
+
+		public static void ChangeRoom(string characterId, string roomId, string entryId, string groupId) {
+			// TODO: pensarlo bien
+
+			RoomParameters roomParameters = Parameters.GetRoomParameters(roomId);
+			EntryParameters entryParameters = roomParameters.Entries[entryId];
+
+			Direction direction = entryParameters.Direction;
+			Location location = new Location(entryParameters.Position, roomId);
+			CharacterState characterState = new CharacterState(direction, location);
+			
+			State.SetCharacterState(characterId, characterState);
+			State.SetCurrentRoom(roomId);
+			LoadSplashScreenOrRoom(groupId);
+		}
+
 		public static void ExecuteActions(string characterId, CharacterAction[] actions) {
 			ExecuteActions(characterId, actions, null);
 		}
@@ -13,6 +40,30 @@ namespace SaguFramework {
 		public static void ExecuteActions(string characterId, CharacterAction[] actions, Action furtherAction) {
 			Character character = Objects.GetCharacters()[characterId];
 			character.ExecuteActions(actions, furtherAction);
+		}
+
+		public static float GameToWorldX(float x) {
+			return Geometry.GameToWorldX(x);
+		}
+
+		public static Character GetCharacter(string characterId) {
+			return Objects.GetCharacters()[characterId];
+		}
+
+		public static string GetPlayerCharacter() {
+			return State.GetPlayerCharacter();
+		}
+
+		public static Speech GetSpeech(string speechId) {
+			return Language.GetSpeech(speechId);
+		}
+		
+		public static string GetText(string textId) {
+			return Language.GetText(textId);
+		}
+
+		public static bool HintExists(string hint) {
+			return State.HintExists(hint);
 		}
 
 		public static void LockInput() {
@@ -23,9 +74,9 @@ namespace SaguFramework {
 			NewGame(string.Empty);
 		}
 		
-		public static void NewGame(string group) {
+		public static void NewGame(string groupId) {
 			State.LoadInitial();
-			LoadSplashScreenOrRoom(group);
+			LoadSplashScreenOrRoom(groupId);
 		}
 
 		public static void OpenMainMenu() {
@@ -36,15 +87,28 @@ namespace SaguFramework {
 			MenuManager.OpenMenu(menuId);
 		}
 
+		public static void RemoveInventoryItem(string inventoryItemId) {
+			// TODO
+		}
+		
+		public static void RemoveItem(string itemId) {
+			// TODO
+		}
+		
+		public static void StopActions(string characterId) {
+			Character character = Objects.GetCharacters()[characterId];
+			character.StopActions();
+		}
+
 		public static void UnlockInput() {
 			InputReader.UnlockInput();
 		}
 		
-		private static void LoadSplashScreenOrRoom(string group) {
-			if (group.Length == 0)
+		private static void LoadSplashScreenOrRoom(string groupId) {
+			if (groupId.Length == 0)
 				Loader.ChangeScene(Parameters.SceneRoom);
 			else {
-				SplashScreenManager.SetCurrentGroup(group);
+				SplashScreenManager.SetCurrentGroup(groupId);
 				Loader.ChangeScene(Parameters.SceneSplashScreen);
 			}
 		}
@@ -120,7 +184,7 @@ namespace SaguFramework {
 			RoomParameters roomParameters = Parameters.GetRoomParameters(roomId);
 			EntryParameters entryParameters = roomParameters.Entries[entryId];
 			
-			string characterId = State.GetPlayerCharacterId(); // TODO: CAREFUL
+			string characterId = State.GetPlayerCharacterId();
 			Direction direction = entryParameters.Direction;
 			Location location = new Location(entryParameters.Position, roomId);
 			CharacterState characterState = new CharacterState(direction, location);

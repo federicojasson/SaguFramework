@@ -2,19 +2,18 @@
 
 namespace EmergenciaQuimica {
 	
-	public class InventoryErlenmeyerBehaviour : InventoryItemBehaviour {
+	public sealed class InventoryErlenmeyerBehaviour : InventoryItemBehaviour {
 		
 		public override void OnLook() {
-			// TODO
+			Game.Describe("ErlenmeyerDescription");
 		}
 		
 		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
-			// TODO
+			Game.Negate();
 		}
 
 		protected override string GetTooltip() {
-			//return Language.GetText("ErlenmeyerTooltip");
-			return string.Empty;
+			return Framework.GetText("ErlenmeyerTooltip");
 		}
 
 	}

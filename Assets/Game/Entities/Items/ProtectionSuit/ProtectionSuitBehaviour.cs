@@ -2,52 +2,38 @@
 
 namespace EmergenciaQuimica {
 	
-	public class ProtectionSuitBehaviour : ItemBehaviour {
+	public sealed class ProtectionSuitBehaviour : ItemBehaviour {
 		
 		public override void OnLook() {
-			// TODO
-			/*string text = Language.GetText("ProtectionSuitDescription");
-			AudioClip voice = Language.GetVoice("ProtectionSuitDescription");
-			Game.ExecuteActions("Scientist", new CharacterAction[] {
-				CharacterAction.Look(GetEntity().GetPosition().x),
-				CharacterAction.Say(text, voice)
-			});*/
+			Game.LookAndDescribe(GetEntity(), "ProtectionSuitDescription");
 		}
 
 		public override void OnPickUp() {
-			// TODO
-			/*Character scientist = Objects.GetCharacters()["Scientist"];
-			Vector2 scientistPosition = scientist.GetPosition();
-			Vector2 scientistSize = scientist.GetSize();
-			Vector2 protectionSuitPosition = GetEntity().GetPosition();
+			string characterId = Framework.GetPlayerCharacter();
 
-			Vector2 pickUpPosition;
-			if (scientistPosition.x > protectionSuitPosition.x)
-				pickUpPosition = new Vector2(protectionSuitPosition.x + 0.5f * scientistSize.x, scientistPosition.y);
-			else
-				pickUpPosition = new Vector2(protectionSuitPosition.x - 0.5f * scientistSize.x, scientistPosition.y);
-
-			Game.ExecuteActions("Scientist", new CharacterAction[] {
-				CharacterAction.Look(protectionSuitPosition.x),
-				CharacterAction.Walk(pickUpPosition.x),
+			Game.ApproachToPickUp(GetEntity());
+			Framework.LockInput();
+			
+			Framework.ExecuteActions(characterId, new CharacterAction[] {
 				CharacterAction.PickUp()
 			}, () => {
-				Game.RemoveItem("ProtectionSuit");
-				Game.AddToInventory("InventoryProtectionSuit");
-			});*/
+				Framework.RemoveItem("ProtectionSuit");
+				Framework.AddInventoryItem("InventoryProtectionSuit");
+				
+				Framework.UnlockInput();
+			});
 		}
 		
 		public override void OnSpeak() {
-			// TODO
+			Game.LookAndNegate(GetEntity());
 		}
 		
 		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
-			// TODO
+			Game.LookAndNegate(GetEntity());
 		}
 		
 		protected override string GetTooltip() {
-			//return Language.GetText("ProtectionSuitTooltip");
-			return string.Empty;
+			return Framework.GetText("ProtectionSuitTooltip");
 		}
 
 	}

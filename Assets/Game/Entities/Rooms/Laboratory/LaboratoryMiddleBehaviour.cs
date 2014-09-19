@@ -2,61 +2,45 @@ using SaguFramework;
 
 namespace EmergenciaQuimica {
 	
-	public class LaboratoryMiddleBehaviour : RoomTriggerBehaviour {
+	public sealed class LaboratoryMiddleBehaviour : RoomTriggerBehaviour {
 
 		public override void OnCharacterEnter(Character character) {
-			// TODO: refactor
-			/*if (character.GetId() == "Scientist") {
-				if (! State.HintExists("ScientistHasProtectionSuit")) {
-					Game.LockGame();
+			string characterId = Framework.GetPlayerCharacter();
 
-					// TODO: order
+			if (character.GetId() == characterId) {
+				if (! Framework.HintExists("ScientistHasProtectionSuit")) {
+					Framework.LockInput();
+					Framework.StopActions(characterId);
 
-					// TODO: supervisor says something
-					Game.StopActions("Scientist");
-					
-					Vector2 scientistPosition = Objects.GetCharacters()["Scientist"].GetPosition();
-					Vector2 supervisorPosition = Objects.GetCharacters()["Supervisor"].GetPosition();
-					string text = Language.GetText("NeedProtectionSuit");
-					AudioClip voice = Language.GetVoice("NeedProtectionSuit");
-					Game.ExecuteActions("Supervisor", new CharacterAction[] {
-						CharacterAction.Look(scientistPosition.x),
-						CharacterAction.Walk(Geometry.GameToWorldX(0.6f)),
-						CharacterAction.Say(text, voice)
+					float x0 = character.GetPosition().x;
+					float x1 = Framework.GameToWorldX(0.6f);
+					Speech speech0 = Framework.GetSpeech("NeedProtectionSuit");
+
+					Framework.ExecuteActions("Supervisor", new CharacterAction[] {
+						CharacterAction.Look(x0),
+						CharacterAction.Walk(x1),
+						CharacterAction.Say(speech0)
 					}, () => {
-						Game.ExecuteActions("Supervisor", new CharacterAction[] {
-							CharacterAction.Look(supervisorPosition.x),
-							CharacterAction.Walk(supervisorPosition.x)
+						float x2 = Framework.GameToWorldX(1.2f);
+
+						Framework.ExecuteActions("Supervisor", new CharacterAction[] {
+							CharacterAction.Look(x2),
+							CharacterAction.Walk(x2)
 						});
 
-						string scientistText = Language.GetText("NeedProtectionSuitResponse");
-						AudioClip scientistVoice = Language.GetVoice("NeedProtectionSuitResponse");
-						Game.ExecuteActions("Scientist", new CharacterAction[] {
-							CharacterAction.Look(Geometry.GameToWorldX(0.2f)),
-							CharacterAction.Walk(Geometry.GameToWorldX(0.2f)),
-							CharacterAction.Say(scientistText, scientistVoice)
+						float x3 = Framework.GameToWorldX(0.2f);
+						Speech speech1 = Framework.GetSpeech("NeedProtectionSuitResponse");
+
+						Framework.ExecuteActions(characterId, new CharacterAction[] {
+							CharacterAction.Look(x3),
+							CharacterAction.Walk(x3),
+							CharacterAction.Say(speech1)
 						}, () => {
-							Game.UnlockGame();
+							Framework.UnlockInput();
 						});
 					});
 				}
-			}*/
-		}
-		
-		public override void OnLook() {
-			// TODO
-		}
-		
-		public override void OnPickUp() {
-			// TODO
-		}
-		
-		public override void OnSpeak() {
-			// TODO
-		}
-		
-		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
-			// TODO
+			}
 		}
 
 	}

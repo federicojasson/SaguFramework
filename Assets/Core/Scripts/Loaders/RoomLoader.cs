@@ -17,7 +17,7 @@ namespace SaguFramework {
 
 			CameraHandler.SetCameraBoundaries(boundaries);
 
-			string characterId = State.GetPlayerCharacter(); // TODO: CAREFUL
+			string characterId = State.GetPlayerCharacter();
 			Character character = Objects.GetCharacters()[characterId];
 			CameraHandler.SetCameraTarget(character);
 		}

@@ -2,33 +2,38 @@
 
 namespace EmergenciaQuimica {
 	
-	public class ErlenmeyerBehaviour : ItemBehaviour {
+	public sealed class ErlenmeyerBehaviour : ItemBehaviour {
 		
 		public override void OnLook() {
-			// TODO: refactor
-			/*string text = Language.GetText("ErlenmeyerDescription");
-			AudioClip voice = Language.GetVoice("ErlenmeyerDescription");
-			Game.ExecuteActions("Scientist", new CharacterAction[] {
-				CharacterAction.Look(GetEntity().GetPosition().x),
-				CharacterAction.Say(text, voice)
-			});*/
+			Game.LookAndDescribe(GetEntity(), "ErlenmeyerDescription");
 		}
 		
 		public override void OnPickUp() {
-			// TODO
+			string characterId = Framework.GetPlayerCharacter();
+
+			Game.ApproachToPickUp(GetEntity());
+			Framework.LockInput();
+			
+			Framework.ExecuteActions(characterId, new CharacterAction[] {
+				CharacterAction.PickUp()
+			}, () => {
+				Framework.RemoveItem("Erlenmeyer");
+				Framework.AddInventoryItem("InventoryErlenmeyer");
+				
+				Framework.UnlockInput();
+			});
 		}
 		
 		public override void OnSpeak() {
-			// TODO
+			Game.LookAndNegate(GetEntity());
 		}
 		
 		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
-			// TODO
+			Game.LookAndNegate(GetEntity());
 		}
 
 		protected override string GetTooltip() {
-			//return Language.GetText("ErlenmeyerTooltip");
-			return string.Empty;
+			return Framework.GetText("ErlenmeyerTooltip");
 		}
 		
 	}

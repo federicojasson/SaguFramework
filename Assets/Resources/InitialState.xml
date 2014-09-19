@@ -9,11 +9,6 @@
 	<player-character>Scientist</player-character>
 	
 	
-	
-	<inventory-item>InventoryErlenmeyer</inventory-item>
-	<inventory-item>InventoryProtectionSuit</inventory-item>
-	
-	
 	<!-- Characters -->
 	
 	<character id="Scientist">

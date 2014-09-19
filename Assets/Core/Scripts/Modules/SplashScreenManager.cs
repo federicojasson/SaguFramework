@@ -17,8 +17,8 @@ namespace SaguFramework {
 				yield return new WaitForSeconds(minimumDelayTime - elapsedTime);
 		}
 		
-		public static void SetCurrentGroup(string group) {
-			currentGroup = group;
+		public static void SetCurrentGroup(string groupId) {
+			currentGroup = groupId;
 		}
 
 		public static void ShowMainSplashScreen() {

@@ -2,40 +2,24 @@
 
 namespace EmergenciaQuimica {
 	
-	public class ScientistBehaviour : CharacterBehaviour {
-		
-		public override void OnLook() {
-			// TODO
-		}
-		
-		public override void OnPickUp() {
-			// TODO
-		}
-		
-		public override void OnSpeak() {
-			// TODO
-		}
+	public sealed class ScientistBehaviour : CharacterBehaviour {
 		
 		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
-			// TODO: refactor
-			/*string inventoryItemId = inventoryItem.GetId();
+			if (inventoryItem.GetId() == "InventoryProtectionSuit") {
+				string characterId = Framework.GetPlayerCharacter();
 
-			if (inventoryItemId == "InventoryProtectionSuit") {
-				// TODO: dejar de usar objeto
+				Framework.LockInput();
+				Framework.AddHint("ScientistHasProtectionSuit");
+				Framework.RemoveInventoryItem("InventoryProtectionSuit");
 
-				State.AddHint("ScientistHasProtectionSuit");
-				Game.RemoveFromInventory("InventoryProtectionSuit");
+				Speech speech = Framework.GetSpeech("OnUseProtectionSuit");
 
-				string text = Language.GetText("OnUseProtectionSuit");
-				AudioClip voice = Language.GetVoice("OnUseProtectionSuit");
-
-				Game.LockGame();
-				Game.ExecuteActions("Scientist", new CharacterAction[] {
-					CharacterAction.Say(text, voice)
+				Framework.ExecuteActions(characterId, new CharacterAction[] {
+					CharacterAction.Say(speech)
 				}, () => {
-					Game.UnlockGame();
+					Framework.UnlockInput();
 				});
-			}*/
+			}
 		}
 
 	}

@@ -2,40 +2,26 @@
 
 namespace EmergenciaQuimica {
 	
-	public class LaboratoryInitialBehaviour : RoomTriggerBehaviour {
+	public sealed class LaboratoryInitialBehaviour : RoomTriggerBehaviour {
 		
 		public override void OnCharacterEnter(Character character) {
-			// TODO: refactor
-			/*if (character.GetId() == "Scientist") {
-				if (! State.HintExists("InitialAnimationExecuted")) {
-					State.AddHint("InitialAnimationExecuted");
+			string characterId = Framework.GetPlayerCharacter();
 
-					string text0 = Language.GetText("InitialSpeech0");
-					AudioClip voice0 = Language.GetVoice("InitialSpeech0");
-					string text1 = Language.GetText("InitialSpeech1");
-					AudioClip voice1 = Language.GetVoice("InitialSpeech1");
-					Game.ExecuteActions("Scientist", new CharacterAction[] {
-						CharacterAction.Say(text0, voice0),
-						CharacterAction.Say(text1, voice1)
+			if (character.GetId() == characterId)
+				if (! Framework.HintExists("ScientistGaveInitialSpeech")) {
+					Framework.LockInput();
+					Framework.AddHint("ScientistGaveInitialSpeech");
+					
+					Speech speech0 = Framework.GetSpeech("InitialSpeech0");
+					Speech speech1 = Framework.GetSpeech("InitialSpeech1");
+					
+					Framework.ExecuteActions(characterId, new CharacterAction[] {
+						CharacterAction.Say(speech0),
+						CharacterAction.Say(speech1)
+					}, () => {
+						Framework.UnlockInput();
 					});
 				}
-			}*/
-		}
-		
-		public override void OnLook() {
-			// TODO
-		}
-		
-		public override void OnPickUp() {
-			// TODO
-		}
-		
-		public override void OnSpeak() {
-			// TODO
-		}
-		
-		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
-			// TODO
 		}
 
 	}

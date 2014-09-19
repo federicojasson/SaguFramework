@@ -2,13 +2,111 @@
 <language>
 	
 	<!-- Texts -->
-	<!--<text id="">
-	</text>-->
+	
+	<text id="BlueRightDoorTooltip">
+		Entrar a la habitación verde
+	</text>
+	
+	<text id="ErlenmeyerTooltip">
+		Erlenmeyer
+	</text>
+	
+	<text id="GreenLeftDoorTooltip">
+		Entrar a la habitación azul
+	</text>
+	
+	<text id="GreenRightDoorTooltip">
+		Entrar al laboratorio
+	</text>
+	
+	<text id="LaboratoryLeftDoorTooltip">
+		Salir del laboratorio
+	</text>
+	
+	<text id="ProtectionSuitTooltip">
+		Traje de protección
+	</text>
+	
+	<text id="SupervisorTooltip">
+		Supervisora
+	</text>
+	
 	
 	<!-- Speeches -->
-	<!--<speech id="">
-		<text></text>
-		<voice></voice>
-	</speech>-->
+	
+	<speech id="BlueRightDoorDescription">
+		<text>Conduce a la habitación verde.</text>
+		<voice>Languages/Spanish/Voices/BlueRightDoorDescription</voice>
+	</speech>
+	
+	<speech id="ErlenmeyerDescription">
+		<text>Es un Erlenmeyer.</text>
+		<voice>Languages/Spanish/Voices/ErlenmeyerDescription</voice>
+	</speech>
+	
+	<speech id="GreenLeftDoorDescription">
+		<text>Conduce a la habitación azul.</text>
+		<voice>Languages/Spanish/Voices/GreenRightDoorDescription</voice>
+	</speech>
+	
+	<speech id="GreenRightDoorDescription">
+		<text>Es la entrada del laboratorio.</text>
+		<voice>Languages/Spanish/Voices/GreenRightDoorDescription</voice>
+	</speech>
+	
+	<speech id="InitialSpeech0">
+		<text>Esta simple demostración permite observar las capacidades del Framework.</text>
+		<voice>Languages/Spanish/Voices/InitialSpeech0</voice>
+	</speech>
+	
+	<speech id="InitialSpeech1">
+		<text>El objetivo es ponerse rojo.</text>
+		<voice>Languages/Spanish/Voices/InitialSpeech1</voice>
+	</speech>
+	
+	<speech id="LaboratoryLeftDoorDescription">
+		<text>Es la salida del laboratorio.</text>
+		<voice>Languages/Spanish/Voices/LaboratoryLeftDoorDescription</voice>
+	</speech>
+	
+	<speech id="NeedProtectionSuit">
+		<text>Antes de entrar al laboratorio, tienes que ponerte el traje de protección.</text>
+		<voice>Languages/Spanish/Voices/NeedProtectionSuit</voice>
+	</speech>
+	
+	<speech id="NeedProtectionSuitResponse">
+		<text>Tendré que ir a buscar el traje de protección antes de entrar.</text>
+		<voice>Languages/Spanish/Voices/NeedProtectionSuitResponse</voice>
+	</speech>
+	
+	<speech id="NegationSpeech0">
+		<text>Mmm... no.</text>
+		<voice>Languages/Spanish/Voices/NegationSpeech0</voice>
+	</speech>
+	
+	<speech id="NegationSpeech1">
+		<text>No puedo hacer eso.</text>
+		<voice>Languages/Spanish/Voices/NegationSpeech1</voice>
+	</speech>
+	
+	<speech id="NegationSpeech2">
+		<text>Eso no tiene sentido.</text>
+		<voice>Languages/Spanish/Voices/NegationSpeech2</voice>
+	</speech>
+	
+	<speech id="OnUseProtectionSuit">
+		<text>Bien... ya estoy listo para trabajar.</text>
+		<voice>Languages/Spanish/Voices/OnUseProtectionSuit</voice>
+	</speech>
+	
+	<speech id="ProtectionSuitDescription">
+		<text>Es el traje de protección.</text>
+		<voice>Languages/Spanish/Voices/ProtectionSuitDescription</voice>
+	</speech>
+	
+	<speech id="SupervisorDescription">
+		<text>Es mi supervisora.</text>
+		<voice>Languages/Spanish/Voices/SupervisorDescription</voice>
+	</speech>
 	
 </language>

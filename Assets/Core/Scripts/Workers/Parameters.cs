@@ -31,6 +31,12 @@ namespace SaguFramework {
 		public const string LanguageFileName = "Language";
 		public const string LanguagesDirectoryResourcePath = "Languages";
 
+		public const string OptionIdLanguage = "Language";
+		public const string OptionIdEffectVolume = "EffectVolume";
+		public const string OptionIdMasterVolume = "MasterVolume";
+		public const string OptionIdSongVolume = "SongVolume";
+		public const string OptionIdVoiceVolume = "VoiceVolume";
+
 		public const string OptionsFileExtension = ".xml";
 		public const string OptionsFileName = "Options";
 
@@ -236,8 +242,8 @@ namespace SaguFramework {
 			return instance.GameParameters.Loaders.SplashScreen;
 		}
 		
-		public static SplashScreenParameters[] GetSplashScreenParametersGroup(string group) {
-			return instance.GameParameters.Entities.SplashScreens.Groups[group];
+		public static SplashScreenParameters[] GetSplashScreenParametersGroup(string groupId) {
+			return instance.GameParameters.Entities.SplashScreens.Groups[groupId];
 		}
 		
 		public static string GetStateFilePath(string stateId) {
@@ -286,18 +292,6 @@ namespace SaguFramework {
 
 		public const string DirectionLeft = "Left";
 		public const string DirectionRight = "Right";
-
-
-
-
-
-
-
-		public const string OptionIdLanguage = "Language";
-		public const string OptionIdEffectVolume = "EffectVolume";
-		public const string OptionIdMasterVolume = "MasterVolume";
-		public const string OptionIdSongVolume = "SongVolume";
-		public const string OptionIdVoiceVolume = "VoiceVolume";
 
 
 		public const string SceneMain = "Main";
