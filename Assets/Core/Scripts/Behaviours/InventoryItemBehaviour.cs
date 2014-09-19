@@ -5,15 +5,15 @@
 		public override sealed void OnCharacterEnter(Character character) {}
 
 		public override sealed void OnClick() {
-			OrderHandler.SelectInventoryItem((InventoryItem) GetEntity());
+			InputReader.SelectInventoryItem((InventoryItem) GetEntity());
 		}
 
 		public override sealed void OnDefocus() {
-			GraphicHandler.ClearTooltip();
+			Drawer.ClearTooltip();
 		}
 		
 		public override sealed void OnFocus() {
-			GraphicHandler.SetTooltip(GetTooltip());
+			Drawer.SetTooltip(GetTooltip());
 		}
 		
 		public override sealed void OnPickUp() {}

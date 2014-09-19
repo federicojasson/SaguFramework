@@ -3,16 +3,16 @@ using UnityEngine;
 
 namespace SaguFramework {
 	
-	public class GraphicHandler : Worker {
+	public class old_GraphicHandler : old_Worker {
 
-		private static Texture2D cursorTexture;
+		/*private static Texture2D cursorTexture;
 		private static float fadeSpeed;
 		private static Texture2D fadeTexture;
 		private static float fadeTextureOpacity;
 		private static string speechText;
 		private static string tooltip;
 
-		static GraphicHandler() {
+		static old_GraphicHandler() {
 			fadeSpeed = 0;
 			fadeTextureOpacity = 1f;
 			speechText = string.Empty;
@@ -230,7 +230,7 @@ namespace SaguFramework {
 
 		public override void OnOrderChange() {
 			SetCursor(OrderHandler.GetOrder());
-		}
+		}*/
 
 	}
 	

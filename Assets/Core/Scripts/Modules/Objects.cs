@@ -13,7 +13,6 @@ namespace SaguFramework {
 		private static Room room;
 		private static List<RoomTrigger> roomTriggers;
 		private static SplashScreen splashScreen;
-		private static List<Worker> workers;
 
 		static Objects() {
 			characters = new Dictionary<string, Character>();
@@ -22,7 +21,6 @@ namespace SaguFramework {
 			items = new Dictionary<string, Item>();
 			menus = new Stack<Menu>();
 			roomTriggers = new List<RoomTrigger>();
-			workers = new List<Worker>();
 		}
 
 		public static Dictionary<string, Character> GetCharacters() {
@@ -59,10 +57,6 @@ namespace SaguFramework {
 
 		public static SplashScreen GetSplashScreen() {
 			return splashScreen;
-		}
-		
-		public static List<Worker> GetWorkers() {
-			return workers;
 		}
 
 		public static void RegisterEntity(Entity entity) {
@@ -115,10 +109,6 @@ namespace SaguFramework {
 			}
 		}
 
-		public static void RegisterWorker(Worker worker) {
-			workers.Add(worker);
-		}
-
 		public static void UnregisterEntity(Entity entity) {
 			if (entity is Character) {
 				Character character = (Character) entity;
@@ -167,10 +157,6 @@ namespace SaguFramework {
 				splashScreen = null;
 				return;
 			}
-		}
-
-		public static void UnregisterWorker(Worker worker) {
-			workers.Remove(worker);
 		}
 
 	}

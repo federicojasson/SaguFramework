@@ -11,20 +11,20 @@ namespace SaguFramework {
 
 		protected override IEnumerator LoadSceneCoroutine() {
 			// TODO: debug
-			//Game.NewGame();
+			Framework.NewGame();
 			//Game.OpenMainMenu();
 
 			LoadAndApplyOptions();
 			SoundPlayer.StopAllSounds();
 			SoundPlayer.PlayMainEffect();
-			SplashScreenHandler.ShowMainSplashScreen();
-			yield return StartCoroutine(GraphicHandler.FadeIn(Parameters.GetMainLoaderParameters().FadeIn));
-			yield return StartCoroutine(SplashScreenHandler.Delay());
+			SplashScreenManager.ShowMainSplashScreen();
+			yield return StartCoroutine(Drawer.FadeIn(Parameters.GetMainLoaderParameters().FadeIn));
+			yield return StartCoroutine(SplashScreenManager.Delay());
 			Loader.ChangeScene(Parameters.SceneMainMenu);
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			yield return StartCoroutine(GraphicHandler.FadeOut(Parameters.GetMainLoaderParameters().FadeOut));
+			yield return StartCoroutine(Drawer.FadeOut(Parameters.GetMainLoaderParameters().FadeOut));
 		}
 
 	}

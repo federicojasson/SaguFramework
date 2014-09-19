@@ -11,9 +11,7 @@ namespace SaguFramework {
 		}
 
 		public void Update() {
-			Vector2 inventoryPosition = Objects.GetInventory().GetPosition();
-			Vector2 position = CameraHandler.GetCameraPosition() + offset;
-			SetPosition(position);
+			SetPosition(CameraHandler.GetCameraPosition() + offset);
 		}
 
 	}

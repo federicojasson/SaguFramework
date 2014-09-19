@@ -48,23 +48,23 @@ namespace SaguFramework {
 		}
 
 		public void OnGUI() {
-			InputHandler.NotifyOnGUI(this);
+			InputReader.NotifyOnGUI(this);
 		}
 		
 		public void OnMouseEnter() {
-			InputHandler.NotifyOnMouseEnter(this);
+			InputReader.NotifyOnMouseEnter(this);
 		}
 		
 		public void OnMouseExit() {
-			InputHandler.NotifyOnMouseExit(this);
+			InputReader.NotifyOnMouseExit(this);
 		}
 		
 		public void OnMouseUpAsButton() {
-			InputHandler.NotifyOnMouseUpAsButton(this);
+			InputReader.NotifyOnMouseUpAsButton(this);
 		}
 		
 		public void OnTriggerEnter2D(Collider2D collider) {
-			InputHandler.NotifyOnTriggerEnter2D(this, collider);
+			InputReader.NotifyOnTriggerEnter2D(this, collider);
 		}
 
 		public void Register() {

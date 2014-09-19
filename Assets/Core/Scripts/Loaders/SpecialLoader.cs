@@ -7,11 +7,11 @@ namespace SaguFramework {
 		// TODO
 
 		protected override IEnumerator LoadSceneCoroutine() {
-			yield return StartCoroutine(GraphicHandler.FadeIn(Parameters.GetSpecialLoaderParameters().FadeIn));
+			yield return StartCoroutine(Drawer.FadeIn(Parameters.GetSpecialLoaderParameters().FadeIn));
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			yield return StartCoroutine(GraphicHandler.FadeOut(Parameters.GetSpecialLoaderParameters().FadeOut));
+			yield return StartCoroutine(Drawer.FadeOut(Parameters.GetSpecialLoaderParameters().FadeOut));
 		}
 
 	}

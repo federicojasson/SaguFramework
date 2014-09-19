@@ -13,7 +13,7 @@ namespace SaguFramework {
 				ProcessOptionsFile(file);
 			} catch (Exception) {
 				// There was a problem reading or processing the options file
-				string resourcePath = Parameters.InitialOptionsFileResourcePath;
+				string resourcePath = Parameters.DefaultOptionsFileResourcePath;
 				XDocument file = Utilities.ReadResourceXmlFile(resourcePath);
 				ProcessOptionsFile(file);
 			}

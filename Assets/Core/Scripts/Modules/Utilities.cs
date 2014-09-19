@@ -18,8 +18,12 @@ namespace SaguFramework {
 			return component.gameObject.GetComponent<T>();
 		}
 
-		public static int GetEnumCount(Type type) {
-			return Enum.GetNames(type).Length;
+		public static int GetEnumCount<T>() {
+			return Enum.GetNames(typeof(T)).Length;
+		}
+
+		public static T GetEnumValue<T>(string stringValue) {
+			return (T) Enum.Parse(typeof(T), stringValue);
 		}
 
 		public static int[] GetIntegerPermutationLinear(int n) {
@@ -95,10 +99,6 @@ namespace SaguFramework {
 			}
 
 			return new Vector2(sizeX, sizeY);
-		}
-
-		public static int SearchArray<T>(T[] array, T value) {
-			return Array.IndexOf<T>(array, value);
 		}
 
 		public static void SetParent(Component child, Component parent) {

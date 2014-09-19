@@ -3,15 +3,15 @@
 	public sealed class InventoryPreviousPageBehaviour : InventoryTriggerBehaviour {
 		
 		public override void OnClick() {
-			InventoryHandler.ShowPreviousPage();
+			InventoryManager.ShowPreviousPage();
 		}
 		
 		public override void OnLook() {
-			InventoryHandler.ShowPreviousPage();
+			InventoryManager.ShowPreviousPage();
 		}
 		
 		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
-			InventoryHandler.ShowPreviousPage();
+			InventoryManager.ShowPreviousPage();
 		}
 		
 	}

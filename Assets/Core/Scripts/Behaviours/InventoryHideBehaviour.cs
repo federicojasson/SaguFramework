@@ -3,8 +3,11 @@
 	public sealed class InventoryHideBehaviour : InventoryTriggerBehaviour {
 
 		public override void OnClick() {
-			if (GameHandler.GetGameMode() == GameMode.UsingInventoryItem)
-				InventoryHandler.ToggleInventory();
+			InventoryManager.ToggleInventory();
+		}
+
+		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
+			InventoryManager.ToggleInventory();
 		}
 		
 	}

@@ -1,8 +1,10 @@
 ﻿using System;
 
 namespace SaguFramework {
-	
-	public static class Game {
+
+	// TODO: renombrar?
+
+	public static class Framework {
 
 		public static void ExecuteActions(string characterId, CharacterAction[] actions) {
 			ExecuteActions(characterId, actions, null);
@@ -11,6 +13,40 @@ namespace SaguFramework {
 		public static void ExecuteActions(string characterId, CharacterAction[] actions, Action furtherAction) {
 			Character character = Objects.GetCharacters()[characterId];
 			character.ExecuteActions(actions, furtherAction);
+		}
+
+		public static void LockInput() {
+			InputReader.LockInput();
+		}
+		
+		public static void NewGame() {
+			NewGame(string.Empty);
+		}
+		
+		public static void NewGame(string group) {
+			State.LoadInitial();
+			LoadSplashScreenOrRoom(group);
+		}
+
+		public static void OpenMainMenu() {
+			Loader.ChangeScene(Parameters.SceneMainMenu);
+		}
+		
+		public static void OpenMenu(string menuId) {
+			MenuManager.OpenMenu(menuId);
+		}
+
+		public static void UnlockInput() {
+			InputReader.UnlockInput();
+		}
+		
+		private static void LoadSplashScreenOrRoom(string group) {
+			if (group.Length == 0)
+				Loader.ChangeScene(Parameters.SceneRoom);
+			else {
+				SplashScreenManager.SetCurrentGroup(group);
+				Loader.ChangeScene(Parameters.SceneSplashScreen);
+			}
 		}
 
 		/*public static void AddToInventory(string inventoryItemId) {
@@ -102,15 +138,6 @@ namespace SaguFramework {
 			State.Delete(stateId);
 		}
 
-		public static void ExecuteActions(string characterId, CharacterAction[] actions) {
-			ExecuteActions(characterId, actions, null);
-		}
-
-		public static void ExecuteActions(string characterId, CharacterAction[] actions, Action furtherAction) {
-			Character character = Objects.GetCharacters()[characterId];
-			character.ExecuteActions(actions, furtherAction);
-		}
-
 		public static void Exit() {
 			Application.Quit();
 		}
@@ -121,15 +148,6 @@ namespace SaguFramework {
 
 		public static void LoadGame(string stateId, string groupId) {
 			State.Load(stateId);
-			LoadSplashScreenOrRoom(groupId);
-		}
-
-		public static void NewGame() {
-			NewGame(string.Empty);
-		}
-
-		public static void NewGame(string groupId) {
-			State.LoadInitial();
 			LoadSplashScreenOrRoom(groupId);
 		}
 

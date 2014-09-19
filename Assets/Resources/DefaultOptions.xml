@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+	
+	<!-- Floats -->
+	
+	<float id="EffectVolume">
+		1.0
+	</float>
+	
+	<float id="MasterVolume">
+		1.0
+	</float>
+	
+	<float id="SongVolume">
+		0.5
+	</float>
+	
+	<float id="VoiceVolume">
+		0.8
+	</float>
+	
+	
+	<!-- Strings -->
+	
+	<string id="Language">
+		Spanish
+	</string>
+	
+</options>

@@ -56,7 +56,7 @@ namespace SaguFramework {
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, false);
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsWalking, false);
 			
-			GraphicHandler.ClearSpeechText();
+			Drawer.ClearSpeech();
 			SoundPlayer.StopVoice(id);
 		}
 
@@ -116,13 +116,13 @@ namespace SaguFramework {
 			AudioClip voice = speech.GetVoice();
 
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, true);
-			GraphicHandler.SetSpeechText(text);
+			Drawer.SetSpeech(text);
 
 			SoundPlayer.PlayVoice(id, voice);
 			yield return new WaitForSeconds(voice.length);
 
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, false);
-			GraphicHandler.ClearSpeechText();
+			Drawer.ClearSpeech();
 		}
 
 		private IEnumerator WalkCoroutine(float x) {

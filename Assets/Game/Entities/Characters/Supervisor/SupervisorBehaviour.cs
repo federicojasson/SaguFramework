@@ -21,7 +21,8 @@ namespace EmergenciaQuimica {
 		}
 
 		protected override string GetTooltip() {
-			return Language.GetText("SupervisorTooltip");
+			//return Language.GetText("SupervisorTooltip");
+			return string.Empty;
 		}
 
 	}

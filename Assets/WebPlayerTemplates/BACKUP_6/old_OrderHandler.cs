@@ -1,14 +1,14 @@
 ﻿namespace SaguFramework {
 	
-	public class OrderHandler : Worker {
+	public class old_OrderHandler : old_Worker {
 
-		private static Order order;
+		/*private static Order order;
 		private static int orderIndex;
 		private static Order[] orderSet;
 		private static Order[][] orderSets;
 		private static InventoryItem selectedInventoryItem;
 
-		static OrderHandler() {
+		static old_OrderHandler() {
 			SetOrder(Order.None);
 
 			int gameModeCount = Utilities.GetEnumCount(typeof(GameMode));
@@ -95,7 +95,7 @@
 				orderIndex = 0;
 				SetOrder(orderSet[orderIndex]);
 			}
-		}
+		}*/
 
 	}
 	

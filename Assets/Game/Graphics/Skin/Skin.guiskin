@@ -1193,7 +1193,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   m_CustomStyles:
-  - m_Name: SpeechText
+  - m_Name: Speech
     m_Normal:
       m_Background: {fileID: 2800000, guid: 38cdc4707c3b4334aa48674f65ca5bb2, type: 3}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}

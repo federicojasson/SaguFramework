@@ -204,7 +204,7 @@ namespace SaguFramework {
 				XElement yNode = positionNode.Element(Parameters.XmlNodeY);
 
 				string id = Utilities.GetXmlAttributeStringValue(idAttribute);
-				Direction direction = (Utilities.GetXmlNodeStringValue(directionNode) == Parameters.DirectionLeft) ? Direction.Left : Direction.Right;
+				Direction direction = Utilities.GetEnumValue<Direction>(Utilities.GetXmlNodeStringValue(directionNode));
 				float x = Utilities.GetXmlNodeFloatValue(xNode);
 				float y = Utilities.GetXmlNodeFloatValue(yNode);
 				Vector2 position = new Vector2(x, y);

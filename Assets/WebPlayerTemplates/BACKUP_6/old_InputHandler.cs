@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace SaguFramework {
 	
-	public class InputHandler : Worker {
+	public class old_InputHandler : old_Worker {
 
-		public static Vector2 GetMousePositionInScreen() {
+		/*public static Vector2 GetMousePositionInScreen() {
 			return Input.mousePosition;
 		}
 
@@ -253,7 +253,7 @@ namespace SaguFramework {
 					break;
 				}
 			}
-		}
+		}*/
 
 	}
 	

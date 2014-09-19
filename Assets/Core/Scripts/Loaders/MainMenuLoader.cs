@@ -7,12 +7,12 @@ namespace SaguFramework {
 		protected override IEnumerator LoadSceneCoroutine() {
 			SoundPlayer.StopAllSounds();
 			SoundPlayer.PlayMainMenuSong();
-			MenuHandler.OpenMainMenu();
-			yield return StartCoroutine(GraphicHandler.FadeIn(Parameters.GetMainMenuLoaderParameters().FadeIn));
+			MenuManager.OpenMainMenu();
+			yield return StartCoroutine(Drawer.FadeIn(Parameters.GetMainMenuLoaderParameters().FadeIn));
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			yield return StartCoroutine(GraphicHandler.FadeOut(Parameters.GetMainMenuLoaderParameters().FadeOut));
+			yield return StartCoroutine(Drawer.FadeOut(Parameters.GetMainMenuLoaderParameters().FadeOut));
 			SoundPlayer.StopAllSounds();
 			SoundPlayer.PlayPlaylist();
 		}

@@ -78,12 +78,12 @@ namespace SaguFramework {
 		protected override IEnumerator LoadSceneCoroutine() {
 			CreateEntities();
 			ConfigureCamera();
-			GameHandler.UpdateGameMode();
-			yield return StartCoroutine(GraphicHandler.FadeIn(Parameters.GetRoomLoaderParameters().FadeIn));
+			InputReader.RefreshInputMode();
+			yield return StartCoroutine(Drawer.FadeIn(Parameters.GetRoomLoaderParameters().FadeIn));
 		}
 		
 		protected override IEnumerator UnloadSceneCoroutine() {
-			yield return StartCoroutine(GraphicHandler.FadeOut(Parameters.GetRoomLoaderParameters().FadeOut));
+			yield return StartCoroutine(Drawer.FadeOut(Parameters.GetRoomLoaderParameters().FadeOut));
 		}
 
 	}

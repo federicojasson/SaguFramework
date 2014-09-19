@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace SaguFramework {
 	
-	public class SplashScreenHandler : Worker {
-		
+	public static class SplashScreenManager {
+
 		private static float creationTime;
-		private static string currentGroupId;
+		private static string currentGroup;
 		private static float minimumDelayTime;
 
 		public static IEnumerator Delay() {
@@ -16,9 +16,9 @@ namespace SaguFramework {
 			if (elapsedTime < minimumDelayTime)
 				yield return new WaitForSeconds(minimumDelayTime - elapsedTime);
 		}
-
-		public static void SetCurrentGroupId(string groupId) {
-			currentGroupId = groupId;
+		
+		public static void SetCurrentGroup(string group) {
+			currentGroup = group;
 		}
 
 		public static void ShowMainSplashScreen() {
@@ -27,14 +27,14 @@ namespace SaguFramework {
 		}
 
 		public static void ShowSplashScreenFromCurrentGroup() {
-			SplashScreenParameters[] group = Parameters.GetSplashScreenParametersGroup(currentGroupId);
-
+			SplashScreenParameters[] group = Parameters.GetSplashScreenParametersGroup(currentGroup);
+			
 			int randomIndex = Random.Range(0, group.Length);
 			SplashScreenParameters parameters = group[randomIndex];
-
+			
 			ShowSplashScreen(parameters);
 		}
-
+		
 		private static void ShowSplashScreen(SplashScreenParameters splashScreenParameters) {
 			creationTime = Time.time;
 			minimumDelayTime = splashScreenParameters.MinimumDelayTime;

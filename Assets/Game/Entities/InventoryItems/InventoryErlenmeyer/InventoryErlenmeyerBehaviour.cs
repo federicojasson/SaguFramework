@@ -13,7 +13,8 @@ namespace EmergenciaQuimica {
 		}
 
 		protected override string GetTooltip() {
-			return Language.GetText("ErlenmeyerTooltip");
+			//return Language.GetText("ErlenmeyerTooltip");
+			return string.Empty;
 		}
 
 	}

@@ -1,11 +1,11 @@
 namespace SaguFramework {
 	
-	public class GameHandler : Worker {
+	public class old_GameHandler : old_Worker {
 
-		private static bool gameLocked;
+		/*private static bool gameLocked;
 		private static GameMode gameMode;
 
-		static GameHandler() {
+		static old_GameHandler() {
 			gameLocked = false;
 			SetGameMode(GameMode.Waiting);
 		}
@@ -71,7 +71,7 @@ namespace SaguFramework {
 		
 		public override void OnOrderChange() {
 			UpdateGameMode();
-		}
+		}*/
 
 	}
 	

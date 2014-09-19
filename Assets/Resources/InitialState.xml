@@ -1,60 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <state>
-	<current-room-id>Laboratory</current-room-id>
-	<player-character-id>Scientist</player-character-id>
 	
-	<character>
-		<id>Scientist</id>
-		<character-state>
-			<direction>Right</direction>
-			<location>
-				<position>
-					<x>0.2</x>
-					<y>0.35</y>
-				</position>
-				<room-id>Laboratory</room-id>
-			</location>
-		</character-state>
+	<!-- Current room -->
+	<current-room>Laboratory</current-room>
+	
+	
+	<!-- Player character -->
+	<player-character>Scientist</player-character>
+	
+	
+	
+	<inventory-item>InventoryErlenmeyer</inventory-item>
+	<inventory-item>InventoryProtectionSuit</inventory-item>
+	
+	
+	<!-- Characters -->
+	
+	<character id="Scientist">
+		<direction>Right</direction>
+		<location>
+			<room>Laboratory</room>
+			<position>
+				<x>0.2</x>
+				<y>0.35</y>
+			</position>
+		</location>
 	</character>
 	
-	<character>
-		<id>Supervisor</id>
-		<character-state>
-			<direction>Left</direction>
-			<location>
-				<position>
-					<x>1.2</x>
-					<y>0.35</y>
-				</position>
-				<room-id>Laboratory</room-id>
-			</location>
-		</character-state>
+	<character id="Supervisor">
+		<direction>Left</direction>
+		<location>
+			<room>Laboratory</room>
+			<position>
+				<x>1.2</x>
+				<y>0.35</y>
+			</position>
+		</location>
 	</character>
 	
-	<item>
-		<id>Erlenmeyer</id>
-		<item-state>
-			<location>
-				<position>
-					<x>0.483125</x>
-					<y>0.451221</y>
-				</position>
-				<room-id>Laboratory</room-id>
-			</location>
-		</item-state>
+	
+	<!-- Items -->
+	
+	<item id="Erlenmeyer">
+		<location>
+			<room>Laboratory</room>
+			<position>
+				<x>1.634375</x>
+				<y>0.450555</y>
+			</position>
+		</location>
 	</item>
 	
-	
-	<item>
-		<id>ProtectionSuit</id>
-		<item-state>
-			<location>
-				<position>
-					<x>0.34</x>
-					<y>0.425555</y>
-				</position>
-				<room-id>Blue</room-id>
-			</location>
-		</item-state>
+	<item id="ProtectionSuit">
+		<location>
+			<room>Blue</room>
+			<position>
+				<x>0.34</x>
+				<y>0.425555</y>
+			</position>
+		</location>
 	</item>
+	
 </state>

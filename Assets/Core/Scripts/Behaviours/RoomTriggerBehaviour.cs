@@ -5,11 +5,11 @@
 		public override sealed void OnClick() {}
 		
 		public override sealed void OnDefocus() {
-			GraphicHandler.ClearTooltip();
+			Drawer.ClearTooltip();
 		}
 		
 		public override sealed void OnFocus() {
-			GraphicHandler.SetTooltip(GetTooltip());
+			Drawer.SetTooltip(GetTooltip());
 		}
 		
 		public override sealed void OnShowGui() {}

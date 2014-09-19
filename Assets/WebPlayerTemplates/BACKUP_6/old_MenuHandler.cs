@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 
 namespace SaguFramework {
-	
-	public class MenuHandler : Worker {
 
-		private static bool isMainMenu;
+	// TODO: worker?
+	
+	public class old_MenuHandler : old_Worker {
+
+		/*private static bool isMainMenu;
 		private static Menu menu;
 
 		public static void CloseMenu() {
@@ -51,7 +53,7 @@ namespace SaguFramework {
 				menus.Peek().Deactivate();
 
 			Factory.CreateMenu(menuParameters);
-		}
+		}*/
 
 	}
 	
