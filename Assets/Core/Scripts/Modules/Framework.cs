@@ -45,6 +45,10 @@ namespace SaguFramework {
 			State.AddItem(itemId, itemState);
 		}
 
+		public static void BeginArea(float x, float y, float width, float height) {
+			Drawer.BeginArea(x, y, width, height);
+		}
+
 		public static void ChangePlayerCharacter(string characterId) {
 			State.SetPlayerCharacter(characterId);
 
@@ -67,8 +71,7 @@ namespace SaguFramework {
 			Location location = new Location(entryParameters.Position, roomId);
 			CharacterState characterState = new CharacterState(direction, location);
 
-			State.RemoveCharacter(characterId);
-			State.AddCharacter(characterId, characterState);
+			State.SetCharacterState(characterId, characterState);
 			State.SetCurrentRoom(roomId);
 
 			LoadSplashScreenOrRoom(groupId);
@@ -76,6 +79,14 @@ namespace SaguFramework {
 
 		public static void CloseMenu() {
 			MenuManager.CloseMenu();
+		}
+		
+		public static void DeleteGame(string stateId) {
+			State.Delete(stateId);
+		}
+
+		public static void EndArea() {
+			Drawer.EndArea();
 		}
 
 		public static void ExecuteActions(string characterId, CharacterAction[] actions) {
@@ -99,12 +110,20 @@ namespace SaguFramework {
 			return State.GetCurrentRoom();
 		}
 
+		public static float GetEffectVolume() {
+			return Options.GetFloat(Parameters.OptionIdEffectVolume);
+		}
+
 		public static InventoryItem GetInventoryItem(string inventoryItemId) {
 			return Objects.GetInventoryItems()[inventoryItemId];
 		}
 
 		public static Item GetItem(string itemId) {
 			return Objects.GetItems()[itemId];
+		}
+		
+		public static float GetMasterVolume() {
+			return Options.GetFloat(Parameters.OptionIdMasterVolume);
 		}
 
 		public static string GetPlayerCharacter() {
@@ -122,9 +141,17 @@ namespace SaguFramework {
 
 			return new CharacterState(direction, location);
 		}
+		
+		public static float GetSongVolume() {
+			return Options.GetFloat(Parameters.OptionIdSongVolume);
+		}
 
 		public static Speech GetSpeech(string speechId) {
 			return Language.GetSpeech(speechId);
+		}
+
+		public static string[] GetStateIds() {
+			return State.GetStateIds();
 		}
 
 		public static GUIStyle GetStyle(string styleId) {
@@ -134,19 +161,35 @@ namespace SaguFramework {
 		public static string GetText(string textId) {
 			return Language.GetText(textId);
 		}
+		
+		public static float GetVoiceVolume() {
+			return Options.GetFloat(Parameters.OptionIdVoiceVolume);
+		}
 
 		public static bool HintExists(string hint) {
 			return State.HintExists(hint);
+		}
+		
+		public static bool IsMainMenuOpen() {
+			return MenuManager.IsMainMenuOpen();
+		}
+		
+		public static void LoadGame(string stateId) {
+			LoadGame(stateId, string.Empty);
+		}
+		
+		public static void LoadGame(string stateId, string groupId) {
+			State.Load(stateId);
+			LoadSplashScreenOrRoom(groupId);
 		}
 
 		public static void LockInput() {
 			InputReader.LockInput();
 		}
 
-		// TODO: uncomment
-		/*public static void NewGame() {
+		public static void NewGame() {
 			NewGame(string.Empty);
-		}*/
+		}
 		
 		public static void NewGame(string groupId) {
 			State.LoadInitial();
@@ -185,6 +228,57 @@ namespace SaguFramework {
 
 			State.RemoveItem(itemId);
 		}
+
+		public static void SaveGame(string stateId) {
+			foreach (Character character in Objects.GetCharacters().Values) {
+				string characterId = character.GetId();
+
+				Direction direction = character.GetDirection();
+				Vector2 position = Geometry.WorldToGamePosition(character.GetPosition());
+				string roomId = State.GetCurrentRoom();
+				Location location = new Location(position, roomId);
+				CharacterState characterState = new CharacterState(direction, location);
+				
+				State.SetCharacterState(characterId, characterState);
+			}
+			
+			foreach (Item item in Objects.GetItems().Values) {
+				string itemId = item.GetId();
+
+				Vector2 position = Geometry.WorldToGamePosition(item.GetPosition());
+				string roomId = State.GetCurrentRoom();
+				Location location = new Location(position, roomId);
+				ItemState itemState = new ItemState(location);
+				
+				State.SetItemState(itemId, itemState);
+			}
+			
+			State.Save(stateId);
+		}
+
+		public static void SaveOptions() {
+			Options.Save();
+		}
+
+		public static void SetEffectVolume(float effectVolume) {
+			Options.SetFloat(Parameters.OptionIdEffectVolume, effectVolume);
+			SoundPlayer.SetEffectVolume(effectVolume);
+		}
+		
+		public static void SetMasterVolume(float masterVolume) {
+			Options.SetFloat(Parameters.OptionIdMasterVolume, masterVolume);
+			SoundPlayer.SetMasterVolume(masterVolume);
+		}
+		
+		public static void SetSongVolume(float songVolume) {
+			Options.SetFloat(Parameters.OptionIdSongVolume, songVolume);
+			SoundPlayer.SetSongVolume(songVolume);
+		}
+		
+		public static void SetVoiceVolume(float voiceVolume) {
+			Options.SetFloat(Parameters.OptionIdVoiceVolume, voiceVolume);
+			SoundPlayer.SetVoiceVolume(voiceVolume);
+		}
 		
 		public static void StopActions(string characterId) {
 			Objects.GetCharacters()[characterId].StopActions();
@@ -206,73 +300,6 @@ namespace SaguFramework {
 				Loader.ChangeScene(Parameters.SceneSplashScreen);
 			}
 		}
-
-		/*
-
-
-
-
-
-		public static void ApplyOptions() {
-			string languageId = Options.GetString(Parameters.OptionIdLanguage);
-			Language.Load(languageId);
-			float effectVolume = Options.GetFloat(Parameters.OptionIdEffectVolume);
-			SoundPlayer.SetEffectVolume(effectVolume);
-			float masterVolume = Options.GetFloat(Parameters.OptionIdMasterVolume);
-			SoundPlayer.SetMasterVolume(masterVolume);
-			float songVolume = Options.GetFloat(Parameters.OptionIdSongVolume);
-			SoundPlayer.SetSongVolume(songVolume);
-			float voiceVolume = Options.GetFloat(Parameters.OptionIdVoiceVolume);
-			SoundPlayer.SetVoiceVolume(voiceVolume);
-			Options.Save();
-		}
-
-
-		public static void CloseMenu() {
-			MenuHandler.CloseMenu();
-		}
-
-		public static void DeleteGame(string stateId) {
-			State.Delete(stateId);
-		}
-
-		public static void Exit() {
-			Application.Quit();
-		}
-
-		public static void LoadGame(string stateId) {
-			LoadGame(stateId, string.Empty);
-		}
-
-		public static void LoadGame(string stateId, string groupId) {
-			State.Load(stateId);
-			LoadSplashScreenOrRoom(groupId);
-		}
-
-
-		public static void SaveGame(string stateId) {
-			foreach (Character character in Objects.GetCharacters().Values) {
-				Direction direction = character.GetDirection();
-				Vector2 position = Geometry.WorldToGamePosition(character.GetPosition());
-				string roomId = State.GetCurrentRoomId();
-				Location location = new Location(position, roomId);
-				CharacterState characterState = new CharacterState(direction, location);
-
-				State.SetCharacterState(character.GetId(), characterState);
-			}
-
-			foreach (Item item in Objects.GetItems().Values) {
-				Vector2 position = Geometry.WorldToGamePosition(item.GetPosition());
-				string roomId = State.GetCurrentRoomId();
-				Location location = new Location(position, roomId);
-				ItemState itemState = new ItemState(location);
-
-				State.SetItemState(item.GetId(), itemState);
-			}
-
-			State.Save(stateId);
-		}
-*/
 		
 	}
 	

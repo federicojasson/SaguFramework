@@ -55,23 +55,23 @@ namespace SaguFramework {
 			PlaySound(voicePlayer, voice);
 		}
 		
-		public static void SetEffectVolume(float volume) {
-			effectPlayer.volume = volume;
+		public static void SetEffectVolume(float effectVolume) {
+			effectPlayer.volume = effectVolume;
 		}
 		
-		public static void SetMasterVolume(float volume) {
-			AudioListener.volume = volume;
+		public static void SetMasterVolume(float masterVolume) {
+			AudioListener.volume = masterVolume;
 		}
 		
-		public static void SetSongVolume(float volume) {
-			songPlayer.volume = volume;
+		public static void SetSongVolume(float songVolume) {
+			songPlayer.volume = songVolume;
 		}
 		
-		public static void SetVoiceVolume(float volume) {
-			voiceVolume = volume;
+		public static void SetVoiceVolume(float voiceVolume) {
+			SoundPlayer.voiceVolume = voiceVolume;
 			
 			foreach (AudioSource voicePlayer in voicePlayers.Values)
-				voicePlayer.volume = volume;
+				voicePlayer.volume = voiceVolume;
 		}
 
 		public static void StopAllSounds() {

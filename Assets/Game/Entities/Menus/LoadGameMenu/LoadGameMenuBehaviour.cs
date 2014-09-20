@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace EmergenciaQuimica {
 	
-	public abstract class LoadGameMenuBehaviour : MenuBehaviour {
+	public sealed class LoadGameMenuBehaviour : MenuBehaviour {
 
-		/*private Vector2 scrollPosition;
+		private Vector2 scrollPosition;
 		private int selectedStateId;
 		private string[] stateIds;
 		private int stateLastCount;
@@ -16,7 +16,7 @@ namespace EmergenciaQuimica {
 
 		public void OnEnable() {
 			int auxiliar = stateLastCount;
-			stateIds = State.GetStateIds();
+			stateIds = Framework.GetStateIds();
 			stateLastCount = stateIds.Length;
 
 			if (stateLastCount != auxiliar)
@@ -24,81 +24,67 @@ namespace EmergenciaQuimica {
 		}
 
 		public override void OnShowGui() {
-			GUIStyle menuButtonStyle = GUI.skin.GetStyle("MenuButton");
-			GUIStyle modifiedMenuButtonStyle = Utilities.GetRelativeStyle(menuButtonStyle);
+			GUIStyle menuButtonStyle = Framework.GetStyle("MenuButton");
+			GUIStyle menuSelectionGridStyle = Framework.GetStyle("MenuSelectionGrid");
+			GUIStyle menuTitleStyle = Framework.GetStyle("MenuTitle");
+			GUIStyle scrollViewStyle = Framework.GetStyle(GUI.skin.scrollView.name);
 
-			GUIStyle menuSelectionGridStyle = GUI.skin.GetStyle("MenuSelectionGrid");
-			GUIStyle modifiedMenuSelectionGridStyle = Utilities.GetRelativeStyle(menuSelectionGridStyle);
+			Framework.BeginArea(0.05f, 0.05f, 0.9f, 0.1f); {
+				GUILayout.Label(Framework.GetText("LoadGameMenuTitleLabel"), menuTitleStyle);
+			} Framework.EndArea();
 
-			GUIStyle menuTitleStyle = GUI.skin.GetStyle("MenuTitle");
-			GUIStyle modifiedMenuTitleStyle = Utilities.GetRelativeStyle(menuTitleStyle);
-
-			GUIStyle scrollViewStyle = GUI.skin.scrollView;
-			GUIStyle modifiedScrollViewStyle = Utilities.GetRelativeStyle(scrollViewStyle);
-
-			float gameWidth = Geometry.GetGameWidthInPixels();
-			float gameHeight = Geometry.GetGameHeightInPixels();
-
-			Rect area0 = new Rect(0.05f * gameWidth, 0.05f * gameHeight, 0.9f * gameWidth, 0.1f * gameHeight);
-			GUILayout.BeginArea(area0); {
-				GUILayout.Label(Language.GetText("LoadGameMenuTitleLabel"), modifiedMenuTitleStyle);
-			} GUILayout.EndArea();
-
-			Rect area1 = new Rect(0.1f * gameWidth, 0.18f * gameHeight, 0.8f * gameWidth, 0.77f * gameHeight);
-			GUILayout.BeginArea(area1); {
-				Rect area10 = new Rect(0f, 0f, area1.width, 0.75f * area1.height);
-				GUILayout.BeginArea(area10); {
-					scrollPosition = GUILayout.BeginScrollView(scrollPosition, modifiedScrollViewStyle); {
-						selectedStateId = GUILayout.SelectionGrid(selectedStateId, stateIds, 1, modifiedMenuSelectionGridStyle);
+			Framework.BeginArea(0.1f, 0.18f, 0.8f, 0.77f); {
+				Framework.BeginArea(0f, 0f, 1f, 0.75f); {
+					scrollPosition = GUILayout.BeginScrollView(scrollPosition, scrollViewStyle); {
+						selectedStateId = GUILayout.SelectionGrid(selectedStateId, stateIds, 1, menuSelectionGridStyle);
 					} GUILayout.EndScrollView();
-				} GUILayout.EndArea();
+				} Framework.EndArea();
 
-				Rect area11 = new Rect(0f, 0.8f * area1.height, 0.32f * area1.width, 0.2f * area1.height);
-				GUILayout.BeginArea(area11); {
-					if (GUILayout.Button(Language.GetText("LoadGameMenuCancelButton"), modifiedMenuButtonStyle))
+				Framework.BeginArea(0f, 0.8f, 0.32f, 0.2f); {
+					if (GUILayout.Button(Framework.GetText("LoadGameMenuCancelButton"), menuButtonStyle))
 						OnCancel();
-				} GUILayout.EndArea();
-				
-				Rect area12 = new Rect(0.34f * area1.width, 0.8f * area1.height, 0.32f * area1.width, 0.2f * area1.height);
-				GUILayout.BeginArea(area12); {
+				} Framework.EndArea();
+
+				Framework.BeginArea(0.34f, 0.8f, 0.32f, 0.2f); {
 					if (selectedStateId < 0)
 						GUI.enabled = false;
 					
-					if (GUILayout.Button(Language.GetText("LoadGameMenuDeleteGameButton"), modifiedMenuButtonStyle))
+					if (GUILayout.Button(Framework.GetText("LoadGameMenuDeleteGameButton"), menuButtonStyle))
 						OnDeleteGame();
 					
 					GUI.enabled = true;
-				} GUILayout.EndArea();
-				
-				Rect area13 = new Rect(0.68f * area1.width, 0.8f * area1.height, 0.32f * area1.width, 0.2f * area1.height);
-				GUILayout.BeginArea(area13); {
+				} Framework.EndArea();
+
+				Framework.BeginArea(0.68f, 0.8f, 0.32f, 0.2f); {
 					if (selectedStateId < 0)
 						GUI.enabled = false;
 
-					if (GUILayout.Button(Language.GetText("LoadGameMenuLoadGameButton"), modifiedMenuButtonStyle))
+					if (GUILayout.Button(Framework.GetText("LoadGameMenuLoadGameButton"), menuButtonStyle))
 						OnLoadGame();
 
 					GUI.enabled = true;
-				} GUILayout.EndArea();
-			} GUILayout.EndArea();
+				} Framework.EndArea();
+			} Framework.EndArea();
 		}
-
-		protected abstract string GetDeleteGameConfirmationMenuId();
 
 		private void OnDeleteGame() {
 			string stateId = stateIds[selectedStateId];
 			DeleteGameConfirmationMenuBehaviour.SetStateId(stateId);
-			Game.OpenMenu(GetDeleteGameConfirmationMenuId());
+
+			if (Framework.IsMainMenuOpen())
+				Framework.OpenMenu("MainDeleteGameConfirmationMenu");
+			else
+				Framework.OpenMenu("PauseDeleteGameConfirmationMenu");
 		}
 		
 		private void OnCancel() {
-			Game.CloseMenu();
+			Framework.CloseMenu();
 		}
 
 		private void OnLoadGame() {
 			string stateId = stateIds[selectedStateId];
-			Game.LoadGame(stateId, "Information");
-		}*/
+			Framework.LoadGame(stateId, "Information");
+		}
 		
 	}
 	

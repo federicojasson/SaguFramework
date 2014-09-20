@@ -4,7 +4,7 @@
 	<!-- Floats -->
 	
 	<float id="EffectVolume">
-		1.0
+		0.55
 	</float>
 	
 	<float id="MasterVolume">
@@ -12,11 +12,11 @@
 	</float>
 	
 	<float id="SongVolume">
-		0.5
+		0.15
 	</float>
 	
 	<float id="VoiceVolume">
-		0.8
+		1.0
 	</float>
 	
 	

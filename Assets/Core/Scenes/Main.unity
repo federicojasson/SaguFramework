@@ -188,7 +188,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!1001 &1625706700
+--- !u!1001 &1326473389
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -232,7 +232,7 @@ Prefab:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-  m_PrefabInternal: {fileID: 1625706700}
+  m_PrefabInternal: {fileID: 1326473389}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1695975938}
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: b3b32f977f66e7f48b20befc765744d0,
     type: 2}
-  m_PrefabInternal: {fileID: 1625706700}
+  m_PrefabInternal: {fileID: 1326473389}
   m_GameObject: {fileID: 1695975936}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -452,6 +452,18 @@ MonoBehaviour:
               Sprite: {fileID: 21300000, guid: e9974384339ce7e4ea4db1276af59e8d, type: 3}
               AnimatorController: {fileID: 22100000, guid: f6a5b561f73efbe48ae18b1cd574a039,
                 type: 2}
+        - Key: ScientistWithProtectionSuit
+          Value:
+            Height: .649999976
+            Speed: .200000003
+            Behaviour: {fileID: 11400000, guid: c5fd15ee060d3d04db4774328b390c82,
+              type: 2}
+            Image:
+              Opacity: 1
+              SortingOrder: 0
+              Sprite: {fileID: 21300000, guid: 32e078bb6e700fb4f951dfba4129a590, type: 3}
+              AnimatorController: {fileID: 22100000, guid: 1467f21c7462ec049b871b4415458e0b,
+                type: 2}
         - Key: RedScientist
           Value:
             Height: .649999976
@@ -608,7 +620,7 @@ MonoBehaviour:
           - Key: PauseLoadGameMenu
             Value:
               Height: 1
-              Behaviour: {fileID: 11400000, guid: 2d7d93e5c273b8b48ac21d7818fda5e3,
+              Behaviour: {fileID: 11400000, guid: 3284375146780404a95e899bf28eaa00,
                 type: 2}
               Image:
                 Opacity: .899999976
@@ -712,7 +724,7 @@ MonoBehaviour:
       Skin: {fileID: 11400000, guid: 57518e85f6ddbd243a14d5b5b8d5e528, type: 2}
       Cursors:
         PreferredSize: {x: .0399999991, y: .0711110979}
-        ClickTexture: {fileID: 2800000, guid: 87831f24246734341ba1cf30a6b470d6, type: 3}
+        ClickTexture: {fileID: 2800000, guid: 554834019ec4d1240b9b252cf87a7d56, type: 3}
         LookTexture: {fileID: 2800000, guid: ca43cf465c3d8ab40bf3cc0d984f2c17, type: 3}
         PickUpTexture: {fileID: 2800000, guid: 904f0beb1a771244387cb4b40e012af6, type: 3}
         SpeakTexture: {fileID: 2800000, guid: 522a12b6e8c5aea49bb258063e6e3016, type: 3}
@@ -788,7 +800,7 @@ MonoBehaviour:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-  m_PrefabInternal: {fileID: 1625706700}
+  m_PrefabInternal: {fileID: 1326473389}
   m_GameObject: {fileID: 1695975936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}

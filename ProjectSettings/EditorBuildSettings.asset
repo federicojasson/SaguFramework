@@ -12,6 +12,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Core/Scenes/Room.unity
   - enabled: 1
-    path: Assets/Core/Scenes/Special.unity
-  - enabled: 1
     path: Assets/Core/Scenes/SplashScreen.unity

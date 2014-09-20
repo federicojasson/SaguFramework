@@ -7,6 +7,18 @@
 		Entrar a la habitación verde
 	</text>
 	
+	<text id="DeleteGameConfirmationMenuBox">
+		¿realmente desea eliminar la partida?
+	</text>
+	
+	<text id="DeleteGameConfirmationMenuCancelButton">
+		cancelar
+	</text>
+	
+	<text id="DeleteGameConfirmationMenuDeleteGameButton">
+		eliminar
+	</text>
+	
 	<text id="ErlenmeyerTooltip">
 		Erlenmeyer
 	</text>
@@ -52,6 +64,22 @@ se perdera todo progreso no guardado.
 		Salir del laboratorio
 	</text>
 	
+	<text id="LoadGameMenuCancelButton">
+		cancelar
+	</text>
+	
+	<text id="LoadGameMenuDeleteGameButton">
+		eliminar
+	</text>
+	
+	<text id="LoadGameMenuLoadGameButton">
+		cargar partida
+	</text>
+	
+	<text id="LoadGameMenuTitleLabel">
+		cargar partida
+	</text>
+	
 	<text id="MainMenuExitButton">
 		salir
 	</text>
@@ -66,6 +94,46 @@ se perdera todo progreso no guardado.
 	
 	<text id="MainMenuOptionsButton">
 		opciones
+	</text>
+	
+	<text id="OptionsMenuApplyChangesButton">
+		aplicar cambios
+	</text>
+	
+	<text id="OptionsMenuCancelButton">
+		cancelar
+	</text>
+	
+	<text id="OptionsMenuEffectVolumeLabel">
+		volumen de efectos
+	</text>
+	
+	<text id="OptionsMenuMasterVolumeLabel">
+		volumen general
+	</text>
+	
+	<text id="OptionsMenuSongVolumeLabel">
+		volumen de musica
+	</text>
+	
+	<text id="OptionsMenuTitleLabel">
+		opciones
+	</text>
+	
+	<text id="OptionsMenuVoiceVolumeLabel">
+		volumen de voces
+	</text>
+	
+	<text id="OverwriteGameConfirmationMenuBox">
+		¿realmente desea sobrescribir la partida?
+	</text>
+	
+	<text id="OverwriteGameConfirmationMenuCancelButton">
+		cancelar
+	</text>
+	
+	<text id="OverwriteGameConfirmationMenuOverwriteGameButton">
+		sobrescribir
 	</text>
 	
 	<text id="PauseMenuExitButton">
@@ -94,6 +162,26 @@ se perdera todo progreso no guardado.
 	
 	<text id="ProtectionSuitTooltip">
 		Traje de protección
+	</text>
+	
+	<text id="SaveGameMenuCancelButton">
+		cancelar
+	</text>
+	
+	<text id="SaveGameMenuDeleteGameButton">
+		eliminar
+	</text>
+	
+	<text id="SaveGameMenuGameLabel">
+		nombre de la partida
+	</text>
+	
+	<text id="SaveGameMenuSaveGameButton">
+		guardar partida
+	</text>
+	
+	<text id="SaveGameMenuTitleLabel">
+		guardar partida
 	</text>
 	
 	<text id="SupervisorTooltip">

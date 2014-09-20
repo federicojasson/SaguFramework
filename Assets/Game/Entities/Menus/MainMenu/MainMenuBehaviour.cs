@@ -19,7 +19,7 @@ namespace EmergenciaQuimica {
 
 			GUIStyle menuButtonStyle = Framework.GetStyle("MenuButton");
 
-			GameGui.BeginArea(0.1f, 0.1f, 0.3f, 0.8f); {
+			Framework.BeginArea(0.1f, 0.1f, 0.3f, 0.8f); {
 				
 				GUILayout.FlexibleSpace();
 
@@ -43,7 +43,7 @@ namespace EmergenciaQuimica {
 				
 				GUILayout.FlexibleSpace();
 
-			} GameGui.EndArea();
+			} Framework.EndArea();
 		}
 		
 		private void OnExit() {

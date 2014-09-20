@@ -8,7 +8,6 @@ namespace SaguFramework {
 		public LoaderParameters Main;
 		public LoaderParameters MainMenu;
 		public LoaderParameters Room;
-		public LoaderParameters Special;
 		public LoaderParameters SplashScreen;
 		
 	}

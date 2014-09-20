@@ -230,10 +230,6 @@ namespace SaguFramework {
 			return instance.GameParameters.Graphics.Cursors.SpeakTexture;
 		}
 		
-		public static LoaderParameters GetSpecialLoaderParameters() {
-			return instance.GameParameters.Loaders.Special;
-		}
-		
 		public static LoaderParameters GetSplashScreenLoaderParameters() {
 			return instance.GameParameters.Loaders.SplashScreen;
 		}
@@ -282,16 +278,6 @@ namespace SaguFramework {
 			base.Awake();
 			instance = this;
 		}
-
-		/*
-
-
-		public const string SceneMain = "Main";
-		public const string SceneSpecial = "Special";
-
-
-
-		*/
 
 	}
 	

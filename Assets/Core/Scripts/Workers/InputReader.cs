@@ -278,8 +278,8 @@ namespace SaguFramework {
 		}
 
 		private static bool IsCursorInGame() {
-			Rect gameRectangleInScreen = Geometry.GetGameRectangleInScreen();
-			return gameRectangleInScreen.Contains(Input.mousePosition);
+			Rect gameRectangle = Geometry.GetGameRectangleInScreen();
+			return gameRectangle.Contains(Input.mousePosition);
 		}
 
 		private static void SetInputMode(InputMode inputMode) {

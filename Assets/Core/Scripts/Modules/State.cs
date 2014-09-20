@@ -93,9 +93,17 @@ namespace SaguFramework {
 		public static void RemoveItem(string itemId) {
 			items.Remove(itemId);
 		}
+
+		public static void SetCharacterState(string characterId, CharacterState characterState) {
+			characters[characterId] = characterState;
+		}
 		
 		public static void SetCurrentRoom(string roomId) {
 			currentRoom = roomId;
+		}
+		
+		public static void SetItemState(string itemId, ItemState itemState) {
+			items[itemId] = itemState;
 		}
 		
 		public static void SetPlayerCharacter(string characterId) {

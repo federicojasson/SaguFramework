@@ -21,20 +21,28 @@ namespace SaguFramework {
 				InputReader.RefreshInputMode();
 		}
 
+		public static bool IsMainMenuOpen() {
+			return isMainMenuOpen;
+		}
+
 		public static void OpenMainMenu() {
 			isMainMenuOpen = true;
+
 			MenuParameters parameters = Parameters.GetMainMenuParameters();
 			OpenMenu(parameters);
 			InputReader.RefreshInputMode();
 		}
 		
 		public static void OpenMenu(string menuId) {
+			SoundPlayer.PlayMenuEffect();
 			MenuParameters menuParameters = Parameters.GetMenuParameters(menuId);
 			OpenMenu(menuParameters);
 		}
 
 		public static void OpenPauseMenu() {
 			isMainMenuOpen = false;
+			
+			SoundPlayer.PlayMenuEffect();
 			MenuParameters parameters = Parameters.GetPauseMenuParameters();
 			OpenMenu(parameters);
 			InputReader.RefreshInputMode();
@@ -43,12 +51,9 @@ namespace SaguFramework {
 		private static void OpenMenu(MenuParameters menuParameters) {
 			Stack<Menu> menus = Objects.GetMenus();
 			
-			if (! isMainMenuOpen)
-				SoundPlayer.PlayMenuEffect();
-			
 			if (menus.Count > 0)
 				menus.Peek().Deactivate();
-			
+
 			Factory.CreateMenu(menuParameters);
 		}
 
