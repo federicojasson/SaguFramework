@@ -7,6 +7,7 @@ namespace SaguFramework {
 	public sealed class Drawer : Worker {
 		
 		private static Stack<Rect> areas;
+		private static Vector2 cursorPreferredSize;
 		private static Texture2D cursorTexture;
 		private static float fadeOpacity;
 		private static float fadeSpeed;
@@ -114,6 +115,15 @@ namespace SaguFramework {
 		}
 
 		public static void SetCursor(Order order) {
+			if (order == Order.UseInventoryItem)
+				cursorPreferredSize = Parameters.GetUsedInventoryItemPreferredSize();
+			else
+				cursorPreferredSize = Parameters.GetCursorPreferredSize();
+
+			cursorPreferredSize = Geometry.GameToWorldSize(cursorPreferredSize);
+			cursorPreferredSize.x = Geometry.UnitsToPixels(cursorPreferredSize.x);
+			cursorPreferredSize.y = Geometry.UnitsToPixels(cursorPreferredSize.y);
+
 			switch (order) {
 				case Order.Click : {
 					cursorTexture = Parameters.GetClickTexture();
@@ -166,11 +176,7 @@ namespace SaguFramework {
 
 			if (cursorTexture != null) {
 				Vector2 textureSize = new Vector2(cursorTexture.width, cursorTexture.height);
-				Vector2 preferredCursorSize = Geometry.GameToWorldSize(Parameters.GetCursorPreferredSize());
-				preferredCursorSize.x = Geometry.UnitsToPixels(preferredCursorSize.x);
-				preferredCursorSize.y = Geometry.UnitsToPixels(preferredCursorSize.y);
-				
-				Vector2 cursorSize = Utilities.GetSize(textureSize, preferredCursorSize);
+				Vector2 cursorSize = Utilities.GetSize(textureSize, cursorPreferredSize);
 				Vector2 cursorPosition = Event.current.mousePosition;
 				
 				float width = cursorSize.x;

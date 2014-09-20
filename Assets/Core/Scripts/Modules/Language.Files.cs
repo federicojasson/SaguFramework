@@ -6,6 +6,7 @@ namespace SaguFramework {
 	public static partial class Language {
 		
 		public static void Load(string languageId) {
+			currentLanguage = languageId;
 			string resourcePath = Parameters.GetLanguageFileResourcePath(languageId);
 			XDocument file = Utilities.ReadResourceXmlFile(resourcePath);
 			ProcessLanguageFile(file);

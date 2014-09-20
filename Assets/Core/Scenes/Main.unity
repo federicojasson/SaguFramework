@@ -188,51 +188,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!1001 &1326473389
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-  m_RootGameObject: {fileID: 1695975936}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1695975936
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-  m_PrefabInternal: {fileID: 1326473389}
+  m_PrefabParentObject: {fileID: 100000, guid: b18ed0d391f2a2d4da051e2734f77064, type: 2}
+  m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1695975938}
@@ -247,9 +207,9 @@ GameObject:
 --- !u!114 &1695975937
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: b3b32f977f66e7f48b20befc765744d0,
+  m_PrefabParentObject: {fileID: 11400000, guid: b18ed0d391f2a2d4da051e2734f77064,
     type: 2}
-  m_PrefabInternal: {fileID: 1326473389}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1695975936}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -653,7 +613,7 @@ MonoBehaviour:
       SplashScreens:
         Main:
           Height: 1
-          MinimumDelayTime: 0
+          MinimumDelayTime: 5
           Image:
             Opacity: 1
             SortingOrder: 0
@@ -664,7 +624,7 @@ MonoBehaviour:
           - Key: Information
             Value:
             - Height: 1
-              MinimumDelayTime: 1
+              MinimumDelayTime: 3
               Image:
                 Opacity: 1
                 SortingOrder: 0
@@ -672,7 +632,7 @@ MonoBehaviour:
                   type: 3}
                 AnimatorController: {fileID: 0}
             - Height: 1
-              MinimumDelayTime: 1
+              MinimumDelayTime: 3
               Image:
                 Opacity: 1
                 SortingOrder: 0
@@ -680,7 +640,7 @@ MonoBehaviour:
                   type: 3}
                 AnimatorController: {fileID: 0}
             - Height: 1
-              MinimumDelayTime: 1
+              MinimumDelayTime: 3
               Image:
                 Opacity: 1
                 SortingOrder: 0
@@ -723,7 +683,8 @@ MonoBehaviour:
         type: 3}
       Skin: {fileID: 11400000, guid: 57518e85f6ddbd243a14d5b5b8d5e528, type: 2}
       Cursors:
-        PreferredSize: {x: .0399999991, y: .0711110979}
+        CursorPreferredSize: {x: .075000003, y: .075000003}
+        UsedInventoryItemPreferredSize: {x: .150000006, y: .150000006}
         ClickTexture: {fileID: 2800000, guid: 554834019ec4d1240b9b252cf87a7d56, type: 3}
         LookTexture: {fileID: 2800000, guid: ca43cf465c3d8ab40bf3cc0d984f2c17, type: 3}
         PickUpTexture: {fileID: 2800000, guid: 904f0beb1a771244387cb4b40e012af6, type: 3}
@@ -777,30 +738,21 @@ MonoBehaviour:
         FadeOut:
           Ignore: 0
           Speed: 1
-          Texture: {fileID: 2800000, guid: 3b3a4504edd388444a1e09d23b132fa8, type: 3}
-      Special:
-        FadeIn:
-          Ignore: 0
-          Speed: .400000006
-          Texture: {fileID: 0}
-        FadeOut:
-          Ignore: 0
-          Speed: .400000006
           Texture: {fileID: 0}
       SplashScreen:
         FadeIn:
           Ignore: 0
           Speed: 1
-          Texture: {fileID: 2800000, guid: 3b3a4504edd388444a1e09d23b132fa8, type: 3}
+          Texture: {fileID: 0}
         FadeOut:
           Ignore: 0
-          Speed: 2
+          Speed: 1
           Texture: {fileID: 2800000, guid: 3b3a4504edd388444a1e09d23b132fa8, type: 3}
 --- !u!4 &1695975938
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: b3b32f977f66e7f48b20befc765744d0, type: 2}
-  m_PrefabInternal: {fileID: 1326473389}
+  m_PrefabParentObject: {fileID: 400000, guid: b18ed0d391f2a2d4da051e2734f77064, type: 2}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1695975936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}

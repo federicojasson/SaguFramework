@@ -64,6 +64,14 @@ se perdera todo progreso no guardado.
 		Salir del laboratorio
 	</text>
 	
+	<text id="LanguageNameEnglish">
+		English
+	</text>
+	
+	<text id="LanguageNameSpanish">
+		Español
+	</text>
+	
 	<text id="LoadGameMenuCancelButton">
 		cancelar
 	</text>
@@ -106,6 +114,10 @@ se perdera todo progreso no guardado.
 	
 	<text id="OptionsMenuEffectVolumeLabel">
 		volumen de efectos
+	</text>
+	
+	<text id="OptionsMenuLanguageLabel">
+		idioma
 	</text>
 	
 	<text id="OptionsMenuMasterVolumeLabel">

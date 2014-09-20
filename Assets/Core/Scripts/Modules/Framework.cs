@@ -105,6 +105,10 @@ namespace SaguFramework {
 		public static Character GetCharacter(string characterId) {
 			return Objects.GetCharacters()[characterId];
 		}
+		
+		public static string GetCurrentLanguage() {
+			return Language.GetCurrentLanguage();
+		}
 
 		public static string GetCurrentRoom() {
 			return State.GetCurrentRoom();
@@ -263,6 +267,11 @@ namespace SaguFramework {
 		public static void SetEffectVolume(float effectVolume) {
 			Options.SetFloat(Parameters.OptionIdEffectVolume, effectVolume);
 			SoundPlayer.SetEffectVolume(effectVolume);
+		}
+		
+		public static void SetLanguage(string languageId) {
+			Options.SetString(Parameters.OptionIdLanguage, languageId);
+			Language.Load(languageId);
 		}
 		
 		public static void SetMasterVolume(float masterVolume) {

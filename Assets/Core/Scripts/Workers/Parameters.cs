@@ -106,7 +106,7 @@ namespace SaguFramework {
 		}
 		
 		public static Vector2 GetCursorPreferredSize() {
-			return instance.GameParameters.Graphics.Cursors.PreferredSize;
+			return instance.GameParameters.Graphics.Cursors.CursorPreferredSize;
 		}
 		
 		public static Texture2D GetDefaultFadeTexture() {
@@ -254,6 +254,10 @@ namespace SaguFramework {
 		
 		public static KeyCode[] GetUnselectInventoryItemKeys() {
 			return instance.GameParameters.Controls.UnselectInventoryItemKeys;
+		}
+		
+		public static Vector2 GetUsedInventoryItemPreferredSize() {
+			return instance.GameParameters.Graphics.Cursors.UsedInventoryItemPreferredSize;
 		}
 		
 		public static Texture2D GetWalkTexture() {
