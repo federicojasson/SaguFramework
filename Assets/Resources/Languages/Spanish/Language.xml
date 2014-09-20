@@ -11,6 +11,10 @@
 		Erlenmeyer
 	</text>
 	
+	<text id="ErlenmeyerWithAcidTooltip">
+		Erlenmeyer con ácido
+	</text>
+	
 	<text id="GreenLeftDoorTooltip">
 		Entrar a la habitación azul
 	</text>
@@ -34,6 +38,16 @@
 	
 	<!-- Speeches -->
 	
+	<speech id="AskAcid">
+		<text>Disculpe, ¿podría darme un poco de ácido?</text>
+		<voice>Languages/Spanish/Voices/AskAcid</voice>
+	</speech>
+	
+	<speech id="AskAcidResponse">
+		<text>Sí... espero que no estés pensando en hacer ninguna locura.</text>
+		<voice>Languages/Spanish/Voices/AskAcidResponse</voice>
+	</speech>
+	
 	<speech id="BlueRightDoorDescription">
 		<text>Conduce a la habitación verde.</text>
 		<voice>Languages/Spanish/Voices/BlueRightDoorDescription</voice>
@@ -44,9 +58,14 @@
 		<voice>Languages/Spanish/Voices/ErlenmeyerDescription</voice>
 	</speech>
 	
+	<speech id="ErlenmeyerWithAcidDescription">
+		<text>Es un Erlenmeyer con ácido en su interior.</text>
+		<voice>Languages/Spanish/Voices/ErlenmeyerWithAcidDescription</voice>
+	</speech>
+	
 	<speech id="GreenLeftDoorDescription">
 		<text>Conduce a la habitación azul.</text>
-		<voice>Languages/Spanish/Voices/GreenRightDoorDescription</voice>
+		<voice>Languages/Spanish/Voices/GreenLeftDoorDescription</voice>
 	</speech>
 	
 	<speech id="GreenRightDoorDescription">
@@ -94,6 +113,11 @@
 		<voice>Languages/Spanish/Voices/NegationSpeech2</voice>
 	</speech>
 	
+	<speech id="OnUseErlenmeyerWithAcid">
+		<text>Misión cumplida.</text>
+		<voice>Languages/Spanish/Voices/OnUseErlenmeyerWithAcid</voice>
+	</speech>
+	
 	<speech id="OnUseProtectionSuit">
 		<text>Bien... ya estoy listo para trabajar.</text>
 		<voice>Languages/Spanish/Voices/OnUseProtectionSuit</voice>
@@ -107,6 +131,16 @@
 	<speech id="SupervisorDescription">
 		<text>Es mi supervisora.</text>
 		<voice>Languages/Spanish/Voices/SupervisorDescription</voice>
+	</speech>
+	
+	<speech id="SupervisorGreeting0">
+		<text>Hola.</text>
+		<voice>Languages/Spanish/Voices/SupervisorGreeting0</voice>
+	</speech>
+	
+	<speech id="SupervisorGreeting1">
+		<text>¿Cómo andás?</text>
+		<voice>Languages/Spanish/Voices/SupervisorGreeting1</voice>
 	</speech>
 	
 </language>

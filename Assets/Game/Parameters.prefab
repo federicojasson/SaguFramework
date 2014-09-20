@@ -85,6 +85,15 @@ MonoBehaviour:
               SortingOrder: 0
               Sprite: {fileID: 21300000, guid: 0a1908d4c11ac034c8c5504ec2555e34, type: 3}
               AnimatorController: {fileID: 0}
+        - Key: InventoryErlenmeyerWithAcid
+          Value:
+            Behaviour: {fileID: 11400000, guid: 7fa2b743f3a2d704a87e741fbb6597bc,
+              type: 2}
+            Image:
+              Opacity: 1
+              SortingOrder: 0
+              Sprite: {fileID: 21300000, guid: 8eefe0ead4e24344495b1a3eb6ef3263, type: 3}
+              AnimatorController: {fileID: 0}
         - Key: InventoryProtectionSuit
           Value:
             Behaviour: {fileID: 11400000, guid: c4e11dc4ce0482b4db6563cc971a2981,
@@ -224,6 +233,18 @@ MonoBehaviour:
               SortingOrder: 0
               Sprite: {fileID: 21300000, guid: e9974384339ce7e4ea4db1276af59e8d, type: 3}
               AnimatorController: {fileID: 22100000, guid: f6a5b561f73efbe48ae18b1cd574a039,
+                type: 2}
+        - Key: RedScientist
+          Value:
+            Height: .649999976
+            Speed: .200000003
+            Behaviour: {fileID: 11400000, guid: 79169f37d3797c84c8b1a6766babe1fb,
+              type: 2}
+            Image:
+              Opacity: 1
+              SortingOrder: 0
+              Sprite: {fileID: 21300000, guid: 7fff5e682e8acdb46ae20ff2a48f7947, type: 3}
+              AnimatorController: {fileID: 22100000, guid: 063a62019a3dbaf4f9103aae5308c0b5,
                 type: 2}
         - Key: Supervisor
           Value:
@@ -481,9 +502,7 @@ MonoBehaviour:
     Sounds:
       MainEffect: {fileID: 8300000, guid: 4da25d4691591144f94d46b21db17eae, type: 3}
       MenuEffect: {fileID: 8300000, guid: bbeb33cd54837924da179f03e168fadd, type: 3}
-      InventoryEffect: {fileID: 8300000, guid: 4424c5ecd81eae343aa34e33ba3eca49, type: 3}
-      InventoryPageEffect: {fileID: 8300000, guid: bd1926f7a363c7447b8c87e90c56b6f2,
-        type: 3}
+      InventoryEffect: {fileID: 8300000, guid: bd1926f7a363c7447b8c87e90c56b6f2, type: 3}
       MainMenuSong: {fileID: 8300000, guid: a0d451f4b5836814f8e5b43aa9d3d388, type: 3}
       ShuffleSongs: 1
       DelayBetweenSongs: 2
@@ -524,11 +543,11 @@ MonoBehaviour:
         FadeIn:
           Ignore: 0
           Speed: 1
-          Texture: {fileID: 0}
+          Texture: {fileID: 2800000, guid: 3b3a4504edd388444a1e09d23b132fa8, type: 3}
         FadeOut:
           Ignore: 0
           Speed: 1
-          Texture: {fileID: 0}
+          Texture: {fileID: 2800000, guid: 3b3a4504edd388444a1e09d23b132fa8, type: 3}
       Special:
         FadeIn:
           Ignore: 0
@@ -542,11 +561,11 @@ MonoBehaviour:
         FadeIn:
           Ignore: 0
           Speed: 1
-          Texture: {fileID: 0}
+          Texture: {fileID: 2800000, guid: 3b3a4504edd388444a1e09d23b132fa8, type: 3}
         FadeOut:
           Ignore: 0
-          Speed: 1
-          Texture: {fileID: 0}
+          Speed: 2
+          Texture: {fileID: 2800000, guid: 3b3a4504edd388444a1e09d23b132fa8, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

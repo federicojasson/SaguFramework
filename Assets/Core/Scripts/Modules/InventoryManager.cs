@@ -12,24 +12,19 @@ namespace SaguFramework {
 			page = 0;
 		}
 
+		public static void ShowLastPage() {
+			page = GetPageCount() - 1;
+			ShowInventoryItems();
+		}
+
 		public static void ShowNextPage() {
-			int nextPage = Mathf.Min(GetPageCount() - 1, page + 1);
-			
-			if (page < nextPage) {
-				SoundPlayer.PlayInventoryPageEffect();
-				page = nextPage;
-				ShowInventoryItems();
-			}
+			page++;
+			ShowInventoryItems();
 		}
 
 		public static void ShowPreviousPage() {
-			int previousPage = Mathf.Max(0, page - 1);
-			
-			if (page > previousPage) {
-				SoundPlayer.PlayInventoryPageEffect();
-				page = previousPage;
-				ShowInventoryItems();
-			}
+			page--;
+			ShowInventoryItems();
 		}
 
 		public static void ToggleInventory() {
@@ -78,11 +73,16 @@ namespace SaguFramework {
 				return;
 			
 			HideInventoryItems();
+
+			int pageCount = GetPageCount();
+
+			page = Mathf.Min(page, pageCount - 1);
+			page = Mathf.Max(page, 0);
 			
 			int cellsPerPage = GetCellsPerPage();
 			int index = page * cellsPerPage;
 			int count;
-			if (page < GetPageCount() - 1)
+			if (page < pageCount - 1)
 				count = cellsPerPage;
 			else
 				count = 1 + (inventoryItemCount - 1 + cellsPerPage) % cellsPerPage;

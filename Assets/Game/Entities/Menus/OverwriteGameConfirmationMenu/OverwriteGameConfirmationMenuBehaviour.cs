@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EmergenciaQuimica {
 	
-	public class OverwriteGameConfirmationMenuBehaviour : MenuBehaviour {
+	public sealed class OverwriteGameConfirmationMenuBehaviour : MenuBehaviour {
 
 		/*private static string stateId;
 

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace SaguFramework {
 	
@@ -76,11 +76,11 @@ namespace SaguFramework {
 		}
 		
 		public void SetDepth(float depth) {
-			transform.position = Utilities.GetPosition(transform.position, depth);
+			transform.position = Utilities.GetVector3(transform.position, depth);
 		}
 
 		public void SetPosition(Vector2 position) {
-			transform.position = Utilities.GetPosition(position, transform.position.z);
+			transform.position = Utilities.GetVector3(position, transform.position.z);
 		}
 
 		public void SetSize(Vector2 size) {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EmergenciaQuimica {
 	
-	public class GoBackConfirmationMenuBehaviour : MenuBehaviour {
+	public sealed class GoBackConfirmationMenuBehaviour : MenuBehaviour {
 		
 		/*private bool isEnabled;
 		

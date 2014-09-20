@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -72,36 +71,6 @@ namespace SaguFramework {
 			return resourcePath;
 		}
 
-
-
-
-		// TODO: order
-		public static string BooleanToString(bool value) {
-			return value.ToString(CultureInfo.InvariantCulture);
-		}
-
-		public static string FloatToString(float value) {
-			return value.ToString(CultureInfo.InvariantCulture);
-		}
-		
-		public static string IntegerToString(int value) {
-			return value.ToString(CultureInfo.InvariantCulture);
-		}
-
-		public static bool StringToBoolean(string value) {
-			return Boolean.Parse(value);
-		}
-
-		public static float StringToFloat(string value) {
-			return float.Parse(value, CultureInfo.InvariantCulture);
-		}
-
-		public static int StringToInteger(string value) {
-			return int.Parse(value, CultureInfo.InvariantCulture);
-		}
-
-
-
 		public static bool GetXmlAttributeBooleanValue(XAttribute attribute) {
 			string value = GetXmlAttributeStringValue(attribute);
 			return StringToBoolean(value);
@@ -140,52 +109,6 @@ namespace SaguFramework {
 			return node.Value.Trim();
 		}
 
-		// TODO
-		/*public static CharacterState GetXmlNodeCharacterStateValue(XElement node) {
-			XElement directionNode = node.Element(Parameters.XmlTagDirection);
-			Direction direction = GetXmlNodeDirectionValue(directionNode);
-			XElement locationNode = node.Element(Parameters.XmlTagLocation);
-			Location location = GetXmlNodeLocationValue(locationNode);
-
-			return new CharacterState(direction, location);
-		}
-		
-		public static Direction GetXmlNodeDirectionValue(XElement node) {
-			string value = GetXmlNodeStringValue(node);
-			
-			if (value == Parameters.DirectionLeft)
-				return Direction.Left;
-			else
-				return Direction.Right;
-		}*/
-
-		// TODO
-		/*public static ItemState GetXmlNodeItemStateValue(XElement node) {
-			XElement locationNode = node.Element(Parameters.XmlTagLocation);
-			Location location = GetXmlNodeLocationValue(locationNode);
-			
-			return new ItemState(location);
-		}
-		
-		public static Location GetXmlNodeLocationValue(XElement node) {
-			XElement positionNode = node.Element(Parameters.XmlTagPosition);
-			Vector2 position = GetXmlNodeVector2Value(positionNode);
-			XElement roomIdNode = node.Element(Parameters.XmlTagRoomId);
-			string roomId = GetXmlNodeStringValue(roomIdNode);
-			
-			return new Location(position, roomId);
-		}*/
-
-		// TODO
-		/*public static Vector2 GetXmlNodeVector2Value(XElement node) {
-			XElement xNode = node.Element(Parameters.XmlTagX);
-			float x = GetXmlNodeFloatValue(xNode);
-			XElement yNode = node.Element(Parameters.XmlTagY);
-			float y = GetXmlNodeFloatValue(yNode);
-			
-			return new Vector2(x, y);
-		}*/
-
 		public static FileInfo[] OrderFilesByLastWriteTimeDescending(FileInfo[] files) {
 			return files.OrderByDescending(value => value.LastWriteTime).ToArray();
 		}
@@ -209,30 +132,6 @@ namespace SaguFramework {
 			
 			return xmlFile;
 		}
-
-		// TODO
-		/*public static void SetXmlNodeCharacterStateValue(XElement node, CharacterState value) {
-			XElement directionNode = new XElement(Parameters.XmlTagDirection);
-			SetXmlNodeDirectionValue(directionNode, value.GetDirection());
-			XElement locationNode = new XElement(Parameters.XmlTagLocation);
-			SetXmlNodeLocationValue(locationNode, value.GetLocation());
-			
-			node.Add(directionNode, locationNode);
-		}
-		
-		public static void SetXmlNodeDirectionValue(XElement node, Direction value) {
-			string stringValue;
-			
-			if (value == Direction.Left)
-				stringValue = Parameters.DirectionLeft;
-			else
-				stringValue = Parameters.DirectionRight;
-			
-			SetXmlNodeStringValue(node, stringValue);
-		}*/
-
-
-
 
 		public static void SetXmlAttributeBooleanValue(XAttribute attribute, bool value) {
 			SetXmlAttributeStringValue(attribute, BooleanToString(value));
@@ -266,33 +165,6 @@ namespace SaguFramework {
 			node.Value = value.Trim();
 		}
 
-		// TODO
-		/*public static void SetXmlNodeItemStateValue(XElement node, ItemState value) {
-			XElement locationNode = new XElement(Parameters.XmlTagLocation);
-			SetXmlNodeLocationValue(locationNode, value.GetLocation());
-			
-			node.Add(locationNode);
-		}
-		
-		public static void SetXmlNodeLocationValue(XElement node, Location value) {
-			XElement positionNode = new XElement(Parameters.XmlTagPosition);
-			SetXmlNodeVector2Value(positionNode, value.GetPosition());
-			XElement roomIdNode = new XElement(Parameters.XmlTagRoomId);
-			SetXmlNodeStringValue(roomIdNode, value.GetRoomId());
-			
-			node.Add(positionNode, roomIdNode);
-		}*/
-
-		// TODO
-		/*public static void SetXmlNodeVector2Value(XElement node, Vector2 value) {
-			XElement xNode = new XElement(Parameters.XmlTagX);
-			SetXmlNodeFloatValue(xNode, value.x);
-			XElement yNode = new XElement(Parameters.XmlTagY);
-			SetXmlNodeFloatValue(yNode, value.y);
-			
-			node.Add(xNode, yNode);
-		}*/
-		
 		public static void WriteXmlFile(string path, XDocument xmlFile) {
 			// TODO: errors, exceptions?
 			

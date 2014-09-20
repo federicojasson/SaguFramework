@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text;
 using UnityEngine;
 
@@ -8,6 +9,14 @@ namespace SaguFramework {
 
 		static Utilities() {
 			encoding = new UTF8Encoding(false); // UTF-8 without BOM
+		}
+
+		public static string BooleanToString(bool value) {
+			return value.ToString(CultureInfo.InvariantCulture);
+		}
+		
+		public static string FloatToString(float value) {
+			return value.ToString(CultureInfo.InvariantCulture);
 		}
 
 		public static Color GetColor(Color color, float opacity) {
@@ -25,15 +34,6 @@ namespace SaguFramework {
 		public static T GetEnumValue<T>(string stringValue) {
 			return (T) Enum.Parse(typeof(T), stringValue);
 		}
-
-		public static int[] GetIntegerPermutationLinear(int n) {
-			int[] permutation = new int[n];
-			
-			for (int i = 0; i < n; i++)
-				permutation[i] = i;
-			
-			return permutation;
-		}
 		
 		public static int[] GetIntegerPermutationFisherYates(int n) {
 			int[] permutation = GetIntegerPermutationLinear(n);
@@ -49,8 +49,13 @@ namespace SaguFramework {
 			return permutation;
 		}
 
-		public static Vector3 GetPosition(Vector3 position, float z) {
-			return new Vector3(position.x, position.y, z);
+		public static int[] GetIntegerPermutationLinear(int n) {
+			int[] permutation = new int[n];
+			
+			for (int i = 0; i < n; i++)
+				permutation[i] = i;
+			
+			return permutation;
 		}
 
 		public static GUIStyle GetRelativeStyle(GUIStyle style) {
@@ -100,9 +105,29 @@ namespace SaguFramework {
 
 			return new Vector2(sizeX, sizeY);
 		}
+		
+		public static Vector3 GetVector3(Vector3 position, float z) {
+			return new Vector3(position.x, position.y, z);
+		}
+
+		public static string IntegerToString(int value) {
+			return value.ToString(CultureInfo.InvariantCulture);
+		}
 
 		public static void SetParent(Component child, Component parent) {
 			child.transform.parent = parent.transform;
+		}
+		
+		public static bool StringToBoolean(string value) {
+			return Boolean.Parse(value);
+		}
+		
+		public static float StringToFloat(string value) {
+			return float.Parse(value, CultureInfo.InvariantCulture);
+		}
+		
+		public static int StringToInteger(string value) {
+			return int.Parse(value, CultureInfo.InvariantCulture);
 		}
 
 	}

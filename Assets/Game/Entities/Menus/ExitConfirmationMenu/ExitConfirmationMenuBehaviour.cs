@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EmergenciaQuimica {
 	
-	public class ExitConfirmationMenuBehaviour : MenuBehaviour {
+	public sealed class ExitConfirmationMenuBehaviour : MenuBehaviour {
 		
 		/*public override void OnShowGui() {
 			GUIStyle menuBoxStyle = GUI.skin.GetStyle("MenuBox");

@@ -9,19 +9,7 @@ namespace EmergenciaQuimica {
 		}
 
 		public override void OnPickUp() {
-			string characterId = Framework.GetPlayerCharacter();
-
-			Game.ApproachToPickUp(GetEntity());
-			Framework.LockInput();
-			
-			Framework.ExecuteActions(characterId, new CharacterAction[] {
-				CharacterAction.PickUp()
-			}, () => {
-				Framework.RemoveItem("ProtectionSuit");
-				Framework.AddInventoryItem("InventoryProtectionSuit");
-				
-				Framework.UnlockInput();
-			});
+			Game.PickUp(GetEntity(), "ProtectionSuit", "InventoryProtectionSuit");
 		}
 		
 		public override void OnSpeak() {

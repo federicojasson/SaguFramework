@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace SaguFramework {
 	
@@ -28,7 +28,7 @@ namespace SaguFramework {
 			base.Awake();
 			instance = this;
 			gameObject.AddComponent<Camera>();
-			transform.position = Utilities.GetPosition(transform.position, Parameters.DepthCamera);
+			transform.position = Utilities.GetVector3(transform.position, Parameters.DepthCamera);
 			camera.backgroundColor = Parameters.GetCameraBackgroundColor();
 			camera.farClipPlane = Mathf.Abs(transform.position.z);
 			camera.isOrthoGraphic = true;

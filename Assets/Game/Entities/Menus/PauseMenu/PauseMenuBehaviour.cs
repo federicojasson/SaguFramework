@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EmergenciaQuimica {
 	
-	public class PauseMenuBehaviour : MenuBehaviour {
+	public sealed class PauseMenuBehaviour : MenuBehaviour {
 		
 		/*public override void OnShowGui() {
 			GUIStyle menuButtonStyle = GUI.skin.GetStyle("MenuButton");

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EmergenciaQuimica {
 	
-	public class SaveGameMenuBehaviour : MenuBehaviour {
+	public sealed class SaveGameMenuBehaviour : MenuBehaviour {
 
 		/*private string newStateId;
 		private Vector2 scrollPosition;

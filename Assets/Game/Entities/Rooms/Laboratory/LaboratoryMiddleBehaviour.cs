@@ -13,7 +13,7 @@ namespace EmergenciaQuimica {
 					Framework.StopActions(characterId);
 
 					float x0 = character.GetPosition().x;
-					float x1 = Framework.GameToWorldX(0.6f);
+					float x1 = Geometry.GameToWorldX(0.6f);
 					Speech speech0 = Framework.GetSpeech("NeedProtectionSuit");
 
 					Framework.ExecuteActions("Supervisor", new CharacterAction[] {
@@ -21,14 +21,14 @@ namespace EmergenciaQuimica {
 						CharacterAction.Walk(x1),
 						CharacterAction.Say(speech0)
 					}, () => {
-						float x2 = Framework.GameToWorldX(1.2f);
+						float x2 = Geometry.GameToWorldX(1.2f);
 
 						Framework.ExecuteActions("Supervisor", new CharacterAction[] {
 							CharacterAction.Look(x2),
 							CharacterAction.Walk(x2)
 						});
 
-						float x3 = Framework.GameToWorldX(0.2f);
+						float x3 = Geometry.GameToWorldX(0.2f);
 						Speech speech1 = Framework.GetSpeech("NeedProtectionSuitResponse");
 
 						Framework.ExecuteActions(characterId, new CharacterAction[] {

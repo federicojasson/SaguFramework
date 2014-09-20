@@ -175,6 +175,11 @@ namespace SaguFramework {
 			RefreshInputMode();
 		}
 		
+		public static void UnselectInventoryItem() {
+			selectedInventoryItem = null;
+			SetOrder(Order.None);
+		}
+		
 		private static bool AnyKeyWasPressed(KeyCode[] keys) {
 			foreach (KeyCode key in keys)
 				if (Input.GetKeyDown(key))
@@ -288,8 +293,8 @@ namespace SaguFramework {
 				SetOrder(orderSets[(int) inputMode][orderIndex]);
 
 				Drawer.ClearTooltip();
-				if (inputMode == InputMode.Locked || inputMode == InputMode.Menu)
-					foreach (Character character in Objects.GetCharacters().Values)
+				foreach (Character character in Objects.GetCharacters().Values)
+					if (character.IsActivated())
 						character.StopActions();
 			}
 		}
@@ -367,13 +372,9 @@ namespace SaguFramework {
 			if (Input.GetAxis(Parameters.AxisNameScrollWheel) > 0)
 				UnselectInventoryItem();
 		}
-		
-		private static void UnselectInventoryItem() {
-			selectedInventoryItem = null;
-			SetOrder(Order.None);
-		}
 
 		public void OnLevelWasLoaded(int level) {
+			isInputLocked = false;
 			RefreshInputMode();
 		}
 		

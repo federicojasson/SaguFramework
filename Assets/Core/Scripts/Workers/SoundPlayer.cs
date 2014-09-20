@@ -20,11 +20,6 @@ namespace SaguFramework {
 			AudioClip inventoryEffect = Parameters.GetInventoryEffect();
 			PlayEffect(inventoryEffect);
 		}
-		
-		public static void PlayInventoryPageEffect() {
-			AudioClip inventoryPageEffect = Parameters.GetInventoryPageEffect();
-			PlayEffect(inventoryPageEffect);
-		}
 
 		public static void PlayMainEffect() {
 			AudioClip mainEffect = Parameters.GetMainEffect();

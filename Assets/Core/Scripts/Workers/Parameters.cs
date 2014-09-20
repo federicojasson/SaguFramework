@@ -137,10 +137,6 @@ namespace SaguFramework {
 			return instance.GameParameters.Entities.InventoryItems[inventoryItemId];
 		}
 		
-		public static AudioClip GetInventoryPageEffect() {
-			return instance.GameParameters.Sounds.InventoryPageEffect;
-		}
-		
 		public static InventoryParameters GetInventoryParameters() {
 			return instance.GameParameters.Entities.Inventory;
 		}
@@ -288,10 +284,6 @@ namespace SaguFramework {
 		}
 
 		/*
-
-
-		public const string DirectionLeft = "Left";
-		public const string DirectionRight = "Right";
 
 
 		public const string SceneMain = "Main";

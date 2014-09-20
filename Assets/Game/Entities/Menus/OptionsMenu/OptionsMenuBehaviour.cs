@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EmergenciaQuimica {
 	
-	public class OptionsMenuBehaviour : MenuBehaviour {
+	public sealed class OptionsMenuBehaviour : MenuBehaviour {
 
 		/*private float effectVolume;
 		private float masterVolume;
