@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+	
+	<!-- Texts -->
+	
+	<text id="BlueRightDoorTooltip">
+		Enter the green room
+	</text>
+	
+	<text id="DeleteGameConfirmationMenuBox">
+		are you sure you want to delete the game?
+	</text>
+	
+	<text id="DeleteGameConfirmationMenuCancelButton">
+		cancel
+	</text>
+	
+	<text id="DeleteGameConfirmationMenuDeleteGameButton">
+		delete
+	</text>
+	
+	<text id="ErlenmeyerTooltip">
+		Erlenmeyer
+	</text>
+	
+	<text id="ErlenmeyerWithAcidTooltip">
+		Erlenmeyer with acid
+	</text>
+	
+	<text id="ExitConfirmationMenuBox">
+		are you sure you want to exit?
+	</text>
+	
+	<text id="ExitConfirmationMenuCancelButton">
+		cancel
+	</text>
+	
+	<text id="ExitConfirmationMenuExitButton">
+		exit
+	</text>
+	
+	<text id="GoBackConfirmationMenuBox">
+		are you sure you want to go back to the main menu?
+all unsaved progress will be lost.
+	</text>
+	
+	<text id="GoBackConfirmationMenuCancelButton">
+		cancel
+	</text>
+	
+	<text id="GoBackConfirmationMenuGoBackButton">
+		ok
+	</text>
+	
+	<text id="GreenLeftDoorTooltip">
+		Enter the blue room
+	</text>
+	
+	<text id="GreenRightDoorTooltip">
+		Enter the laboratory
+	</text>
+	
+	<text id="LaboratoryLeftDoorTooltip">
+		Exit the laboratory
+	</text>
+	
+	<text id="LanguageNameEnglish">
+		English
+	</text>
+	
+	<text id="LanguageNameSpanish">
+		Español
+	</text>
+	
+	<text id="LoadGameMenuCancelButton">
+		cancel
+	</text>
+	
+	<text id="LoadGameMenuDeleteGameButton">
+		delete
+	</text>
+	
+	<text id="LoadGameMenuLoadGameButton">
+		load game
+	</text>
+	
+	<text id="LoadGameMenuTitleLabel">
+		load game
+	</text>
+	
+	<text id="MainMenuExitButton">
+		exit
+	</text>
+	
+	<text id="MainMenuLoadGameButton">
+		load game
+	</text>
+	
+	<text id="MainMenuNewGameButton">
+		new game
+	</text>
+	
+	<text id="MainMenuOptionsButton">
+		options
+	</text>
+	
+	<text id="OptionsMenuApplyChangesButton">
+		apply changes
+	</text>
+	
+	<text id="OptionsMenuCancelButton">
+		cancel
+	</text>
+	
+	<text id="OptionsMenuEffectVolumeLabel">
+		effects volume
+	</text>
+	
+	<text id="OptionsMenuLanguageLabel">
+		language
+	</text>
+	
+	<text id="OptionsMenuMasterVolumeLabel">
+		master volume
+	</text>
+	
+	<text id="OptionsMenuSongVolumeLabel">
+		music volume
+	</text>
+	
+	<text id="OptionsMenuTitleLabel">
+		options
+	</text>
+	
+	<text id="OptionsMenuVoiceVolumeLabel">
+		voices volume
+	</text>
+	
+	<text id="OverwriteGameConfirmationMenuBox">
+		are you sure you want to overwrite the game?
+	</text>
+	
+	<text id="OverwriteGameConfirmationMenuCancelButton">
+		cancel
+	</text>
+	
+	<text id="OverwriteGameConfirmationMenuOverwriteGameButton">
+		overwrite
+	</text>
+	
+	<text id="PauseMenuExitButton">
+		exit
+	</text>
+	
+	<text id="PauseMenuGoBackButton">
+		go back to the main menu
+	</text>
+	
+	<text id="PauseMenuLoadGameButton">
+		load game
+	</text>
+	
+	<text id="PauseMenuOptionsButton">
+		options
+	</text>
+	
+	<text id="PauseMenuResumeGameButton">
+		resume game
+	</text>
+	
+	<text id="PauseMenuSaveGameButton">
+		save game
+	</text>
+	
+	<text id="ProtectionSuitTooltip">
+		Protection suit
+	</text>
+	
+	<text id="SaveGameMenuCancelButton">
+		cancel
+	</text>
+	
+	<text id="SaveGameMenuDeleteGameButton">
+		delete
+	</text>
+	
+	<text id="SaveGameMenuGameLabel">
+		game name
+	</text>
+	
+	<text id="SaveGameMenuSaveGameButton">
+		save game
+	</text>
+	
+	<text id="SaveGameMenuTitleLabel">
+		save game
+	</text>
+	
+	<text id="SupervisorTooltip">
+		Supervisor
+	</text>
+	
+	
+	<!-- Speeches -->
+	
+	<speech id="AskAcid">
+		<text>Excuse me, could you give me some acid?</text>
+		<voice>Languages/Spanish/Voices/AskAcid</voice>
+	</speech>
+	
+	<speech id="AskAcidResponse">
+		<text>Yes... I hope you're not thinking about doing anything crazy.</text>
+		<voice>Languages/Spanish/Voices/AskAcidResponse</voice>
+	</speech>
+	
+	<speech id="BlueRightDoorDescription">
+		<text>It leads to the green room.</text>
+		<voice>Languages/Spanish/Voices/BlueRightDoorDescription</voice>
+	</speech>
+	
+	<speech id="ErlenmeyerDescription">
+		<text>It's an Erlenmeyer.</text>
+		<voice>Languages/Spanish/Voices/ErlenmeyerDescription</voice>
+	</speech>
+	
+	<speech id="ErlenmeyerWithAcidDescription">
+		<text>It's an Erlenmeyer with acid inside.</text>
+		<voice>Languages/Spanish/Voices/ErlenmeyerWithAcidDescription</voice>
+	</speech>
+	
+	<speech id="GreenLeftDoorDescription">
+		<text>It leads to the blue room.</text>
+		<voice>Languages/Spanish/Voices/GreenLeftDoorDescription</voice>
+	</speech>
+	
+	<speech id="GreenRightDoorDescription">
+		<text>It's the laboratory's entry.</text>
+		<voice>Languages/Spanish/Voices/GreenRightDoorDescription</voice>
+	</speech>
+	
+	<speech id="InitialSpeech0">
+		<text>This simple demo shows the Framework's capabilities.</text>
+		<voice>Languages/Spanish/Voices/InitialSpeech0</voice>
+	</speech>
+	
+	<speech id="InitialSpeech1">
+		<text>The goal is to become red.</text>
+		<voice>Languages/Spanish/Voices/InitialSpeech1</voice>
+	</speech>
+	
+	<speech id="LaboratoryLeftDoorDescription">
+		<text>It's the laboratory's exit.</text>
+		<voice>Languages/Spanish/Voices/LaboratoryLeftDoorDescription</voice>
+	</speech>
+	
+	<speech id="NeedProtectionSuit">
+		<text>Before entering the laboratory, you have to wear the protection suit.</text>
+		<voice>Languages/Spanish/Voices/NeedProtectionSuit</voice>
+	</speech>
+	
+	<speech id="NeedProtectionSuitResponse">
+		<text>I'll have to find the protection suit before entering.</text>
+		<voice>Languages/Spanish/Voices/NeedProtectionSuitResponse</voice>
+	</speech>
+	
+	<speech id="NegationSpeech0">
+		<text>Mmm... no.</text>
+		<voice>Languages/Spanish/Voices/NegationSpeech0</voice>
+	</speech>
+	
+	<speech id="NegationSpeech1">
+		<text>I can't do that.</text>
+		<voice>Languages/Spanish/Voices/NegationSpeech1</voice>
+	</speech>
+	
+	<speech id="NegationSpeech2">
+		<text>That makes no sense.</text>
+		<voice>Languages/Spanish/Voices/NegationSpeech2</voice>
+	</speech>
+	
+	<speech id="OnUseErlenmeyerWithAcid">
+		<text>Mission accomplished.</text>
+		<voice>Languages/Spanish/Voices/OnUseErlenmeyerWithAcid</voice>
+	</speech>
+	
+	<speech id="OnUseProtectionSuit">
+		<text>OK... I'm ready to work.</text>
+		<voice>Languages/Spanish/Voices/OnUseProtectionSuit</voice>
+	</speech>
+	
+	<speech id="ProtectionSuitDescription">
+		<text>It's the protection suit.</text>
+		<voice>Languages/Spanish/Voices/ProtectionSuitDescription</voice>
+	</speech>
+	
+	<speech id="SupervisorDescription">
+		<text>She's my supervisor.</text>
+		<voice>Languages/Spanish/Voices/SupervisorDescription</voice>
+	</speech>
+	
+	<speech id="SupervisorGreeting0">
+		<text>Hello.</text>
+		<voice>Languages/Spanish/Voices/SupervisorGreeting0</voice>
+	</speech>
+	
+	<speech id="SupervisorGreeting1">
+		<text>How are you doing?</text>
+		<voice>Languages/Spanish/Voices/SupervisorGreeting1</voice>
+	</speech>
+	
+</language>
