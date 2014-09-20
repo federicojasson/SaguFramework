@@ -58,28 +58,6 @@ namespace SaguFramework {
 			return permutation;
 		}
 
-		public static GUIStyle GetRelativeStyle(GUIStyle style) {
-			float gamePreferredWidthInPixels = Geometry.GetGamePreferredWidthInPixels();
-			float gameWidthInPixels = Geometry.GetGameWidthInPixels();
-			float scaleFactor = gameWidthInPixels / gamePreferredWidthInPixels;
-
-			GUIStyle relativeStyle = new GUIStyle(style);
-
-			relativeStyle.fontSize = (int) (style.fontSize * scaleFactor);
-
-			relativeStyle.margin.left = (int) (style.margin.left * scaleFactor);
-          	relativeStyle.margin.right = (int) (style.margin.right * scaleFactor);
-			relativeStyle.margin.top = (int) (style.margin.top * scaleFactor);
-			relativeStyle.margin.bottom = (int) (style.margin.bottom * scaleFactor);
-
-			relativeStyle.padding.left = (int) (style.padding.left * scaleFactor);
-			relativeStyle.padding.right = (int) (style.padding.right * scaleFactor);
-			relativeStyle.padding.top = (int) (style.padding.top * scaleFactor);
-			relativeStyle.padding.bottom = (int) (style.padding.bottom * scaleFactor);
-
-			return relativeStyle;
-		}
-
 		public static Vector2 GetSize(Vector2 currentSize, float preferredHeight) {
 			float aspectRatio = currentSize.x / currentSize.y;
 

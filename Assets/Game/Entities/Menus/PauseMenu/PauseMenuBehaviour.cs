@@ -5,72 +5,67 @@ namespace EmergenciaQuimica {
 	
 	public sealed class PauseMenuBehaviour : MenuBehaviour {
 		
-		/*public override void OnShowGui() {
-			GUIStyle menuButtonStyle = GUI.skin.GetStyle("MenuButton");
-			GUIStyle modifiedMenuButtonStyle = Utilities.GetRelativeStyle(menuButtonStyle);
-			
-			float gameWidth = Geometry.GetGameWidthInPixels();
-			float gameHeight = Geometry.GetGameHeightInPixels();
-			
-			Rect area = new Rect(0.1f * gameWidth, 0.1f * gameHeight, 0.3f * gameWidth, 0.8f * gameHeight);
-			GUILayout.BeginArea(area); {
+		public override void OnShowGui() {
+			GUIStyle menuButtonStyle = Framework.GetStyle("MenuButton");
+
+			GameGui.BeginArea(0.1f, 0.1f, 0.3f, 0.8f); {
 				GUILayout.FlexibleSpace();
 
-				if (GUILayout.Button(Language.GetText("PauseMenuResumeGameButton"), modifiedMenuButtonStyle))
+				if (GUILayout.Button(Language.GetText("PauseMenuResumeGameButton"), menuButtonStyle))
 					OnResumeGame();
 				
 				GUILayout.FlexibleSpace();
 				
-				if (GUILayout.Button(Language.GetText("PauseMenuSaveGameButton"), modifiedMenuButtonStyle))
+				if (GUILayout.Button(Language.GetText("PauseMenuSaveGameButton"), menuButtonStyle))
 					OnSaveGame();
 				
 				GUILayout.FlexibleSpace();
 				
-				if (GUILayout.Button(Language.GetText("PauseMenuLoadGameButton"), modifiedMenuButtonStyle))
+				if (GUILayout.Button(Language.GetText("PauseMenuLoadGameButton"), menuButtonStyle))
 					OnLoadGame();
 				
 				GUILayout.FlexibleSpace();
 				
-				if (GUILayout.Button(Language.GetText("PauseMenuOptionsButton"), modifiedMenuButtonStyle))
+				if (GUILayout.Button(Language.GetText("PauseMenuOptionsButton"), menuButtonStyle))
 					OnOptions();
 				
 				GUILayout.FlexibleSpace();
 				
-				if (GUILayout.Button(Language.GetText("PauseMenuGoBackButton"), modifiedMenuButtonStyle))
+				if (GUILayout.Button(Language.GetText("PauseMenuGoBackButton"), menuButtonStyle))
 					OnGoBack();
 
 				GUILayout.FlexibleSpace();
 
-				if (GUILayout.Button(Language.GetText("PauseMenuExitButton"), modifiedMenuButtonStyle))
+				if (GUILayout.Button(Language.GetText("PauseMenuExitButton"), menuButtonStyle))
 					OnExit();
 				
 				GUILayout.FlexibleSpace();
-			} GUILayout.EndArea();
+			} GameGui.EndArea();
 		}
 
 		private void OnExit() {
-			Game.OpenMenu("PauseExitConfirmationMenu");
+			Framework.OpenMenu("PauseExitConfirmationMenu");
 		}
 
 		private void OnGoBack() {
-			Game.OpenMenu("GoBackConfirmationMenu");
+			Framework.OpenMenu("GoBackConfirmationMenu");
 		}
 
 		private void OnLoadGame() {
-			Game.OpenMenu("PauseLoadGameMenu");
+			Framework.OpenMenu("PauseLoadGameMenu");
 		}
 
 		private void OnOptions() {
-			Game.OpenMenu("PauseOptionsMenu");
+			Framework.OpenMenu("PauseOptionsMenu");
 		}
 
 		private void OnResumeGame() {
-			Game.CloseMenu();
+			Framework.CloseMenu();
 		}
 
 		private void OnSaveGame() {
-			Game.OpenMenu("SaveGameMenu");
-		}*/
+			Framework.OpenMenu("SaveGameMenu");
+		}
 		
 	}
 	

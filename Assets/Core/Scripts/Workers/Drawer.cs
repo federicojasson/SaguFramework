@@ -68,6 +68,30 @@ namespace SaguFramework {
 			
 			fadeSpeed = 0f;
 		}
+		
+		public static GUIStyle GetStyle(string styleId) {
+			GUIStyle style = GUI.skin.GetStyle(styleId);
+			
+			float gamePreferredWidthInPixels = Geometry.GetGamePreferredWidthInPixels();
+			float gameWidthInPixels = Geometry.GetGameWidthInPixels();
+			float scaleFactor = gameWidthInPixels / gamePreferredWidthInPixels;
+			
+			GUIStyle relativeStyle = new GUIStyle(style);
+			
+			relativeStyle.fontSize = (int) (style.fontSize * scaleFactor);
+			
+			relativeStyle.margin.left = (int) (style.margin.left * scaleFactor);
+			relativeStyle.margin.right = (int) (style.margin.right * scaleFactor);
+			relativeStyle.margin.top = (int) (style.margin.top * scaleFactor);
+			relativeStyle.margin.bottom = (int) (style.margin.bottom * scaleFactor);
+			
+			relativeStyle.padding.left = (int) (style.padding.left * scaleFactor);
+			relativeStyle.padding.right = (int) (style.padding.right * scaleFactor);
+			relativeStyle.padding.top = (int) (style.padding.top * scaleFactor);
+			relativeStyle.padding.bottom = (int) (style.padding.bottom * scaleFactor);
+			
+			return relativeStyle;
+		}
 
 		public static void SetCursor(Order order) {
 			switch (order) {
@@ -158,11 +182,10 @@ namespace SaguFramework {
 		
 		private static void DrawSpeech() {
 			if (speech.Length > 0) {
-				GUIStyle speechTextStyle = GUI.skin.GetStyle(Parameters.SkinStyleSpeech);
-				GUIStyle modifiedSpeechTextStyle = Utilities.GetRelativeStyle(speechTextStyle);
+				GUIStyle speechTextStyle = GetStyle(Parameters.StyleSpeech);
 				GUIContent content = new GUIContent(speech);
 				
-				RectOffset margin = modifiedSpeechTextStyle.margin;
+				RectOffset margin = speechTextStyle.margin;
 				Rect area = Geometry.GetGameRectangleInGui();
 				area.width -= margin.left + margin.right;
 				area.height -= margin.bottom + margin.top;
@@ -171,13 +194,13 @@ namespace SaguFramework {
 				float screenWidthInPixels = Geometry.GetScreenWidthInPixels();
 				float minimumWidth;
 				float maximumWidth;
-				modifiedSpeechTextStyle.CalcMinMaxWidth(content, out minimumWidth, out maximumWidth);
+				speechTextStyle.CalcMinMaxWidth(content, out minimumWidth, out maximumWidth);
 				
 				area.width = Mathf.Min(area.width, maximumWidth);
 				area.x = 0.5f * (screenWidthInPixels - area.width);
 				
 				GUILayout.BeginArea(area); {
-					GUILayout.Box(content, modifiedSpeechTextStyle);
+					GUILayout.Box(content, speechTextStyle);
 					GUILayout.FlexibleSpace();
 				} GUILayout.EndArea();
 			}
@@ -185,11 +208,10 @@ namespace SaguFramework {
 		
 		private static void DrawTooltip() {
 			if (tooltip.Length > 0) {
-				GUIStyle tooltipStyle = GUI.skin.GetStyle(Parameters.SkinStyleTooltip);
-				GUIStyle modifiedTooltipStyle = Utilities.GetRelativeStyle(tooltipStyle);
+				GUIStyle tooltipStyle = GetStyle(Parameters.StyleTooltip);
 				GUIContent content = new GUIContent(tooltip);
 				
-				RectOffset margin = modifiedTooltipStyle.margin;
+				RectOffset margin = tooltipStyle.margin;
 				Rect area = Geometry.GetGameRectangleInGui();
 				area.width -= margin.left + margin.right;
 				area.height -= margin.bottom + margin.top;
@@ -198,14 +220,14 @@ namespace SaguFramework {
 				float screenWidthInPixels = Geometry.GetScreenWidthInPixels();
 				float minimumWidth;
 				float maximumWidth;
-				modifiedTooltipStyle.CalcMinMaxWidth(content, out minimumWidth, out maximumWidth);
+				tooltipStyle.CalcMinMaxWidth(content, out minimumWidth, out maximumWidth);
 				
 				area.width = Mathf.Min(area.width, maximumWidth);
 				area.x = 0.5f * (screenWidthInPixels - area.width);
 				
 				GUILayout.BeginArea(area); {
 					GUILayout.FlexibleSpace();
-					GUILayout.Box(content, modifiedTooltipStyle);
+					GUILayout.Box(content, tooltipStyle);
 				} GUILayout.EndArea();
 			}
 		}

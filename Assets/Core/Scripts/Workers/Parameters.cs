@@ -46,9 +46,6 @@ namespace SaguFramework {
 		public const string SceneRoom = "Room";
 		public const string SceneSplashScreen = "SplashScreen";
 
-		public const string SkinStyleSpeech = "Speech";
-		public const string SkinStyleTooltip = "Tooltip";
-
 		public const string SortingLayerCharacter = "Character";
 		public const string SortingLayerInventory = "Inventory";
 		public const string SortingLayerInventoryItem = "InventoryItem";
@@ -62,6 +59,9 @@ namespace SaguFramework {
 		public const string StateFilesDirectoryPath = "States";
 
 		public const float StopDistanceFactor = 0.2f;
+		
+		public const string StyleSpeech = "Speech";
+		public const string StyleTooltip = "Tooltip";
 
 		public const string XmlAttributeId = "id";
 		public const string XmlNodeBoolean = "boolean";

@@ -51,10 +51,11 @@ namespace SaguFramework {
 			Character character = Objects.GetCharacters()[characterId];
 			CameraHandler.SetCameraTarget(character);
 		}
-		
-		public static void ChangeRoom(string roomId, string entryId) {
+
+		// TODO: uncomment
+		/*public static void ChangeRoom(string roomId, string entryId) {
 			ChangeRoom(roomId, entryId, string.Empty);
-		}
+		}*/
 
 		public static void ChangeRoom(string roomId, string entryId, string groupId) {
 			string characterId = State.GetPlayerCharacter();
@@ -73,6 +74,10 @@ namespace SaguFramework {
 			LoadSplashScreenOrRoom(groupId);
 		}
 
+		public static void CloseMenu() {
+			MenuManager.CloseMenu();
+		}
+
 		public static void ExecuteActions(string characterId, CharacterAction[] actions) {
 			ExecuteActions(characterId, actions, null);
 		}
@@ -80,6 +85,10 @@ namespace SaguFramework {
 		public static void ExecuteActions(string characterId, CharacterAction[] actions, Action furtherAction) {
 			Character character = Objects.GetCharacters()[characterId];
 			character.ExecuteActions(actions, furtherAction);
+		}
+		
+		public static void Exit() {
+			Application.Quit();
 		}
 
 		public static Character GetCharacter(string characterId) {
@@ -117,6 +126,10 @@ namespace SaguFramework {
 		public static Speech GetSpeech(string speechId) {
 			return Language.GetSpeech(speechId);
 		}
+
+		public static GUIStyle GetStyle(string styleId) {
+			return Drawer.GetStyle(styleId);
+		}
 		
 		public static string GetText(string textId) {
 			return Language.GetText(textId);
@@ -129,10 +142,11 @@ namespace SaguFramework {
 		public static void LockInput() {
 			InputReader.LockInput();
 		}
-		
-		public static void NewGame() {
+
+		// TODO: uncomment
+		/*public static void NewGame() {
 			NewGame(string.Empty);
-		}
+		}*/
 		
 		public static void NewGame(string groupId) {
 			State.LoadInitial();

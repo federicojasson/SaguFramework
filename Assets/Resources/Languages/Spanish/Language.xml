@@ -15,6 +15,31 @@
 		Erlenmeyer con ácido
 	</text>
 	
+	<text id="ExitConfirmationMenuBox">
+		¿realmente desea salir?
+	</text>
+	
+	<text id="ExitConfirmationMenuCancelButton">
+		cancelar
+	</text>
+	
+	<text id="ExitConfirmationMenuExitButton">
+		salir
+	</text>
+	
+	<text id="GoBackConfirmationMenuBox">
+		¿volver al menu principal?
+se perdera todo progreso no guardado.
+	</text>
+	
+	<text id="GoBackConfirmationMenuCancelButton">
+		cancelar
+	</text>
+	
+	<text id="GoBackConfirmationMenuGoBackButton">
+		aceptar
+	</text>
+	
 	<text id="GreenLeftDoorTooltip">
 		Entrar a la habitación azul
 	</text>
@@ -25,6 +50,46 @@
 	
 	<text id="LaboratoryLeftDoorTooltip">
 		Salir del laboratorio
+	</text>
+	
+	<text id="MainMenuExitButton">
+		salir
+	</text>
+	
+	<text id="MainMenuLoadGameButton">
+		cargar partida
+	</text>
+	
+	<text id="MainMenuNewGameButton">
+		nueva partida
+	</text>
+	
+	<text id="MainMenuOptionsButton">
+		opciones
+	</text>
+	
+	<text id="PauseMenuExitButton">
+		salir
+	</text>
+	
+	<text id="PauseMenuGoBackButton">
+		volver al menu principal
+	</text>
+	
+	<text id="PauseMenuLoadGameButton">
+		cargar partida
+	</text>
+	
+	<text id="PauseMenuOptionsButton">
+		opciones
+	</text>
+	
+	<text id="PauseMenuResumeGameButton">
+		reanudar partida
+	</text>
+	
+	<text id="PauseMenuSaveGameButton">
+		guardar partida
 	</text>
 	
 	<text id="ProtectionSuitTooltip">
