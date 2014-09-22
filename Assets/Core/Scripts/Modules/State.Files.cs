@@ -5,7 +5,9 @@ using System.Xml.Linq;
 using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public static partial class State {
 
 		public static void Delete(string stateId) {
@@ -32,8 +34,6 @@ namespace SaguFramework {
 		}
 
 		public static void Load(string stateId) {
-			// TODO: errors, exceptions?
-			
 			string path = Parameters.GetStateFilePath(stateId);
 			XDocument file = Utilities.ReadXmlFile(path);
 			ProcessStateFile(file);

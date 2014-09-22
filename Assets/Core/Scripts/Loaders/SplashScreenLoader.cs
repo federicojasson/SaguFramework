@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public sealed class SplashScreenLoader : Loader {
 		
 		protected override IEnumerator LoadSceneCoroutine() {

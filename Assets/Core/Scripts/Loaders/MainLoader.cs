@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public sealed class MainLoader : Loader {
 
 		private static void LoadAndApplyOptions() {

@@ -2,6 +2,8 @@
 using UnityEngine;
 
 namespace SaguFramework {
+	
+	// TODO: comentar
 
 	[Serializable]
 	public sealed class GraphicsParameters {

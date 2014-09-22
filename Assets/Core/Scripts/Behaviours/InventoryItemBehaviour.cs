@@ -1,5 +1,7 @@
 ﻿namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public abstract class InventoryItemBehaviour : EntityBehaviour {
 		
 		public override sealed void OnCharacterEnter(Character character) {}

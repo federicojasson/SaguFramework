@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public abstract class Map<K, V, E> where E : MapEntry<K, V> {
 		
 		public E[] Entries;

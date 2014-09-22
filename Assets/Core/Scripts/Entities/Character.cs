@@ -3,7 +3,9 @@ using System.Collections;
 using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public sealed class Character : Entity {
 
 		private string id;

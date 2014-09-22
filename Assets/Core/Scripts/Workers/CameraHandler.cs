@@ -1,7 +1,9 @@
 using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public sealed class CameraHandler : Worker {
 
 		private static Rect boundaries;

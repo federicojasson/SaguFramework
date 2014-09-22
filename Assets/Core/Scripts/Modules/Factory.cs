@@ -1,7 +1,9 @@
 using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public static class Factory {
 
 		public static void CreateCharacter(string characterId, CharacterState characterState, CharacterParameters characterParameters, RoomParameters roomParameters) {

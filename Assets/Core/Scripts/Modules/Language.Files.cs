@@ -2,7 +2,9 @@ using System.Xml.Linq;
 using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public static partial class Language {
 		
 		public static void Load(string languageId) {

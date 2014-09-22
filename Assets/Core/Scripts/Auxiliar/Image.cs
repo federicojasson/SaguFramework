@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public sealed class Image : MonoBehaviour {
 
 		private Animator animator;

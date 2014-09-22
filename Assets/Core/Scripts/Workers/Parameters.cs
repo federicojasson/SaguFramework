@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public sealed class Parameters : Worker {
 
 		public const string AxisNameScrollWheel = "Mouse ScrollWheel";

@@ -2,6 +2,8 @@ using UnityEngine;
 
 namespace SaguFramework {
 
+	// TODO: comentar
+
 	public static class Geometry {
 		
 		public static float GameToWorldHeight(float heightInGame) {

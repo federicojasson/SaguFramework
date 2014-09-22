@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public sealed class RoomLoader : Loader {
 
 		private static void ConfigureCamera() {

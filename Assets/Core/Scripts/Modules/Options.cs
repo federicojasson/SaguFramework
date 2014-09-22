@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public static partial class Options {
 		
 		private static Dictionary<string, bool> booleans;

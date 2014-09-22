@@ -4,7 +4,9 @@ using System.Text;
 using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public static partial class Utilities {
 
 		static Utilities() {

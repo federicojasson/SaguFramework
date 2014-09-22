@@ -2,7 +2,9 @@
 using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public abstract class Loader : MonoBehaviour {
 
 		private static Loader instance;

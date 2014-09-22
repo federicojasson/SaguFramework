@@ -1,5 +1,7 @@
 ﻿namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public sealed class InventoryPreviousPageBehaviour : InventoryTriggerBehaviour {
 		
 		public override void OnClick() {

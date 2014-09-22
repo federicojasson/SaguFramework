@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public sealed class InventoryItem : Entity {
 		
 		private string id;

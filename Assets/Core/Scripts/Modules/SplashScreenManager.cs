@@ -2,7 +2,9 @@
 using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public static class SplashScreenManager {
 
 		private static float creationTime;

@@ -1,5 +1,7 @@
 ﻿namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public abstract class RoomTriggerBehaviour : EntityBehaviour {
 		
 		public override sealed void OnClick() {}

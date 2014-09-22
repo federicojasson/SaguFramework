@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public static class MenuManager {
 
 		private static bool isMainMenuOpen;

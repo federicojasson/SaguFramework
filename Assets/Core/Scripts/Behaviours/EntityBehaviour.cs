@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public abstract class EntityBehaviour : MonoBehaviour {
 
 		private Entity entity;

@@ -2,7 +2,7 @@
 
 namespace EmergenciaQuimica {
 	
-	public class ScientistWithProtectionSuitBehaviour : CharacterBehaviour {
+	public sealed class ScientistWithProtectionSuitBehaviour : CharacterBehaviour {
 
 		public override void OnUseInventoryItem(InventoryItem inventoryItem) {
 			if (inventoryItem.GetId() == "InventoryErlenmeyerWithAcid") {

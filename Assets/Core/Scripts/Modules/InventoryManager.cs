@@ -3,7 +3,9 @@ using System.Linq;
 using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public static class InventoryManager {
 
 		private static int page;

@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public sealed class InventoryTrigger : Entity {
 
 		private Vector2 offset;

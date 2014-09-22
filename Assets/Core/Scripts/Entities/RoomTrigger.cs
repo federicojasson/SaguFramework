@@ -2,6 +2,8 @@
 
 namespace SaguFramework {
 
+	// TODO: comentar
+
 	public sealed class RoomTrigger : Entity {
 
 		public override void Awake() {

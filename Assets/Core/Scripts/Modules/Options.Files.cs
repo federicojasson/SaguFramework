@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public static partial class Options {
 		
 		public static void Load() {

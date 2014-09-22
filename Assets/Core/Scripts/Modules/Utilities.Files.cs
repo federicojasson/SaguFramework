@@ -7,7 +7,9 @@ using System.Xml.Linq;
 using UnityEngine;
 
 namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public static partial class Utilities {
 
 		private static Encoding encoding;
@@ -18,8 +20,6 @@ namespace SaguFramework {
 		}
 
 		public static FileInfo[] GetDirectoryFiles(string fileExtension, string directoryPath) {
-			// TODO: errors, exceptions?
-
 			directoryPath = Environment.ExpandEnvironmentVariables(directoryPath);
 
 			DirectoryInfo directory = new DirectoryInfo(directoryPath);
@@ -123,8 +123,6 @@ namespace SaguFramework {
 		}
 		
 		public static XDocument ReadXmlFile(string path) {
-			// TODO: errors, exceptions?
-			
 			path = Environment.ExpandEnvironmentVariables(path);
 			
 			string xmlFileContent = File.ReadAllText(path, encoding);
@@ -166,8 +164,6 @@ namespace SaguFramework {
 		}
 
 		public static void WriteXmlFile(string path, XDocument xmlFile) {
-			// TODO: errors, exceptions?
-			
 			path = Environment.ExpandEnvironmentVariables(path);
 			
 			XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();

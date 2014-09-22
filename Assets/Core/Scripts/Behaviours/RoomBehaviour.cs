@@ -1,5 +1,7 @@
 ﻿namespace SaguFramework {
-	
+
+	// TODO: comentar
+
 	public sealed class RoomBehaviour : EntityBehaviour {
 
 		public override void OnWalk(float x) {

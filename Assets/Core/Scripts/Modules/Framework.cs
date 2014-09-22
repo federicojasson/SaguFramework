@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace SaguFramework {
 
+	// TODO: comentar
+
 	public static class Framework {
 
 		public static void AddHint(string hint) {
@@ -56,10 +58,9 @@ namespace SaguFramework {
 			CameraHandler.SetCameraTarget(character);
 		}
 
-		// TODO: uncomment
-		/*public static void ChangeRoom(string roomId, string entryId) {
+		public static void ChangeRoom(string roomId, string entryId) {
 			ChangeRoom(roomId, entryId, string.Empty);
-		}*/
+		}
 
 		public static void ChangeRoom(string roomId, string entryId, string groupId) {
 			string characterId = State.GetPlayerCharacter();
@@ -177,7 +178,8 @@ namespace SaguFramework {
 		public static bool IsMainMenuOpen() {
 			return MenuManager.IsMainMenuOpen();
 		}
-		
+
+
 		public static void LoadGame(string stateId) {
 			LoadGame(stateId, string.Empty);
 		}
