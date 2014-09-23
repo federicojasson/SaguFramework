@@ -408,7 +408,7 @@ MonoBehaviour:
               type: 2}
             Image:
               Opacity: 1
-              SortingOrder: 0
+              SortingOrder: 1
               Sprite: {fileID: 21300000, guid: e9974384339ce7e4ea4db1276af59e8d, type: 3}
               AnimatorController: {fileID: 22100000, guid: f6a5b561f73efbe48ae18b1cd574a039,
                 type: 2}
@@ -420,7 +420,7 @@ MonoBehaviour:
               type: 2}
             Image:
               Opacity: 1
-              SortingOrder: 0
+              SortingOrder: 1
               Sprite: {fileID: 21300000, guid: 32e078bb6e700fb4f951dfba4129a590, type: 3}
               AnimatorController: {fileID: 22100000, guid: 1467f21c7462ec049b871b4415458e0b,
                 type: 2}
@@ -432,7 +432,7 @@ MonoBehaviour:
               type: 2}
             Image:
               Opacity: 1
-              SortingOrder: 0
+              SortingOrder: 1
               Sprite: {fileID: 21300000, guid: 7fff5e682e8acdb46ae20ff2a48f7947, type: 3}
               AnimatorController: {fileID: 22100000, guid: 063a62019a3dbaf4f9103aae5308c0b5,
                 type: 2}
@@ -617,7 +617,7 @@ MonoBehaviour:
           Image:
             Opacity: 1
             SortingOrder: 0
-            Sprite: {fileID: 21300000, guid: 9a43c0be4590dc042adf5be338630e9e, type: 3}
+            Sprite: {fileID: 21300000, guid: 35209c3cff712d74d825e18ad271ae23, type: 3}
             AnimatorController: {fileID: 0}
         Groups:
           Entries:
@@ -628,7 +628,7 @@ MonoBehaviour:
               Image:
                 Opacity: 1
                 SortingOrder: 0
-                Sprite: {fileID: 21300000, guid: b61d05b27dc704646af547b14589d16f,
+                Sprite: {fileID: 21300000, guid: 3cd8a99572cb37e4c8540902aa9f62c0,
                   type: 3}
                 AnimatorController: {fileID: 0}
             - Height: 1
@@ -636,7 +636,7 @@ MonoBehaviour:
               Image:
                 Opacity: 1
                 SortingOrder: 0
-                Sprite: {fileID: 21300000, guid: a7bae905c91be9040a42830fb3c92520,
+                Sprite: {fileID: 21300000, guid: e1438d9c806444f4dba585a16e55172f,
                   type: 3}
                 AnimatorController: {fileID: 0}
             - Height: 1
@@ -644,7 +644,7 @@ MonoBehaviour:
               Image:
                 Opacity: 1
                 SortingOrder: 0
-                Sprite: {fileID: 21300000, guid: 3db5ea6917b85004099ae46e2ec8cf8c,
+                Sprite: {fileID: 21300000, guid: 5e3b098c31005934ab59664256ab55e1,
                   type: 3}
                 AnimatorController: {fileID: 0}
           - Key: Molecules

@@ -16,7 +16,7 @@ namespace SaguFramework {
 		public static string BooleanToString(bool value) {
 			return value.ToString(CultureInfo.InvariantCulture);
 		}
-		
+
 		public static string FloatToString(float value) {
 			return value.ToString(CultureInfo.InvariantCulture);
 		}

@@ -1,7 +1,6 @@
 ﻿namespace SaguFramework {
 
-	// TODO: comentar
-
+	/// Represents the user's different orders.
 	public enum Order {
 		Click,
 		Look,

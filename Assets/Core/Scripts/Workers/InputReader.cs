@@ -43,6 +43,10 @@ namespace SaguFramework {
 			};
 			
 			orderSets[(int) InputMode.UsingInventoryItem] = new Order[] {};
+
+			inputMode = InputMode.Locked;
+			isInputLocked = false;
+			order = Order.None;
 		}
 
 		public static InputMode GetInputMode() {

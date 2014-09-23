@@ -26,15 +26,9 @@ namespace SaguFramework {
 		}
 		
 		public static void BeginArea(float x, float y, float width, float height) {
-			Rect previousArea;
-			if (areas.Count == 0)
-				previousArea = Geometry.GetGameRectangleInGui();
-			else
-				previousArea = areas.Peek();
-
+			Rect previousArea = areas.Peek();
 			Rect area = new Rect(x * previousArea.width, y * previousArea.height, width * previousArea.width, height * previousArea.height);
-			areas.Push(area);
-			GUILayout.BeginArea(area);
+			BeginArea(area);
 		}
 
 		public static void ClearSpeech() {
@@ -48,14 +42,14 @@ namespace SaguFramework {
 		public static void DrawEntity(Entity entity) {
 			GUI.skin = Parameters.GetSkin();
 
-			BeginArea(0f, 0f, 1f, 1f); {
+			BeginArea(Geometry.GetGameRectangleInGui()); {
 				entity.GetBehaviour().OnShowGui();
 			} EndArea();
 		}
 		
 		public static void EndArea() {
-			areas.Pop();
 			GUILayout.EndArea();
+			areas.Pop();
 		}
 
 		public static IEnumerator FadeIn(FadeParameters fadeParameters) {
@@ -171,6 +165,11 @@ namespace SaguFramework {
 
 		public static void SetTooltip(string tooltip) {
 			Drawer.tooltip = tooltip;
+		}
+		
+		private static void BeginArea(Rect area) {
+			areas.Push(area);
+			GUILayout.BeginArea(area);
 		}
 
 		private static void DrawCursor() {

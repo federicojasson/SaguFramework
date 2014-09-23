@@ -6,7 +6,7 @@
 	public sealed class CharacterAction {
 
 		/// Creates and returns a Look action.
-		/// It receives the X value in world coordinates that the character will look.
+		/// It receives the X value in world space that the character will look.
 		public static CharacterAction Look(float x) {
 			return new CharacterAction(CharacterActionId.Look, x);
 		}
@@ -23,7 +23,7 @@
 		}
 
 		/// Creates and returns a Walk action.
-		/// It receives the X value in world coordinates to which the character will walk to.
+		/// It receives the X value in world space to which the character will walk to.
 		public static CharacterAction Walk(float x) {
 			return new CharacterAction(CharacterActionId.Walk, x);
 		}

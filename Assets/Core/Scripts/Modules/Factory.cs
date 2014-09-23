@@ -94,16 +94,21 @@ namespace SaguFramework {
 		public static void CreateRoom(RoomParameters roomParameters) {
 			Room room = CreateEntity<Room, RoomBehaviour>();
 			Image backgroundImage = CreateImage(Parameters.SortingLayerRoomBackground, roomParameters.BackgroundImage);
-			Image foregroundImage = CreateImage(Parameters.SortingLayerRoomForeground, roomParameters.ForegroundImage);
 
 			Vector2 size = Utilities.GetSize(backgroundImage.GetSize(), Geometry.GameToWorldHeight(roomParameters.Height));
 			Vector2 position = 0.5f * size;
 
 			room.SetSize(size);
 			backgroundImage.SetSize(size);
-			foregroundImage.SetSize(size);
 			Utilities.SetParent(backgroundImage, room);
-			Utilities.SetParent(foregroundImage, room);
+
+			ImageParameters foregroundImageParameters = roomParameters.ForegroundImage;
+			if (foregroundImageParameters.Sprite != null) {
+				Image foregroundImage = CreateImage(Parameters.SortingLayerRoomForeground, roomParameters.ForegroundImage);
+				foregroundImage.SetSize(size);
+				Utilities.SetParent(foregroundImage, room);
+			}
+
 			room.SetPosition(position);
 			room.SetDepth(Parameters.DepthRoom);
 			room.Register();
