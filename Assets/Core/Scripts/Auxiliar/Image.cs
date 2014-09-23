@@ -19,13 +19,13 @@ namespace SaguFramework {
 			renderer = gameObject.AddComponent<SpriteRenderer>();
 		}
 
-		/// Gets the image animator.
+		/// Returns the image animator.
 		/// The image animator allows to trigger animations defined through the animator controller.
 		public Animator GetAnimator() {
 			return animator;
 		}
 
-		/// Gets the image's size in world space.
+		/// Returns the image's size in world space.
 		public Vector2 GetSize() {
 			// Gets the image's sprite
 			Sprite sprite = renderer.sprite;
@@ -37,7 +37,7 @@ namespace SaguFramework {
 			return new Vector2(width, height);
 		}
 		
-		/// Gets the image's texture.
+		/// Returns the image's texture.
 		public Texture2D GetTexture() {
 			return renderer.sprite.texture;
 		}

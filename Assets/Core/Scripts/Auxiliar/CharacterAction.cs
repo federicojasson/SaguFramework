@@ -38,12 +38,12 @@
 			this.parameters = parameters;
 		}
 
-		/// Gets the action's ID.
+		/// Returns the action's ID.
 		public CharacterActionId GetId() {
 			return id;
 		}
 
-		/// Gets the action's parameters.
+		/// Returns the action's parameters.
 		public object[] GetParameters() {
 			return parameters;
 		}

@@ -4,6 +4,8 @@ namespace SaguFramework {
 
 	// TODO: comentar
 
+	/// Allows to bind the game's parameters.
+	/// It also defines constants and convenient getters methods.
 	public sealed class Parameters : Worker {
 
 		public const string AxisNameScrollWheel = "Mouse ScrollWheel";
@@ -278,10 +280,12 @@ namespace SaguFramework {
 			return instance.GameParameters.Controls.UseMouseWheel;
 		}
 		
-		public GameParameters GameParameters;
+		public GameParameters GameParameters; // The parameters of the game
 		
 		public override void Awake() {
 			base.Awake();
+			
+			// Sets this object as the instance of this worker
 			instance = this;
 		}
 

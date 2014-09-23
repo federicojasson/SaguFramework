@@ -15,12 +15,12 @@
 			this.location = location;
 		}
 
-		/// Gets the character's direction.
+		/// Returns the character's direction.
 		public Direction GetDirection() {
 			return direction;
 		}
 
-		/// Gets the character's location.
+		/// Returns the character's location.
 		public Location GetLocation() {
 			return location;
 		}

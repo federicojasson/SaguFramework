@@ -13,7 +13,7 @@
 			this.location = location;
 		}
 		
-		/// Gets the item's location.
+		/// Returns the item's location.
 		public Location GetLocation() {
 			return location;
 		}

@@ -6,7 +6,7 @@ namespace SaguFramework {
 	/// Tasks:
 	/// - Play main menu song.
 	/// - Open main menu.
-	/// - Play playlist.
+	/// - Play song playlist.
 	public sealed class MainMenuLoader : Loader {
 		
 		/// Performs the loading tasks.

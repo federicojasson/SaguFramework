@@ -7,21 +7,21 @@ namespace SaguFramework {
 	public sealed class Speech {
 
 		private string text; // The text to show in the screen
-		private AudioClip voice; // The recorded voice audio
+		private AudioClip voice; // The recorded audio voice
 		
 		/// Initializes a character's speech.
-		/// It receives its text and voice audio.
+		/// It receives its text and audio voice.
 		public Speech(string text, AudioClip voice) {
 			this.text = text;
 			this.voice = voice;
 		}
 
-		/// Gets the speech's text.
+		/// Returns the speech's text.
 		public string GetText() {
 			return text;
 		}
 		
-		/// Gets the speech's voice audio.
+		/// Returns the speech's audio voice.
 		public AudioClip GetVoice() {
 			return voice;
 		}

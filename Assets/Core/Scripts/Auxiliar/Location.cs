@@ -16,12 +16,12 @@ namespace SaguFramework {
 			this.room = room;
 		}
 		
-		/// Gets the position in game space.
+		/// Returns the position in game space.
 		public Vector2 GetPosition() {
 			return position;
 		}
 
-		/// Gets the room's ID.
+		/// Returns the room's ID.
 		public string GetRoom() {
 			return room;
 		}
