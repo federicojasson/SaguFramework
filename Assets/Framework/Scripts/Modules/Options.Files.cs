@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 
 namespace SaguFramework {
-
-	// TODO: comentar
-
+	
+	/// Handles the options.
+	/// Offers methods to load them automatically and to get them.
 	public static partial class Options {
-		
+
+		/// Loads the options.
 		public static void Load() {
 			try {
 				string path = Parameters.GetOptionsFilePath();
@@ -20,13 +21,15 @@ namespace SaguFramework {
 				ProcessOptionsFile(file);
 			}
 		}
-		
+
+		/// Saves the current options.
 		public static void Save() {
 			XDocument file = GenerateOptionsFile();
 			string path = Parameters.GetOptionsFilePath();
 			Utilities.WriteXmlFile(path, file);
 		}
 		
+		/// Generates an options file from the current options.
 		private static XDocument GenerateOptionsFile() {
 			// Options
 			XElement optionsNode = new XElement(Parameters.XmlNodeOptions);
@@ -94,7 +97,9 @@ namespace SaguFramework {
 			return new XDocument(optionsNode);
 		}
 		
+		/// Processes an options file.
 		private static void ProcessOptionsFile(XDocument file) {
+			// Resets the values
 			booleans.Clear();
 			floats.Clear();
 			integers.Clear();

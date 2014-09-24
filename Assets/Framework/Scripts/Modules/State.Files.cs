@@ -6,8 +6,6 @@ using UnityEngine;
 
 namespace SaguFramework {
 
-	// TODO: comentar
-
 	/// Keeps track of the state of the game.
 	/// This module offers convenient methods to read and modify the state of the game.
 	/// Also, methods are provided to handle the state files (save, load and others).
@@ -20,6 +18,7 @@ namespace SaguFramework {
 	/// - Hints: they register relevant events that happened in the game.
 	public static partial class State {
 
+		/// Deletes a state file.
 		public static void Delete(string stateId) {
 			try {
 				string path = Parameters.GetStateFilePath(stateId);
@@ -27,11 +26,14 @@ namespace SaguFramework {
 			} catch (Exception) {}
 		}
 
+		/// Returns the existing state files.
 		public static StateFile[] GetStateFiles() {
 			try {
+				// Gets the files found in the state files directory and orders them
 				FileInfo[] files = Utilities.GetDirectoryFiles(Parameters.StateFileExtension, Parameters.GetStateFilesDirectoryPath());
 				FileInfo[] orderedFiles = Utilities.OrderFilesByLastWriteTimeDescending(files);
-				
+
+				// Initialize the state files
 				StateFile[] stateFiles = new StateFile[orderedFiles.Length];
 				for (int i = 0; i < stateFiles.Length; i++) {
 					FileInfo file = orderedFiles[i];
@@ -47,24 +49,28 @@ namespace SaguFramework {
 			}
 		}
 
+		/// Loads a specific state.
 		public static void Load(string stateId) {
 			string path = Parameters.GetStateFilePath(stateId);
 			XDocument file = Utilities.ReadXmlFile(path);
 			ProcessStateFile(file);
 		}
 
+		/// Loads an initial state.
 		public static void LoadInitial() {
 			string resourcePath = Parameters.InitialStateFileResourcePath;
 			XDocument file = Utilities.ReadResourceXmlFile(resourcePath);
 			ProcessStateFile(file);
 		}
 
+		/// Saves the current state with a specific ID.
 		public static void Save(string stateId) {
 			XDocument file = GenerateStateFile();
 			string path = Parameters.GetStateFilePath(stateId);
 			Utilities.WriteXmlFile(path, file);
 		}
-		
+
+		/// Generates a state file from the current state.
 		private static XDocument GenerateStateFile() {
 			// State
 			XElement stateNode = new XElement(Parameters.XmlNodeState);
@@ -171,8 +177,10 @@ namespace SaguFramework {
 
 			return new XDocument(stateNode);
 		}
-		
+
+		/// Processes a state file.
 		private static void ProcessStateFile(XDocument stateFile) {
+			// Resets the values
 			characters.Clear();
 			currentRoom = null;
 			hints.Clear();

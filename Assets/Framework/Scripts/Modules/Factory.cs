@@ -154,6 +154,7 @@ namespace SaguFramework {
 
 			Vector2 size = Utilities.GetSize(image.GetSize(), Geometry.GameToWorldHeight(splashScreenParameters.Height));
 
+			splashScreen.SetMinimumDelayTime(splashScreenParameters.MinimumDelayTime);
 			splashScreen.SetSize(size);
 			image.SetSize(size);
 			Utilities.SetParent(image, splashScreen);

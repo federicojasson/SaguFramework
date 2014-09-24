@@ -3,18 +3,22 @@ using UnityEngine;
 
 namespace SaguFramework {
 
-	// TODO: comentar
-
+	/// Handles the languages.
+	/// Offers methods to load different languages automatically and to get texts and speeches.
 	public static partial class Language {
-		
+
+		/// Load a specific language.
+		/// Receives its ID.
 		public static void Load(string languageId) {
 			currentLanguage = languageId;
 			string resourcePath = Parameters.GetLanguageFileResourcePath(languageId);
 			XDocument file = Utilities.ReadResourceXmlFile(resourcePath);
 			ProcessLanguageFile(file);
 		}
-		
+
+		/// Processes a language file.
 		private static void ProcessLanguageFile(XDocument file) {
+			// Resets the values
 			speeches.Clear();
 			texts.Clear();
 			
