@@ -1,7 +1,7 @@
 ﻿namespace SaguFramework {
 
 	/// The behaviour of a menu.
-	/// All game's menus must inherit from this class.
+	/// All game menus must inherit from this class.
 	public abstract class MenuBehaviour : EntityBehaviour {
 		
 		public override sealed void OnCharacterEnter(Character character) {}

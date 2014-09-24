@@ -3,10 +3,10 @@
 namespace SaguFramework {
 
 	/// Represents an state file.
-	public class StateFile {
+	public sealed class StateFile {
 
-		private string id; // The state file's ID
-		private DateTime modificationTime; // The state file's modification time
+		private string id; // The ID
+		private DateTime modificationTime; // The modification time
 
 		/// Initializes a state file.
 		/// Receives its ID and modification time.

@@ -1,7 +1,7 @@
 ﻿namespace SaguFramework {
 
 	/// An item.
-	/// All items must have a unique ID.
+	/// Items have a unique ID.
 	public sealed class Item : Entity {
 
 		private string id; // The item's ID

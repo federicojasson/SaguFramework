@@ -1,13 +1,13 @@
 ﻿namespace SaguFramework {
 
 	/// The behaviour of an inventory item.
-	/// All game's inventory items must inherit from this class.
+	/// All game inventory items must inherit from this class.
 	public abstract class InventoryItemBehaviour : EntityBehaviour {
 		
 		public override sealed void OnCharacterEnter(Character character) {}
 
 		public override sealed void OnClick() {
-			// Selects the associated inventory item
+			// Selects the inventory item
 			InputReader.SelectInventoryItem((InventoryItem) GetEntity());
 		}
 

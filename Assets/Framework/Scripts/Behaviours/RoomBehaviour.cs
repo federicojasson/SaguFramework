@@ -1,7 +1,7 @@
 namespace SaguFramework {
 
 	/// The behaviour of a room.
-	/// All game's room must inherit from this class.
+	/// All game rooms must inherit from this class.
 	public sealed class RoomBehaviour : EntityBehaviour {
 
 		public override void OnWalk(float x) {

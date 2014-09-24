@@ -1,6 +1,6 @@
 ﻿namespace SaguFramework {
 
-	/// Represents the game's input modes.
+	/// The game input modes.
 	public enum InputMode {
 		Inventory,
 		Locked,

@@ -2,15 +2,15 @@
 
 namespace SaguFramework {
 
-	/// Represents a game's location.
-	/// Location objects are used to indicate the entities' position and in what room they are.
+	/// Represents a game location.
+	/// A location object is used to indicate the position of an entity in a certain room.
 	public sealed class Location {
 		
 		private Vector2 position; // The position in game space
 		private string room; // The room's ID
 
 		/// Initializes a location.
-		/// Receives its position in the game and the room's ID.
+		/// Receives the position in the game and the room's ID.
 		public Location(Vector2 position, string room) {
 			this.position = position;
 			this.room = room;

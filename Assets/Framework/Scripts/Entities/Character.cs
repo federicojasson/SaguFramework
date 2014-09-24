@@ -5,8 +5,7 @@ using UnityEngine;
 namespace SaguFramework {
 
 	/// A character.
-	/// All characters must have a unique ID.
-	/// Also, characters can be scheduled to execute actions.
+	/// Characters have a unique ID and can be scheduled to execute actions.
 	public sealed class Character : Entity {
 
 		private string id; // The character's ID

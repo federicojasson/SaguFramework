@@ -1,7 +1,7 @@
 namespace SaguFramework {
 	
 	/// The behaviour of a room trigger.
-	/// All game's room triggers must inherit from this class.
+	/// All game room triggers must inherit from this class.
 	public abstract class RoomTriggerBehaviour : EntityBehaviour {
 		
 		public override sealed void OnClick() {}
@@ -30,7 +30,7 @@ namespace SaguFramework {
 			});
 		}
 		
-		/// Returns the room's tooltip.
+		/// Returns the room trigger's tooltip.
 		protected virtual string GetTooltip() {
 			// By default, the tooltip is empty (so it won't show)
 			return string.Empty;

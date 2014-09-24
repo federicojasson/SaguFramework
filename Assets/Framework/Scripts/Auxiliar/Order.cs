@@ -1,6 +1,6 @@
 ﻿namespace SaguFramework {
 
-	/// Represents the user's different orders.
+	/// The orders the user can give.
 	public enum Order {
 		Click,
 		Look,

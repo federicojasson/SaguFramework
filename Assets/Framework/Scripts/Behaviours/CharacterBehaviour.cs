@@ -1,7 +1,7 @@
 namespace SaguFramework {
 
 	/// The behaviour of a character.
-	/// All game's characters must inherit from this class.
+	/// All game characters must inherit from this class.
 	public abstract class CharacterBehaviour : EntityBehaviour {
 		
 		public override sealed void OnCharacterEnter(Character character) {}

@@ -1,6 +1,6 @@
 ﻿namespace SaguFramework {
 	
-	/// The behaviour of the inventory's next page trigger.
+	/// The behaviour of the inventory next page trigger.
 	public sealed class InventoryNextPageBehaviour : InventoryTriggerBehaviour {
 
 		public override void OnClick() {

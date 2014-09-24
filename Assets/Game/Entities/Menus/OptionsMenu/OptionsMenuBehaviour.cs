@@ -62,7 +62,7 @@ namespace EmergenciaQuimica {
 								GUILayout.Label(languageNames[languageIndex], labelStyle);
 
 								if (GUILayout.Button(">>", buttonStyle, GUILayout.ExpandWidth(false)))
-									languageIndex = (languageIndex + 1) % languageIds.Length;;
+									languageIndex = (languageIndex + 1) % languageIds.Length;
 							} GUILayout.EndHorizontal();
 						} Framework.EndArea();
 					} Framework.EndArea();

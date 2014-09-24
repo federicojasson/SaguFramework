@@ -1,6 +1,6 @@
 ﻿namespace SaguFramework {
 	
-	/// Represents the direction in which a character is looking: either left or right.
+	/// The directions in which a character can look: either left or right.
 	public enum Direction {
 		Left,
 		Right

@@ -8,8 +8,8 @@ namespace SaguFramework {
 	/// Images can be animated by setting an animator controller.
 	public sealed class Image : MonoBehaviour {
 
-		private Animator animator; // The image animator
-		private new SpriteRenderer renderer; // The image renderer
+		private Animator animator; // The animator
+		private new SpriteRenderer renderer; // The renderer
 
 		public void Awake() {
 			// Adds an Animator
@@ -19,25 +19,25 @@ namespace SaguFramework {
 			renderer = gameObject.AddComponent<SpriteRenderer>();
 		}
 
-		/// Returns the image animator.
-		/// The image animator allows to trigger animations defined through the animator controller.
+		/// Returns the animator.
+		/// The animator allows to trigger animations defined through the animator controller.
 		public Animator GetAnimator() {
 			return animator;
 		}
 
-		/// Returns the image's size in world space.
+		/// Returns the size in world space.
 		public Vector2 GetSize() {
-			// Gets the image's sprite
+			// Gets the sprite
 			Sprite sprite = renderer.sprite;
 
-			// Uses the object's scale and the sprite's size in world space to calculate the image's width and height
+			// Uses the object's scale and the sprite's size in world space to calculate the width and the height
 			float width = transform.localScale.x * sprite.bounds.size.x;
 			float height = transform.localScale.y * sprite.bounds.size.y;
 			
 			return new Vector2(width, height);
 		}
 		
-		/// Returns the image's texture.
+		/// Returns the texture.
 		public Texture2D GetTexture() {
 			return renderer.sprite.texture;
 		}
@@ -47,15 +47,15 @@ namespace SaguFramework {
 			animator.runtimeAnimatorController = animatorController;
 		}
 
-		/// Sets the image's opacity.
+		/// Sets the opacity.
 		public void SetOpacity(float opacity) {
 			renderer.color = Utilities.GetColor(renderer.color, opacity);
 		}
 		
-		/// Sets the image's size.
+		/// Sets the size.
 		/// Receives the size in world space.
 		public void SetSize(Vector2 size) {
-			// Gets the image's sprite
+			// Gets the sprite
 			Sprite sprite = renderer.sprite;
 
 			// Uses the sprite's size in world space and the expected resulting size to calculate the object's scale
@@ -66,19 +66,19 @@ namespace SaguFramework {
 			transform.localScale = new Vector3(scaleX, scaleY, transform.localScale.z);
 		}
 		
-		/// Sets the image's sorting layer.
+		/// Sets the sorting layer.
 		/// The sorting layer determines which images are rendered first.
 		public void SetSortingLayer(string sortingLayer) {
 			renderer.sortingLayerName = sortingLayer;
 		}
 
-		/// Sets the image's sorting order.
+		/// Sets the sorting order.
 		/// The sorting order determines which images of the same sorting layer are rendered first.
 		public void SetSortingOrder(int sortingOrder) {
 			renderer.sortingOrder = sortingOrder;
 		}
 
-		/// Sets the image's sprite.
+		/// Sets the sprite.
 		public void SetSprite(Sprite sprite) {
 			renderer.sprite = sprite;
 		}

@@ -1,6 +1,6 @@
 ﻿namespace SaguFramework {
 
-	/// Represents a map entry.
+	/// A map entry.
 	/// Subclasses of this class are meant to be used from the Unity Editor.
 	public abstract class MapEntry<K, V>  {
 		

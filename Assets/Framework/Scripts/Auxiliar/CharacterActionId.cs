@@ -1,6 +1,6 @@
 ﻿namespace SaguFramework {
 
-	/// Represents a character action's IDs.
+	/// The IDs of the character actions.
 	public enum CharacterActionId {
 		Look,
 		PickUp,

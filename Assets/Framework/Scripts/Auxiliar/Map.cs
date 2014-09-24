@@ -2,7 +2,7 @@
 
 namespace SaguFramework {
 
-	/// Represents a map.
+	/// A map.
 	/// Subclasses of this class are meant to be used from the Unity Editor.
 	public abstract class Map<K, V, E> where E : MapEntry<K, V> {
 		
@@ -15,7 +15,7 @@ namespace SaguFramework {
 		public V this[K key] {
 			get {
 				if (dictionary == null)
-					// Initializes on demand the internal dictionary
+					// Initializes the internal dictionary on demand
 					Initialize();
 
 				// Serves the request using the internal dictionary

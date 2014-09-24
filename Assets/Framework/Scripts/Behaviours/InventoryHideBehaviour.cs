@@ -1,6 +1,6 @@
 ﻿namespace SaguFramework {
 	
-	/// The behaviour of the inventory's hide trigger.
+	/// The behaviour of the inventory hide trigger.
 	public sealed class InventoryHideBehaviour : InventoryTriggerBehaviour {
 
 		public override void OnClick() {

@@ -66,7 +66,7 @@ namespace SaguFramework {
 			AudioSource voicePlayer;
 			
 			if (! voicePlayers.TryGetValue(channelId, out voicePlayer)) {
-				// There is not an audio source associated to that voice channel
+				// There is not an audio source associated with that voice channel
 
 				// Adds an audio source for the voice channel
 				voicePlayer = instance.gameObject.AddComponent<AudioSource>();
