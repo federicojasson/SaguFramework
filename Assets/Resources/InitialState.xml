@@ -2,10 +2,12 @@
 <state>
 	
 	<!-- Current room -->
+	
 	<current-room>Laboratory</current-room>
 	
 	
 	<!-- Player character -->
+	
 	<player-character>Scientist</player-character>
 	
 	
