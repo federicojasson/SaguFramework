@@ -10,7 +10,7 @@ namespace SaguFramework {
 		private static Loader instance; // The current loader
 
 		/// Changes the current scene.
-		/// It receives the new scene's ID.
+		/// Receives the new scene's ID.
 		public static void ChangeScene(string sceneId) {
 			instance.StartCoroutine(instance.ChangeSceneCoroutine(sceneId));
 		}
@@ -34,7 +34,7 @@ namespace SaguFramework {
 		protected abstract IEnumerator UnloadSceneCoroutine();
 
 		/// Unloads the current scene and, after that, loads the new one.
-		/// It receives the new scene's ID.
+		/// Receives the new scene's ID.
 		private IEnumerator ChangeSceneCoroutine(string sceneId) {
 			yield return StartCoroutine(UnloadSceneCoroutine());
 			Application.LoadLevel(sceneId);

@@ -60,7 +60,7 @@ namespace SaguFramework {
 		}
 		
 		/// Plays a voice in a certain channel.
-		/// It receives the channel's ID and the audio voice.
+		/// Receives the channel's ID and the audio voice.
 		/// If there is not an audio source associated with the specified channel, it creates it.
 		public static void PlayVoice(string channelId, AudioClip voice) {
 			AudioSource voicePlayer;
@@ -126,7 +126,7 @@ namespace SaguFramework {
 		}
 
 		/// Stops the reproduction of a certain voice channel.
-		/// It receives the channel's ID.
+		/// Receives the channel's ID.
 		public static void StopVoice(string channelId) {
 			AudioSource voicePlayer;
 

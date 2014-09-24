@@ -4,8 +4,6 @@ using UnityEngine;
 
 namespace SaguFramework {
 
-	// TODO: comentar
-
 	/// A character.
 	/// All characters must have a unique ID.
 	/// Also, characters can be scheduled to execute actions.
@@ -30,7 +28,6 @@ namespace SaguFramework {
 
 		/// Returns the character's direction.
 		public Direction GetDirection() {
-			// Gets the animator
 			Animator animator = image.GetAnimator();
 
 			// Checks the character's direction
@@ -82,13 +79,18 @@ namespace SaguFramework {
 			SoundPlayer.StopVoice(id);
 		}
 
+		/// Executes the character actions.
+		/// Optionally, it can execute a final task at the end.
 		private IEnumerator ExecuteActionsCoroutine(CharacterAction[] actions, Action furtherAction) {
 			foreach (CharacterAction action in actions) {
+				// Gets the action's parameters
 				object[] parameters = action.GetParameters();
 
 				switch (action.GetId()) {
 					case CharacterActionId.Look : {
+						// Gets the X value in world space towards the character will look
 						float x = (float) parameters[0];
+
 						yield return StartCoroutine(LookCoroutine(x));
 						break;
 					}
@@ -99,13 +101,17 @@ namespace SaguFramework {
 					}
 						
 					case CharacterActionId.Say : {
+						// Gets the speech that the character will say
 						Speech speech = (Speech) parameters[0];
+
 						yield return StartCoroutine(SayCoroutine(speech));
 						break;
 					}
 						
 					case CharacterActionId.Walk : {
+						// Gets the X value in world space towards the character will walk to
 						float x = (float) parameters[0];
+						
 						yield return StartCoroutine(WalkCoroutine(x));
 						break;
 					}
@@ -113,63 +119,91 @@ namespace SaguFramework {
 			}
 
 			if (furtherAction != null)
+				// Executes a final task
 				furtherAction.Invoke();
 		}
 
+		/// Looks towards a position.
+		/// Receives the X value in world space.
 		private IEnumerator LookCoroutine(float x) {
 			if (x > GetPosition().x)
+				// The character is at the left of the position
 				SetDirection(Direction.Right);
 			else
+				// The character is at the right of the position
 				SetDirection(Direction.Left);
 
 			yield break;
 		}
 
+		/// Picks up something.
+		/// This is just an animation, it doesn't actually adds anything to the inventory.
 		private IEnumerator PickUpCoroutine() {
 			Animator animator = image.GetAnimator();
+
+			// Triggers the animation
 			animator.SetTrigger(Parameters.CharacterAnimatorControllerPickUp);
+
 			yield break;
 		}
-		
+
+		/// Says a speech.
 		private IEnumerator SayCoroutine(Speech speech) {
 			Animator animator = image.GetAnimator();
 
+			// Gets the speech's text and voice
 			string text = speech.GetText();
 			AudioClip voice = speech.GetVoice();
 
+			// Starts the animation
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, true);
+
+			// Sets the speech
 			Drawer.SetSpeech(text);
 
+			// Plays the audio voice and waits until it is finished
 			SoundPlayer.PlayVoice(id, voice);
 			yield return new WaitForSeconds(voice.length);
 
+			// Stops the animation
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsSaying, false);
+
+			// Clears the speech
 			Drawer.ClearSpeech();
 		}
-
+		
+		/// Walks towards a position.
+		/// Receives the X value in world space.
 		private IEnumerator WalkCoroutine(float x) {
 			Animator animator = image.GetAnimator();
-
+			
+			// Starts the animation
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsWalking, true);
 
+			// Calculates a delta distance and a stop distance
 			float deltaDistance = Geometry.GameToWorldWidth(Parameters.DeltaDistance);
 			float stopDistance = Parameters.StopDistanceFactor * image.GetSize().x;
-			Vector2 currentPosition = GetPosition();
 
+			// It approaches until reach a close enough position (when distance > stopDistance)
+			Vector2 currentPosition = GetPosition();
 			while (Mathf.Abs(currentPosition.x - x) > stopDistance) {
+				// Calculates and applies an offset to move the character
 				float offset = speed * Time.fixedDeltaTime * Mathf.Sign(x - currentPosition.x);
 				SetPosition(currentPosition + new Vector2(offset, 0f));
 
+				// Waits a frame
 				yield return new WaitForFixedUpdate();
 
+				// Saves the previous position's X value and obtains the current position
 				float previousX = currentPosition.x;
 				currentPosition = GetPosition();
 
 				if (Mathf.Abs(previousX - currentPosition.x) < deltaDistance)
-					// The character stopped walking for some reason
+					// The character stopped walking for some reason (it got stuck)
 					break;
 			}
-
+			
+			// Stops the animation
 			animator.SetBool(Parameters.CharacterAnimatorControllerIsWalking, false);
 		}
 

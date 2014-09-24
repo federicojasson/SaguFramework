@@ -10,7 +10,7 @@ namespace SaguFramework {
 		private string room; // The room's ID
 
 		/// Initializes a location.
-		/// It receives its position in the game and the room's ID.
+		/// Receives its position in the game and the room's ID.
 		public Location(Vector2 position, string room) {
 			this.position = position;
 			this.room = room;

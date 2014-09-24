@@ -10,6 +10,7 @@ namespace SaguFramework {
 		private static Dictionary<string, Speech> speeches;
 		private static Dictionary<string, string> texts;
 		
+		/// Performs class initialization tasks.
 		static Language() {
 			speeches = new Dictionary<string, Speech>();
 			texts = new Dictionary<string, string>();

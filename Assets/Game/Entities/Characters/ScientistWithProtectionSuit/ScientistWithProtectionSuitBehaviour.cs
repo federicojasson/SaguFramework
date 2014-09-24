@@ -14,7 +14,7 @@ namespace EmergenciaQuimica {
 				Framework.RemoveInventoryItem("InventoryErlenmeyerWithAcid");
 				Framework.AddCharacter("RedScientist", characterState);
 				Framework.ChangePlayerCharacter("RedScientist");
-				character.Deactivate();
+				Framework.RemoveCharacter(character.GetId());
 				
 				string characterId = Framework.GetPlayerCharacter();
 				Speech speech = Framework.GetSpeech("OnUseErlenmeyerWithAcid");
@@ -22,7 +22,6 @@ namespace EmergenciaQuimica {
 				Framework.ExecuteActions(characterId, new CharacterAction[] {
 					CharacterAction.Say(speech)
 				}, () => {
-					Framework.RemoveCharacter(character.GetId());
 					Framework.UnlockInput();
 				});
 			}

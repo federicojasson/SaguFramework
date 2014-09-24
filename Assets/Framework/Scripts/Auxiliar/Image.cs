@@ -53,7 +53,7 @@ namespace SaguFramework {
 		}
 		
 		/// Sets the image's size.
-		/// It receives the size in world space.
+		/// Receives the size in world space.
 		public void SetSize(Vector2 size) {
 			// Gets the image's sprite
 			Sprite sprite = renderer.sprite;

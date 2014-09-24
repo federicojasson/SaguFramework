@@ -34,8 +34,8 @@ namespace SaguFramework {
 		}
 
 		/// Destroys the entity.
-		public void Destroy() {
-			DestroyImmediate(gameObject);
+		public virtual void Destroy() {
+			Destroy(gameObject);
 		}
 
 		/// Returns the entity's behaviour.

@@ -1,4 +1,4 @@
-﻿using SaguFramework;
+using SaguFramework;
 using UnityEngine;
 
 namespace EmergenciaQuimica {
@@ -6,9 +6,10 @@ namespace EmergenciaQuimica {
 	public sealed class LoadGameMenuBehaviour : MenuBehaviour {
 		
 		private bool isEnabled;
+		private string[] options;
 		private Vector2 scrollPosition;
-		private int selectedStateId;
-		private string[] stateIds;
+		private int selectedOption;
+		private StateFile[] stateFiles;
 		private int stateLastCount;
 
 		public void Awake() {
@@ -17,12 +18,18 @@ namespace EmergenciaQuimica {
 		}
 
 		public void OnEnable() {
+			stateFiles = Framework.GetStateFiles();
+			options = new string[stateFiles.Length];
+			for (int i = 0; i < options.Length; i++) {
+				StateFile stateFile = stateFiles[i];
+				options[i] = stateFile.GetId() + " [" + stateFile.GetModificationTime() + "]";
+			}
+			
 			int auxiliar = stateLastCount;
-			stateIds = Framework.GetStateIds();
-			stateLastCount = stateIds.Length;
+			stateLastCount = stateFiles.Length;
 
 			if (stateLastCount != auxiliar)
-				selectedStateId = -1;
+				selectedOption = -1;
 		}
 
 		public override void OnShowGui() {
@@ -43,7 +50,7 @@ namespace EmergenciaQuimica {
 			Framework.BeginArea(0.1f, 0.18f, 0.8f, 0.77f); {
 				Framework.BeginArea(0f, 0f, 1f, 0.75f); {
 					scrollPosition = GUILayout.BeginScrollView(scrollPosition, scrollViewStyle); {
-						selectedStateId = GUILayout.SelectionGrid(selectedStateId, stateIds, 1, menuSelectionGridStyle);
+						selectedOption = GUILayout.SelectionGrid(selectedOption, options, 1, menuSelectionGridStyle);
 					} GUILayout.EndScrollView();
 				} Framework.EndArea();
 
@@ -53,7 +60,7 @@ namespace EmergenciaQuimica {
 				} Framework.EndArea();
 
 				Framework.BeginArea(0.34f, 0.8f, 0.32f, 0.2f); {
-					if (selectedStateId < 0)
+					if (selectedOption < 0)
 						GUI.enabled = false;
 					
 					if (GUILayout.Button(Framework.GetText("LoadGameMenuDeleteGameButton"), menuButtonStyle))
@@ -63,7 +70,7 @@ namespace EmergenciaQuimica {
 				} Framework.EndArea();
 
 				Framework.BeginArea(0.68f, 0.8f, 0.32f, 0.2f); {
-					if (selectedStateId < 0)
+					if (selectedOption < 0)
 						GUI.enabled = false;
 
 					if (GUILayout.Button(Framework.GetText("LoadGameMenuLoadGameButton"), menuButtonStyle))
@@ -79,7 +86,7 @@ namespace EmergenciaQuimica {
 		}
 		
 		private void OnDeleteGame() {
-			string stateId = stateIds[selectedStateId];
+			string stateId = stateFiles[selectedOption].GetId();
 			DeleteGameConfirmationMenuBehaviour.SetStateId(stateId);
 			
 			if (Framework.IsMainMenuOpen())
@@ -90,7 +97,7 @@ namespace EmergenciaQuimica {
 
 		private void OnLoadGame() {
 			isEnabled = false;
-			string stateId = stateIds[selectedStateId];
+			string stateId = stateFiles[selectedOption].GetId();
 			Framework.LoadGame(stateId, "Information");
 		}
 		

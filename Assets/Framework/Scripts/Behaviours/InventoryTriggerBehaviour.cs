@@ -1,7 +1,6 @@
 ﻿namespace SaguFramework {
 
-	// TODO: comentar
-
+	/// The behaviour of an inventory trigger.
 	public abstract class InventoryTriggerBehaviour : EntityBehaviour {}
 	
 }

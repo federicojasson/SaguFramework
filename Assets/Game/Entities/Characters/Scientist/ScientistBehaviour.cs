@@ -15,7 +15,7 @@ namespace EmergenciaQuimica {
 				Framework.RemoveInventoryItem("InventoryProtectionSuit");
 				Framework.AddCharacter("ScientistWithProtectionSuit", characterState);
 				Framework.ChangePlayerCharacter("ScientistWithProtectionSuit");
-				character.Deactivate();
+				Framework.RemoveCharacter(character.GetId());
 				
 				string characterId = Framework.GetPlayerCharacter();
 				Speech speech = Framework.GetSpeech("OnUseProtectionSuit");
@@ -23,7 +23,6 @@ namespace EmergenciaQuimica {
 				Framework.ExecuteActions(characterId, new CharacterAction[] {
 					CharacterAction.Say(speech)
 				}, () => {
-					Framework.RemoveCharacter(character.GetId());
 					Framework.UnlockInput();
 				});
 			}

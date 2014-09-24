@@ -2,8 +2,12 @@ using UnityEngine;
 
 namespace SaguFramework {
 
-	// TODO: comentar
-
+	/// Offers several methods to handle space transformations.
+	/// Spaces:
+	/// - Game: unitless; normalized values (relative to the size of the game's rectangle).
+	/// - World: units; world space (0, 0) matches the game space (0, 0).
+	/// - Screen: pixels; relative to the camera, not the world.
+	/// - Gui: pixels; equal to the screen space, but the Y grows downward.
 	public static class Geometry {
 		
 		public static float GameToWorldHeight(float heightInGame) {

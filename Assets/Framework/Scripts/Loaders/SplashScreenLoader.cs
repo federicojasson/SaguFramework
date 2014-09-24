@@ -6,8 +6,7 @@ namespace SaguFramework {
 	/// Tasks:
 	/// - Show random splash screen.
 	public sealed class SplashScreenLoader : Loader {
-		
-		/// Performs the loading tasks.
+
 		protected override IEnumerator LoadSceneCoroutine() {
 			// Shows a random splash screen from the current group
 			SplashScreenManager.ShowSplashScreenFromCurrentGroup();
@@ -21,8 +20,7 @@ namespace SaguFramework {
 			// Changes to the room scene
 			Loader.ChangeScene(Parameters.SceneRoom);
 		}
-		
-		/// Performs the unloading tasks.
+
 		protected override IEnumerator UnloadSceneCoroutine() {
 			// Fades out
 			yield return StartCoroutine(Drawer.FadeOut(Parameters.GetSplashScreenLoaderParameters().FadeOut));

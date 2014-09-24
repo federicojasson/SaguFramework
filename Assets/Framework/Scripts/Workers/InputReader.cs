@@ -374,10 +374,9 @@ namespace SaguFramework {
 				// Clears the tooltip
 				Drawer.ClearTooltip();
 
-				// Stops the actions of all the active characters in the room
+				// Stops the actions of all the characters in the room
 				foreach (Character character in Entities.GetCharacters().Values)
-					if (character.IsActivated())
-						character.StopActions();
+					character.StopActions();
 			}
 		}
 

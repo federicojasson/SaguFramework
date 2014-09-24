@@ -1,7 +1,6 @@
 ﻿namespace SaguFramework {
 
-	// TODO: comentar
-
+	/// The behaviour of the inventory.
 	public sealed class InventoryBehaviour : EntityBehaviour {}
 	
 }

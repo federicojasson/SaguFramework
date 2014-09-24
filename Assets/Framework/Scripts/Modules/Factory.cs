@@ -2,10 +2,12 @@ using UnityEngine;
 
 namespace SaguFramework {
 
-	// TODO: comentar
-
+	/// Game factory.
+	/// Handles the creation of entities and other assets.
 	public static class Factory {
 
+		/// Creates a character.
+		/// Receives its ID, state and parameters, and also the room's parameters.
 		public static void CreateCharacter(string characterId, CharacterState characterState, CharacterParameters characterParameters, RoomParameters roomParameters) {
 			ImageParameters imageParameters = characterParameters.Image;
 
@@ -30,6 +32,8 @@ namespace SaguFramework {
 			character.SetDirection(characterState.GetDirection());
 		}
 
+		/// Creates the inventory.
+		/// Receives its parameters.
 		public static void CreateInventory(InventoryParameters inventoryParameters) {
 			ImageParameters imageParameters = inventoryParameters.Image;
 
@@ -44,11 +48,14 @@ namespace SaguFramework {
 			inventory.SetDepth(- (Parameters.DepthInventory + imageParameters.SortingOrder));
 			inventory.Register();
 
+			// Creates the inventory triggers
 			CreateInventoryTrigger<InventoryHideBehaviour>(inventoryParameters.HideTrigger);
 			CreateInventoryTrigger<InventoryPreviousPageBehaviour>(inventoryParameters.PreviousPageTrigger);
 			CreateInventoryTrigger<InventoryNextPageBehaviour>(inventoryParameters.NextPageTrigger);
 		}
 
+		/// Creates an inventory item.
+		/// Receives its ID and parameters, and also the inventory's parameters.
 		public static void CreateInventoryItem(string inventoryItemId, InventoryItemParameters inventoryItemParameters, InventoryParameters inventoryParameters) {
 			ImageParameters imageParameters = inventoryItemParameters.Image;
 
@@ -66,6 +73,8 @@ namespace SaguFramework {
 			inventoryItem.Register();
 		}
 
+		/// Creates an item.
+		/// Receives its ID, state and parameters, and also the room's parameters.
 		public static void CreateItem(string itemId, ItemState itemState, ItemParameters itemParameters, RoomParameters roomParameters) {
 			ImageParameters imageParameters = itemParameters.Image;
 
@@ -84,7 +93,9 @@ namespace SaguFramework {
 			item.Register();
 			item.Activate();
 		}
-		
+
+		/// Creates a menu.
+		/// Receives its parameters.
 		public static void CreateMenu(MenuParameters menuParameters) {
 			ImageParameters imageParameters = menuParameters.Image;
 
@@ -101,6 +112,8 @@ namespace SaguFramework {
 			menu.Activate();
 		}
 
+		/// Creates a room.
+		/// Receives its parameters.
 		public static void CreateRoom(RoomParameters roomParameters) {
 			ImageParameters backgroundImageParameters = roomParameters.BackgroundImage;
 
@@ -126,10 +139,13 @@ namespace SaguFramework {
 			room.Register();
 			room.Activate();
 
+			// Creates the room triggers
 			foreach (RoomTriggerParameters roomTriggerParameters in roomParameters.Triggers)
 				CreateRoomTrigger(roomTriggerParameters);
 		}
 
+		/// Creates a splash screen.
+		/// Receives its parameters.
 		public static void CreateSplashScreen(SplashScreenParameters splashScreenParameters) {
 			ImageParameters imageParameters = splashScreenParameters.Image;
 
@@ -146,6 +162,7 @@ namespace SaguFramework {
 			splashScreen.Activate();
 		}
 
+		/// Creates an entity with a known behaviour.
 		private static E CreateEntity<E, B>() where E : Entity where B : EntityBehaviour {
 			GameObject entityGameObject = new GameObject();
 			E entity = entityGameObject.AddComponent<E>();
@@ -160,6 +177,8 @@ namespace SaguFramework {
 			return entity;
 		}
 
+		/// Creates an entity.
+		/// Receives its behaviour.
 		private static E CreateEntity<E>(EntityBehaviour entityBehaviourModel) where E : Entity {
 			GameObject entityGameObject = new GameObject();
 			E entity = entityGameObject.AddComponent<E>();
@@ -174,6 +193,8 @@ namespace SaguFramework {
 			return entity;
 		}
 
+		/// Creates an image.
+		/// Receives its sorting layer and parameters.
 		private static Image CreateImage(string sortingLayer, ImageParameters imageParameters) {
 			GameObject imageGameObject = new GameObject();
 			Image image = imageGameObject.AddComponent<Image>();
@@ -187,6 +208,8 @@ namespace SaguFramework {
 			return image;
 		}
 
+		/// Creates an inventory trigger.
+		/// Receives its parameters.
 		private static void CreateInventoryTrigger<B>(InventoryTriggerParameters inventoryTriggerParameters) where B : InventoryTriggerBehaviour {
 			InventoryTrigger inventoryTrigger = CreateEntity<InventoryTrigger, B>();
 			
@@ -199,7 +222,9 @@ namespace SaguFramework {
 			inventoryTrigger.SetDepth(- Parameters.DepthInventoryTrigger);
 			inventoryTrigger.Register();
 		}
-		
+
+		/// Creates a room trigger.
+		/// Receives its parameters.
 		private static void CreateRoomTrigger(RoomTriggerParameters roomTriggerParameters) {
 			RoomTrigger roomTrigger = CreateEntity<RoomTrigger>(roomTriggerParameters.Behaviour);
 			

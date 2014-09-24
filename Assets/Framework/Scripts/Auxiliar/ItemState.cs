@@ -8,7 +8,7 @@
 		private Location location; // The item's location
 		
 		/// Initializes an item's state.
-		/// It receives its location.
+		/// Receives its location.
 		public ItemState(Location location) {
 			this.location = location;
 		}

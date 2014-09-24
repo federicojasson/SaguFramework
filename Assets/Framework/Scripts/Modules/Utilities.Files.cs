@@ -7,9 +7,8 @@ using System.Xml.Linq;
 using UnityEngine;
 
 namespace SaguFramework {
-
-	// TODO: comentar
-
+	
+	/// Module that offers miscellaneous utilities.
 	public static partial class Utilities {
 
 		private static Encoding encoding;

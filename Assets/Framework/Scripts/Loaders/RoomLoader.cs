@@ -121,8 +121,7 @@ namespace SaguFramework {
 			// Creates the room
 			Factory.CreateRoom(roomParameters);
 		}
-		
-		/// Performs the loading tasks.
+
 		protected override IEnumerator LoadSceneCoroutine() {
 			// Creates the room's entities
 			CreateEntities();
@@ -136,8 +135,7 @@ namespace SaguFramework {
 			// Fades in
 			yield return StartCoroutine(Drawer.FadeIn(Parameters.GetRoomLoaderParameters().FadeIn));
 		}
-		
-		/// Performs the unloading tasks.
+
 		protected override IEnumerator UnloadSceneCoroutine() {
 			// Fades out
 			yield return StartCoroutine(Drawer.FadeOut(Parameters.GetRoomLoaderParameters().FadeOut));

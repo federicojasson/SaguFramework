@@ -9,7 +9,7 @@
 		private Location location; // The character's location
 
 		/// Initializes a character's state.
-		/// It receives its direction and location.
+		/// Receives its direction and location.
 		public CharacterState(Direction direction, Location location) {
 			this.direction = direction;
 			this.location = location;

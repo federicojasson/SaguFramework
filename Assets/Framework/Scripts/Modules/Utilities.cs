@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace SaguFramework {
 
-	// TODO: comentar
-
+	/// Module that offers miscellaneous utilities.
 	public static partial class Utilities {
-
+		
+		/// Performs class initialization tasks.
 		static Utilities() {
 			encoding = new UTF8Encoding(false); // UTF-8 without BOM
 		}

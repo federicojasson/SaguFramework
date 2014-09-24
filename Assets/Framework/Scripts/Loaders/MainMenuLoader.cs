@@ -8,8 +8,7 @@ namespace SaguFramework {
 	/// - Open main menu.
 	/// - Play song playlist.
 	public sealed class MainMenuLoader : Loader {
-		
-		/// Performs the loading tasks.
+
 		protected override IEnumerator LoadSceneCoroutine() {
 			// Plays the main menu song
 			SoundPlayer.StopAllSounds();
@@ -21,8 +20,7 @@ namespace SaguFramework {
 			// Fades in
 			yield return StartCoroutine(Drawer.FadeIn(Parameters.GetMainMenuLoaderParameters().FadeIn));
 		}
-		
-		/// Performs the unloading tasks.
+
 		protected override IEnumerator UnloadSceneCoroutine() {
 			// Fades out
 			yield return StartCoroutine(Drawer.FadeOut(Parameters.GetMainMenuLoaderParameters().FadeOut));

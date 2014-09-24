@@ -10,7 +10,7 @@ namespace SaguFramework {
 		private AudioClip voice; // The recorded audio voice
 		
 		/// Initializes a character's speech.
-		/// It receives its text and audio voice.
+		/// Receives its text and audio voice.
 		public Speech(string text, AudioClip voice) {
 			this.text = text;
 			this.voice = voice;

@@ -11,6 +11,7 @@ namespace SaguFramework {
 		private static Dictionary<string, int> integers;
 		private static Dictionary<string, string> strings;
 		
+		/// Performs class initialization tasks.
 		static Options() {
 			booleans = new Dictionary<string, bool>();
 			floats = new Dictionary<string, float>();

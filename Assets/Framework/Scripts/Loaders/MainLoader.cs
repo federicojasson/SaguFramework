@@ -38,8 +38,7 @@ namespace SaguFramework {
 			// If the options file didn't exist (e.g. on first game execution), this will create it
 			Options.Save();
 		}
-		
-		/// Performs the loading tasks.
+
 		protected override IEnumerator LoadSceneCoroutine() {
 			// Loads and applies options
 			LoadAndApplyOptions();
@@ -60,7 +59,6 @@ namespace SaguFramework {
 			Loader.ChangeScene(Parameters.SceneMainMenu);
 		}
 
-		/// Performs the unloading tasks.
 		protected override IEnumerator UnloadSceneCoroutine() {
 			// Fades out
 			yield return StartCoroutine(Drawer.FadeOut(Parameters.GetMainLoaderParameters().FadeOut));

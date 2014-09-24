@@ -8,6 +8,16 @@ namespace SaguFramework {
 
 	// TODO: comentar
 
+	/// Keeps track of the state of the game.
+	/// This module offers convenient methods to read and modify the state of the game.
+	/// Also, methods are provided to handle the state files (save, load and others).
+	/// It records the following things:
+	/// - Which is the current room.
+	/// - Who is the player character.
+	/// - Characters in the game and its states.
+	/// - Items in the game and its states.
+	/// - Items in the inventory.
+	/// - Hints: they register relevant events that happened in the game.
 	public static partial class State {
 
 		public static void Delete(string stateId) {
@@ -17,19 +27,23 @@ namespace SaguFramework {
 			} catch (Exception) {}
 		}
 
-		public static string[] GetStateIds() {
+		public static StateFile[] GetStateFiles() {
 			try {
-				FileInfo[] stateFiles = Utilities.GetDirectoryFiles(Parameters.StateFileExtension, Parameters.GetStateFilesDirectoryPath());
-				FileInfo[] orderedStateFiles = Utilities.OrderFilesByLastWriteTimeDescending(stateFiles);
+				FileInfo[] files = Utilities.GetDirectoryFiles(Parameters.StateFileExtension, Parameters.GetStateFilesDirectoryPath());
+				FileInfo[] orderedFiles = Utilities.OrderFilesByLastWriteTimeDescending(files);
 				
-				string[] stateIds = new string[orderedStateFiles.Length];
-				for (int i = 0; i < orderedStateFiles.Length; i++)
-					stateIds[i] = Utilities.GetFileNameWithoutExtension(orderedStateFiles[i]);
+				StateFile[] stateFiles = new StateFile[orderedFiles.Length];
+				for (int i = 0; i < stateFiles.Length; i++) {
+					FileInfo file = orderedFiles[i];
+					string id = Utilities.GetFileNameWithoutExtension(file);
+					DateTime modificationTime = file.LastWriteTime;
+					stateFiles[i] = new StateFile(id, modificationTime);
+				}
 				
-				return stateIds;
+				return stateFiles;
 			} catch (Exception) {
 				// There was a problem reading or processing the state files directory
-				return new string[0];
+				return new StateFile[0];
 			}
 		}
 

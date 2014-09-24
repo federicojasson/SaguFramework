@@ -6,63 +6,91 @@ namespace SaguFramework {
 
 	// TODO: comentar
 
+	/// This module provides an interface through which the framework is used.
 	public static class Framework {
 
+		/// Adds a hint to the game state.
 		public static void AddHint(string hint) {
 			State.AddHint(hint);
 		}
 
+		/// Adds a character to the game state.
+		/// If the character is located in the current room, it creates it.
 		public static void AddCharacter(string characterId, CharacterState characterState) {
+			// Gets the current room
 			string roomId = State.GetCurrentRoom();
 
 			if (characterState.GetLocation().GetRoom() == roomId) {
+				// The character is located in the current room, so it creates it
 				CharacterParameters characterParameters = Parameters.GetCharacterParameters(characterId);
 				RoomParameters roomParameters = Parameters.GetRoomParameters(roomId);
 				Factory.CreateCharacter(characterId, characterState, characterParameters, roomParameters);
 			}
 
+			// Adds the character to the game state
 			State.AddCharacter(characterId, characterState);
 		}
 
+		/// Adds an inventory item to the game state.
+		/// Also, it creates it.
 		public static void AddInventoryItem(string inventoryItemId) {
+			// Creates the inventory item
 			InventoryItemParameters inventoryItemParameters = Parameters.GetInventoryItemParameters(inventoryItemId);
 			InventoryParameters inventoryParameters = Parameters.GetInventoryParameters();
 			Factory.CreateInventoryItem(inventoryItemId, inventoryItemParameters, inventoryParameters);
-			
+
+			// Adds the inventory item to the game state
 			State.AddInventoryItem(inventoryItemId);
 
 			if (Entities.GetInventory().IsActivated())
+				// The inventory is being shown so it shows its last page
 				InventoryManager.ShowLastPage();
 		}
-		
+
+		/// Adds an item to the game state.
+		/// If the item is located in the current room, it creates it.
 		public static void AddItem(string itemId, ItemState itemState) {
+			// Gets the current room
 			string roomId = State.GetCurrentRoom();
 			
 			if (itemState.GetLocation().GetRoom() == roomId) {
+				// The item is located in the current room, so it creates it
 				ItemParameters itemParameters = Parameters.GetItemParameters(itemId);
 				RoomParameters roomParameters = Parameters.GetRoomParameters(roomId);
 				Factory.CreateItem(itemId, itemState, itemParameters, roomParameters);
 			}
 			
+			// Adds the item to the game state
 			State.AddItem(itemId, itemState);
 		}
 
+		/// Registers and begins a GUILayout area.
+		/// The new area is defined relatively to the previous one.
 		public static void BeginArea(float x, float y, float width, float height) {
 			Drawer.BeginArea(x, y, width, height);
 		}
 
+		/// Changes the player character.
+		/// The new player character must exist and be in the same room.
 		public static void ChangePlayerCharacter(string characterId) {
+			// Sets the player character in the game state
 			State.SetPlayerCharacter(characterId);
 
+			// Sets the camera's new target
 			Character character = Entities.GetCharacters()[characterId];
 			CameraHandler.SetCameraTarget(character);
 		}
 
+		/// Changes the room.
+		/// Receives the new room's ID and the ID of the entry in which the player character will spawn.
 		public static void ChangeRoom(string roomId, string entryId) {
 			ChangeRoom(roomId, entryId, string.Empty);
 		}
 
+		/// Changes the room, but before, it shows a splash screen from a group (if the group's ID isn't empty).
+		/// Receives the new room's ID and the ID of the entry in which the player character will spawn.
 		public static void ChangeRoom(string roomId, string entryId, string groupId) {
+			// Gets the player character
 			string characterId = State.GetPlayerCharacter();
 
 			RoomParameters roomParameters = Parameters.GetRoomParameters(roomId);
@@ -72,9 +100,11 @@ namespace SaguFramework {
 			Location location = new Location(entryParameters.Position, roomId);
 			CharacterState characterState = new CharacterState(direction, location);
 
+			// Updates the game state
 			State.SetCharacterState(characterId, characterState);
 			State.SetCurrentRoom(roomId);
 
+			// Loads the splash screen or the room
 			LoadSplashScreenOrRoom(groupId);
 		}
 
@@ -155,8 +185,8 @@ namespace SaguFramework {
 			return Language.GetSpeech(speechId);
 		}
 
-		public static string[] GetStateIds() {
-			return State.GetStateIds();
+		public static StateFile[] GetStateFiles() {
+			return State.GetStateFiles();
 		}
 
 		public static GUIStyle GetStyle(string styleId) {
@@ -179,13 +209,15 @@ namespace SaguFramework {
 			return MenuManager.IsMainMenuOpen();
 		}
 
-
 		public static void LoadGame(string stateId) {
 			LoadGame(stateId, string.Empty);
 		}
 		
 		public static void LoadGame(string stateId, string groupId) {
+			// Loads a specific state
 			State.Load(stateId);
+
+			// Loads the splash screen or the room
 			LoadSplashScreenOrRoom(groupId);
 		}
 
@@ -198,7 +230,10 @@ namespace SaguFramework {
 		}
 		
 		public static void NewGame(string groupId) {
+			// Loads the initial state
 			State.LoadInitial();
+
+			// Loads the splash screen or the room
 			LoadSplashScreenOrRoom(groupId);
 		}
 
@@ -225,6 +260,9 @@ namespace SaguFramework {
 		public static void RemoveInventoryItem(string inventoryItemId) {
 			Entities.GetInventoryItems()[inventoryItemId].Destroy();
 			State.RemoveInventoryItem(inventoryItemId);
+
+			if (Entities.GetInventory().IsActivated())
+				InventoryManager.RefreshCurrentPage();
 		}
 		
 		public static void RemoveItem(string itemId) {

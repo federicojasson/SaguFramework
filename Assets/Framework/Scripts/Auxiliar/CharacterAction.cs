@@ -6,7 +6,7 @@
 	public sealed class CharacterAction {
 
 		/// Creates and returns a Look action.
-		/// It receives the X value in world space that the character will look.
+		/// Receives the X value in world space towards the character will look.
 		public static CharacterAction Look(float x) {
 			return new CharacterAction(CharacterActionId.Look, x);
 		}
@@ -17,13 +17,13 @@
 		}
 
 		/// Creates and returns a Say action.
-		/// It receives the speech that the character will say.
+		/// Receives the speech that the character will say.
 		public static CharacterAction Say(Speech speech) {
 			return new CharacterAction(CharacterActionId.Say, speech);
 		}
 
 		/// Creates and returns a Walk action.
-		/// It receives the X value in world space to which the character will walk to.
+		/// Receives the X value in world space towards the character will walk to.
 		public static CharacterAction Walk(float x) {
 			return new CharacterAction(CharacterActionId.Walk, x);
 		}
@@ -32,7 +32,7 @@
 		private object[] parameters; // The action's parameters
 
 		/// Initializes a character action.
-		/// It receives its ID and a variable number of parameters.
+		/// Receives its ID and a variable number of parameters.
 		private CharacterAction(CharacterActionId id, params object[] parameters) {
 			this.id = id;
 			this.parameters = parameters;

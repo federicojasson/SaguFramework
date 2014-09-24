@@ -1,5 +1,4 @@
-﻿using SaguFramework;
-using System.Linq;
+using SaguFramework;
 using UnityEngine;
 
 namespace EmergenciaQuimica {
@@ -7,28 +6,35 @@ namespace EmergenciaQuimica {
 	public sealed class SaveGameMenuBehaviour : MenuBehaviour {
 
 		private string newStateId;
+		private string[] options;
 		private Vector2 scrollPosition;
-		private int selectedStateId;
-		private string[] stateIds;
+		private int selectedOption;
+		private StateFile[] stateFiles;
 		
 		public void Awake() {
 			newStateId = string.Empty;
-			selectedStateId = -1;
-			stateIds = new string[0];
+			selectedOption = -1;
+			stateFiles = new StateFile[0];
 		}
 
 		public void OnEnable() {
-			string[] previousStateIds = stateIds;
-			stateIds = State.GetStateIds();
+			StateFile[] previousStates = stateFiles;
 
-			if (stateIds.Length != previousStateIds.Length) {
-				selectedStateId = -1;
+			stateFiles = Framework.GetStateFiles();
+			options = new string[stateFiles.Length];
+			for (int i = 0; i < options.Length; i++) {
+				StateFile stateFile = stateFiles[i];
+				options[i] = stateFile.GetId() + " [" + stateFile.GetModificationTime() + "]";
+			}
+
+			if (stateFiles.Length != previousStates.Length) {
+				selectedOption = -1;
 				return;
 			}
 
-			for (int i = 0; i < stateIds.Length; i++)
-				if (stateIds[i] != previousStateIds[i]) {
-					selectedStateId = -1;
+			for (int i = 0; i < stateFiles.Length; i++)
+				if (! stateFiles[i].Equals(previousStates[i])) {
+					selectedOption = -1;
 					return;
 				}
 		}
@@ -55,16 +61,16 @@ namespace EmergenciaQuimica {
 						newStateId = FilterStateId(GUILayout.TextField(newStateId, textFieldStyle));
 						
 						if (newStateId.Trim().Length > 0)
-							selectedStateId = -1;
+							selectedOption = -1;
 					} Framework.EndArea();
 				} Framework.EndArea();
 
 				Framework.BeginArea(0f, 0.12f, 1f, 0.63f); {
 					scrollPosition = GUILayout.BeginScrollView(scrollPosition, scrollViewStyle); {
-						selectedStateId = GUILayout.SelectionGrid(selectedStateId, stateIds, 1, menuSelectionGridStyle);
+						selectedOption = GUILayout.SelectionGrid(selectedOption, options, 1, menuSelectionGridStyle);
 					} GUILayout.EndScrollView();
 
-					if (selectedStateId >= 0)
+					if (selectedOption >= 0)
 						newStateId = string.Empty;
 				} Framework.EndArea();
 
@@ -74,7 +80,7 @@ namespace EmergenciaQuimica {
 				} Framework.EndArea();
 
 				Framework.BeginArea(0.34f, 0.8f, 0.32f, 0.2f); {
-					if (selectedStateId < 0)
+					if (selectedOption < 0)
 						GUI.enabled = false;
 
 					if (GUILayout.Button(Framework.GetText("SaveGameMenuDeleteGameButton"), menuButtonStyle))
@@ -84,7 +90,7 @@ namespace EmergenciaQuimica {
 				} Framework.EndArea();
 
 				Framework.BeginArea(0.68f, 0.8f, 0.32f, 0.2f); {
-					if (newStateId.Trim().Length == 0 && selectedStateId < 0)
+					if (newStateId.Trim().Length == 0 && selectedOption < 0)
 						GUI.enabled = false;
 
 					if (GUILayout.Button(Framework.GetText("SaveGameMenuSaveGameButton"), menuButtonStyle))
@@ -133,23 +139,24 @@ namespace EmergenciaQuimica {
 		}
 
 		private void OnDeleteGame() {
-			string stateId = stateIds[selectedStateId];
+			string stateId = stateFiles[selectedOption].GetId();
 			DeleteGameConfirmationMenuBehaviour.SetStateId(stateId);
 			Framework.OpenMenu("PauseDeleteGameConfirmationMenu");
 		}
 		
 		private void OnSaveGame() {
 			string stateId;
-			if (selectedStateId < 0)
+			if (selectedOption < 0)
 				stateId = newStateId.Trim();
 			else
-				stateId = stateIds[selectedStateId];
+				stateId = stateFiles[selectedOption].GetId();
 
-			if (stateIds.Contains(stateId)) {
-				OverwriteGameConfirmationMenuBehaviour.SetStateId(stateId);
-				Framework.OpenMenu("OverwriteGameConfirmationMenu");
-				return;
-			}
+			foreach (StateFile stateFile in stateFiles)
+				if (stateFile.GetId() == stateId) {
+					OverwriteGameConfirmationMenuBehaviour.SetStateId(stateId);
+					Framework.OpenMenu("OverwriteGameConfirmationMenu");
+					return;
+				}
 			
 			Framework.SaveGame(stateId);
 			Framework.CloseMenu();

@@ -1,7 +1,6 @@
 ﻿namespace SaguFramework {
 
-	// TODO: comentar
-
+	/// The behaviour of a splash screen.
 	public sealed class SplashScreenBehaviour : EntityBehaviour {}
 	
 }

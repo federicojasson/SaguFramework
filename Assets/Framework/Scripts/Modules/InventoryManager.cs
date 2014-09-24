@@ -10,8 +10,13 @@ namespace SaguFramework {
 
 		private static int page;
 		
+		/// Performs class initialization tasks.
 		static InventoryManager() {
 			page = 0;
+		}
+
+		public static void RefreshCurrentPage() {
+			ShowInventoryItems();
 		}
 
 		public static void ShowLastPage() {
@@ -20,11 +25,13 @@ namespace SaguFramework {
 		}
 
 		public static void ShowNextPage() {
+			CorrectPage();
 			page++;
 			ShowInventoryItems();
 		}
 
 		public static void ShowPreviousPage() {
+			CorrectPage();
 			page--;
 			ShowInventoryItems();
 		}
@@ -47,6 +54,11 @@ namespace SaguFramework {
 			
 			SoundPlayer.PlayInventoryEffect();
 			InputReader.RefreshInputMode();
+		}
+
+		private static void CorrectPage() {
+			page = Mathf.Min(page, GetPageCount() - 1);
+			page = Mathf.Max(page, 0);
 		}
 		
 		private static int GetCellsPerPage() {
@@ -75,16 +87,12 @@ namespace SaguFramework {
 				return;
 			
 			HideInventoryItems();
-
-			int pageCount = GetPageCount();
-
-			page = Mathf.Min(page, pageCount - 1);
-			page = Mathf.Max(page, 0);
+			CorrectPage();
 			
 			int cellsPerPage = GetCellsPerPage();
 			int index = page * cellsPerPage;
 			int count;
-			if (page < pageCount - 1)
+			if (page < GetPageCount() - 1)
 				count = cellsPerPage;
 			else
 				count = 1 + (inventoryItemCount - 1 + cellsPerPage) % cellsPerPage;
