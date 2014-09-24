@@ -12,6 +12,9 @@ namespace SaguFramework {
 		/// Changes the current scene.
 		/// Receives the new scene's ID.
 		public static void ChangeScene(string sceneId) {
+			// Locks the input
+			InputReader.LockInput();
+
 			instance.StartCoroutine(instance.ChangeSceneCoroutine(sceneId));
 		}
 

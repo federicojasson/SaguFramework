@@ -566,6 +566,17 @@ MonoBehaviour:
                 Sprite: {fileID: 21300000, guid: 46e2ba5550a58284dacaf5548b58f725,
                   type: 3}
                 AnimatorController: {fileID: 0}
+          - Key: LoadGameConfirmationMenu
+            Value:
+              Height: 1
+              Behaviour: {fileID: 11400000, guid: 1f079149c7b4ec249adf32c298983c16,
+                type: 2}
+              Image:
+                Opacity: .899999976
+                SortingOrder: 0
+                Sprite: {fileID: 21300000, guid: 2cf97b43a521c0e4c827c0f1638d7af4,
+                  type: 3}
+                AnimatorController: {fileID: 0}
           - Key: PauseOptionsMenu
             Value:
               Height: 1

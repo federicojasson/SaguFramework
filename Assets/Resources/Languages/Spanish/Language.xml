@@ -72,6 +72,19 @@ se perdera todo progreso no guardado.
 		Español
 	</text>
 	
+	<text id="LoadGameConfirmationMenuBox">
+		¿realmente desea cargar la partida?
+se perdera todo progreso no guardado.
+	</text>
+	
+	<text id="LoadGameConfirmationMenuCancelButton">
+		cancelar
+	</text>
+	
+	<text id="LoadGameConfirmationMenuLoadGameButton">
+		cargar partida
+	</text>
+	
 	<text id="LoadGameMenuCancelButton">
 		cancelar
 	</text>

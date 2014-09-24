@@ -4,19 +4,8 @@ using UnityEngine;
 namespace EmergenciaQuimica {
 	
 	public sealed class MainMenuBehaviour : MenuBehaviour {
-
-		private bool isEnabled;
-		
-		public void Awake() {
-			isEnabled = true;
-		}
 		
 		public override void OnShowGui() {
-			if (isEnabled)
-				GUI.enabled = true;
-			else
-				GUI.enabled = false;
-
 			GUIStyle menuButtonStyle = Framework.GetStyle("MenuButton");
 
 			Framework.BeginArea(0.1f, 0.1f, 0.3f, 0.8f); {
@@ -55,7 +44,6 @@ namespace EmergenciaQuimica {
 		}
 		
 		private void OnNewGame() {
-			isEnabled = false;
 			Framework.NewGame("Information");
 		}
 		

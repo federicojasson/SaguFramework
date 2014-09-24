@@ -72,6 +72,19 @@ all unsaved progress will be lost.
 		Español
 	</text>
 	
+	<text id="LoadGameConfirmationMenuBox">
+		are you sure you want to load the game?
+all unsaved progress will be lost.
+	</text>
+	
+	<text id="LoadGameConfirmationMenuCancelButton">
+		cancel
+	</text>
+	
+	<text id="LoadGameConfirmationMenuLoadGameButton">
+		load game
+	</text>
+	
 	<text id="LoadGameMenuCancelButton">
 		cancel
 	</text>

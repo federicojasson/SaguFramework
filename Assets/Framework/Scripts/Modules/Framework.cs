@@ -135,6 +135,12 @@ namespace SaguFramework {
 		public static void Exit() {
 			Application.Quit();
 		}
+		
+		/// Returns a boolean option.
+		/// Receives the option's ID.
+		public static bool GetBooleanOption(string booleanId) {
+			return Options.GetBoolean(booleanId);
+		}
 
 		/// Returns a specific character.
 		/// Receives its ID.
@@ -155,6 +161,18 @@ namespace SaguFramework {
 		/// Returns the effect volume.
 		public static float GetEffectVolume() {
 			return Options.GetFloat(Parameters.OptionIdEffectVolume);
+		}
+
+		/// Returns a float option.
+		/// Receives the option's ID.
+		public static float GetFloatOption(string floatId) {
+			return Options.GetFloat(floatId);
+		}
+
+		/// Returns an integer option.
+		/// Receives the option's ID.
+		public static int GetIntegerOption(string integerId) {
+			return Options.GetInteger(integerId);
 		}
 		
 		/// Returns a specific inventory item.
@@ -206,6 +224,12 @@ namespace SaguFramework {
 		/// Returns the existing state files.
 		public static StateFile[] GetStateFiles() {
 			return State.GetStateFiles();
+		}
+		
+		/// Returns a string option.
+		/// Receives the option's ID.
+		public static string GetStringOption(string stringId) {
+			return Options.GetString(stringId);
 		}
 
 		/// Returns a skin style with relative font, margin and padding.
@@ -359,12 +383,30 @@ namespace SaguFramework {
 		public static void SaveOptions() {
 			Options.Save();
 		}
+		
+		/// Sets a boolean option.
+		/// Receives the option's ID and the new value.
+		public static void SetBooleanOption(string booleanId, bool booleanValue) {
+			Options.SetBoolean(booleanId, booleanValue);
+		}
 
-		/// Sets the effect volume.
+		/// Sets the effect volume and applies it.
 		/// The received volume must be a value between 0 and 1.
 		public static void SetEffectVolume(float effectVolume) {
 			Options.SetFloat(Parameters.OptionIdEffectVolume, effectVolume);
 			SoundPlayer.SetEffectVolume(effectVolume);
+		}
+
+		/// Sets a float option.
+		/// Receives the option's ID and the new value.
+		public static void SetFloatOption(string floatId, float floatValue) {
+			Options.SetFloat(floatId, floatValue);
+		}
+		
+		/// Sets an integer option.
+		/// Receives the option's ID and the new value.
+		public static void SetIntegerOption(string integerId, int integerValue) {
+			Options.SetInteger(integerId, integerValue);
 		}
 
 		/// Sets the current language and loads it.
@@ -374,21 +416,27 @@ namespace SaguFramework {
 			Language.Load(languageId);
 		}
 				
-		/// Sets the master volume.
+		/// Sets the master volume and applies it.
 		/// The received volume must be a value between 0 and 1.
 		public static void SetMasterVolume(float masterVolume) {
 			Options.SetFloat(Parameters.OptionIdMasterVolume, masterVolume);
 			SoundPlayer.SetMasterVolume(masterVolume);
 		}
 		
-		/// Sets the song volume.
+		/// Sets the song volume and applies it.
 		/// The received volume must be a value between 0 and 1.
 		public static void SetSongVolume(float songVolume) {
 			Options.SetFloat(Parameters.OptionIdSongVolume, songVolume);
 			SoundPlayer.SetSongVolume(songVolume);
 		}
 		
-		/// Sets the voice volume.
+		/// Sets a string option.
+		/// Receives the option's ID and the new value.
+		public static void SetStringOption(string stringId, string stringValue) {
+			Options.SetString(stringId, stringValue);
+		}
+		
+		/// Sets the voice volume and applies it.
 		/// The received volume must be a value between 0 and 1.
 		public static void SetVoiceVolume(float voiceVolume) {
 			Options.SetFloat(Parameters.OptionIdVoiceVolume, voiceVolume);
